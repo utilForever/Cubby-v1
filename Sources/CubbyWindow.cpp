@@ -46,7 +46,7 @@ void CubbyWindow::Create()
 	glGetIntegerv(GL_SAMPLES_ARB, &samples);
 
 	// Create a windowed mode window and it's OpenGL context
-	m_pWindow = glfwCreateWindow(m_windowWidth, m_windowHeight, "Cubby", NULL, NULL);
+	m_pWindow = glfwCreateWindow(m_windowWidth, m_windowHeight, "Cubby", nullptr, nullptr);
 	if (!m_pWindow)
 	{
 		glfwTerminate();
