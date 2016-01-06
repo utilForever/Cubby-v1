@@ -7,16 +7,11 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include "CubbyWindow.h"
+#include "CubbyGame.h"
 
 int main(int argc, char* argv[])
 {
-	CubbyWindow cubbyWindow;
-
-	cubbyWindow.Create();
-
-	while (true)
-	{
-
-	}
+	// Initialize and create the CubbyGame object
+	CubbyGame* pCubbyGame = CubbyGame::GetInstance();
+	pCubbyGame->Create();
 }
