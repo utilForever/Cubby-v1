@@ -141,10 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Sources\CubbyGame.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -12,9 +12,15 @@
     <ClCompile Include="..\Sources\CubbyWindow.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\CubbyGame.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\CubbyGame.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
