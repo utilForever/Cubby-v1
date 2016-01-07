@@ -16,7 +16,22 @@ class CubbyGame
 public:
 	static CubbyGame* GetInstance();
 
+	// Creation
 	void Create();
+
+	// Destruction
+	void Destroy();
+
+	// Events
+	void PollEvents();
+	bool ShouldClose();
+
+	// Updating
+	void Update();
+
+	// Rendering
+	void PreRender();
+	void Render();
 
 private:
 	CubbyWindow* m_pCubbyWindow;
