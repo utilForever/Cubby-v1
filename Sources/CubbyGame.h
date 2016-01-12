@@ -9,6 +9,13 @@
 
 #pragma once
 
+// Platform dependency
+#ifdef _WIN32
+#include <windows.h>
+#elif __linux__
+#include <sys/time.h>
+#endif
+
 #include "CubbyWindow.h"
 
 class CubbyGame
