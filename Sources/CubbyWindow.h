@@ -21,6 +21,7 @@ public:
 	void InitializeWindowContext(GLFWwindow* window);
 
 	bool ShouldCloseWindow();
+	void PollEvents();
 private:
 	// The window object pointer
 	GLFWwindow* m_pWindow;
