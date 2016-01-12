@@ -72,12 +72,12 @@ void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
 	glfwShowWindow(window);
 }
 
-bool CubbyWindow::ShouldCloseWindow()
-{
-	return (glfwWindowShouldClose(m_pWindow) == 1);
-}
-
 void CubbyWindow::PollEvents()
 {
 	return glfwPollEvents();
+}
+
+bool CubbyWindow::ShouldCloseWindow()
+{
+	return (glfwWindowShouldClose(m_pWindow) == 1);
 }

@@ -30,13 +30,13 @@ void CubbyGame::Create()
 	m_pCubbyWindow->Create();
 }
 
-bool CubbyGame::ShouldClose()
-{
-	return m_pCubbyWindow->ShouldCloseWindow();
-}
-
 // Events
 void CubbyGame::PollEvents()
 {
 	m_pCubbyWindow->PollEvents();
+}
+
+bool CubbyGame::ShouldClose()
+{
+	return m_pCubbyWindow->ShouldCloseWindow();
 }
