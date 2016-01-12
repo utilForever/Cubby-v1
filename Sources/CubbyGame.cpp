@@ -58,5 +58,16 @@ bool CubbyGame::ShouldClose()
 // Updating
 void CubbyGame::Update()
 {
-
+	// FPS
+#ifdef _WIN32
+	QueryPerformanceCounter(&m_fpsCurrentTicks);
+	m_deltaTime = static_cast<float>(m_fpsCurrentTicks.QuadPart - m_fpsPreviousTicks.QuadPart) / static_cast<float>(m_fpsTicksPerSecond.QuadPart);
+#else
+	struct timeval tm;
+	gettimeofday(&tm, NULL);
+	m_fpsCurrentTicks = static_cast<double>(tm.tv_sec) + static_cast<double>(tm.tv_usec) / 1000000.0;
+	m_deltaTime = (m_fpsCurrentTicks - m_fpsPreviousTicks);
+#endif
+	m_fps = 1.0f / m_deltaTime;
+	m_fpsPreviousTicks = m_fpsCurrentTicks;
 }
