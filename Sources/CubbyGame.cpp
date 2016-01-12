@@ -29,3 +29,8 @@ void CubbyGame::Create()
 	// Create the window
 	m_pCubbyWindow->Create();
 }
+
+bool CubbyGame::ShouldClose()
+{
+	return m_pCubbyWindow->ShouldCloseWindow();
+}
