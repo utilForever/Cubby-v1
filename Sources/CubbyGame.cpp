@@ -34,3 +34,9 @@ bool CubbyGame::ShouldClose()
 {
 	return m_pCubbyWindow->ShouldCloseWindow();
 }
+
+// Events
+void CubbyGame::PollEvents()
+{
+	m_pCubbyWindow->PollEvents();
+}
