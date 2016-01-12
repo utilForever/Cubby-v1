@@ -20,6 +20,7 @@ public:
 	void Create();
 	void InitializeWindowContext(GLFWwindow* window);
 
+	bool ShouldCloseWindow();
 private:
 	// The window object pointer
 	GLFWwindow* m_pWindow;

@@ -71,3 +71,8 @@ void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
 	// Show the window
 	glfwShowWindow(window);
 }
+
+bool CubbyWindow::ShouldCloseWindow()
+{
+	return (glfwWindowShouldClose(m_pWindow) == 1);
+}
