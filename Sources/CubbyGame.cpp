@@ -7,13 +7,6 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-// Platform dependency
-#ifdef _WIN32
-#include <windows.h>
-#elif __linux__
-#include <sys/time.h>
-#endif
-
 #include "CubbyGame.h"
 
 // Initialize singleton instance
