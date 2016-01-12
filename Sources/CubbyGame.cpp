@@ -35,6 +35,20 @@ void CubbyGame::Create()
 
 	// Create the window
 	m_pCubbyWindow->Create();
+
+	// Setup FPS and deltatime counters
+#ifdef _WIN32
+	QueryPerformanceCounter(&m_fpsPreviousTicks);
+	QueryPerformanceCounter(&m_fpsCurrentTicks);
+	QueryPerformanceFrequency(&m_fpsTicksPerSecond);
+#else
+	struct timeval tm;
+	gettimeofday(&tm, NULL);
+	m_fpsCurrentTicks = static_cast<double>(tm.tv_sec) + static_cast<double>(tm.tv_usec) / 1000000.0;
+	m_fpsPreviousTicks = static_cast<double>(tm.tv_sec) + static_cast<double>(tm.tv_usec) / 1000000.0;
+#endif //_WIN32
+	m_deltaTime = 0.0f;
+	m_fps = 0.0f;
 }
 
 // Events
@@ -46,4 +60,10 @@ void CubbyGame::PollEvents()
 bool CubbyGame::ShouldClose()
 {
 	return m_pCubbyWindow->ShouldCloseWindow();
+}
+
+// Updating
+void CubbyGame::Update()
+{
+
 }
