@@ -25,8 +25,8 @@ Cubby engine is an open source voxel engine that is written in C++ and OpenGL an
 * Audio and music playback. *[coming soon!]*
 
 ## To-do List
-* Create VoxGame VoxWindow and VoxApplication classes.
-* Refactor windows functionality into discrete files and using the VoxWindow class.
+* Create CubbyGame CubbyWindow and CubbyApplication classes.
+* Refactor windows functionality into discrete files and using the CubbyWindow class.
 * Add camera controls and movement to mouse and keyboard controls.
 * Window and renderer resize functionality.
 * Add proper license.
@@ -38,13 +38,13 @@ Cubby engine is an open source voxel engine that is written in C++ and OpenGL an
 * Lighting effects.
 * Particle effects.
 * Add weapon trails.
-* Remove any GL calls from VoxGame - Add InitZeroTexture() functionality to renderer.
+* Remove any GL calls from CubbyGame - Add InitZeroTexture() functionality to renderer.
 * Use Cmake for build management.
 * Add fullscreen support and toggle.
 * Enable x64 build configurations.
 * Phong lighting shader.
 * Add basic lighting to scene - OpenGL lighting.
-* Add pre-built release exe to root of git, so people can run exe without compiling - VoxGame.exe
+* Add pre-built release exe to root of git, so people can run exe without compiling - CubbyGame.exe
 * Better SSAO shader.
   * Make deferred lighting and SSAO optional toggles separate.
   * Allow for phong shading and deferred lighting together.
@@ -52,7 +52,7 @@ Cubby engine is an open source voxel engine that is written in C++ and OpenGL an
 * Decouple shadow rendering from SSAO shader.
 * Decouple dynamic lighting from SSAO shader.
 * Better readme file.
-* Split up VoxGame file into VoxRender, VoxUpdate, VoxSetup(?), etc.
+* Split up CubbyGame file into CubbyRender, CubbyUpdate, CubbySetup(?), etc.
 * App player class and put voxel character functionality in player class.
 * Add ability to switch voxel character model.
 * Rebuild vs2013 libs using non-dll version of linking
@@ -97,7 +97,7 @@ Cubby engine is an open source voxel engine that is written in C++ and OpenGL an
   * Chunk loading and unloading based on player position
 * Player movement on voxel world and terrain.
   * Walking up single block steps automatically.
-* Create Vox EXE launcher. (C# app)
+* Create Cubby EXE launcher. (C# app)
 * Convert shaders over to be more unified.
 * Add VLD support to debug version, allow for memory leak detection.
 * Add audio and music playback.
