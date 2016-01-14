@@ -1,7 +1,7 @@
 # Cubby
 Cubby engine is an open source voxel engine that is written in C++ and OpenGL and can be used to create easy and fast voxel based games and applications. The engine is written to be highly functional and very efficient at allowing voxel game creation and provides a simple framework for creating 3d voxel games.
 
-## Features
+## Features (Coming soon!)
 * GLSL shader support.
 * Support for deferred or forward rendering.
 * Fully dynamic and unlimited lighting system using deferred lighting model.
@@ -20,9 +20,9 @@ Cubby engine is an open source voxel engine that is written in C++ and OpenGL an
 * Modding and scripting support via LUA.
 * Gamepad and controller support.
 * Voxel world and terrain generation.
-* Procedural content creation. *[coming soon!]*
-* In-built voxel editor for creation/editing of in-game assets. *[coming soon!]*
-* Audio and music playback. *[coming soon!]*
+* Procedural content creation.
+* In-built voxel editor for creation/editing of in-game assets. 
+* Audio and music playback.
 
 ## To-do List
 * Create CubbyGame CubbyWindow and CubbyApplication classes.
