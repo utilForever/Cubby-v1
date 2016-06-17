@@ -25,4 +25,12 @@ T RadianToDegree(const T& radians)
 	return (radians * 180) / PI;
 }
 
+template <typename T>
+void Swap(T& v1, T& v2)
+{
+	T temp = v1;
+	v1 = v2;
+	v2 = temp;
+}
+
 #endif
