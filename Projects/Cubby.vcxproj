@@ -89,10 +89,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\d\glfw3.lib;..\Sources\Libraries\freetype\libs\2015\freetype261d.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -115,12 +115,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\r\glfw3.lib;..\Sources\Libraries\freetype\libs\2015\freetype261.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Libraries\glfw\libs\2015\r\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
+    <ClInclude Include="..\Sources\Maths\3DMaths.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

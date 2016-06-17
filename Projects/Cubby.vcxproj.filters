@@ -4,6 +4,9 @@
     <Filter Include="Sources">
       <UniqueIdentifier>{d88dbeb3-a70c-4ac1-97ff-028b6b1f51e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Maths">
+      <UniqueIdentifier>{81d6a3eb-1836-4ea6-b256-0c0056db9fab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -22,6 +25,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\CubbyGame.h">
       <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\3DMaths.h">
+      <Filter>Sources\Maths</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
