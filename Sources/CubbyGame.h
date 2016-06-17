@@ -27,7 +27,7 @@ public:
 	void Create();
 
 	// Destruction
-	void Destroy();
+	// void Destroy();
 
 	// Events
 	void PollEvents();
@@ -37,8 +37,8 @@ public:
 	void Update();
 
 	// Rendering
-	void PreRender();
-	void Render();
+	// void PreRender();
+	// void Render();
 
 private:
 	CubbyWindow* m_pCubbyWindow;

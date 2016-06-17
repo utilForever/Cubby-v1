@@ -25,12 +25,12 @@ int main(int argc, char* argv[])
 		pCubbyGame->Update();
 
 		// PreRender
-		pCubbyGame->PreRender();
+		// pCubbyGame->PreRender();
 
 		// Render
-		pCubbyGame->Render();
+		// pCubbyGame->Render();
 	}
 
 	// Cleanup
-	pCubbyGame->Destroy();
+	// pCubbyGame->Destroy();
 }
