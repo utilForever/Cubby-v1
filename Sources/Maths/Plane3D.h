@@ -22,7 +22,7 @@ public:
 	Plane3D(float a, float b, float c, float d);
 
 	// Operations
-	float GetPointDistance(glm::vec3 point);
+	float GetPointDistance(glm::vec3 point) const;
 
 private:
 	glm::vec3 m_point;
