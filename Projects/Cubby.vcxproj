@@ -144,13 +144,17 @@
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
+    <ClCompile Include="..\Sources\Maths\Line3D.cpp" />
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
+    <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
+    <ClInclude Include="..\Sources\Maths\Line3D.h" />
     <ClInclude Include="..\Sources\Maths\Matrix4.h" />
+    <ClInclude Include="..\Sources\Maths\Plane3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

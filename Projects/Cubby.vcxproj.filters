@@ -21,6 +21,12 @@
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp">
       <Filter>Sources\Maths</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Maths\Line3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Maths\Plane3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -33,6 +39,12 @@
       <Filter>Sources\Maths</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Maths\Matrix4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\Line3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\Plane3D.h">
       <Filter>Sources\Maths</Filter>
     </ClInclude>
   </ItemGroup>
