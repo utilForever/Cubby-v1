@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
@@ -110,7 +110,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -144,11 +144,13 @@
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
+    <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
+    <ClInclude Include="..\Sources\Maths\Matrix4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

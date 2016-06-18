@@ -18,6 +18,9 @@
     <ClCompile Include="..\Sources\CubbyGame.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Maths\Matrix4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -27,6 +30,9 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Maths\3DMaths.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\Matrix4.h">
       <Filter>Sources\Maths</Filter>
     </ClInclude>
   </ItemGroup>
