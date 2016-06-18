@@ -17,7 +17,7 @@ class Line3D
 public:
 	// Constructors
 	Line3D();
-	Line3D(glm::vec3 lStart, glm::vec3 lEnd);
+	Line3D(glm::vec3 start, glm::vec3 end);
 	Line3D(float x1, float y1, float z1, float x2, float y2, float z2);
 
 	// Properties

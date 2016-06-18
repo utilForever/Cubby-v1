@@ -18,16 +18,16 @@ Line3D::Line3D()
 	/* Nothing */
 }
 
-Line3D::Line3D(glm::vec3 lStart, glm::vec3 lEnd)
+Line3D::Line3D(glm::vec3 start, glm::vec3 end) :
+	m_startPoint(start), m_endPoint(end)
 {
-	m_startPoint = lStart;
-	m_endPoint = lEnd;
+
 }
 
-Line3D::Line3D(float x1, float y1, float z1, float x2, float y2, float z2)
+Line3D::Line3D(float x1, float y1, float z1, float x2, float y2, float z2) :
+	m_startPoint(glm::vec3(x1, y1, z1)), m_endPoint(glm::vec3(x2, y2, z2))
 {
-	m_startPoint = glm::vec3(x1, y1, z1);
-	m_endPoint = glm::vec3(x2, y2, z2);
+	
 }
 
 // Properties
