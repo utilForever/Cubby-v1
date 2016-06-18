@@ -52,12 +52,12 @@ public:
 	void Inverse();
 	void OrthoNormalize();
 
-	void SetValues(float data[16]);						// Set the values of the matrix
-	void PostMultiply(Matrix4& matrix);					// Post multiple with another matrix
-	void InverseTranslateVector(float* pVector);		// Translate a vector by the inverse of the translation part of this matrix.
-	void InverseRotateVector(float* pVector);			// Rotate a vector by the inverse of the rotation part of this matrix.
-	void SetValues_RotALL(float x, float y, float z);	// Generate rotation matrix
-	void SetRotationRadians(float* angles);				// Set the Rotation matrix
+	void SetValues(float data[16]);							// Set the values of the matrix
+	void PostMultiply(Matrix4& matrix);						// Post multiple with another matrix
+	void InverseTranslateVector(float* pVector);			// Translate a vector by the inverse of the translation part of this matrix
+	void InverseRotateVector(float* pVector);				// Rotate a vector by the inverse of the rotation part of this matrix
+	void SetValuesRotationAll(float x, float y, float z);	// Generate rotation matrix
+	void SetRotationRadians(float* angles);					// Set the Rotation matrix
 
 	// Arithmetic
 	static Matrix4& Add(const Matrix4& m1, const Matrix4& m2, Matrix4& result);
