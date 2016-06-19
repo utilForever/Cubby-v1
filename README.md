@@ -40,7 +40,15 @@ Cubby is an open source Voxel Engine, and game, that is written in C++ and OpenG
 
 ## To-do List
 
-TBA
+### Part 1 : Math Library
+
+- [ ] Vector3
+- [ ] Matrix4
+- [ ] Line3D
+- [ ] Plane3D
+- [ ] Bezier3
+- [ ] Bezier4
+- [ ] Bounding Region
 
 ## Dependencies
 
