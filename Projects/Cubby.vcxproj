@@ -144,6 +144,9 @@
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
+    <ClCompile Include="..\Sources\Maths\Bezier3.cpp" />
+    <ClCompile Include="..\Sources\Maths\Bezier4.cpp" />
+    <ClCompile Include="..\Sources\Maths\BoundingRegion.cpp" />
     <ClCompile Include="..\Sources\Maths\Line3D.cpp" />
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
@@ -152,6 +155,9 @@
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
+    <ClInclude Include="..\Sources\Maths\Bezier3.h" />
+    <ClInclude Include="..\Sources\Maths\Bezier4.h" />
+    <ClInclude Include="..\Sources\Maths\BoundingRegion.h" />
     <ClInclude Include="..\Sources\Maths\Line3D.h" />
     <ClInclude Include="..\Sources\Maths\Matrix4.h" />
     <ClInclude Include="..\Sources\Maths\Plane3D.h" />

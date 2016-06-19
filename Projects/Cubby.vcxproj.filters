@@ -27,6 +27,15 @@
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp">
       <Filter>Sources\Maths</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Maths\Bezier3.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Maths\Bezier4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Maths\BoundingRegion.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -45,6 +54,15 @@
       <Filter>Sources\Maths</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Maths\Plane3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\Bezier3.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\Bezier4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Maths\BoundingRegion.h">
       <Filter>Sources\Maths</Filter>
     </ClInclude>
   </ItemGroup>
