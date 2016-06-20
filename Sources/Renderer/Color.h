@@ -31,7 +31,7 @@ public:
 	const float* GetRGBA() const;
 
 	static void RGBtoHSV(float r, float g, float b, float* h, float* s, float* v);
-	static void HSVtoRGB(float h, float s, float v, float* r, float* g, float& b);
+	static void HSVtoRGB(float h, float s, float v, float* r, float* g, float* b);
 
 private:
 	float m_rgba[4];
