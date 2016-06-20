@@ -7,6 +7,9 @@
     <Filter Include="Sources\Maths">
       <UniqueIdentifier>{81d6a3eb-1836-4ea6-b256-0c0056db9fab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Renderer">
+      <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -36,6 +39,12 @@
     <ClCompile Include="..\Sources\Maths\BoundingRegion.cpp">
       <Filter>Sources\Maths</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Color.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Light.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -64,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Maths\BoundingRegion.h">
       <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Color.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Light.h">
+      <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
