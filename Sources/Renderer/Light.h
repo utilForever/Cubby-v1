@@ -17,10 +17,10 @@
 class Light
 {
 public:
-	// Constructors
+	// Constructor
 	Light();
 
-	// Getter / Setter
+	// Getter, Setter
 	const Color GetAmbient() const;
 	const Color GetDiffuse() const;
 	const Color GetSpecular() const;
