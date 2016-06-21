@@ -52,7 +52,7 @@ public:
 	// Operations
 	bool Load(std::string fileName, int* width, int* height, int* widthPower2, int* heightPower2, bool refresh);
 	void GenerateEmptyTexture();
-	void Bind();
+	void Bind() const;
 
 private:
 	std::string m_fileName;
