@@ -58,7 +58,7 @@ private:
 	TextureFileType m_fileType;
 
 	int m_width;
-	int m_hight;
+	int m_height;
 
 	int m_widthPower2;
 	int m_heightPower2;
