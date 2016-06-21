@@ -17,8 +17,8 @@
 
 enum class BoundingRegionType
 {
-	BoundingRegionType_Sphere = 0,
-	BoundingRegionType_Cube,
+	Sphere = 0,
+	Cube,
 };
 
 class BoundingRegion
