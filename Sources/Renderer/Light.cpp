@@ -7,6 +7,8 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <../Libraries/glew/include/gl/glew.h>
+
 #include "Light.h"
 
 // Constructor
@@ -139,7 +141,53 @@ void Light::SetSpotlight(const bool spotlight)
 // Apply light
 inline void Light::Apply(int id) const
 {
-	// TODO: Implement Apply();
+	unsigned int lightNum = GL_LIGHT0 + id;
+
+	// Set ambient color
+	glLightfv(lightNum, GL_AMBIENT, m_ambient.GetRGBA());
+
+	// Set diffuse color
+	glLightfv(lightNum, GL_DIFFUSE, m_diffuse.GetRGBA());
+
+	// Set specular color
+	glLightfv(lightNum, GL_SPECULAR, m_specular.GetRGBA());
+
+	// Set light position
+	GLfloat position[4];
+	position[0] = m_position.x;
+	position[1] = m_position.y;
+	position[2] = m_position.z;
+
+	if (m_point)
+	{
+		position[3] = 1.0;
+
+		glLightfv(lightNum, GL_POSITION, position);
+
+		if (m_spotlight)
+		{
+			GLfloat spotDirection[] = { m_direction.x, m_direction.y, m_direction.z };
+
+			// Set spotlight direction
+			glLightfv(lightNum, GL_SPOT_DIRECTION, spotDirection);
+
+			// Set spotlight parameters
+			glLightf(lightNum, GL_SPOT_CUTOFF, GetCutoff());
+		}
+
+		glLightf(lightNum, GL_SPOT_EXPONENT, GetExponent());
+		glLightf(lightNum, GL_CONSTANT_ATTENUATION, GetConstantAttenuation());
+		glLightf(lightNum, GL_LINEAR_ATTENUATION, GetLinearAttenuation());
+		glLightf(lightNum, GL_QUADRATIC_ATTENUATION, GetQuadraticAttenuation());
+	}
+	else
+	{
+		position[3] = 0.0;
+
+		glLightfv(lightNum, GL_POSITION, position);
+	}
+
+	glEnable(lightNum);
 }
 
 inline void Light::Render()
