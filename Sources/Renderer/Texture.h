@@ -23,6 +23,7 @@
 
 int LoadFileTGA(const char* fileName, unsigned char** pixels, int* width, int* height, bool filpVert);
 int LoadFileBMP(const char* fileName, unsigned char** pixels, int* width, int* height);
+int LoadFileJPG(const char* fileName, unsigned char** pixels, int* width, int* height);
 
 enum class TextureFileType
 {
