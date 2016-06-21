@@ -12,7 +12,10 @@
 #include "Light.h"
 
 // Constructor
-Light::Light()
+Light::Light() :
+	m_exponent(0.0f), m_cutoff(0.0f),
+	m_constantAttenuation(0.0f), m_linearAttenuation(0.0f), m_quadraticAttenuation(0.0f),
+	m_point(false), m_spotlight(false)
 {
 	
 }
@@ -192,5 +195,121 @@ inline void Light::Apply(int id) const
 
 inline void Light::Render()
 {
-	// TODO: Implement Render();
+	GLfloat lightScale = 0.1f;
+
+	glPushMatrix();
+	
+	glPushAttrib(GL_POLYGON_BIT);
+	// Wireframe mode
+	glPolygonMode(GL_FRONT, GL_LINE);
+	glLineWidth(1.0f);
+
+	glTranslatef(m_position.x, m_position.y, m_position.z);
+
+	glDisable(GL_LIGHTING);
+
+	glBegin(GL_QUADS);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, -lightScale);
+
+	glNormal3f(0.0f, 0.0f, lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+
+	glNormal3f(lightScale, 0.0f, 0.0f);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+
+	glNormal3f(0.0f, -1.0f, 0.0f);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+
+	glNormal3f(0.0f, lightScale, 0.0f);
+	glVertex3f(lightScale, lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+
+	glEnd();
+
+	glPopAttrib();
+
+	glBegin(GL_QUADS);
+
+	glColor3f(m_diffuse.GetRed(), m_diffuse.GetGreen(), m_diffuse.GetBlue());
+
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, -lightScale);
+
+	glNormal3f(0.0f, 0.0f, lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+
+	glNormal3f(lightScale, 0.0f, 0.0f);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, -lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+
+	glNormal3f(0.0f, -1.0f, 0.0f);
+	glVertex3f(-lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, -lightScale, -lightScale);
+	glVertex3f(lightScale, -lightScale, lightScale);
+	glVertex3f(-lightScale, -lightScale, lightScale);
+
+	glNormal3f(0.0f, lightScale, 0.0f);
+	glVertex3f(lightScale, lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, -lightScale);
+	glVertex3f(-lightScale, lightScale, lightScale);
+	glVertex3f(lightScale, lightScale, lightScale);
+
+	glEnd();
+
+	// Render spotlight direction
+	if (m_spotlight)
+	{
+		glm::vec3 directionUnit = normalize(m_direction);
+
+		glLineWidth(2.0f);
+
+		glBegin(GL_LINES);
+
+		glColor3f(m_diffuse.GetRed(), m_diffuse.GetGreen(), m_diffuse.GetBlue());
+
+		glVertex3f(0.0f, 0.0f, 0.0f);
+		glVertex3f(directionUnit.x * 1.0f, directionUnit.y * 1.0f, directionUnit.z * 1.0f);
+
+		glEnd();
+	}
+
+	glPopMatrix();
 }
