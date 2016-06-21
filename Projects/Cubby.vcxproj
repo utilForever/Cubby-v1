@@ -152,6 +152,7 @@
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Light.cpp" />
+    <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyGame.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\Sources\Maths\Plane3D.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
     <ClInclude Include="..\Sources\Renderer\Light.h" />
+    <ClInclude Include="..\Sources\Renderer\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

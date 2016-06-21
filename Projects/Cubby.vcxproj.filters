@@ -45,6 +45,9 @@
     <ClCompile Include="..\Sources\Renderer\Light.cpp">
       <Filter>Sources\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Texture.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -78,6 +81,9 @@
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Renderer\Light.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Texture.h">
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
