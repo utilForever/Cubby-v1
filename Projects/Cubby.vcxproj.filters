@@ -48,6 +48,12 @@
     <ClCompile Include="..\Sources\Renderer\Texture.cpp">
       <Filter>Sources\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Material.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Frustum.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -84,6 +90,12 @@
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Renderer\Texture.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Material.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Frustum.h">
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>

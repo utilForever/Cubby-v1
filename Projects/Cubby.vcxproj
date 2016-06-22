@@ -151,7 +151,9 @@
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
+    <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
     <ClCompile Include="..\Sources\Renderer\Light.cpp" />
+    <ClCompile Include="..\Sources\Renderer\Material.cpp" />
     <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +167,9 @@
     <ClInclude Include="..\Sources\Maths\Matrix4.h" />
     <ClInclude Include="..\Sources\Maths\Plane3D.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
+    <ClInclude Include="..\Sources\Renderer\Frustum.h" />
     <ClInclude Include="..\Sources\Renderer\Light.h" />
+    <ClInclude Include="..\Sources\Renderer\Material.h" />
     <ClInclude Include="..\Sources\Renderer\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
