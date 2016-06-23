@@ -171,6 +171,7 @@
     <ClInclude Include="..\Sources\Renderer\Light.h" />
     <ClInclude Include="..\Sources\Renderer\Material.h" />
     <ClInclude Include="..\Sources\Renderer\Texture.h" />
+    <ClInclude Include="..\Sources\Renderer\Viewport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

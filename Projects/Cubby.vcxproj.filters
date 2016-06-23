@@ -98,5 +98,8 @@
     <ClInclude Include="..\Sources\Renderer\Frustum.h">
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Viewport.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
