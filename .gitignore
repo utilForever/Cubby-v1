@@ -197,3 +197,5 @@ FakesAssemblies/
 *.opendb
 *.iobj
 *.ipdb
+Cubby.lib
+Cubby.exp
