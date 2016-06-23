@@ -41,7 +41,7 @@ Make sure to check extension "GL_EXT_geometry_shader4" before using Geometry sha
 #include <iostream>
 #define GLEW_STATIC 
 
-#include "../Libraries/glew/include/GL/glew.h"
+#include "GL/glew.h"
 
 #define GLSLAPI    // static build
 
