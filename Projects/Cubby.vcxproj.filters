@@ -10,6 +10,9 @@
     <Filter Include="Sources\Renderer">
       <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{183437a8-6917-4080-9331-f5c7cc54a5a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
