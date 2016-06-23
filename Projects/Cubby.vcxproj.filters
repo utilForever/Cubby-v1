@@ -54,6 +54,12 @@
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp">
       <Filter>Sources\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Mesh.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\GLSL.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -99,6 +105,18 @@
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Renderer\Viewport.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\FrameBuffer.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Mesh.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\GLSL.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\Renderer.h">
       <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
