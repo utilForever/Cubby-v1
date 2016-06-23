@@ -14,21 +14,20 @@
 
 #include <../Libraries/glew/include/GL/glew.h>
 
-class FrameBuffer
+struct FrameBuffer
 {
-private:
-	std::string m_name;
+	std::string name;
 	
-	unsigned int m_diffuseTexture;
-	unsigned int m_positionTexture;
-	unsigned int m_normalTexture;
-	unsigned int m_depthTexture;
+	unsigned int diffuseTexture;
+	unsigned int positionTexture;
+	unsigned int normalTexture;
+	unsigned int depthTexture;
 
-	int m_width;
-	int m_height;
+	int width;
+	int height;
 
-	float m_viewportScale;
-	GLuint m_fbo;
+	float viewportScale;
+	GLuint fbo;
 };
 
 #endif

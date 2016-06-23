@@ -12,12 +12,11 @@
 
 #include "Maths/Matrix4.h"
 
-class Viewport
+struct Viewport
 {
-private:
-	int m_bottom, m_left, m_width, m_height;
-	float m_fov, m_aspect;
-	Matrix4 m_perspective, m_orthographic, m_projection2D;
+	int bottom, left, width, height;
+	float fov, aspect;
+	Matrix4 perspective, orthographic, projection2D;
 };
 
 #endif
