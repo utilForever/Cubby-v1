@@ -111,6 +111,9 @@
     <ClCompile Include="..\Libraries\tinythread\tinythread.cpp">
       <Filter>Libraries\tinythread</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\Renderer.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">

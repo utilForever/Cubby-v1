@@ -162,6 +162,7 @@
     <ClCompile Include="..\Sources\Renderer\Light.cpp" />
     <ClCompile Include="..\Sources\Renderer\Material.cpp" />
     <ClCompile Include="..\Sources\Renderer\Mesh.cpp" />
+    <ClCompile Include="..\Sources\Renderer\Renderer.cpp" />
     <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
     <ClCompile Include="..\Sources\Renderer\VertexArray.cpp" />
   </ItemGroup>
