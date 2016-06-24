@@ -381,7 +381,7 @@ private:
 	CullMode m_cullMode;
 
 	// Quadratic drawing
-	GLUquadricObj* m_Quadratic;
+	GLUquadricObj* m_quadratic;
 
 	// Viewports
 	std::vector<Viewport*> m_viewports;
@@ -412,7 +412,7 @@ private:
 	std::vector<FrameBuffer*> m_frameBuffers;
 
 	// Shaders
-	glShaderManager ShaderManager;
+	glShaderManager m_shaderManager;
 	std::vector<glShader*> m_shaders;
 
 	// Matrices
@@ -425,7 +425,7 @@ private:
 
 	// Name picking
 	static const int NAME_PICKING_BUFFER = 64;
-	unsigned int m_SelectBuffer[NAME_PICKING_BUFFER];
+	unsigned int m_selectBuffer[NAME_PICKING_BUFFER];
 };
 
 #endif
