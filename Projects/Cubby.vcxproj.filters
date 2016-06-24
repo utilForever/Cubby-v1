@@ -40,6 +40,9 @@
     <Filter Include="Libraries\glm\gtx">
       <UniqueIdentifier>{f73a7a76-0561-45bd-8988-91259134c799}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\tinythread">
+      <UniqueIdentifier>{e0a0707a-392c-44a5-a000-5466f472bed3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -101,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="..\Libraries\glm\detail\glm.cpp">
       <Filter>Libraries\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\VertexArray.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\tinythread\tinythread.cpp">
+      <Filter>Libraries\tinythread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -598,6 +607,15 @@
     </ClInclude>
     <ClInclude Include="..\Libraries\glm\gtx\wrap.hpp">
       <Filter>Libraries\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\VertexArray.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\tinythread\fast_mutex.h">
+      <Filter>Libraries\tinythread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\tinythread\tinythread.h">
+      <Filter>Libraries\tinythread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
