@@ -33,6 +33,9 @@
 #pragma comment (lib, "opengl32")
 #pragma comment (lib, "glu32")
 
+int CheckGLErrors(char* file, int line);
+#define CHECK_GL_ERRORS() CheckGLErrors(__FILE__, __LINE__)
+
 enum class ProjectionMode
 {
 	PERSPECTIVE = 0,
