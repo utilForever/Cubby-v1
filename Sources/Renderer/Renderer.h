@@ -362,7 +362,7 @@ public:
 	glShader* GetShader(unsigned int shaderID);
 	
 private:
-	// Window's width and heigh
+	// Window's width and height
 	int m_windowWidth;
 	int m_windowHeight;
 
@@ -375,7 +375,7 @@ private:
 	float m_clipFar;
 
 	// Primitive mode that we are currently operating in
-	GLenum m_primativeMode;
+	GLenum m_primitiveMode;
 
 	// Cull mode
 	CullMode m_cullMode;
