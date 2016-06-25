@@ -33,6 +33,7 @@ public:
 
 	// Properties
 	void GetMatrix(float* matrix) const;
+	float& GetMatrixElement(int index);
 	const float GetDeterminant() const;
 	const Matrix4 GetNegative() const;
 	const Matrix4 GetTranspose() const;
