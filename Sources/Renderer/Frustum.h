@@ -12,6 +12,10 @@
 
 #include "Maths/Plane3D.h"
 
+// Avoid conflict with #define FAR far and #define NEAR near
+#undef FAR
+#undef NEAR
+
 enum class FrustumPlane
 {
 	TOP = 0,
