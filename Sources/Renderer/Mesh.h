@@ -38,23 +38,21 @@ enum class MeshType
 	Textured,
 };
 
-class TriangleMesh
+struct TriangleMesh
 {
-public:
 	// Constructor, Destructor
 	TriangleMesh();
 	~TriangleMesh();
 
-private:
-	std::vector<MeshTriangle*> m_triangles;
-	std::vector<MeshVertex*> m_vertices;
-	std::vector<MeshTextureCoordinate*> m_textureCoordinates;
+	std::vector<MeshTriangle*> triangles;
+	std::vector<MeshVertex*> vertices;
+	std::vector<MeshTextureCoordinate*> textureCoordinates;
 
-	unsigned int m_staticMeshID;
-	unsigned int m_materialID;
-	unsigned int m_textureID;
+	unsigned int staticMeshID;
+	unsigned int materialID;
+	unsigned int textureID;
 
-	MeshType m_meshType;
+	MeshType meshType;
 };
 
 #endif
