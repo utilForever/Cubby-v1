@@ -90,7 +90,11 @@ bool Texture::Load(std::string fileName, int* width, int* height, int* widthPowe
 	}
 	else if (strstr(fileName.c_str(), ".tga"))
 	{
-		// TODO: Add back in TGA support
+		loaded = LoadFileTGA(fileName.c_str(), &texData, width, height, true) == 1;
+		m_fileType = TextureFileType::TGA;
+		// Was initially true but not really sure if this is needed or not...
+		needScaling = false;
+		numChannels = 4;
 	}
 	else if (strstr(fileName.c_str(), ".bmp"))
 	{

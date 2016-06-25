@@ -23,7 +23,7 @@
 
 // TODO: Add back in JPG, TGA, BMP support
 // int LoadFileJPG(const char* fileName, unsigned char** pixels, int* width, int* height);
-// int LoadFileTGA(const char* fileName, unsigned char** pixels, int* width, int* height, bool filpVert);
+int LoadFileTGA(const char* fileName, unsigned char** pixels, int* width, int* height, bool filpVert);
 // int LoadFileBMP(const char* fileName, unsigned char** pixels, int* width, int* height);
 
 enum class TextureFileType
