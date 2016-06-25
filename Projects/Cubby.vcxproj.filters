@@ -114,6 +114,9 @@
     <ClCompile Include="..\Sources\Renderer\Renderer.cpp">
       <Filter>Sources\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Renderer\tga.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -619,6 +622,9 @@
     </ClInclude>
     <ClInclude Include="..\Libraries\tinythread\tinythread.h">
       <Filter>Libraries\tinythread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Renderer\tga.h">
+      <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

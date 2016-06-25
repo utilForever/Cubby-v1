@@ -164,6 +164,7 @@
     <ClCompile Include="..\Sources\Renderer\Mesh.cpp" />
     <ClCompile Include="..\Sources\Renderer\Renderer.cpp" />
     <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
+    <ClCompile Include="..\Sources\Renderer\tga.cpp" />
     <ClCompile Include="..\Sources\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +334,7 @@
     <ClInclude Include="..\Sources\Renderer\Mesh.h" />
     <ClInclude Include="..\Sources\Renderer\Renderer.h" />
     <ClInclude Include="..\Sources\Renderer\Texture.h" />
+    <ClInclude Include="..\Sources\Renderer\tga.h" />
     <ClInclude Include="..\Sources\Renderer\VertexArray.h" />
     <ClInclude Include="..\Sources\Renderer\Viewport.h" />
   </ItemGroup>
