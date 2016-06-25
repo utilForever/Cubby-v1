@@ -21,28 +21,26 @@ enum VertexType
 	POSITION_NORMAL_UV_COLOR,
 };
 
-class VertexArray
+struct VertexArray
 {
-public:
 	// Destructor
 	~VertexArray();
 
-private:
-	VertexType m_type;
+	VertexType type;
 
-	unsigned int m_materialID;
-	unsigned int m_textureID;
+	unsigned int materialID;
+	unsigned int textureID;
 
-	int m_numVertices;
-	int m_numTextureCoordinates;
-	int m_numIndices;
+	int numVertices;
+	int numTextureCoordinates;
+	int numIndices;
 
-	float* m_pVertexArray;
-	float* m_pTextureCoordinates;
-	unsigned int* m_pIndices;
+	float* pVertexArray;
+	float* pTextureCoordinates;
+	unsigned int* pIndices;
 
-	int m_vertexSize;
-	int m_textureCoordinateSize;
+	int vertexSize;
+	int textureCoordinateSize;
 };
 
 #endif

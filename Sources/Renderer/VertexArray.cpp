@@ -11,25 +11,25 @@
 
 VertexArray::~VertexArray()
 {
-	if (m_numVertices)
+	if (numVertices)
 	{
-		delete m_pVertexArray;
-		m_pVertexArray = nullptr;
+		delete pVertexArray;
+		pVertexArray = nullptr;
 	}
 
-	if (m_numIndices)
+	if (numIndices)
 	{
-		delete m_pIndices;
-		m_pIndices = nullptr;
+		delete pIndices;
+		pIndices = nullptr;
 	}
 
-	if (m_numTextureCoordinates)
+	if (numTextureCoordinates)
 	{
-		delete m_pTextureCoordinates;
-		m_pTextureCoordinates = nullptr;
+		delete pTextureCoordinates;
+		pTextureCoordinates = nullptr;
 	}
 
-	m_numVertices = 0;
-	m_numIndices = 0;
-	m_numTextureCoordinates = 0;
+	numVertices = 0;
+	numIndices = 0;
+	numTextureCoordinates = 0;
 }
