@@ -344,12 +344,12 @@ public:
 
 	// Frame buffers
 	bool CreateFrameBuffer(int idToResetup, bool diffuse, bool position, bool normal, bool depth, int width, int height, float viewportScale, std::string name, unsigned int* pID);
-	int GetNumFrameBuffers();
+	int GetNumFrameBuffers() const;
 	FrameBuffer* GetFrameBuffer(std::string name);
 	FrameBuffer* GetFrameBuffer(int index);
 	int GetFrameBufferIndex(std::string name);
 	void StartRenderingToFrameBuffer(unsigned int frameBufferID);
-	void StopRenderingToFrameBuffer(unsigned int frameBufferID);
+	void StopRenderingToFrameBuffer(unsigned int frameBufferID) const;
 	unsigned int GetDiffuseTextureFromFrameBuffer(unsigned int frameBufferID);
 	unsigned int GetPositionTextureFromFrameBuffer(unsigned int frameBufferID);
 	unsigned int GetNormalTextureFromFrameBuffer(unsigned int frameBufferID);
