@@ -269,7 +269,7 @@ public:
 	bool EditLightPosition(unsigned int id, glm::vec3& position);
 	void DeleteLight(unsigned int id);
 	void EnableLight(unsigned int id, unsigned int lightNumber);
-	void DisableLight(unsigned int lightNumber);
+	void DisableLight(unsigned int lightNumber) const;
 	void RenderLight(unsigned int id);
 	Color GetLightAmbient(unsigned int id);
 	Color GetLightDiffuse(unsigned int id);
@@ -290,9 +290,9 @@ public:
 	bool RefreshTexture(unsigned int id);
 	bool RefreshTexture(std::string fileName);
 	void BindTexture(unsigned int id);
-	void PrepareShaderTexture(unsigned int textureIndex, unsigned int textureID);
-	void EmptyTextureIndex(unsigned int textureIndex);
-	void DisableTexture();
+	void PrepareShaderTexture(unsigned int textureIndex, unsigned int textureID) const;
+	void EmptyTextureIndex(unsigned int textureIndex) const;
+	void DisableTexture() const;
 	Texture* GetTexture(unsigned int id);
 	void BindRawTextureId(unsigned int textureID);
 	void GenerateEmptyTexture(unsigned int* pID);
