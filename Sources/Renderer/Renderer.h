@@ -323,7 +323,7 @@ public:
 	void ModifyMeshColor(float r, float g, float b, TriangleMesh* pMesh);
 	void FinishMesh(unsigned int textureID, unsigned int materialID, TriangleMesh* pMesh);
 	void RenderMesh(TriangleMesh* pMesh);
-	void RenderMesh_NoColour(TriangleMesh* pMesh);
+	void RenderMeshNoColor(TriangleMesh* pMesh);
 	void GetMeshInformation(int* numVertices, int* numTriangles, TriangleMesh* pMesh);
 	void StartMeshRender();
 	void EndMeshRender();
