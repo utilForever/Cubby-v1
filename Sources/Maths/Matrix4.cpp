@@ -164,6 +164,11 @@ void Matrix4::GetMatrix(float* matrix) const
 	matrix[12] = this->m_data[12];	matrix[13] = this->m_data[13];	matrix[14] = this->m_data[14];	matrix[15] = this->m_data[15];
 }
 
+float* Matrix4::GetMatrix()
+{
+	return m_data;
+}
+
 float& Matrix4::GetMatrixElement(int index)
 {
 	assert(index >= 0 && index < 16);
