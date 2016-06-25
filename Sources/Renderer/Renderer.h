@@ -175,7 +175,7 @@ public:
 	bool SetProjectionMode(ProjectionMode mode, int viewport);
 	void SetViewProjection();
 	void MultiViewProjection();
-	void SetOrthographicProjection(float left, float right, float bottom, float top, float zNear, float zFar);
+	void SetupOrthographicProjection(float left, float right, float bottom, float top, float zNear, float zFar);
 
 	// Scene
 	bool ClearScene(bool pixel = true, bool depth = true, bool stencil = true);
