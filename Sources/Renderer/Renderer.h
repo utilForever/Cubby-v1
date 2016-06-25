@@ -294,7 +294,7 @@ public:
 	void EmptyTextureIndex(unsigned int textureIndex) const;
 	void DisableTexture() const;
 	Texture* GetTexture(unsigned int id);
-	void BindRawTextureId(unsigned int textureID);
+	void BindRawTextureID(unsigned int textureID);
 	void GenerateEmptyTexture(unsigned int* pID);
 	void SetTextureData(unsigned int id, int width, int height, unsigned char* texData);
 
