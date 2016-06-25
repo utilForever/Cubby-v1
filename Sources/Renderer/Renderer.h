@@ -294,15 +294,15 @@ public:
 	void EmptyTextureIndex(unsigned int textureIndex) const;
 	void DisableTexture() const;
 	Texture* GetTexture(unsigned int id);
-	void BindRawTextureID(unsigned int textureID);
+	void BindRawTextureID(unsigned int textureID) const;
 	void GenerateEmptyTexture(unsigned int* pID);
 	void SetTextureData(unsigned int id, int width, int height, unsigned char* texData);
 
 	// Cube textures
-	bool LoadCubeTexture(int* width, int* height, std::string front, std::string back, std::string top, std::string bottom, std::string left, std::string right, unsigned int* pID);
-	void BindCubeTexture(unsigned int id);
-	void EmptyCubeTextureIndex(unsigned int textureIndex);
-	void DisableCubeTexture();
+	bool LoadCubeTexture(int* width, int* height, std::string front, std::string back, std::string top, std::string bottom, std::string left, std::string right, unsigned int* pID) const;
+	void BindCubeTexture(unsigned int id) const;
+	void EmptyCubeTextureIndex(unsigned int textureIndex) const;
+	void DisableCubeTexture() const;
 
 	// Vertex buffers
 	bool CreateStaticBuffer(VertexType type, unsigned int materialID, unsigned int textureID, int nVertices, int nTextureCoordinates, int nIndices, const void* pVertices, const void* pTextureCoordinates, const unsigned int* pIndices, unsigned int* pID);
@@ -311,14 +311,14 @@ public:
 	bool RenderStaticBuffer(unsigned int id);
 	bool RenderStaticBufferNoColor(unsigned int id);
 	bool RenderFromArray(VertexType type, unsigned int materialID, unsigned int textureID, int nVertices, int nTextureCoordinates, int nIndices, const void* pVertices, const void* pTextureCoordinates, const unsigned int* pIndices);
-	unsigned int GetStride(VertexType type);
+	unsigned int GetStride(VertexType type) const;
 
 	// Mesh
-	TriangleMesh* CreateMesh(MeshType meshType);
+	TriangleMesh* CreateMesh(MeshType meshType) const;
 	void ClearMesh(TriangleMesh* pMesh);
-	unsigned int AddVertexToMesh(glm::vec3 p, glm::vec3 n, float r, float g, float b, float a, TriangleMesh* pMesh);
-	unsigned int AddTextureCoordinatesToMesh(float s, float t, TriangleMesh* pMesh);
-	unsigned int AddTriangleToMesh(unsigned int vertexID1, unsigned int vertexID2, unsigned int vertexID3, TriangleMesh* pMesh);
+	unsigned int AddVertexToMesh(glm::vec3 p, glm::vec3 n, float r, float g, float b, float a, TriangleMesh* pMesh) const;
+	unsigned int AddTextureCoordinatesToMesh(float s, float t, TriangleMesh* pMesh) const;
+	unsigned int AddTriangleToMesh(unsigned int vertexID1, unsigned int vertexID2, unsigned int vertexID3, TriangleMesh* pMesh) const;
 	void ModifyMeshAlpha(float alpha, TriangleMesh* pMesh);
 	void ModifyMeshColor(float r, float g, float b, TriangleMesh* pMesh);
 	void FinishMesh(unsigned int textureID, unsigned int materialID, TriangleMesh* pMesh);
