@@ -178,7 +178,7 @@ public:
 	void SetupOrthographicProjection(float left, float right, float bottom, float top, float zNear, float zFar);
 
 	// Scene
-	bool ClearScene(bool pixel = true, bool depth = true, bool stencil = true);
+	bool ClearScene(bool pixel = true, bool depth = true, bool stencil = true) const;
 	bool BeginScene(bool pixel = true, bool depth = true, bool stencil = true);
 	void EndScene();
 	void SetColorMask(bool red, bool green, bool blue, bool alpha);
@@ -211,7 +211,7 @@ public:
 	void DisableScissorTest();
 
 	// Screen projection
-	glm::vec3 GetWorldProjectionFromScreenCoordinates(int x, int y, float z);
+	glm::vec3 GetWorldProjectionFromScreenCoordinates(int x, int y, float z) const;
 	void GetScreenCoordinatesFromWorldPosition(glm::vec3 position, int* x, int* y);
 
 	// Clip planes
@@ -248,11 +248,11 @@ public:
 	void DisableImmediateMode();
 
 	// Drawing helpers
-	void DrawLineCircle(float radius, int points);
-	void DrawSphere(float radius, int slices, int stacks);
-	void DrawBezier(Bezier3 curve, int points);
-	void DrawBezier(Bezier4 curve, int points);
-	void DrawCircleSector(float radius, float angle, int points);
+	void DrawLineCircle(float radius, int points) const;
+	void DrawSphere(float radius, int slices, int stacks) const;
+	void DrawBezier(Bezier3 curve, int points) const;
+	void DrawBezier(Bezier4 curve, int points) const;
+	void DrawCircleSector(float radius, float angle, int points) const;
 	void DrawSphericalSector(float radius, float angle, int sectors, int points);
 
 	// Text rendering
