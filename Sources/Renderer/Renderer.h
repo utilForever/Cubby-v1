@@ -174,7 +174,7 @@ public:
 	// Projection
 	bool SetProjectionMode(ProjectionMode mode, int viewport);
 	void SetViewProjection();
-	void MultiViewProjection();
+	void MultiplyViewProjection();
 	void SetupOrthographicProjection(float left, float right, float bottom, float top, float zNear, float zFar);
 
 	// Scene
@@ -324,15 +324,15 @@ public:
 	void FinishMesh(unsigned int textureID, unsigned int materialID, TriangleMesh* pMesh);
 	void RenderMesh(TriangleMesh* pMesh);
 	void RenderMeshNoColor(TriangleMesh* pMesh);
-	void GetMeshInformation(int* numVertices, int* numTriangles, TriangleMesh* pMesh);
-	void StartMeshRender();
-	void EndMeshRender();
+	void GetMeshInformation(int* numVertices, int* numTriangles, TriangleMesh* pMesh) const;
+	void StartMeshRender() const;
+	void EndMeshRender() const;
 	bool MeshStaticBufferRender(TriangleMesh* pMesh);
 
 	// Name rendering and name picking
-	void InitNameStack();
-	void LoadNameOntoStack(int name);
-	void EndNameStack();
+	void InitNameStack() const;
+	void LoadNameOntoStack(int name) const;
+	void EndNameStack() const;
 	void StartNamePicking(unsigned int viewportID, int x, int y);
 	int GetPickedObject();
 
