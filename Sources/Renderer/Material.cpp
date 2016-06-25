@@ -70,7 +70,7 @@ void Material::SetShininess(const float shininess)
 }
 
 // Operations
-inline void Material::Apply() const
+void Material::Apply() const
 {
 	glMaterialfv(GL_FRONT, GL_AMBIENT, m_ambient.GetRGBA());
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, m_diffuse.GetRGBA());

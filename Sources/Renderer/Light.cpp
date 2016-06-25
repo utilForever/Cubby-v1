@@ -142,7 +142,7 @@ void Light::SetSpotlight(const bool spotlight)
 }
 
 // Apply light
-inline void Light::Apply(int id) const
+void Light::Apply(int id) const
 {
 	unsigned int lightNum = GL_LIGHT0 + id;
 
@@ -193,7 +193,7 @@ inline void Light::Apply(int id) const
 	glEnable(lightNum);
 }
 
-inline void Light::Render()
+void Light::Render()
 {
 	GLfloat lightScale = 0.1f;
 
