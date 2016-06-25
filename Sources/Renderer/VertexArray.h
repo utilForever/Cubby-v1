@@ -10,7 +10,7 @@
 #ifndef CUBBY_VERTEX_ARRAY_H
 #define CUBBY_VERTEX_ARRAY_H
 
-enum VertexType
+enum class VertexType
 {
 	POSITION = 0,
 	POSITION_DIFFUSE,
