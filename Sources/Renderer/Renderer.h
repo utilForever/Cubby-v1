@@ -244,7 +244,7 @@ public:
 	void ImmediateNormal(float x, float y, float z);
 	void ImmediateNormal(int x, int y, int z);
 	void ImmediateTextureCoordinate(float s, float t);
-	void ImmediateColourAlpha(float r, float g, float b, float a);
+	void ImmediateColorAlpha(float r, float g, float b, float a);
 	void DisableImmediateMode();
 
 	// Drawing helpers
