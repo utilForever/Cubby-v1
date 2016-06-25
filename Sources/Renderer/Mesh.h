@@ -29,7 +29,7 @@ typedef struct MeshTextureCoordinate
 // Triangle
 typedef struct MeshTriangle
 {
-	unsigned int vertexIndieces[3];
+	unsigned int vertexIndices[3];
 } MeshTriangle;
 
 enum class MeshType
