@@ -160,13 +160,13 @@ public:
 	// Viewport
 	bool CreateViewport(int bottom, int left, int width, int height, float fov, unsigned int* pID);
 	bool ResizeViewport(unsigned int viewportID, int bottom, int left, int width, int height, float fov);
-	int GetActiveViewport();
+	int GetActiveViewport() const;
 
 	// Render modes
 	void SetRenderMode(RenderMode mode);
 	void SetPrimitiveMode(PrimitiveMode mode);
 	void SetCullMode(CullMode mode);
-	CullMode GetCullMode();
+	CullMode GetCullMode() const;
 	void SetLineWidth(float width);
 	void SetPointSize(float width);
 	void SetFrontFaceDirection(FrontFaceDirection direction);
