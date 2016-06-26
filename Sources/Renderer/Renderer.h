@@ -11,6 +11,7 @@
 #define CUBBY_RENDERER_H
 
 #include <freetype/freetypefont.h>
+#include <tinythread/tinythread.h>
 
 #include "GLSL.h"
 
@@ -27,8 +28,6 @@
 #include "Viewport.h"
 #include "FrameBuffer.h"
 #include "VertexArray.h"
-
-#include "../Libraries/tinythread/tinythread.h"
 
 #pragma comment (lib, "opengl32")
 #pragma comment (lib, "glu32")
