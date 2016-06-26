@@ -40,8 +40,8 @@ Cubby is an open source Voxel Engine, and game, that is written in C++ and OpenG
 
 ## To-do List
 
-- [ ] Create VoxGame VoxWindow and VoxApplication classes.
-- [ ] Refactor windows functionality into discrete files and using the VoxWindow class.
+- [ ] Create CubbyGame CubbyWindow and CubbyApplication classes.
+- [ ] Refactor windows functionality into discrete files and using the CubbyWindow class.
 - [ ] Add camera controls and movement to mouse and keyboard controls.
 - [ ] Window and renderer resize functionality.
 - [ ] Add proper license.
@@ -59,7 +59,7 @@ Cubby is an open source Voxel Engine, and game, that is written in C++ and OpenG
 - [ ] Enable x64 build configurations.
 - [ ] Phong lighting shader.
 - [ ] Add basic lighting to scene - OpenGL lighting.
-- [ ] Add pre-built release exe to root of git, so people can run exe without compiling - VoxGame.exe
+- [ ] Add pre-built release exe to root of git, so people can run exe without compiling - CubbyGame.exe
 - [ ] Better SSAO shader.
   - [ ] Make deferred lighting and SSAO optional toggles separate.
   - [ ] Allow for phong shading and deferred lighting together.
