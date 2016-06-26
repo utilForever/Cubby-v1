@@ -13,11 +13,13 @@
 
 #include <Maths/3DMaths.h>
 
+// ReSharper disable once CppUnusedIncludeDirective
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-#include "Camera.h"
 #include "Renderer.h"
+#include "Camera.h"
 
 // Angle conversions
 inline float DegreeToRadian(const float degrees)
