@@ -43,6 +43,9 @@
     <Filter Include="Libraries\tinythread">
       <UniqueIdentifier>{e0a0707a-392c-44a5-a000-5466f472bed3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Models">
+      <UniqueIdentifier>{11797816-10a4-431b-bb09-d16839bba438}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -119,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Renderer\Camera.cpp">
       <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Models\BoundingBox.cpp">
+      <Filter>Sources\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -631,6 +637,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Renderer\Camera.h">
       <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\MS3DModel.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\BoundingBox.h">
+      <Filter>Sources\Models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
