@@ -126,6 +126,9 @@
     <ClCompile Include="..\Sources\Models\BoundingBox.cpp">
       <Filter>Sources\Models</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Models\MS3DModel.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">

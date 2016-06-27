@@ -157,6 +157,7 @@
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
     <ClCompile Include="..\Sources\Models\BoundingBox.cpp" />
+    <ClCompile Include="..\Sources\Models\MS3DModel.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
