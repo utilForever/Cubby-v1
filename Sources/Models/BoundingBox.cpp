@@ -22,7 +22,7 @@ BoundingBox::~BoundingBox()
 
 }
 
-// Getter
+// Getter, Setter
 float BoundingBox::GetMinX() const
 {
 	return m_minX;
@@ -66,6 +66,36 @@ float BoundingBox::GetHeight() const
 float BoundingBox::GetLength() const
 {
 	return m_maxZ - m_minZ;
+}
+
+void BoundingBox::SetMinX(float x)
+{
+	m_minX = x;
+}
+
+void BoundingBox::SetMinY(float y)
+{
+	m_minY = y;
+}
+
+void BoundingBox::SetMinZ(float z)
+{
+	m_minZ = z;
+}
+
+void BoundingBox::SetMaxX(float x)
+{
+	m_maxX = x;
+}
+
+void BoundingBox::SetMaxY(float y)
+{
+	m_maxY = y;
+}
+
+void BoundingBox::SetMaxZ(float z)
+{
+	m_maxZ = z;
 }
 
 glm::vec3 BoundingBox::GetCenter() const

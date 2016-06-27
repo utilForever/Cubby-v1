@@ -19,7 +19,7 @@ public:
 	BoundingBox();
 	~BoundingBox();
 
-	// Getter
+	// Getter, Setter
 	float GetMinX() const;
 	float GetMinY() const;
 	float GetMinZ() const;
@@ -33,6 +33,14 @@ public:
 	float GetLength() const;
 
 	glm::vec3 GetCenter() const;
+
+	void SetMinX(float x);
+	void SetMinY(float y);
+	void SetMinZ(float z);
+
+	void SetMaxX(float x);
+	void SetMaxY(float y);
+	void SetMaxZ(float z);
 
 private:
 	float m_minX;
