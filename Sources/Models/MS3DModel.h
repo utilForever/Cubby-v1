@@ -160,35 +160,32 @@ public:
 
 	// Load
 	bool LoadModel(const char* modelFileName, bool isStatic = false);
-	bool LoadTextures();
+	bool LoadTextures() const;
 
 	// Setup
 	void SetupStaticBuffer();
-
-	void SetJointKeyframe(int jointIndex, int keyframeIndex, float time, float* parameter, bool isRotation);
-	void SetupJoints();
+	void SetJointKeyframe(int jointIndex, int keyframeIndex, float time, float* parameter, bool isRotation) const;
+	void SetupJoints() const;
 
 	// Bounding box
 	void CalculateBoundingBox();
 	BoundingBox* GetBoundingBox();
 
 	// Bones
-	int GetBoneIndex(const char* boneName);
-	const char* GetNameFromBoneIndex(int boneIndex);
+	int GetBoneIndex(const char* boneName) const;
+	const char* GetNameFromBoneIndex(int boneIndex) const;
 
 	// Joints
-	int GetNumJoints();
-	Joint* GetJoint(const char* jointName);
-	Joint* GetJoint(int index);
-
-	void Update(float dt);
+	int GetNumJoints() const;
+	Joint* GetJoint(const char* jointName) const;
+	Joint* GetJoint(int index) const;
 
 	// Rendering
-	void Render(bool mesh, bool lNormals, bool bones, bool boundingBox);
-	void RenderMesh();
-	void RenderMeshStatic();
+	void Render(bool isMesh, bool isNormal, bool isBone, bool isBoundingBox);
+	void RenderMesh() const;
+	void RenderMeshStatic() const;
 	void RenderNormals();
-	void RenderBones();
+	void RenderBones() const;
 	void RenderBoundingBox();
 
 private:
@@ -199,7 +196,7 @@ private:
 	Vertex* m_pVertices;
 
 	// Triangles
-	int numTriangles;
+	int m_numTriangles;
 	Triangle* m_pTriangles;
 
 	// Materials
@@ -215,14 +212,14 @@ private:
 	Joint* m_pJoints;
 
 	// Animation FPS
-	float m_AnimationFPS;
+	float m_animationFPS;
 
 	// Static mesh?
 	bool m_isStatic;
 	unsigned int* m_staticRenderBuffers;
 	
 	// Bounding box
-	BoundingBox m_BoundingBox;
+	BoundingBox m_boundingBox;
 
 	friend class MS3DAnimator;
 };
