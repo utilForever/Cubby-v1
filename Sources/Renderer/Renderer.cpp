@@ -8,7 +8,6 @@
 *************************************************************************/
 
 #include <Maths/3DMaths.h>
-#include <GL/glew.h>
 
 #include "Renderer.h"
 

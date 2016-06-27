@@ -13,8 +13,6 @@
 
 #include <Maths/3DMaths.h>
 
-// ReSharper disable once CppUnusedIncludeDirective
-#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 

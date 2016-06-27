@@ -10,6 +10,7 @@
 #ifndef CUBBY_RENDERER_H
 #define CUBBY_RENDERER_H
 
+#include <GL/glew.h>
 #include <freetype/freetypefont.h>
 #include <tinythread/tinythread.h>
 
