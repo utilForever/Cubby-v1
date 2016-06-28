@@ -157,6 +157,7 @@
     <ClCompile Include="..\Sources\Maths\Matrix4.cpp" />
     <ClCompile Include="..\Sources\Maths\Plane3D.cpp" />
     <ClCompile Include="..\Sources\Models\BoundingBox.cpp" />
+    <ClCompile Include="..\Sources\Models\MS3DAnimator.cpp" />
     <ClCompile Include="..\Sources\Models\MS3DModel.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
@@ -329,6 +330,7 @@
     <ClInclude Include="..\Sources\Maths\Matrix4.h" />
     <ClInclude Include="..\Sources\Maths\Plane3D.h" />
     <ClInclude Include="..\Sources\Models\BoundingBox.h" />
+    <ClInclude Include="..\Sources\Models\MS3DAnimator.h" />
     <ClInclude Include="..\Sources\Models\MS3DModel.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />

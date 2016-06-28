@@ -129,6 +129,9 @@
     <ClCompile Include="..\Sources\Models\MS3DModel.cpp">
       <Filter>Sources\Models</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Models\MS3DAnimator.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -645,6 +648,9 @@
       <Filter>Sources\Models</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Models\BoundingBox.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\MS3DAnimator.h">
       <Filter>Sources\Models</Filter>
     </ClInclude>
   </ItemGroup>
