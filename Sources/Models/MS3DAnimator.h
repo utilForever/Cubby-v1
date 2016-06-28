@@ -146,9 +146,9 @@ private:
 	bool m_isLooping;
 
 	// Status flags
-	bool m_bPaused;
-	bool m_bLooped;
-	bool m_bFinished;
+	bool m_isPaused;
+	bool m_isLooped;
+	bool m_isFinished;
 
 	// Blending
 	bool m_isBlending;
