@@ -136,10 +136,10 @@ private:
 	double m_currentAnimationEndTime;
 
 	// Current animation timers for the weapon trail start and stop times
-	double m_currentAnimationRightWeaponTrailStartTime;
-	double m_currentAnimationRightWeaponTrailEndTime;
 	double m_currentAnimationLeftWeaponTrailStartTime;
 	double m_currentAnimationLeftWeaponTrailEndTime;
+	double m_currentAnimationRightWeaponTrailStartTime;
+	double m_currentAnimationRightWeaponTrailEndTime;
 
 	// Current animation timer and local looping variable
 	double m_timer;
