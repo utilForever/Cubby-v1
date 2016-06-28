@@ -60,7 +60,7 @@ public:
 	~MS3DAnimator();
 
 	// Animation
-	MS3DModel* GetModel();
+	MS3DModel* GetModel() const;
 
 	void CreateJointAnimations();
 
@@ -158,7 +158,7 @@ private:
 	int m_blendEndAnimationIndex;
 
 	// Bounding box
-	BoundingBox m_BoundingBox;
+	BoundingBox m_boundingBox;
 };
 
 #endif
