@@ -159,6 +159,7 @@
     <ClCompile Include="..\Sources\Models\BoundingBox.cpp" />
     <ClCompile Include="..\Sources\Models\MS3DAnimator.cpp" />
     <ClCompile Include="..\Sources\Models\MS3DModel.cpp" />
+    <ClCompile Include="..\Sources\Models\QubicleBinary.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
@@ -332,6 +333,7 @@
     <ClInclude Include="..\Sources\Models\BoundingBox.h" />
     <ClInclude Include="..\Sources\Models\MS3DAnimator.h" />
     <ClInclude Include="..\Sources\Models\MS3DModel.h" />
+    <ClInclude Include="..\Sources\Models\QubicleBinary.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
     <ClInclude Include="..\Sources\Renderer\FrameBuffer.h" />
