@@ -76,34 +76,34 @@ public:
 
 	int GetCurrentAnimationIndex() const;
 	int GetNumAnimations() const;
-	const char* GetAnimationName(const int index);
+	const char* GetAnimationName(const int index) const;
 	bool IsAnimationPaused() const;
 	bool HasAnimationLooped() const;
 	bool HasAnimationFinished() const;
 
-	int GetStartFrame(const char* animationName);
-	int GetEndFrame(const char* animationName);
-	int GetCurrentFrame();
+	int GetStartFrame(const char* animationName) const;
+	int GetEndFrame(const char* animationName) const;
+	int GetCurrentFrame() const;
 
-	float GetAnimationTimer();
-	int GetNumKeyframes();
+	float GetAnimationTimer() const;
+	int GetNumKeyframes() const;
 
 	// Blending
 	void StartBlendAnimation(int startIndex, int endIndex, float blendTime);
 	void StartBlendAnimation(const char* startAnimationName, const char* endAnimationName, float blendTime);
 	void BlendIntoAnimation(const char* animationName, float blendTime);
 
-	void GetCurrentBlendTranslation(int jointIndex, float* x, float* y, float* z);
-	void GetCurrentBlendRotation(int jointIndex, float* x, float* y, float* z);
+	void GetCurrentBlendTranslation(int jointIndex, float* x, float* y, float* z) const;
+	void GetCurrentBlendRotation(int jointIndex, float* x, float* y, float* z) const;
 
-	bool GetRightWeaponTrailActive();
-	bool GetLeftWeaponTrailActive();
+	bool GetRightWeaponTrailActive() const;
+	bool GetLeftWeaponTrailActive() const;
 
 	void Restart();
 
 	void SetTimerForStartOfAnimation();
 
-	Matrix4 GetBoneMatrix(int index);
+	Matrix4 GetBoneMatrix(int index) const;
 
 	// Update
 	void Update(float dt);
@@ -111,9 +111,9 @@ public:
 
 	// Rendering
 	void Render(bool isMesh, bool isNormal, bool isBone, bool isBoundingBox);
-	void RenderMesh();
-	void RenderNormals();
-	void RenderBones();
+	void RenderMesh() const;
+	void RenderNormals() const;
+	void RenderBones() const;
 	void RenderBoundingBox();
 
 private:
