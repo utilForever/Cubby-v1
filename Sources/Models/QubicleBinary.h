@@ -41,7 +41,7 @@ public:
 		m_matrixPosX(0), m_matrixPosY(0), m_matrixPosZ(0),
 		m_pColor(nullptr), m_boneIndex(0), m_scale(0),
 		m_offsetX(0.0f), m_offsetY(0.0f), m_offsetZ(0.0f),
-		m_removed(false), m_pMesh(nullptr)
+		m_isRemoved(false), m_pMesh(nullptr)
 	{
 	}
 
@@ -77,6 +77,11 @@ public:
 		return true;
 	}
 
+	bool IsRemoved() const
+	{
+		return m_isRemoved;
+	}
+
 private:
 	char* m_name;
 	char m_nameLength;
@@ -100,7 +105,7 @@ private:
 	float m_offsetY;
 	float m_offsetZ;
 
-	bool m_removed;
+	bool m_isRemoved;
 
 	TriangleMesh* m_pMesh;
 };
@@ -187,7 +192,7 @@ private:
 	Renderer* m_pRenderer;
 
 	// Loaded flag
-	bool m_loaded;
+	bool m_isLoaded;
 
 	// File name
 	std::string m_fileName;
@@ -204,13 +209,13 @@ private:
 	QubicleMatrixList m_vpMatrices;
 
 	// Render modes
-	bool m_renderWireFrame;
+	bool m_isRenderWireFrame;
 
 	// Alpha
 	float m_meshAlpha;
 
 	// Single color
-	bool m_singleMeshColou;
+	bool m_isSingleMeshColor;
 	float m_meshSingleColorR;
 	float m_meshSingleColorG;
 	float m_meshSingleColorB;
