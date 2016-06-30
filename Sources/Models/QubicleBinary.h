@@ -32,22 +32,21 @@ bool IsMergedYPositive(int* merged, int x, int y, int z, int width, int height);
 bool IsMergedZNegative(int* merged, int x, int y, int z, int width, int height);
 bool IsMergedZPositive(int* merged, int x, int y, int z, int width, int height);
 
-class QubicleMatrix
+struct QubicleMatrix
 {
-public:
 	QubicleMatrix() :
-		m_name(nullptr), m_nameLength(0),
-		m_matrixSizeX(0), m_matrixSizeY(0), m_matrixSizeZ(0),
-		m_matrixPosX(0), m_matrixPosY(0), m_matrixPosZ(0),
-		m_pColor(nullptr), m_boneIndex(0), m_scale(0),
-		m_offsetX(0.0f), m_offsetY(0.0f), m_offsetZ(0.0f),
-		m_isRemoved(false), m_pMesh(nullptr)
+		name(nullptr), nameLength(0),
+		matrixSizeX(0), matrixSizeY(0), matrixSizeZ(0),
+		matrixPosX(0), matrixPosY(0), matrixPosZ(0),
+		pColor(nullptr), boneIndex(0), scale(0),
+		offsetX(0.0f), offsetY(0.0f), offsetZ(0.0f),
+		isRemoved(false), pMesh(nullptr)
 	{
 	}
 
 	void GetColor(int x, int y, int z, float* r, float* g, float* b, float* a) const
 	{
-		unsigned color = m_pColor[x + m_matrixSizeX * (y + m_matrixSizeY * z)];
+		unsigned color = pColor[x + matrixSizeX * (y + matrixSizeY * z)];
 		unsigned int blue = (color & 0x00FF0000) >> 16;
 		unsigned int green = (color & 0x0000FF00) >> 8;
 		unsigned int red = (color & 0x000000FF);
@@ -61,12 +60,12 @@ public:
 
 	unsigned int GetColorCompact(int x, int y, int z) const
 	{
-		return m_pColor[x + m_matrixSizeX * (y + m_matrixSizeY * z)];
+		return pColor[x + matrixSizeX * (y + matrixSizeY * z)];
 	}
 
 	bool GetActive(int x, int y, int z) const
 	{
-		unsigned color = m_pColor[x + m_matrixSizeX * (y + m_matrixSizeY * z)];
+		unsigned color = pColor[x + matrixSizeX * (y + matrixSizeY * z)];
 		unsigned int alpha = (color & 0xFF000000) >> 24;
 
 		if (alpha == 0)
@@ -77,37 +76,31 @@ public:
 		return true;
 	}
 
-	bool IsRemoved() const
-	{
-		return m_isRemoved;
-	}
+	char* name;
+	char nameLength;
 
-private:
-	char* m_name;
-	char m_nameLength;
+	unsigned int matrixSizeX;
+	unsigned int matrixSizeY;
+	unsigned int matrixSizeZ;
 
-	unsigned int m_matrixSizeX;
-	unsigned int m_matrixSizeY;
-	unsigned int m_matrixSizeZ;
+	int matrixPosX;
+	int matrixPosY;
+	int matrixPosZ;
 
-	int m_matrixPosX;
-	int m_matrixPosY;
-	int m_matrixPosZ;
+	unsigned int* pColor;
 
-	unsigned int* m_pColor;
+	int boneIndex;
 
-	int m_boneIndex;
+	Matrix4 modelMatrix;
 
-	Matrix4 m_modelMatrix;
+	float scale;
+	float offsetX;
+	float offsetY;
+	float offsetZ;
 
-	float m_scale;
-	float m_offsetX;
-	float m_offsetY;
-	float m_offsetZ;
+	bool isRemoved;
 
-	bool m_isRemoved;
-
-	TriangleMesh* m_pMesh;
+	TriangleMesh* pMesh;
 };
 
 using QubicleMatrixList = std::vector<QubicleMatrix*>;
