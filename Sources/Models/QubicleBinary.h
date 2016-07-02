@@ -14,15 +14,15 @@
 
 class VoxelCharacter;
 
-enum class MergedSide
+enum MergedSide
 {
 	None = 0,
-	X_POSITIVE = 1,
-	X_NEGATIVE = 2,
-	Y_POSITIVE = 4,
-	Y_NEGATIVE = 8,
-	Z_POSITIVE = 16,
-	Z_NEGATIVE = 32,
+	X_Positive = 1,
+	X_Negative = 2,
+	Y_Positive = 4,
+	Y_Negative = 8,
+	Z_Positive = 16,
+	Z_Negative = 32,
 };
 
 bool IsMergedXNegative(int* merged, int x, int y, int z, int width, int height);
@@ -119,9 +119,9 @@ public:
 
 	void Reset();
 
-	std::string GetFileName();
+	std::string GetFileName() const;
 
-	unsigned int GetMaterial();
+	unsigned int GetMaterial() const;
 
 	Matrix4 GetModelMatrix(int qubicleMatrixIndex);
 
@@ -133,7 +133,7 @@ public:
 
 	void GetColor(int matrixIndex, int x, int y, int z, float* r, float* g, float* b, float* a);
 	unsigned int GetColorCompact(int matrixIndex, int x, int y, int z);
-	bool GetSingleMeshColor(float* r, float* g, float* b, float* a);
+	bool GetSingleMeshColor(float* r, float* g, float* b, float* a) const;
 	bool GetActive(int matrixIndex, int x, int y, int z);
 
 	void SetMeshAlpha(float alpha);
@@ -143,7 +143,7 @@ public:
 	void RebuildMesh(bool doFaceMerging);
 	void UpdateMergedSide(int* merged, int matrixIndex, int blockX, int blockY, int blockZ, int width, int height, glm::vec3* p1, glm::vec3* p2, glm::vec3* p3, glm::vec3* p4, int startX, int startY, int maxX, int maxY, bool isPositive, bool zFace, bool xFace, bool yFace);
 
-	int GetNumMatrices();
+	int GetNumMatrices() const;
 	QubicleMatrix* GetQubicleMatrix(int index);
 	QubicleMatrix* GetQubicleMatrix(const char* matrixName);
 	const char* GetMatrixName(int index);
@@ -166,9 +166,6 @@ public:
 
 	// Rendering modes
 	void SetWireFrameRender(bool wireframe);
-
-	// Update
-	void Update(float dt);
 
 	// Rendering
 	void Render(bool renderOutline, bool reflection, bool silhouette, Color OutlineColor);
