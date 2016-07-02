@@ -1393,11 +1393,11 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 
 		m_pRenderer->PushMatrix();
 
-		MS3DAnimator* pSkeletonToUse = pSkeleton[AnimationSections::FullBody];
+		MS3DAnimator* pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::FullBody)];
 		if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetBodyBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::HeadBody];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
@@ -1406,14 +1406,14 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::LeftArmHand];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LeftArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
 		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::RightArmHand];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::RightArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
@@ -1421,7 +1421,7 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::LegsFeet];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.3f, 0.0f, 0.0f);
@@ -1623,11 +1623,11 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 	if (matrixIndex != -1 && m_vpMatrices[matrixIndex]->isRemoved == false)
 	{
 		m_pRenderer->PushMatrix();
-		MS3DAnimator* pSkeletonToUse = pSkeleton[AnimationSections::FullBody];
+		MS3DAnimator* pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::FullBody)];
 		if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetBodyBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::HeadBody];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
@@ -1636,14 +1636,14 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::LeftArmHand];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LeftArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
 		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::RightArmHand];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::RightArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
@@ -1651,7 +1651,7 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
 		{
-			pSkeletonToUse = pSkeleton[AnimationSections::LegsFeet];
+			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.3f, 0.0f, 0.0f);
@@ -1992,7 +1992,7 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 			continue;
 		}
 
-		MS3DAnimator* pSkeletonToUse = nullptr;
+		MS3DAnimator* pSkeletonToUse;
 
 		if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
