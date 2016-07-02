@@ -131,13 +131,13 @@ public:
 	bool Import(const char* fileName, bool faceMerging);
 	bool Export(const char* fileName);
 
-	void GetColour(int matrixIndex, int x, int y, int z, float* r, float* g, float* b, float* a);
-	unsigned int GetColourCompact(int matrixIndex, int x, int y, int z);
-	bool GetSingleMeshColour(float* r, float* g, float* b, float* a);
+	void GetColor(int matrixIndex, int x, int y, int z, float* r, float* g, float* b, float* a);
+	unsigned int GetColorCompact(int matrixIndex, int x, int y, int z);
+	bool GetSingleMeshColor(float* r, float* g, float* b, float* a);
 	bool GetActive(int matrixIndex, int x, int y, int z);
 
 	void SetMeshAlpha(float alpha);
-	void SetMeshSingleColour(float r, float g, float b);
+	void SetMeshSingleColor(float r, float g, float b);
 
 	void CreateMesh(bool doFaceMerging);
 	void RebuildMesh(bool doFaceMerging);
