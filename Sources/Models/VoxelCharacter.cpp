@@ -719,7 +719,7 @@ MS3DModel* VoxelCharacter::GetMS3DModel() const
 
 MS3DAnimator* VoxelCharacter::GetMS3DAnimator(AnimationSections section) const
 {
-	return m_pCharacterAnimator[section];
+	return m_pCharacterAnimator[static_cast<int>(section)];
 }
 
 QubicleBinary* VoxelCharacter::GetQubicleModel() const
