@@ -7,9 +7,6 @@
     <Filter Include="Sources\Maths">
       <UniqueIdentifier>{81d6a3eb-1836-4ea6-b256-0c0056db9fab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Renderer">
-      <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libraries">
       <UniqueIdentifier>{183437a8-6917-4080-9331-f5c7cc54a5a1}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,12 @@
     </Filter>
     <Filter Include="Sources\Models">
       <UniqueIdentifier>{11797816-10a4-431b-bb09-d16839bba438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Utils">
+      <UniqueIdentifier>{59488913-410a-4767-8e86-4c49c8bcf791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Renderer">
+      <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +136,18 @@
       <Filter>Sources\Models</Filter>
     </ClCompile>
     <ClCompile Include="..\Sources\Models\QubicleBinary.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Models\QubicleBinaryManager.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Models\VoxelCharacter.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Utils\Interpolator.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp">
       <Filter>Sources\Models</Filter>
     </ClCompile>
   </ItemGroup>
@@ -657,6 +672,21 @@
       <Filter>Sources\Models</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Models\QubicleBinary.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\QubicleBinaryManager.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\VoxelCharacter.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Utils\Random.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Utils\Interpolator.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\VoxelWeapon.h">
       <Filter>Sources\Models</Filter>
     </ClInclude>
   </ItemGroup>

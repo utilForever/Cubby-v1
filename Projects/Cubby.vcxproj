@@ -160,6 +160,9 @@
     <ClCompile Include="..\Sources\Models\MS3DAnimator.cpp" />
     <ClCompile Include="..\Sources\Models\MS3DModel.cpp" />
     <ClCompile Include="..\Sources\Models\QubicleBinary.cpp" />
+    <ClCompile Include="..\Sources\Models\QubicleBinaryManager.cpp" />
+    <ClCompile Include="..\Sources\Models\VoxelCharacter.cpp" />
+    <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
@@ -171,6 +174,7 @@
     <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
     <ClCompile Include="..\Sources\Renderer\tga.cpp" />
     <ClCompile Include="..\Sources\Renderer\VertexArray.cpp" />
+    <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Libraries\freetype\freetypefont.h" />
@@ -334,6 +338,9 @@
     <ClInclude Include="..\Sources\Models\MS3DAnimator.h" />
     <ClInclude Include="..\Sources\Models\MS3DModel.h" />
     <ClInclude Include="..\Sources\Models\QubicleBinary.h" />
+    <ClInclude Include="..\Sources\Models\QubicleBinaryManager.h" />
+    <ClInclude Include="..\Sources\Models\VoxelCharacter.h" />
+    <ClInclude Include="..\Sources\Models\VoxelWeapon.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
     <ClInclude Include="..\Sources\Renderer\FrameBuffer.h" />
@@ -347,6 +354,8 @@
     <ClInclude Include="..\Sources\Renderer\tga.h" />
     <ClInclude Include="..\Sources\Renderer\VertexArray.h" />
     <ClInclude Include="..\Sources\Renderer\Viewport.h" />
+    <ClInclude Include="..\Sources\Utils\Interpolator.h" />
+    <ClInclude Include="..\Sources\Utils\Random.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Libraries\glm\detail\func_common.inl" />
