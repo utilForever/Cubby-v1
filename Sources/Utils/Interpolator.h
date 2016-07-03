@@ -66,20 +66,20 @@ public:
 
 	void ClearInterpolators();
 
-	FloatInterpolation* CreateFloatInterpolation(float* val, float start, float end, float time, float easing, FloatInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr);
-	void LinkFloatInterpolation(FloatInterpolation* first, FloatInterpolation* second);
+	FloatInterpolation* CreateFloatInterpolation(float* val, float start, float end, float time, float easing, FloatInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr) const;
+	void LinkFloatInterpolation(FloatInterpolation* first, FloatInterpolation* second) const;
 	void AddFloatInterpolation(FloatInterpolation* interpolation);
 	void AddFloatInterpolation(float* val, float start, float end, float time, float easing, FloatInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr);
 	void RemoveFloatInterpolationByVariable(float* val);
 
-	IntInterpolation* CreateIntInterpolation(int* val, int start, int end, float time, float easing, IntInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr);
-	void LinkIntInterpolation(IntInterpolation* first, IntInterpolation* second);
+	IntInterpolation* CreateIntInterpolation(int* val, int start, int end, float time, float easing, IntInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr) const;
+	void LinkIntInterpolation(IntInterpolation* first, IntInterpolation* second) const;
 	void AddIntInterpolation(IntInterpolation* interpolation);
 	void AddIntInterpolation(int* val, int start, int end, float time, float easing, IntInterpolation* next = nullptr, FunctionCallback callback = nullptr, void* data = nullptr);
 	void RemoveIntInterpolationByVariable(int* val);
 
 	void SetPaused(bool pause);
-	bool IsPaused();
+	bool IsPaused() const;
 
 	void Update(float dt);
 	void UpdateFloatInterpolators(float delta);
@@ -87,8 +87,6 @@ public:
 
 protected:
 	Interpolator();
-	Interpolator(const Interpolator&);
-	Interpolator& operator=(const Interpolator&);
 
 private:
 	void RemoveCreateFloatInterpolation(FloatInterpolation* interpolation);
