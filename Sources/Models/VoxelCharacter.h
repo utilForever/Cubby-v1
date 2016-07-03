@@ -10,6 +10,7 @@
 #ifndef CUBBY_VOXEL_CHARACTER_H
 #define CUBBY_VOXEL_CHARACTER_H
 
+#include "VoxelWeapon.h"
 #include "QubicleBinaryManager.h"
 
 // Facial expression
