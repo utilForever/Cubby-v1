@@ -136,71 +136,71 @@ public:
 
 	void Reset();
 
-	bool IsLoaded();
+	bool IsLoaded() const;
 
 	// Rebuild
-	void RebuildVoxelModel(bool faceMerge);
+	void RebuildVoxelModel(bool faceMerge) const;
 
 	void LoadWeapon(const char* weaponFileName, bool useManager = true);
-	void SaveWeapon(const char* weaponFileName);
+	void SaveWeapon(const char* weaponFileName) const;
 	void UnloadWeapon();
 
 	void SetVoxelCharacterParent(VoxelCharacter* pParentCharacter);
 	void SetBoneAttachment(const char* boneName);
 
 	void SetRenderOffset(glm::vec3 offset);
-	glm::vec3 GetRenderOffset();
+	glm::vec3 GetRenderOffset() const;
 
 	void SetRenderScale(float scale);
-	float GetRenderScale();
+	float GetRenderScale() const;
 
-	glm::vec3 GetCenter();
+	glm::vec3 GetCenter() const;
 
 	// Subsection animations
-	void StartSubSectionAnimation();
-	void StopSubSectionAnimation();
-	bool HasSubSectionAnimationFinished(int index);
+	void StartSubSectionAnimation() const;
+	void StopSubSectionAnimation() const;
+	bool HasSubSectionAnimationFinished(int index) const;
 
 	// Weapon trails
 	void StartWeaponTrails();
 	void StopWeaponTrails();
-	bool IsWeaponTrailsActive();
+	bool IsWeaponTrailsActive() const;
 
 	// Lighting
-	int GetNumLights();
-	void SetLightingID(int lightIndex, unsigned int lightID);
-	void GetLightParams(int lightIndex, unsigned int* lightID, glm::vec3* position, float* radius, float* diffuseMultiplier, Color* color, bool* connectedToSegment);
+	int GetNumLights() const;
+	void SetLightingID(int lightIndex, unsigned int lightID) const;
+	void GetLightParams(int lightIndex, unsigned int* lightID, glm::vec3* position, float* radius, float* diffuseMultiplier, Color* color, bool* connectedToSegment) const;
 
 	// Particle effects
-	int GetNumParticleEffects();
-	void SetParticleEffectID(int particleEffectIndex, unsigned int particleEffectID);
-	void GetParticleEffectParams(int particleEffectIndex, unsigned int* particleEffectID, glm::vec3* position, std::string* name, bool* connectedToSegment);
+	int GetNumParticleEffects() const;
+	void SetParticleEffectID(int particleEffectIndex, unsigned int particleEffectID) const;
+	void GetParticleEffectParams(int particleEffectIndex, unsigned int* particleEffectID, glm::vec3* position, std::string* name, bool* connectedToSegment) const;
 
 	// Animated sections
-	int GetNumAimatedSections();
-	AnimatedSection* GetAnimatedSection(int index);
+	int GetNumAimatedSections() const;
+	AnimatedSection* GetAnimatedSection(int index) const;
 
 	// Gameplay params
-	float GetWeaponRadius();
-	void SetFirstPersonMode(bool firstPerson);
+	float GetWeaponRadius() const;
+	void SetFirstPersonMode(bool isFirstPerson);
 
 	// Camera settings
 	void SetCameraYRotation(float yRot);
 
 	// Rendering modes
-	void SetWireFrameRender(bool wireframe);
-	void SetMeshAlpha(float alpha);
-	void SetMeshSingleColor(float r, float g, float b);
+	void SetWireFrameRender(bool isWireframe) const;
+	void SetMeshAlpha(float alpha) const;
+	void SetMeshSingleColor(float r, float g, float b) const;
 
 	// Updating
-	void SetWeaponTrailsParams(Matrix4 originMatrix, float scale);
-	void CreateWeaponTrailPoint();
-	void Update(float dt);
+	void SetWeaponTrailsParams(Matrix4 originMatrix, float scale) const;
+	void CreateWeaponTrailPoint() const;
+	void Update(float dt) const;
 
 	// Rendering
-	void Render(bool renderOutline, bool reflection, bool silhouette, Color outlineColor);
-	void RenderPaperdoll();
-	void RenderWeaponTrails();
+	void Render(bool renderOutline, bool reflection, bool silhouette, Color outlineColor) const;
+	void RenderPaperdoll() const;
+	void RenderWeaponTrails() const;
 
 private:
 	Renderer* m_pRenderer;
