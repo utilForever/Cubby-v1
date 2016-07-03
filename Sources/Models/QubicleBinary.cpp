@@ -1399,9 +1399,9 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
 		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
 			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
@@ -1423,9 +1423,9 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.3f, 0.0f, 0.0f);
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
 
 		m_pRenderer->PushMatrix();
@@ -1629,9 +1629,9 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
 		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
 			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
@@ -1653,9 +1653,9 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.3f, 0.0f, 0.0f);
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
 
 		// Breathing animation
@@ -1842,9 +1842,9 @@ void QubicleBinary::RenderFace(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCh
 
 		if (useScale)
 		{
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
-			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 
 			// Breathing animation
 			if (pVoxelCharacter->IsBreathingAnimationStarted())
@@ -1913,9 +1913,9 @@ void QubicleBinary::RenderFace(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCh
 
 	if (useScale)
 	{
-		m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+		m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, -pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
-		m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookzTranslate());
+		m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 
 		// Breathing animation
 		if (pVoxelCharacter->IsBreathingAnimationStarted())
