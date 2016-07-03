@@ -52,7 +52,7 @@ public:
 	void Reset();
 
 	void LoadVoxelCharacter(const char* characterType, const char* qbFileName, const char* modelFileName, const char* animatorFileName, const char* facesFileName, const char* characterFileName, const char* charactersBaseFolder, bool useQubicleManager = true);
-	void SaveVoxelCharacter(const char* qbFileName, const char* facesFileName, const char* characterFileName);
+	void SaveVoxelCharacter(const char* qbFileName, const char* facesFileName, const char* characterFileName) const;
 	void UnloadCharacter();
 
 	// Rebuild
