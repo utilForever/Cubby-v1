@@ -162,6 +162,7 @@
     <ClCompile Include="..\Sources\Models\QubicleBinary.cpp" />
     <ClCompile Include="..\Sources\Models\QubicleBinaryManager.cpp" />
     <ClCompile Include="..\Sources\Models\VoxelCharacter.cpp" />
+    <ClCompile Include="..\Sources\Models\VoxelObject.cpp" />
     <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
@@ -340,6 +341,7 @@
     <ClInclude Include="..\Sources\Models\QubicleBinary.h" />
     <ClInclude Include="..\Sources\Models\QubicleBinaryManager.h" />
     <ClInclude Include="..\Sources\Models\VoxelCharacter.h" />
+    <ClInclude Include="..\Sources\Models\VoxelObject.h" />
     <ClInclude Include="..\Sources\Models\VoxelWeapon.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
