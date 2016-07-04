@@ -11,6 +11,7 @@
 
 #include <Maths/3DMaths.h>
 
+#include "VoxelObject.h"
 #include "VoxelWeapon.h"
 #include "VoxelCharacter.h"
 
