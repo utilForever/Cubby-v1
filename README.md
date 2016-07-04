@@ -1,4 +1,6 @@
-<img align="center" src="https://github.com/MineScroll/Cubby/blob/master/CubbyLogo.png">
+<p align="center">
+<img src="https://github.com/MineScroll/Cubby/blob/master/CubbyLogo.png">
+</p>
 
 # Cubby
 
