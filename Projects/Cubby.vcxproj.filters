@@ -153,6 +153,9 @@
     <ClCompile Include="..\Sources\Models\VoxelObject.cpp">
       <Filter>Sources\Models</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Models\OBJModel.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -693,6 +696,9 @@
       <Filter>Sources\Models</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Models\VoxelObject.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Models\OBJModel.h">
       <Filter>Sources\Models</Filter>
     </ClInclude>
   </ItemGroup>
