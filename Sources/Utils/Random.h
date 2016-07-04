@@ -16,7 +16,7 @@
 inline int GetRandomNumber(int lower, int higher)
 {
 	std::random_device rd;
-	std::mt19937 mtRand(rd);
+	std::mt19937 mtRand(rd());
 
 	if (lower > higher)
 	{

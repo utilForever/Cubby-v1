@@ -10,6 +10,8 @@
 #include "QubicleBinary.h"
 #include "VoxelCharacter.h"
 
+const float QubicleBinary::BLOCK_RENDER_SIZE = 0.5f;
+
 // Constructor, Destructor
 QubicleBinary::QubicleBinary(Renderer* pRenderer) :
 	m_pRenderer(pRenderer), m_isLoaded(false),
