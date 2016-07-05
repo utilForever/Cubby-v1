@@ -146,6 +146,8 @@
     <ClCompile Include="..\Libraries\glew\src\glew.c" />
     <ClCompile Include="..\Libraries\glm\detail\dummy.cpp" />
     <ClCompile Include="..\Libraries\glm\detail\glm.cpp" />
+    <ClCompile Include="..\Libraries\inih\ini.c" />
+    <ClCompile Include="..\Libraries\inih\INIReader.cpp" />
     <ClCompile Include="..\Libraries\tinythread\tinythread.cpp" />
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
@@ -325,9 +327,12 @@
     <ClInclude Include="..\Libraries\glm\vec3.hpp" />
     <ClInclude Include="..\Libraries\glm\vec4.hpp" />
     <ClInclude Include="..\Libraries\glm\vector_relational.hpp" />
+    <ClInclude Include="..\Libraries\inih\ini.h" />
+    <ClInclude Include="..\Libraries\inih\INIReader.h" />
     <ClInclude Include="..\Libraries\tinythread\fast_mutex.h" />
     <ClInclude Include="..\Libraries\tinythread\tinythread.h" />
     <ClInclude Include="..\Sources\CubbyGame.h" />
+    <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
     <ClInclude Include="..\Sources\Maths\Bezier3.h" />

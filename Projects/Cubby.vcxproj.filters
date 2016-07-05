@@ -49,6 +49,9 @@
     <Filter Include="Sources\Renderer">
       <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\inih">
+      <UniqueIdentifier>{9a432b28-06ec-40bb-9363-28a442ad4f08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -155,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Models\OBJModel.cpp">
       <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\inih\INIReader.cpp">
+      <Filter>Libraries\inih</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\inih\ini.c">
+      <Filter>Libraries\inih</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -700,6 +709,15 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Models\OBJModel.h">
       <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\CubbySettings.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\inih\INIReader.h">
+      <Filter>Libraries\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\inih\ini.h">
+      <Filter>Libraries\inih</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
