@@ -17,14 +17,13 @@
 #include <windows.h>
 #endif //_WIN32
 
+#include "glew/include/GL/glew.h"
+
 #include <GL/gl.h>
-#include <GL/glu.h>
 
 #ifdef _MSC_VER
 #define strdup(x) _strdup(x)
 #endif
-
-#include "glew/include/GL/glew.h"
 
 #pragma comment (lib, "opengl32")
 #pragma comment (lib, "glu32")
