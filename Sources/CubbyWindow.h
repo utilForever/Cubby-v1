@@ -2,8 +2,12 @@
 > File Name: CubbyWindow.h
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
-> Purpose: Cubby window class.
-> Created Time: 2016/01/06
+> Purpose
+>    The CubbyWindow class is an interface and wrapper around the glfw windows
+>    library and adds common functionality to bind this to the Vox application.
+>    The window class handles most 'window' functionality that isn't directly
+>    part of the game, stuff like window resizing, fullscreen, cursors, etc.
+> Created Time: 2016/07/06
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
