@@ -165,6 +165,9 @@
     <ClCompile Include="..\Libraries\inih\ini.c">
       <Filter>Libraries\inih</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\CubbySettings.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
