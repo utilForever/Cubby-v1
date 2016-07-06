@@ -25,14 +25,11 @@ public:
 	void Create(CubbySettings* pCubbySettings);
 
 	// Destruction
-	void Destroy();
+	void Destroy() const;
 
 	// Events
-	void PollEvents();
-	bool ShouldClose();
-
-	// Window functionality
-	void UpdateJoySticks();
+	void PollEvents() const;
+	bool ShouldClose() const;
 
 	// Updating
 	void Update();
@@ -44,6 +41,9 @@ public:
 private:
 	CubbyWindow* m_pCubbyWindow;
 	CubbySettings* m_pCubbySettings;
+
+	// Quit message
+	bool m_isGameQuit;
 
 	// FPS and delta time
 #ifdef _WIN32

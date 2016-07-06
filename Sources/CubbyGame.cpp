@@ -22,6 +22,7 @@ CubbyGame* CubbyGame::GetInstance()
 	return m_instance;
 }
 
+// Creation
 void CubbyGame::Create(CubbySettings* pCubbySettings)
 {
 	m_pCubbySettings = pCubbySettings;
@@ -29,6 +30,9 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 
 	// Create the window
 	m_pCubbyWindow->Create();
+
+	// Pause and quit
+	m_isGameQuit = false;
 
 	// Setup FPS and delta time counters
 #ifdef _WIN32
@@ -45,15 +49,27 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 	m_fps = 0.0f;
 }
 
+// Destruction
+void CubbyGame::Destroy() const
+{
+	if (m_instance != nullptr)
+	{
+		m_pCubbyWindow->Destroy();
+		delete m_pCubbyWindow;
+
+		delete m_instance;
+	}
+}
+
 // Events
-void CubbyGame::PollEvents()
+void CubbyGame::PollEvents() const
 {
 	m_pCubbyWindow->PollEvents();
 }
 
-bool CubbyGame::ShouldClose()
+bool CubbyGame::ShouldClose() const
 {
-	return m_pCubbyWindow->ShouldCloseWindow();
+	return m_isGameQuit;
 }
 
 // Updating
