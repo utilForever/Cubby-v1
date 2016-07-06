@@ -29,7 +29,7 @@ int main()
 		pCubbyGame->PollEvents();
 
 		// Update joysticks
-		pVoxGame->UpdateJoySticks();
+		pCubbyGame->UpdateJoySticks();
 		
 		// Update
 		pCubbyGame->Update();
