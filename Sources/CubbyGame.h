@@ -3,20 +3,18 @@
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
 > Purpose: Cubby game class.
-> Created Time: 2016/01/07
+> Created Time: 2016/07/06
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#pragma once
+#ifndef CUBBY_GAME_H
+#define CUBBY_GAME_H
 
-// Platform dependency
-#ifdef _WIN32
-#include <windows.h>
-#elif __linux__
-#include <sys/time.h>
-#endif
+#include "Renderer/Renderer.h"
+#include "Renderer/Camera.h"
 
 #include "CubbyWindow.h"
+#include "CubbySettings.h"
 
 class CubbyGame
 {
@@ -24,21 +22,24 @@ public:
 	static CubbyGame* GetInstance();
 
 	// Creation
-	void Create();
+	void Create(CubbySettings* pCubbySettings);
 
 	// Destruction
-	// void Destroy();
+	void Destroy();
 
 	// Events
 	void PollEvents();
 	bool ShouldClose();
 
+	// Window functionality
+	void UpdateJoySticks();
+
 	// Updating
 	void Update();
 
 	// Rendering
-	// void PreRender();
-	// void Render();
+	void PreRender();
+	void Render();
 
 private:
 	CubbyWindow* m_pCubbyWindow;
@@ -58,3 +59,5 @@ private:
 	// Singleton instance
 	static CubbyGame* m_instance;
 };
+
+#endif
