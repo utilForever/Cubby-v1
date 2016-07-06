@@ -2,26 +2,43 @@
 > File Name: CubbyWindow.cpp
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
-> Purpose: Cubby window class.
-> Created Time: 2016/01/06
+> Purpose
+>    The CubbyWindow class is an interface and wrapper around the glfw windows
+>    library and adds common functionality to bind this to the Vox application.
+>    The window class handles most 'window' functionality that isn't directly
+>    part of the game, stuff like window resizing, fullscreen, cursors, etc.
+> Created Time: 2016/07/07
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include "../Libraries/glew/include/GL/glew.h"
+#include <stdlib.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif //_WIN32
 
 #include <GL/gl.h>
+#include <GL/glu.h>
 
-#include <stdlib.h>
+#ifdef _MSC_VER
+#define strdup(x) _strdup(x)
+#endif
+
+#include "glew/include/GL/glew.h"
 
 #pragma comment (lib, "opengl32")
 #pragma comment (lib, "glu32")
 
 #include "CubbyWindow.h"
+#include "CubbyGame.h"
+#include "CubbySettings.h"
 
-CubbyWindow::CubbyWindow()
-	: m_pWindow(nullptr),
-	m_windowWidth(500),
-	m_windowHeight(500)
+// Constructor, Destructor
+CubbyWindow::CubbyWindow(CubbyGame* pCubbyGame, CubbySettings* pCubbySettings) :
+	m_pCubbyGame(pCubbyGame), m_pCubbySettings(pCubbySettings), m_pWindow(nullptr),
+	m_windowWidth(m_pCubbySettings->GetWindowWidth()), m_windowHeight(m_pCubbySettings->GetWindowHeight()),
+	m_oldWindowWidth(m_windowHeight), m_oldWindowHeight(m_windowHeight), 
+	m_cursorX(0), m_cursorY(0), m_cursorOldX(0), m_cursorOldY(0), m_minimized(false)
 {
 	
 }
@@ -31,6 +48,7 @@ CubbyWindow::~CubbyWindow()
 	
 }
 
+// Creation
 void CubbyWindow::Create()
 {
 	// Initialize the window library
@@ -55,6 +73,17 @@ void CubbyWindow::Create()
 
 	/* Initialize this window object */
 	InitializeWindowContext(m_pWindow);
+
+	if (m_pCubbySettings->GetFullScreen())
+	{
+		ToggleFullScreen(true);
+	}
+}
+
+// Destruction
+void CubbyWindow::Destroy() const
+{
+	glfwTerminate();
 }
 
 void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
@@ -72,12 +101,39 @@ void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
 	glfwShowWindow(window);
 }
 
-void CubbyWindow::PollEvents()
+// Full screen
+void CubbyWindow::ToggleFullScreen(bool fullscreen)
 {
-	return glfwPollEvents();
+	if (fullscreen)
+	{
+		const GLFWvidmode* vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+		m_oldWindowWidth = m_windowWidth;
+		m_oldWindowHeight = m_windowHeight;
+
+		m_windowWidth = vidMode->width;
+		m_windowHeight = vidMode->height;
+	}
+	else
+	{
+		m_windowWidth = m_oldWindowWidth;
+		m_windowHeight = m_oldWindowHeight;
+	}
+
+	// Create new window
+	GLFWwindow* newWindow = glfwCreateWindow(m_windowWidth, m_windowHeight, "Cubby", fullscreen ? glfwGetPrimaryMonitor() : NULL, m_pWindow);
+
+	/* Initialize this new window object */
+	InitializeWindowContext(newWindow);
+
+	// Destroy the existing window pointer and assign new one, since we are context switching
+	glfwDestroyWindow(m_pWindow);
+	m_pWindow = newWindow;
 }
 
-bool CubbyWindow::ShouldCloseWindow()
+// Events
+void CubbyWindow::PollEvents() const
 {
-	return (glfwWindowShouldClose(m_pWindow) == 1);
+	// Poll for and process events
+	return glfwPollEvents();
 }
