@@ -5,7 +5,7 @@
 > Purpose
 >   Cubby settings, initalized at the application creation and contains all of
 >   the run time settings and configuration that is loaded for Cubby.
-> Created Time: 2016/07/06
+> Created Time: 2016/07/07
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
@@ -15,6 +15,22 @@
 #include "CubbySettings.h"
 
 #include "inih/INIReader.h"
+
+// Getter
+int CubbySettings::GetWindowWidth() const
+{
+	return m_windowWidth;
+}
+
+int CubbySettings::GetWindowHeight() const
+{
+	return m_windowHeight;
+}
+
+bool CubbySettings::GetFullScreen() const
+{
+	return m_fullscreen;
+}
 
 // Load settings
 void CubbySettings::LoadSettings()

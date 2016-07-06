@@ -5,7 +5,7 @@
 > Purpose
 >   Cubby settings, initalized at the application creation and contains all of
 >   the run time settings and configuration that is loaded for Cubby.
-> Created Time: 2016/07/05
+> Created Time: 2016/07/07
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
@@ -24,15 +24,18 @@ public:
 	CubbySettings() = default;
 	~CubbySettings() = default;
 
+	// Getter
+	int GetWindowWidth() const;
+	int GetWindowHeight() const;
+	bool GetFullScreen() const;
+
 	// Load settings
 	void LoadSettings();
-
 	// Save settings
 	void SaveSettings() const;
 
 	// Load options
 	void LoadOptions();
-
 	// Save options
 	void SaveOptions() const;
 
