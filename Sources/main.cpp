@@ -27,9 +27,6 @@ int main()
 	{
 		// Poll input events
 		pCubbyGame->PollEvents();
-
-		// Update joysticks
-		pCubbyGame->UpdateJoySticks();
 		
 		// Update
 		pCubbyGame->Update();
