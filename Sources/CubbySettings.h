@@ -21,20 +21,20 @@ class CubbySettings
 {
 public:
 	// Constructor, Destructor
-	CubbySettings();
-	~CubbySettings();
+	CubbySettings() = default;
+	~CubbySettings() = default;
 
 	// Load settings
 	void LoadSettings();
 
 	// Save settings
-	void SaveSettings();
+	void SaveSettings() const;
 
 	// Load options
 	void LoadOptions();
 
 	// Save options
-	void SaveOptions();
+	void SaveOptions() const;
 
 private:
 	// Options ini file
