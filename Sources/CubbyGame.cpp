@@ -3,7 +3,7 @@
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
 > Purpose: Cubby game class.
-> Created Time: 2016/01/07
+> Created Time: 2016/07/07
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
@@ -22,14 +22,15 @@ CubbyGame* CubbyGame::GetInstance()
 	return m_instance;
 }
 
-void CubbyGame::Create()
+void CubbyGame::Create(CubbySettings* pCubbySettings)
 {
-	m_pCubbyWindow = new CubbyWindow();
+	m_pCubbySettings = pCubbySettings;
+	m_pCubbyWindow = new CubbyWindow(this, m_pCubbySettings);
 
 	// Create the window
 	m_pCubbyWindow->Create();
 
-	// Setup FPS and deltatime counters
+	// Setup FPS and delta time counters
 #ifdef _WIN32
 	QueryPerformanceCounter(&m_fpsPreviousTicks);
 	QueryPerformanceCounter(&m_fpsCurrentTicks);

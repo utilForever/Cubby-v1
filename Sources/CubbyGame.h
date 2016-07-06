@@ -3,7 +3,7 @@
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
 > Purpose: Cubby game class.
-> Created Time: 2016/07/06
+> Created Time: 2016/07/07
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
@@ -43,8 +43,9 @@ public:
 
 private:
 	CubbyWindow* m_pCubbyWindow;
+	CubbySettings* m_pCubbySettings;
 
-	// FPS and deltatime
+	// FPS and delta time
 #ifdef _WIN32
 	LARGE_INTEGER m_fpsPreviousTicks;
 	LARGE_INTEGER m_fpsCurrentTicks;
