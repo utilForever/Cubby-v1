@@ -408,22 +408,22 @@ void Renderer::SetFrontFaceDirection(FrontFaceDirection direction)
 // Projection
 bool Renderer::SetProjectionMode(ProjectionMode mode, int viewPort)
 {
-	Viewport* pVeiwport = m_viewports[viewPort];
-	glViewport(pVeiwport->left, pVeiwport->bottom, pVeiwport->width, pVeiwport->height);
+	Viewport* pViewport = m_viewports[viewPort];
+	glViewport(pViewport->left, pViewport->bottom, pViewport->width, pViewport->height);
 
 	m_activeViewport = viewPort;
 
 	if (mode == ProjectionMode::PERSPECTIVE)
 	{
-		m_projection = &(pVeiwport->perspective);
+		m_projection = &(pViewport->perspective);
 	}
 	else if (mode == ProjectionMode::ORTHOGRAPHIC)
 	{
-		m_projection = &(pVeiwport->orthographic);
+		m_projection = &(pViewport->orthographic);
 	}
 	else if (mode == ProjectionMode::TWO_DIMENSION)
 	{
-		m_projection = &(pVeiwport->projection2D);
+		m_projection = &(pViewport->projection2D);
 	}
 	else 
 	{
