@@ -150,6 +150,7 @@
     <ClCompile Include="..\Libraries\inih\INIReader.cpp" />
     <ClCompile Include="..\Libraries\tinythread\tinythread.cpp" />
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
+    <ClCompile Include="..\Sources\CubbyRender.cpp" />
     <ClCompile Include="..\Sources\CubbySettings.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
