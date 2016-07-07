@@ -153,6 +153,8 @@
     <ClCompile Include="..\Sources\CubbyRender.cpp" />
     <ClCompile Include="..\Sources\CubbySettings.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
+    <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp" />
+    <ClCompile Include="..\Sources\Lighting\LightingManager.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
     <ClCompile Include="..\Sources\Maths\Bezier3.cpp" />
     <ClCompile Include="..\Sources\Maths\Bezier4.cpp" />
@@ -336,6 +338,8 @@
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
+    <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
+    <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
     <ClInclude Include="..\Sources\Maths\Bezier3.h" />
     <ClInclude Include="..\Sources\Maths\Bezier4.h" />

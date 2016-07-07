@@ -52,6 +52,9 @@
     <Filter Include="Libraries\inih">
       <UniqueIdentifier>{9a432b28-06ec-40bb-9363-28a442ad4f08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Lighting">
+      <UniqueIdentifier>{63e5ac89-6707-4434-b383-9131b6b34a4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -170,6 +173,12 @@
     </ClCompile>
     <ClCompile Include="..\Sources\CubbyRender.cpp">
       <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp">
+      <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Lighting\LightingManager.cpp">
+      <Filter>Sources\Lighting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -724,6 +733,12 @@
     </ClInclude>
     <ClInclude Include="..\Libraries\inih\ini.h">
       <Filter>Libraries\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Lighting\DynamicLight.h">
+      <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Lighting\LightingManager.h">
+      <Filter>Sources\Lighting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
