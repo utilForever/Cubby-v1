@@ -42,8 +42,26 @@ private:
 	CubbyWindow* m_pCubbyWindow;
 	CubbySettings* m_pCubbySettings;
 
+	// Renderer
+	Renderer* m_pRenderer;
+
+	// Window width and height
+	int m_windowWidth;
+	int m_windowHeight;
+
 	// Quit message
 	bool m_isGameQuit;
+
+	// Viewports
+	unsigned int m_defaultViewport;
+
+	// Lights
+	unsigned int m_defaultLight;
+	glm::vec3 m_defaultLightPosition;
+	glm::vec3 m_defaultLightView;
+
+	// Frame buffers
+	unsigned int m_SSAOFrameBuffer;
 
 	// FPS and delta time
 #ifdef _WIN32
@@ -56,6 +74,10 @@ private:
 #endif
 	float m_deltaTime;
 	float m_fps;
+
+	// Toggle flags
+	bool m_isMultiSampling;
+	bool m_isDeferredRendering;
 
 	// Singleton instance
 	static CubbyGame* m_instance;

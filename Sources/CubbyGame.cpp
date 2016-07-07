@@ -25,14 +25,13 @@ CubbyGame* CubbyGame::GetInstance()
 // Creation
 void CubbyGame::Create(CubbySettings* pCubbySettings)
 {
+	m_pRenderer = nullptr;
+
 	m_pCubbySettings = pCubbySettings;
 	m_pCubbyWindow = new CubbyWindow(this, m_pCubbySettings);
 
 	// Create the window
 	m_pCubbyWindow->Create();
-
-	// Pause and quit
-	m_isGameQuit = false;
 
 	// Setup FPS and delta time counters
 #ifdef _WIN32
@@ -47,6 +46,26 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 #endif //_WIN32
 	m_deltaTime = 0.0f;
 	m_fps = 0.0f;
+
+	// Create the renderer
+	m_windowWidth = m_pCubbyWindow->GetWindowWidth();
+	m_windowHeight = m_pCubbyWindow->GetWindowHeight();
+	m_pRenderer = new Renderer(m_windowWidth, m_windowHeight, 32, 8);
+
+	// Pause and quit
+	m_isGameQuit = false;
+
+	// Create viewports
+	m_pRenderer->CreateViewport(0, 0, m_windowWidth, m_windowHeight, 60.0f, &m_defaultViewport);
+	// TODO: Implement rest viewports
+
+	// Create lights
+	m_defaultLightPosition = glm::vec3(300.0f, 300.0f, 300.0f);
+	m_defaultLightView = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 lightDirection = m_defaultLightView - m_defaultLightPosition;
+	m_pRenderer->CreateLight(Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f),
+		m_defaultLightPosition, lightDirection, 0.0f, 0.0f, 2.0f, 0.001f, 0.0f, true, false, &m_defaultLight);
+	// TODO: Implement rest lights
 }
 
 // Destruction
