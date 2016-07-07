@@ -85,6 +85,12 @@ void CubbyWindow::Destroy() const
 	glfwTerminate();
 }
 
+void CubbyWindow::Render() const
+{
+	// Swap front and back buffers
+	glfwSwapBuffers(m_pWindow);
+}
+
 void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
 {
 	// Center on screen
@@ -98,6 +104,23 @@ void CubbyWindow::InitializeWindowContext(GLFWwindow* window)
 
 	// Show the window
 	glfwShowWindow(window);
+}
+
+// Windows dimensions
+int CubbyWindow::GetWindowWidth() const
+{
+	return m_windowWidth;
+}
+
+int CubbyWindow::GetWindowHeight() const
+{
+	return m_windowHeight;
+}
+
+// Minimized
+bool CubbyWindow::GetMinimized() const
+{
+	return m_minimized;
 }
 
 // Full screen

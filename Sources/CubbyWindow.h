@@ -31,7 +31,17 @@ public:
 	// Destruction
 	void Destroy() const;
 
+	// Rendering
+	void Render() const;
+
 	void InitializeWindowContext(GLFWwindow* window);
+
+	// Windows dimensions
+	int GetWindowWidth() const;
+	int GetWindowHeight() const;
+
+	// Minimized
+	bool GetMinimized() const;
 
 	// Full screen
 	void ToggleFullScreen(bool fullscreen);
