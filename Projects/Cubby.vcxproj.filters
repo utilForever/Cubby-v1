@@ -55,6 +55,9 @@
     <Filter Include="Sources\Lighting">
       <UniqueIdentifier>{63e5ac89-6707-4434-b383-9131b6b34a4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Blocks">
+      <UniqueIdentifier>{5c772e0a-fc52-4879-8023-92a2d41c3812}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -739,6 +742,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Lighting\LightingManager.h">
       <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Blocks\Chunk.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Blocks\BlocksEnum.h">
+      <Filter>Sources\Blocks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

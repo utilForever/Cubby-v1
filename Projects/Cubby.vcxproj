@@ -335,6 +335,8 @@
     <ClInclude Include="..\Libraries\inih\INIReader.h" />
     <ClInclude Include="..\Libraries\tinythread\fast_mutex.h" />
     <ClInclude Include="..\Libraries\tinythread\tinythread.h" />
+    <ClInclude Include="..\Sources\Blocks\BlocksEnum.h" />
+    <ClInclude Include="..\Sources\Blocks\Chunk.h" />
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
