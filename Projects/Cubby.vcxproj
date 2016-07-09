@@ -89,7 +89,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -115,7 +115,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
