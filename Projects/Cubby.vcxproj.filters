@@ -58,6 +58,12 @@
     <Filter Include="Sources\Blocks">
       <UniqueIdentifier>{5c772e0a-fc52-4879-8023-92a2d41c3812}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\libnoise">
+      <UniqueIdentifier>{367232ce-ccd5-4710-bda7-1ce96739d522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\simplex">
+      <UniqueIdentifier>{6db88efe-8c8c-426b-9275-d36d04c0fc98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -182,6 +188,24 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Lighting\LightingManager.cpp">
       <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\libnoise\noiseutils.cpp">
+      <Filter>Libraries\libnoise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Blocks\BiomeManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Blocks\Chunk.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\simplex\simplexnoise.cpp">
+      <Filter>Libraries\simplex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\simplex\simplextextures.cpp">
+      <Filter>Libraries\simplex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\CubbyUpdate.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -748,6 +772,18 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Blocks\BlocksEnum.h">
       <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\libnoise\noiseutils.h">
+      <Filter>Libraries\libnoise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Blocks\BiomeManager.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\simplex\simplexnoise.h">
+      <Filter>Libraries\simplex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\simplex\simplextextures.h">
+      <Filter>Libraries\simplex</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
