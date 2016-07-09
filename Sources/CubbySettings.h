@@ -12,8 +12,6 @@
 #ifndef CUBBY_SETTINGS_H
 #define CUBBY_SETTINGS_H
 
-#include <string>
-
 // Forward declaration
 class CubbyGame;
 
@@ -28,6 +26,13 @@ public:
 	int GetWindowWidth() const;
 	int GetWindowHeight() const;
 	bool GetFullScreen() const;
+	float GetLandscapeOctaves() const;
+	float GetLandscapePersistence() const;
+	float GetLandscapeScale() const;
+	float GetMountainOctaves() const;
+	float GetMountainPersistence() const;
+	float GetMountainScale() const;
+	float GetMountainMultiplier() const;
 
 	// Load settings
 	void LoadSettings();

@@ -32,6 +32,41 @@ bool CubbySettings::GetFullScreen() const
 	return m_fullscreen;
 }
 
+float CubbySettings::GetLandscapeOctaves() const
+{
+	return m_landscapeOctaves;
+}
+
+float CubbySettings::GetLandscapePersistence() const
+{
+	return m_landscapePersistence;
+}
+
+float CubbySettings::GetLandscapeScale() const
+{
+	return m_landscapeScale;
+}
+
+float CubbySettings::GetMountainOctaves() const
+{
+	return m_mountainOctaves;
+}
+
+float CubbySettings::GetMountainPersistence() const
+{
+	return m_mountainPersistence;
+}
+
+float CubbySettings::GetMountainScale() const
+{
+	return m_mountainScale;
+}
+
+float CubbySettings::GetMountainMultiplier() const
+{
+	return m_mountainMultiplier;
+}
+
 // Load settings
 void CubbySettings::LoadSettings()
 {
