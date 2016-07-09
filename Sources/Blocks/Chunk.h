@@ -27,7 +27,7 @@
 class ChunkManager;
 class Player;
 class SceneryManager;
-class VoxSettings;
+class CubbySettings;
 class Item;
 class BiomeManager;
 
@@ -37,7 +37,7 @@ class Chunk
 {
 public:
 	// Constructor, Destructor
-	Chunk(Renderer* pRenderer, ChunkManager* pChunkManager, VoxSettings* pVoxSettings);
+	Chunk(Renderer* pRenderer, ChunkManager* pChunkManager, CubbySettings* pVoxSettings);
 	~Chunk();
 
 	// Player pointer
@@ -54,11 +54,11 @@ public:
 
 	// Creation and destruction
 	void SetCreated(bool created);
-	bool IsCreated();
+	bool IsCreated() const;
 	void Unload();
 	void Setup();
-	bool IsSetup();
-	bool IsUnloading();
+	bool IsSetup() const;
+	bool IsUnloading() const;
 
 	// Saving and loading
 	void SaveChunk();
@@ -66,17 +66,17 @@ public:
 
 	// Position
 	void SetPosition(glm::vec3 pos);
-	glm::vec3 GetPosition();
+	glm::vec3 GetPosition() const;
 
-	// Neighbours
-	int GetNumNeighbours();
-	void SetNumNeighbours(int neighbours);
-	Chunk* GetXMinus();
-	Chunk* GetXPlus();
-	Chunk* GetYMinus();
-	Chunk* GetYPlus();
-	Chunk* GetZMinus();
-	Chunk* GetZPlus();
+	// Neighbors
+	int GetNumNeighbors() const;
+	void SetNumNeighbors(int neighbors);
+	Chunk* GetXMinus() const;
+	Chunk* GetXPlus() const;
+	Chunk* GetYMinus() const;
+	Chunk* GetYPlus() const;
+	Chunk* GetZMinus() const;
+	Chunk* GetZPlus() const;
 	void SetXMinus(Chunk* pChunk);
 	void SetXPlus(Chunk* pChunk);
 	void SetYMinus(Chunk* pChunk);
@@ -95,29 +95,29 @@ public:
 	void StopBatchUpdate();
 
 	// Active
-	bool GetActive(int x, int y, int z);
+	bool GetActive(int x, int y, int z) const;
 
 	// Inside chunk
-	bool IsInsideChunk(glm::vec3 pos);
+	bool IsInsideChunk(glm::vec3 pos) const;
 
 	// Items
 	void AddItem(Item* pItem);
 	void RemoveItem(Item* pItem);
 	void RemoveItems();
 
-	// Block colour
+	// Block color
 	void SetColor(int x, int y, int z, float r, float g, float b, float a);
-	void GetColor(int x, int y, int z, float* r, float* g, float* b, float* a);
+	void GetColor(int x, int y, int z, float* r, float* g, float* b, float* a) const;
 	void SetColor(int x, int y, int z, unsigned int color);
-	unsigned int GetColor(int x, int y, int z);
+	unsigned int GetColor(int x, int y, int z) const;
 
 	// Block type
-	BlockType GetBlockType(int x, int y, int z);
-	void SetBlockType(int x, int y, int z, BlockType blockType);
+	BlockType GetBlockType(int x, int y, int z) const;
+	void SetBlockType(int x, int y, int z, BlockType blockType) const;
 
 	// Flags
-	bool IsEmpty();
-	bool IsSurrounded();
+	bool IsEmpty() const;
+	bool IsSurrounded() const;
 	void UpdateWallFlags();
 	bool UpdateSurroundedFlag();
 	void UpdateEmptyFlag();
@@ -125,23 +125,20 @@ public:
 	// Create mesh
 	void CreateMesh();
 	void CompleteMesh();
-	void UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, int width, int height, glm::vec3* p1, glm::vec3* p2, glm::vec3* p3, glm::vec3* p4, int startX, int startY, int maxX, int maxY, bool positive, bool xFace, bool yFace, bool zFace);
+	void UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, int width, int height, glm::vec3* p1, glm::vec3* p2, glm::vec3* p3, glm::vec3* p4, int startX, int startY, int maxX, int maxY, bool positive, bool xFace, bool yFace, bool zFace) const;
 
 	// Rebuild
 	void RebuildMesh();
-	void SetNeedsRebuild(bool rebuild, bool rebuildNeighours);
-	bool NeedsRebuild();
-	bool IsRebuildingMesh();
+	void SetNeedsRebuild(bool rebuild, bool rebuildNeighbors);
+	bool NeedsRebuild() const;
+	bool IsRebuildingMesh() const;
 	void SwitchToCachedMesh();
 	void UndoCachedMesh();
 
-	// Updating
-	void Update(float dt);
-
 	// Rendering
 	void Render();
-	void RenderDebug();
-	void Render2D(Camera* pCamera, unsigned int viewport, unsigned int font);
+	void RenderDebug() const;
+	void Render2D(Camera* pCamera, unsigned int viewport, unsigned int font) const;
 
 	// < Operator (Used for chunk sorting, closest to camera)
 	bool operator<(const Chunk& w) const;
@@ -155,15 +152,15 @@ public:
 	static const float CHUNK_RADIUS;
 
 private:
-	VoxSettings* m_pVoxSettings;
+	CubbySettings* m_pVoxSettings;
 	Renderer* m_pRenderer;
 	ChunkManager* m_pChunkManager;
 	Player* m_pPlayer;
 	SceneryManager* m_pSceneryManager;
 	BiomeManager* m_pBiomeManager;
 
-	// Chunk neighbours
-	int m_numNeighbours;
+	// Chunk neighbors
+	int m_numNeighbors;
 	Chunk* m_pXMinus;
 	Chunk* m_pXPlus;
 	Chunk* m_pYMinus;
@@ -187,7 +184,7 @@ private:
 	bool m_setup;
 	bool m_isUnloading;
 	bool m_rebuild;
-	bool m_rebuildNeighours;
+	bool m_rebuildNeighbors;
 	bool m_isRebuildingMesh;
 	bool m_deleteCachedMesh;
 
@@ -198,7 +195,7 @@ private:
 	bool m_emptyChunk;
 	bool m_surroundedChunk;
 
-	// Used for testing if chunk completely covers neighbour chunks
+	// Used for testing if chunk completely covers neighbor chunks
 	bool m_xMinusFull;
 	bool m_xPlusFull;
 	bool m_yMinusFull;
