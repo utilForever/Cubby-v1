@@ -7,6 +7,8 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <glm/detail/func_geometric.hpp>
+
 #include "CubbyGame.h"
 
 // Initialize singleton instance
@@ -26,7 +28,10 @@ CubbyGame* CubbyGame::GetInstance()
 void CubbyGame::Create(CubbySettings* pCubbySettings)
 {
 	m_pRenderer = nullptr;
-
+	m_pGameCamera = nullptr;
+	m_pQubicleBinaryManager = nullptr;
+	m_pChunkManager = nullptr;
+	
 	m_pCubbySettings = pCubbySettings;
 	m_pCubbyWindow = new CubbyWindow(this, m_pCubbySettings);
 
@@ -55,6 +60,14 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 	// Pause and quit
 	m_isGameQuit = false;
 
+	// Create cameras
+	m_pGameCamera = new Camera(m_pRenderer);
+	m_pGameCamera->SetPosition(glm::vec3(8.0f, 8.25f, 15.5f));
+	m_pGameCamera->SetFakePosition(m_pGameCamera->GetPosition());
+	m_pGameCamera->SetFacing(glm::vec3(0.0f, 0.0f, -1.0f));
+	m_pGameCamera->SetUp(glm::vec3(0.0f, 1.0f, 0.0f));
+	m_pGameCamera->SetRight(glm::vec3(1.0f, 0.0f, 0.0f));
+
 	// Create viewports
 	m_pRenderer->CreateViewport(0, 0, m_windowWidth, m_windowHeight, 60.0f, &m_defaultViewport);
 	// TODO: Implement rest viewports
@@ -72,7 +85,7 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 
 	// Create the chunk manager
 	m_pChunkManager = new ChunkManager(m_pRenderer, m_pCubbySettings, m_pQubicleBinaryManager);
-	m_pChunkManager->SetStepLockEnabled(m_pCubbySettings->m_stepUpdating);
+	m_pChunkManager->SetStepLockEnabled(m_pCubbySettings->IsStepUpdating());
 
 	// Create the biome manager
 	m_pBiomeManager = new BiomeManager(m_pRenderer);
@@ -83,7 +96,13 @@ void CubbyGame::Destroy() const
 {
 	if (m_instance != nullptr)
 	{
+		delete m_pChunkManager;
+		delete m_pBiomeManager;
+		delete m_pQubicleBinaryManager;
+		delete m_pGameCamera;
+
 		m_pCubbyWindow->Destroy();
+
 		delete m_pCubbyWindow;
 
 		delete m_instance;
@@ -99,6 +118,17 @@ void CubbyGame::PollEvents() const
 bool CubbyGame::ShouldClose() const
 {
 	return m_isGameQuit;
+}
+
+// Accessors
+unsigned int CubbyGame::GetDefaultViewport()
+{
+	return m_defaultViewport;
+}
+
+Camera* CubbyGame::GetGameCamera()
+{
+	return m_pGameCamera;
 }
 
 ChunkManager* CubbyGame::GetChunkManager()

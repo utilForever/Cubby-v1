@@ -10,12 +10,35 @@
 #ifndef CUBBY_GAME_H
 #define CUBBY_GAME_H
 
-#include "Blocks/ChunkManager.h"
-#include "Blocks/BiomeManager.h"
-#include "Renderer/Renderer.h"
+#include <Blocks/ChunkManager.h>
+#include <Blocks/BiomeManager.h>
+#include <Models/QubicleBinaryManager.h>
+#include <Renderer/Renderer.h>
+#include <Renderer/Camera.h>
 
 #include "CubbyWindow.h"
 #include "CubbySettings.h"
+
+// Game modes
+enum class GameMode
+{
+	Debug = 0,
+	Loading,
+	FrontEnd,
+	Game,
+};
+
+// Camera modes
+enum class CameraMode
+{
+	Debug = 0,
+	Frontend,
+	MouseRotate,
+	AutoCamera,
+	FirstPerson,
+	NPCDialog,
+	EnemyTarget,
+};
 
 class CubbyGame
 {
@@ -40,6 +63,8 @@ public:
 	void Render();
 
 	// Accessors
+	unsigned int GetDefaultViewport();
+	Camera* GetGameCamera();
 	ChunkManager* GetChunkManager();
 	BiomeManager* GetBiomeManager();
 
@@ -49,6 +74,12 @@ private:
 
 	// Renderer
 	Renderer* m_pRenderer;
+
+	// Game camera
+	Camera* m_pGameCamera;
+
+	// Qubicle binary manager
+	QubicleBinaryManager* m_pQubicleBinaryManager;
 
 	// Chunk manager
 	ChunkManager* m_pChunkManager;
