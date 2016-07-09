@@ -66,6 +66,16 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 	m_pRenderer->CreateLight(Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f),
 		m_defaultLightPosition, lightDirection, 0.0f, 0.0f, 2.0f, 0.001f, 0.0f, true, false, &m_defaultLight);
 	// TODO: Implement rest lights
+
+	// Create the qubicle binary file manager
+	m_pQubicleBinaryManager = new QubicleBinaryManager(m_pRenderer);
+
+	// Create the chunk manager
+	m_pChunkManager = new ChunkManager(m_pRenderer, m_pCubbySettings, m_pQubicleBinaryManager);
+	m_pChunkManager->SetStepLockEnabled(m_pCubbySettings->m_stepUpdating);
+
+	// Create the biome manager
+	m_pBiomeManager = new BiomeManager(m_pRenderer);
 }
 
 // Destruction
@@ -91,19 +101,12 @@ bool CubbyGame::ShouldClose() const
 	return m_isGameQuit;
 }
 
-// Updating
-void CubbyGame::Update()
+ChunkManager* CubbyGame::GetChunkManager()
 {
-	// FPS
-#ifdef _WIN32
-	QueryPerformanceCounter(&m_fpsCurrentTicks);
-	m_deltaTime = static_cast<float>(m_fpsCurrentTicks.QuadPart - m_fpsPreviousTicks.QuadPart) / static_cast<float>(m_fpsTicksPerSecond.QuadPart);
-#else
-	struct timeval tm;
-	gettimeofday(&tm, NULL);
-	m_fpsCurrentTicks = static_cast<double>(tm.tv_sec) + static_cast<double>(tm.tv_usec) / 1000000.0;
-	m_deltaTime = (m_fpsCurrentTicks - m_fpsPreviousTicks);
-#endif
-	m_fps = 1.0f / m_deltaTime;
-	m_fpsPreviousTicks = m_fpsCurrentTicks;
+	return m_pChunkManager;
+}
+
+BiomeManager* CubbyGame::GetBiomeManager()
+{
+	return m_pBiomeManager;
 }

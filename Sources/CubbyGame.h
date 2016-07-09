@@ -10,8 +10,9 @@
 #ifndef CUBBY_GAME_H
 #define CUBBY_GAME_H
 
+#include "Blocks/ChunkManager.h"
+#include "Blocks/BiomeManager.h"
 #include "Renderer/Renderer.h"
-#include "Renderer/Camera.h"
 
 #include "CubbyWindow.h"
 #include "CubbySettings.h"
@@ -38,12 +39,22 @@ public:
 	void PreRender();
 	void Render();
 
+	// Accessors
+	ChunkManager* GetChunkManager();
+	BiomeManager* GetBiomeManager();
+
 private:
 	CubbyWindow* m_pCubbyWindow;
 	CubbySettings* m_pCubbySettings;
 
 	// Renderer
 	Renderer* m_pRenderer;
+
+	// Chunk manager
+	ChunkManager* m_pChunkManager;
+
+	// Biome manager
+	BiomeManager* m_pBiomeManager;
 
 	// Window width and height
 	int m_windowWidth;
