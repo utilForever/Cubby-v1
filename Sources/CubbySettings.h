@@ -5,7 +5,7 @@
 > Purpose
 >   Cubby settings, initalized at the application creation and contains all of
 >   the run time settings and configuration that is loaded for Cubby.
-> Created Time: 2016/07/07
+> Created Time: 2016/07/09
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
@@ -34,6 +34,7 @@ public:
 	float GetMountainScale() const;
 	float GetMountainMultiplier() const;
 	float GetLoaderRadius() const;
+	bool IsStepUpdating() const;
 
 	// Load settings
 	void LoadSettings();

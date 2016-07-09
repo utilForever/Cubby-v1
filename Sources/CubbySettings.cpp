@@ -72,6 +72,11 @@ float CubbySettings::GetLoaderRadius() const
 	return m_loaderRadius;
 }
 
+bool CubbySettings::IsStepUpdating() const
+{
+	return m_stepUpdating;
+}
+
 // Load settings
 void CubbySettings::LoadSettings()
 {
