@@ -30,7 +30,7 @@ class EnemyManager;
 class BlockParticleManager;
 class ItemManager;
 class SceneryManager;
-class VoxSettings;
+class CubbySettings;
 class QubicleBinaryManager;
 class BiomeManager;
 
@@ -146,7 +146,7 @@ class ChunkManager
 {
 public:
 	/* Public methods */
-	ChunkManager(Renderer* pRenderer, VoxSettings* pVoxSettings, QubicleBinaryManager* pQubicleBinaryManager);
+	ChunkManager(Renderer* pRenderer, CubbySettings* pCubbySettings, QubicleBinaryManager* pQubicleBinaryManager);
 	~ChunkManager();
 
 	// Linkage
@@ -166,15 +166,15 @@ public:
 	void InitializeChunkCreation();
 
 	// Chunk rendering material
-	unsigned int GetChunkMaterialID();
+	unsigned int GetChunkMaterialID() const;
 
 	// Chunk counters
-	int GetNumChunksLoaded();
-	int GetNumChunksRender();
+	int GetNumChunksLoaded() const;
+	int GetNumChunksRender() const;
 
 	// Loader radius
 	void SetLoaderRadius(float radius);
-	float GetLoaderRadius();
+	float GetLoaderRadius() const;
 
 	// Step update
 	void SetStepLockEnabled(bool enabled);
@@ -186,17 +186,17 @@ public:
 	void UpdateChunkNeighbours(Chunk* pChunk, int x, int y, int z);
 
 	// Getting chunk and positional information
-	void GetGridFromPosition(glm::vec3 position, int* gridX, int* gridY, int* gridZ);
+	void GetGridFromPosition(glm::vec3 position, int* gridX, int* gridY, int* gridZ) const;
 	Chunk* GetChunkFromPosition(float posX, float posY, float posZ);
 	Chunk* GetChunk(int x, int y, int z);
 	bool FindClosestFloor(glm::vec3 position, glm::vec3* floorPosition);
 
 	// Getting the active block state given a position and chunk information
 	bool GetBlockActiveFrom3DPosition(float x, float y, float z, glm::vec3* blockPos, int* blockX, int* blockY, int* blockZ, Chunk** pChunk);
-	void GetBlockGridFrom3DPositionChunkStorage(float x, float y, float z, int* blockX, int* blockY, int* blockZ, ChunkStorageLoader* ChunkStorage);
+	void GetBlockGridFrom3DPositionChunkStorage(float x, float y, float z, int* blockX, int* blockY, int* blockZ, ChunkStorageLoader* chunkStorage) const;
 
 	// Adding to chunk storage for parts of the world generation that are outside of loaded chunks
-	ChunkStorageLoader* GetChunkStorage(int aX, int aY, int aZ, bool CreateIfNotExist);
+	ChunkStorageLoader* GetChunkStorage(int x, int y, int z, bool createIfNotExist);
 	void RemoveChunkStorageLoader(ChunkStorageLoader* pChunkStorage);
 
 	// Importing into the world chunks
@@ -205,7 +205,7 @@ public:
 	QubicleBinary* ImportQubicleBinary(const char* fileName, glm::vec3 position, QubicleImportDirection direction);
 
 	// Explosions
-	void CreateBlockDestroyParticleEffect(float r, float g, float b, float a, glm::vec3 blockPosition);
+	void CreateBlockDestroyParticleEffect(float r, float g, float b, float a, glm::vec3 blockPosition) const;
 	void ExplodeSphere(glm::vec3 position, float radius);
 
 	// Collectible block objects
@@ -213,13 +213,13 @@ public:
 
 	// Water
 	void SetWaterHeight(float height);
-	float GetWaterHeight();
+	float GetWaterHeight() const;
 	bool IsUnderWater(glm::vec3 position);
 
 	// Rendering modes
 	void SetWireframeRender(bool wireframe);
 	void SetFaceMerging(bool faceMerge);
-	bool GetFaceMerging();
+	bool GetFaceMerging() const;
 
 	// Updating
 	void Update(float dt);
@@ -228,7 +228,7 @@ public:
 
 	// Rendering
 	void Render(bool shadowRender);
-	void RenderWater();
+	void RenderWater() const;
 	void RenderDebug();
 	void Render2D(Camera* pCamera, unsigned int viewport, unsigned int font);
 
@@ -237,7 +237,7 @@ private:
 	Player* m_pPlayer;
 	SceneryManager* m_pSceneryManager;
 	BiomeManager* m_pBiomeManager;
-	VoxSettings* m_pVoxSettings;
+	CubbySettings* m_pCubbySettings;
 	QubicleBinaryManager* m_pQubicleBinaryManager;
 	ItemManager* m_pItemManager;
 	BlockParticleManager* m_pBlockParticleManager;
