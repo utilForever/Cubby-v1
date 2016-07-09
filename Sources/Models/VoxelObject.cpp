@@ -73,9 +73,9 @@ glm::vec3 VoxelObject::GetCenter() const
 	{
 		QubicleMatrix* pMatrix = m_pVoxelModel->GetQubicleMatrix(i);
 
-		centerPos.x += (pMatrix->matrixSizeX * 0.5f) * pMatrix->scale;
-		centerPos.y += (pMatrix->matrixSizeY * 0.5f) * pMatrix->scale;
-		centerPos.z += (pMatrix->matrixSizeZ * 0.5f) * pMatrix->scale;
+		centerPos.x += (pMatrix->m_matrixSizeX * 0.5f) * pMatrix->m_scale;
+		centerPos.y += (pMatrix->m_matrixSizeY * 0.5f) * pMatrix->m_scale;
+		centerPos.z += (pMatrix->m_matrixSizeZ * 0.5f) * pMatrix->m_scale;
 	}
 
 	centerPos /= static_cast<float>(m_pVoxelModel->GetNumMatrices());

@@ -62,15 +62,15 @@ void QubicleBinary::ClearMatrices()
 			continue;
 		}
 
-		if (pMatrix->isRemoved == true)
+		if (pMatrix->m_isRemoved == true)
 		{
 			continue;
 		}
 
-		m_pRenderer->ClearMesh(pMatrix->pMesh);
-		pMatrix->pMesh = nullptr;
+		m_pRenderer->ClearMesh(pMatrix->m_pMesh);
+		pMatrix->m_pMesh = nullptr;
 
-		delete[] pMatrix->pColor;
+		delete[] pMatrix->m_pColor;
 
 		delete pMatrix;
 		// ReSharper disable once CppAssignedValueIsNeverUsed
@@ -116,14 +116,14 @@ Matrix4 QubicleBinary::GetModelMatrix(int qubicleMatrixIndex)
 		return Matrix4();
 	}
 
-	return m_vpMatrices[qubicleMatrixIndex]->modelMatrix;
+	return m_vpMatrices[qubicleMatrixIndex]->m_modelMatrix;
 }
 
 int QubicleBinary::GetMatrixIndexForName(const char* matrixName)
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
 			return i;
 		}
@@ -134,9 +134,9 @@ int QubicleBinary::GetMatrixIndexForName(const char* matrixName)
 
 void QubicleBinary::GetMatrixPosition(int index, int* aX, int* aY, int* aZ)
 {
-	*aX = m_vpMatrices[index]->matrixPosX;
-	*aY = m_vpMatrices[index]->matrixPosY;
-	*aZ = m_vpMatrices[index]->matrixPosZ;
+	*aX = m_vpMatrices[index]->m_matrixPosX;
+	*aY = m_vpMatrices[index]->m_matrixPosY;
+	*aZ = m_vpMatrices[index]->m_matrixPosZ;
 }
 
 bool QubicleBinary::Import(const char* fileName, bool faceMerging)
@@ -165,43 +165,43 @@ bool QubicleBinary::Import(const char* fileName, bool faceMerging)
 		{
 			QubicleMatrix* pNewMatrix = new QubicleMatrix();
 
-			fread(static_cast<char*>(&pNewMatrix->nameLength), sizeof(char), 1, pQBfile) == 1;
-			pNewMatrix->name = new char[pNewMatrix->nameLength + 1];
-			fread(&pNewMatrix->name[0], sizeof(char) * pNewMatrix->nameLength, 1, pQBfile) == 1;
-			pNewMatrix->name[pNewMatrix->nameLength] = 0;
+			fread(static_cast<char*>(&pNewMatrix->m_nameLength), sizeof(char), 1, pQBfile) == 1;
+			pNewMatrix->m_name = new char[pNewMatrix->m_nameLength + 1];
+			fread(&pNewMatrix->m_name[0], sizeof(char) * pNewMatrix->m_nameLength, 1, pQBfile) == 1;
+			pNewMatrix->m_name[pNewMatrix->m_nameLength] = 0;
 
-			fread(&pNewMatrix->matrixSizeX, sizeof(unsigned int), 1, pQBfile) == 1;
-			fread(&pNewMatrix->matrixSizeY, sizeof(unsigned int), 1, pQBfile) == 1;
-			fread(&pNewMatrix->matrixSizeZ, sizeof(unsigned int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixSizeX, sizeof(unsigned int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixSizeY, sizeof(unsigned int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixSizeZ, sizeof(unsigned int), 1, pQBfile) == 1;
 
-			fread(&pNewMatrix->matrixPosX, sizeof(int), 1, pQBfile) == 1;
-			fread(&pNewMatrix->matrixPosY, sizeof(int), 1, pQBfile) == 1;
-			fread(&pNewMatrix->matrixPosZ, sizeof(int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixPosX, sizeof(int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixPosY, sizeof(int), 1, pQBfile) == 1;
+			fread(&pNewMatrix->m_matrixPosZ, sizeof(int), 1, pQBfile) == 1;
 
-			pNewMatrix->boneIndex = -1;
-			pNewMatrix->pMesh = nullptr;
+			pNewMatrix->m_boneIndex = -1;
+			pNewMatrix->m_pMesh = nullptr;
 
-			pNewMatrix->scale = 1.0f;
-			pNewMatrix->offsetX = 0.0f;
-			pNewMatrix->offsetY = 0.0f;
-			pNewMatrix->offsetZ = 0.0f;
+			pNewMatrix->m_scale = 1.0f;
+			pNewMatrix->m_offsetX = 0.0f;
+			pNewMatrix->m_offsetY = 0.0f;
+			pNewMatrix->m_offsetZ = 0.0f;
 
-			pNewMatrix->isRemoved = false;
+			pNewMatrix->m_isRemoved = false;
 			
-			pNewMatrix->pColor = new unsigned int[pNewMatrix->matrixSizeX * pNewMatrix->matrixSizeY * pNewMatrix->matrixSizeZ];
+			pNewMatrix->m_pColor = new unsigned int[pNewMatrix->m_matrixSizeX * pNewMatrix->m_matrixSizeY * pNewMatrix->m_matrixSizeZ];
 
 			if (m_compressed == 0)
 			{
-				for (unsigned int z = 0; z < pNewMatrix->matrixSizeZ; ++z)
+				for (unsigned int z = 0; z < pNewMatrix->m_matrixSizeZ; ++z)
 				{
-					for (unsigned int y = 0; y < pNewMatrix->matrixSizeY; ++y)
+					for (unsigned int y = 0; y < pNewMatrix->m_matrixSizeY; ++y)
 					{
-						for (unsigned int x = 0; x < pNewMatrix->matrixSizeX; ++x)
+						for (unsigned int x = 0; x < pNewMatrix->m_matrixSizeX; ++x)
 						{
 							unsigned int color = 0;
 							fread(&color, sizeof(unsigned int), 1, pQBfile) == 1;
 
-							pNewMatrix->pColor[x + pNewMatrix->matrixSizeX * (y + pNewMatrix->matrixSizeY * z)] = color;
+							pNewMatrix->m_pColor[x + pNewMatrix->m_matrixSizeX * (y + pNewMatrix->m_matrixSizeY * z)] = color;
 						}
 					}
 				}
@@ -210,7 +210,7 @@ bool QubicleBinary::Import(const char* fileName, bool faceMerging)
 			{
 				unsigned int z = 0;
 
-				while (z < pNewMatrix->matrixSizeZ)
+				while (z < pNewMatrix->m_matrixSizeZ)
 				{
 					unsigned int index = 0;
 
@@ -230,20 +230,20 @@ bool QubicleBinary::Import(const char* fileName, bool faceMerging)
 
 							for (unsigned int j = 0; j < count; ++j)
 							{
-								unsigned int x = index % pNewMatrix->matrixSizeX;
-								unsigned int y = index / pNewMatrix->matrixSizeX;
+								unsigned int x = index % pNewMatrix->m_matrixSizeX;
+								unsigned int y = index / pNewMatrix->m_matrixSizeX;
 
-								pNewMatrix->pColor[x + pNewMatrix->matrixSizeX * (y + pNewMatrix->matrixSizeY * z)] = data;
+								pNewMatrix->m_pColor[x + pNewMatrix->m_matrixSizeX * (y + pNewMatrix->m_matrixSizeY * z)] = data;
 
 								index++;
 							}
 						}
 						else
 						{
-							unsigned int x = index % pNewMatrix->matrixSizeX;
-							unsigned int y = index / pNewMatrix->matrixSizeX;
+							unsigned int x = index % pNewMatrix->m_matrixSizeX;
+							unsigned int y = index / pNewMatrix->m_matrixSizeX;
 
-							pNewMatrix->pColor[x + pNewMatrix->matrixSizeX * (y + pNewMatrix->matrixSizeY * z)] = data;
+							pNewMatrix->m_pColor[x + pNewMatrix->m_matrixSizeX * (y + pNewMatrix->m_matrixSizeY * z)] = data;
 
 							index++;
 						}
@@ -292,26 +292,26 @@ bool QubicleBinary::Export(const char* fileName)
 		{
 			QubicleMatrix* pMatrix = m_vpMatrices[i];
 
-			fwrite(static_cast<char*>(&pMatrix->nameLength), sizeof(char), 1, pQBfile) == 1;
-			fwrite(&pMatrix->name[0], sizeof(char)*pMatrix->nameLength, 1, pQBfile) == 1;
+			fwrite(static_cast<char*>(&pMatrix->m_nameLength), sizeof(char), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_name[0], sizeof(char)*pMatrix->m_nameLength, 1, pQBfile) == 1;
 
-			fwrite(&pMatrix->matrixSizeX, sizeof(unsigned int), 1, pQBfile) == 1;
-			fwrite(&pMatrix->matrixSizeY, sizeof(unsigned int), 1, pQBfile) == 1;
-			fwrite(&pMatrix->matrixSizeZ, sizeof(unsigned int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixSizeX, sizeof(unsigned int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixSizeY, sizeof(unsigned int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixSizeZ, sizeof(unsigned int), 1, pQBfile) == 1;
 
-			fwrite(&pMatrix->matrixPosX, sizeof(int), 1, pQBfile) == 1;
-			fwrite(&pMatrix->matrixPosY, sizeof(int), 1, pQBfile) == 1;
-			fwrite(&pMatrix->matrixPosZ, sizeof(int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixPosX, sizeof(int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixPosY, sizeof(int), 1, pQBfile) == 1;
+			fwrite(&pMatrix->m_matrixPosZ, sizeof(int), 1, pQBfile) == 1;
 
 			if (m_compressed == 0)
 			{
-				for (unsigned int z = 0; z < pMatrix->matrixSizeZ; ++z)
+				for (unsigned int z = 0; z < pMatrix->m_matrixSizeZ; ++z)
 				{
-					for (unsigned int y = 0; y < pMatrix->matrixSizeY; ++y)
+					for (unsigned int y = 0; y < pMatrix->m_matrixSizeY; ++y)
 					{
-						for (unsigned int x = 0; x < pMatrix->matrixSizeX; ++x)
+						for (unsigned int x = 0; x < pMatrix->m_matrixSizeX; ++x)
 						{
-							unsigned int color = pMatrix->pColor[x + pMatrix->matrixSizeX * (y + pMatrix->matrixSizeY * z)];
+							unsigned int color = pMatrix->m_pColor[x + pMatrix->m_matrixSizeX * (y + pMatrix->m_matrixSizeY * z)];
 							fwrite(&color, sizeof(unsigned int), 1, pQBfile) == 1;
 						}
 					}
@@ -323,13 +323,13 @@ bool QubicleBinary::Export(const char* fileName)
 				unsigned int previousColor = 0;
 				int runLength = 0;
 
-				for (unsigned int z = 0; z < pMatrix->matrixSizeZ; ++z)
+				for (unsigned int z = 0; z < pMatrix->m_matrixSizeZ; ++z)
 				{
-					for (unsigned int y = 0; y < pMatrix->matrixSizeY; ++y)
+					for (unsigned int y = 0; y < pMatrix->m_matrixSizeY; ++y)
 					{
-						for (unsigned int x = 0; x < pMatrix->matrixSizeX; ++x)
+						for (unsigned int x = 0; x < pMatrix->m_matrixSizeX; ++x)
 						{
-							unsigned int color = pMatrix->pColor[x + pMatrix->matrixSizeX * (y + pMatrix->matrixSizeY * z)];
+							unsigned int color = pMatrix->m_pColor[x + pMatrix->m_matrixSizeX * (y + pMatrix->m_matrixSizeY * z)];
 
 							if (x == 0 && y == 0)
 							{
@@ -337,7 +337,7 @@ bool QubicleBinary::Export(const char* fileName)
 								previousColor = color;
 								runLength = 1;
 							}
-							else if (x == pMatrix->matrixSizeX - 1 && y == pMatrix->matrixSizeY - 1 && z == pMatrix->matrixSizeZ - 1)
+							else if (x == pMatrix->m_matrixSizeX - 1 && y == pMatrix->m_matrixSizeY - 1 && z == pMatrix->m_matrixSizeZ - 1)
 							{
 								// End
 								fwrite(&CODEFLAG, sizeof(unsigned int), 1, pQBfile) == 1;
@@ -432,7 +432,7 @@ void QubicleBinary::SetMeshAlpha(float alpha)
 
 	for (unsigned int i = 0; i < m_vpMatrices.size(); i++)
 	{
-		m_pRenderer->ModifyMeshAlpha(alpha, m_vpMatrices[i]->pMesh);
+		m_pRenderer->ModifyMeshAlpha(alpha, m_vpMatrices[i]->m_pMesh);
 	}
 }
 
@@ -445,7 +445,7 @@ void QubicleBinary::SetMeshSingleColor(float r, float g, float b)
 
 	for (unsigned int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		m_pRenderer->ModifyMeshColor(r, g, b, m_vpMatrices[i]->pMesh);
+		m_pRenderer->ModifyMeshColor(r, g, b, m_vpMatrices[i]->m_pMesh);
 	}
 }
 
@@ -488,16 +488,16 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 
 		int* merged;
 
-		merged = new int[pMatrix-> matrixSizeX * pMatrix->matrixSizeY * pMatrix->matrixSizeZ];
+		merged = new int[pMatrix-> m_matrixSizeX * pMatrix->m_matrixSizeY * pMatrix->m_matrixSizeZ];
 
-		for (unsigned int i = 0; i < pMatrix->matrixSizeX * pMatrix->matrixSizeY * pMatrix->matrixSizeZ; ++i)
+		for (unsigned int i = 0; i < pMatrix->m_matrixSizeX * pMatrix->m_matrixSizeY * pMatrix->m_matrixSizeZ; ++i)
 		{
 			merged[i] = MergedSide::None;
 		}
 
-		if (pMatrix->pMesh == nullptr)
+		if (pMatrix->m_pMesh == nullptr)
 		{
-			pMatrix->pMesh = m_pRenderer->CreateMesh(MeshType::Textured);
+			pMatrix->m_pMesh = m_pRenderer->CreateMesh(MeshType::Textured);
 		}
 
 		float r = 1.0f;
@@ -505,11 +505,11 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 		float b = 1.0f;
 		float a = 1.0f;
 
-		for (unsigned int x = 0; x < pMatrix->matrixSizeX; ++x)
+		for (unsigned int x = 0; x < pMatrix->m_matrixSizeX; ++x)
 		{
-			for (unsigned int y = 0; y < pMatrix->matrixSizeY; ++y)
+			for (unsigned int y = 0; y < pMatrix->m_matrixSizeY; ++y)
 			{
-				for (unsigned int z = 0; z < pMatrix->matrixSizeZ; ++z)
+				for (unsigned int z = 0; z < pMatrix->m_matrixSizeZ; ++z)
 				{
 					if (GetActive(matrixIndex, x, y, z) == true)
 					{
@@ -530,38 +530,38 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						unsigned int v1, v2, v3, v4;
 						unsigned int t1, t2, t3, t4;
 
-						bool doXPositive = (IsMergedXPositive(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
-						bool doXNegative = (IsMergedXNegative(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
-						bool doYPositive = (IsMergedYPositive(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
-						bool doYNegative = (IsMergedYNegative(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
-						bool doZPositive = (IsMergedZPositive(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
-						bool doZNegative = (IsMergedZNegative(merged, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY) == false);
+						bool doXPositive = (IsMergedXPositive(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
+						bool doXNegative = (IsMergedXNegative(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
+						bool doYPositive = (IsMergedYPositive(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
+						bool doYNegative = (IsMergedYNegative(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
+						bool doZPositive = (IsMergedZPositive(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
+						bool doZNegative = (IsMergedZNegative(merged, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY) == false);
 
 						// Front
-						if (doZPositive && ((z == pMatrix->matrixSizeZ - 1) || z < pMatrix->matrixSizeZ - 1 && GetActive(matrixIndex, x, y, z + 1) == false))
+						if (doZPositive && ((z == pMatrix->m_matrixSizeZ - 1) || z < pMatrix->m_matrixSizeZ - 1 && GetActive(matrixIndex, x, y, z + 1) == false))
 						{
-							int endX = pMatrix->matrixSizeX;
-							int endY = pMatrix->matrixSizeY;
+							int endX = pMatrix->m_matrixSizeX;
+							int endY = pMatrix->m_matrixSizeY;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p1, &p2, &p3, &p4, x, y, endX, endY, true, true, false, false);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p1, &p2, &p3, &p4, x, y, endX, endY, true, true, false, false);
 							}
 
 							n1 = glm::vec3(0.0f, 0.0f, 1.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 
 						p1 = glm::vec3(x - BLOCK_RENDER_SIZE, y - BLOCK_RENDER_SIZE, z + BLOCK_RENDER_SIZE);
@@ -576,28 +576,28 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						// Back
 						if (doZNegative && ((z == 0) || (z > 0 && GetActive(matrixIndex, x, y, z - 1) == false)))
 						{
-							int endX = pMatrix->matrixSizeX;
-							int endY = pMatrix->matrixSizeY;
+							int endX = pMatrix->m_matrixSizeX;
+							int endY = pMatrix->m_matrixSizeY;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p6, &p5, &p8, &p7, x, y, endX, endY, false, true, false, false);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p6, &p5, &p8, &p7, x, y, endX, endY, false, true, false, false);
 							}
 
 							n1 = glm::vec3(0.0f, 0.0f, -1.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 
 						p1 = glm::vec3(x - BLOCK_RENDER_SIZE, y - BLOCK_RENDER_SIZE, z + BLOCK_RENDER_SIZE);
@@ -610,30 +610,30 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						p8 = glm::vec3(x + BLOCK_RENDER_SIZE, y + BLOCK_RENDER_SIZE, z - BLOCK_RENDER_SIZE);
 
 						// Right
-						if (doXPositive && ((x == pMatrix->matrixSizeX - 1) || (x < pMatrix->matrixSizeX - 1 && GetActive(matrixIndex, x + 1, y, z) == false)))
+						if (doXPositive && ((x == pMatrix->m_matrixSizeX - 1) || (x < pMatrix->m_matrixSizeX - 1 && GetActive(matrixIndex, x + 1, y, z) == false)))
 						{
-							int endX = pMatrix->matrixSizeZ;
-							int endY = pMatrix->matrixSizeY;
+							int endX = pMatrix->m_matrixSizeZ;
+							int endY = pMatrix->m_matrixSizeY;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p5, &p2, &p3, &p8, z, y, endX, endY, true, false, true, false);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p5, &p2, &p3, &p8, z, y, endX, endY, true, false, true, false);
 							}
 
 							n1 = glm::vec3(1.0f, 0.0f, 0.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 
 						p1 = glm::vec3(x - BLOCK_RENDER_SIZE, y - BLOCK_RENDER_SIZE, z + BLOCK_RENDER_SIZE);
@@ -648,28 +648,28 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						// Left
 						if (doXNegative && ((x == 0) || (x > 0 && GetActive(matrixIndex, x - 1, y, z) == false)))
 						{
-							int endX = pMatrix->matrixSizeZ;
-							int endY = pMatrix->matrixSizeY;
+							int endX = pMatrix->m_matrixSizeZ;
+							int endY = pMatrix->m_matrixSizeY;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p6, &p1, &p4, &p7, z, y, endX, endY, false, false, true, false);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p6, &p1, &p4, &p7, z, y, endX, endY, false, false, true, false);
 							}
 
 							n1 = glm::vec3(-1.0f, 0.0f, 0.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 
 						p1 = glm::vec3(x - BLOCK_RENDER_SIZE, y - BLOCK_RENDER_SIZE, z + BLOCK_RENDER_SIZE);
@@ -682,30 +682,30 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						p8 = glm::vec3(x + BLOCK_RENDER_SIZE, y + BLOCK_RENDER_SIZE, z - BLOCK_RENDER_SIZE);
 
 						// Top
-						if (doYPositive && ((y == pMatrix->matrixSizeY - 1) || (y < pMatrix->matrixSizeY - 1 && GetActive(matrixIndex, x, y + 1, z) == false)))
+						if (doYPositive && ((y == pMatrix->m_matrixSizeY - 1) || (y < pMatrix->m_matrixSizeY - 1 && GetActive(matrixIndex, x, y + 1, z) == false)))
 						{
-							int endX = pMatrix->matrixSizeX;
-							int endY = pMatrix->matrixSizeZ;
+							int endX = pMatrix->m_matrixSizeX;
+							int endY = pMatrix->m_matrixSizeZ;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p7, &p8, &p3, &p4, x, z, endX, endY, true, false, false, true);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p7, &p8, &p3, &p4, x, z, endX, endY, true, false, false, true);
 							}
 
 							n1 = glm::vec3(0.0f, 1.0f, 0.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p4, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p3, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p8, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p7, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 
 						p1 = glm::vec3(x - BLOCK_RENDER_SIZE, y - BLOCK_RENDER_SIZE, z + BLOCK_RENDER_SIZE);
@@ -720,35 +720,35 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 						// Bottom
 						if (doYNegative && ((y == 0) || (y > 0 && GetActive(matrixIndex, x, y - 1, z) == false)))
 						{
-							int endX = pMatrix->matrixSizeX;
-							int endY = pMatrix->matrixSizeZ;
+							int endX = pMatrix->m_matrixSizeX;
+							int endY = pMatrix->m_matrixSizeZ;
 
 							if (doFaceMerging)
 							{
-								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->matrixSizeX, pMatrix->matrixSizeY, &p6, &p5, &p2, &p1, x, z, endX, endY, false, false, false, true);
+								UpdateMergedSide(merged, matrixIndex, x, y, z, pMatrix->m_matrixSizeX, pMatrix->m_matrixSizeY, &p6, &p5, &p2, &p1, x, z, endX, endY, false, false, false, true);
 							}
 
 							n1 = glm::vec3(0.0f, -1.0f, 0.0f);
-							v1 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->pMesh);
-							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->pMesh);
-							v2 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->pMesh);
-							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->pMesh);
-							v3 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->pMesh);
-							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->pMesh);
-							v4 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->pMesh);
-							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->pMesh);
+							v1 = m_pRenderer->AddVertexToMesh(p6, n1, r, g, b, a, pMatrix->m_pMesh);
+							t1 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 0.0f, pMatrix->m_pMesh);
+							v2 = m_pRenderer->AddVertexToMesh(p5, n1, r, g, b, a, pMatrix->m_pMesh);
+							t2 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 0.0f, pMatrix->m_pMesh);
+							v3 = m_pRenderer->AddVertexToMesh(p2, n1, r, g, b, a, pMatrix->m_pMesh);
+							t3 = m_pRenderer->AddTextureCoordinatesToMesh(1.0f, 1.0f, pMatrix->m_pMesh);
+							v4 = m_pRenderer->AddVertexToMesh(p1, n1, r, g, b, a, pMatrix->m_pMesh);
+							t4 = m_pRenderer->AddTextureCoordinatesToMesh(0.0f, 1.0f, pMatrix->m_pMesh);
 
 							assert(!(t1 == -1 || t2 == -1 || t3 == -1 || t4 == -1));
 
-							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->pMesh);
-							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v2, v3, pMatrix->m_pMesh);
+							m_pRenderer->AddTriangleToMesh(v1, v3, v4, pMatrix->m_pMesh);
 						}
 					}
 				}
 			}
 		}
 
-		m_pRenderer->FinishMesh(-1, m_materialID, pMatrix->pMesh);
+		m_pRenderer->FinishMesh(-1, m_materialID, pMatrix->m_pMesh);
 
 		// Delete the merged array
 		delete[] merged;
@@ -759,8 +759,8 @@ void QubicleBinary::RebuildMesh(bool doFaceMerging)
 {
 	for (unsigned int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		m_pRenderer->ClearMesh(m_vpMatrices[i]->pMesh);
-		m_vpMatrices[i]->pMesh = nullptr;
+		m_pRenderer->ClearMesh(m_vpMatrices[i]->m_pMesh);
+		m_vpMatrices[i]->m_pMesh = nullptr;
 	}
 
 	CreateMesh(doFaceMerging);
@@ -810,18 +810,18 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 			}
 			else
 			{
-				if ((xFace && positive && blockX + incrementX + 1 == pMatrix->matrixSizeX) ||
+				if ((xFace && positive && blockX + incrementX + 1 == pMatrix->m_matrixSizeX) ||
 					(xFace && !positive && blockX + incrementX == 0) ||
-					(yFace && positive && blockY + 1 == pMatrix->matrixSizeY) ||
+					(yFace && positive && blockY + 1 == pMatrix->m_matrixSizeY) ||
 					(yFace && !positive && blockY == 0) ||
-					(zFace && positive && blockZ + incrementZ + 1 == pMatrix->matrixSizeZ) ||
+					(zFace && positive && blockZ + incrementZ + 1 == pMatrix->m_matrixSizeZ) ||
 					(zFace && !positive && blockZ + incrementZ == 0))
 				{
 					doPhase1Merge = false;
 					doMore = false;
 				}
 				// Don't do any phase 1 merging if we find an inactive block or already merged block in our path
-				else if (xFace && positive && (blockX + incrementX + 1) < pMatrix->matrixSizeX && GetActive(matrixIndex, blockX + incrementX + 1, blockY, blockZ + incrementZ) == true)
+				else if (xFace && positive && (blockX + incrementX + 1) < pMatrix->m_matrixSizeX && GetActive(matrixIndex, blockX + incrementX + 1, blockY, blockZ + incrementZ) == true)
 				{
 					doPhase1Merge = false;
 					doMore = false;
@@ -831,7 +831,7 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					doPhase1Merge = false;
 					doMore = false;
 				}
-				else if (yFace && positive && (blockY + 1) < pMatrix->matrixSizeY && GetActive(matrixIndex, blockX + incrementX, blockY + 1, blockZ + incrementZ) == true)
+				else if (yFace && positive && (blockY + 1) < pMatrix->m_matrixSizeY && GetActive(matrixIndex, blockX + incrementX, blockY + 1, blockZ + incrementZ) == true)
 				{
 					doPhase1Merge = false;
 					doMore = false;
@@ -841,7 +841,7 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					doPhase1Merge = false;
 					doMore = false;
 				}
-				else if (zFace && positive && (blockZ + incrementZ + 1) < pMatrix->matrixSizeZ && GetActive(matrixIndex, blockX + incrementX, blockY, blockZ + incrementZ + 1) == true)
+				else if (zFace && positive && (blockZ + incrementZ + 1) < pMatrix->m_matrixSizeZ && GetActive(matrixIndex, blockX + incrementX, blockY, blockZ + incrementZ + 1) == true)
 				{
 					doPhase1Merge = false;
 					doMore = false;
@@ -958,7 +958,7 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					GetColor(matrixIndex, blockX, blockY, blockZ, &r1, &g1, &b1, &a1);
 					GetColor(matrixIndex, blockX + i, blockY + incrementY, blockZ, &r2, &g2, &b2, &a2);
 
-					if (positive && (blockZ + 1) < pMatrix->matrixSizeZ && GetActive(matrixIndex, blockX + i, blockY + incrementY, blockZ + 1) == true)
+					if (positive && (blockZ + 1) < pMatrix->m_matrixSizeZ && GetActive(matrixIndex, blockX + i, blockY + incrementY, blockZ + 1) == true)
 					{
 						doMore = false;
 					}
@@ -984,7 +984,7 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					GetColor(matrixIndex, blockX, blockY, blockZ, &r1, &g1, &b1, &a1);
 					GetColor(matrixIndex, blockX, blockY + incrementY, blockZ + i, &r2, &g2, &b2, &a2);
 
-					if (positive && (blockX + 1) < pMatrix->matrixSizeX && GetActive(matrixIndex, blockX + 1, blockY + incrementY, blockZ + i) == true)
+					if (positive && (blockX + 1) < pMatrix->m_matrixSizeX && GetActive(matrixIndex, blockX + 1, blockY + incrementY, blockZ + i) == true)
 					{
 						doMore = false;
 					}
@@ -1010,7 +1010,7 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					GetColor(matrixIndex, blockX, blockY, blockZ, &r1, &g1, &b1, &a1);
 					GetColor(matrixIndex, blockX + i, blockY, blockZ + incrementY, &r2, &g2, &b2, &a2);
 
-					if (positive && (blockY + 1) < pMatrix->matrixSizeY && GetActive(matrixIndex, blockX + i, blockY + 1, blockZ + incrementY) == true)
+					if (positive && (blockY + 1) < pMatrix->m_matrixSizeY && GetActive(matrixIndex, blockX + i, blockY + 1, blockZ + incrementY) == true)
 					{
 						doMore = false;
 					}
@@ -1099,7 +1099,7 @@ QubicleMatrix* QubicleBinary::GetQubicleMatrix(const char* matrixName)
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
 			return GetQubicleMatrix(i);
 		}
@@ -1110,28 +1110,28 @@ QubicleMatrix* QubicleBinary::GetQubicleMatrix(const char* matrixName)
 
 const char* QubicleBinary::GetMatrixName(int index)
 {
-	return m_vpMatrices[index]->name;
+	return m_vpMatrices[index]->m_name;
 }
 
 float QubicleBinary::GetMatrixScale(int index)
 {
-	return m_vpMatrices[index]->scale;
+	return m_vpMatrices[index]->m_scale;
 }
 
 glm::vec3 QubicleBinary::GetMatrixOffset(int index)
 {
-	return glm::vec3(m_vpMatrices[index]->offsetX, m_vpMatrices[index]->offsetY, m_vpMatrices[index]->offsetZ);
+	return glm::vec3(m_vpMatrices[index]->m_offsetX, m_vpMatrices[index]->m_offsetY, m_vpMatrices[index]->m_offsetZ);
 }
 
 void QubicleBinary::SetupMatrixBones(MS3DAnimator* pSkeleton)
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		int boneIndex = pSkeleton->GetModel()->GetBoneIndex(m_vpMatrices[i]->name);
+		int boneIndex = pSkeleton->GetModel()->GetBoneIndex(m_vpMatrices[i]->m_name);
 
 		if (boneIndex != -1)
 		{
-			m_vpMatrices[i]->boneIndex = boneIndex;
+			m_vpMatrices[i]->m_boneIndex = boneIndex;
 		}
 	}
 }
@@ -1140,12 +1140,12 @@ void QubicleBinary::SetScaleAndOffsetForMatrix(const char* matrixName, float sca
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
-			m_vpMatrices[i]->scale = scale;
-			m_vpMatrices[i]->offsetX = xOffset;
-			m_vpMatrices[i]->offsetY = yOffset;
-			m_vpMatrices[i]->offsetZ = zOffset;
+			m_vpMatrices[i]->m_scale = scale;
+			m_vpMatrices[i]->m_offsetX = xOffset;
+			m_vpMatrices[i]->m_offsetY = yOffset;
+			m_vpMatrices[i]->m_offsetZ = zOffset;
 		}
 	}
 }
@@ -1154,9 +1154,9 @@ float QubicleBinary::GetScale(const char* matrixName)
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
-			return m_vpMatrices[i]->scale;
+			return m_vpMatrices[i]->m_scale;
 		}
 	}
 
@@ -1167,9 +1167,9 @@ glm::vec3 QubicleBinary::GetOffset(const char* matrixName)
 {
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
-			return glm::vec3(m_vpMatrices[i]->offsetX, m_vpMatrices[i]->offsetY, m_vpMatrices[i]->offsetZ);
+			return glm::vec3(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
 		}
 	}
 
@@ -1184,16 +1184,16 @@ void QubicleBinary::SwapMatrix(const char* matrixName, QubicleMatrix* pMatrix, b
 	{
 		if (copyMatrixParams)
 		{
-			pMatrix->nameLength = m_vpMatrices[matrixIndex]->nameLength;
-			pMatrix->name = m_vpMatrices[matrixIndex]->name;
-			pMatrix->boneIndex = m_vpMatrices[matrixIndex]->boneIndex;
-			pMatrix->scale = m_vpMatrices[matrixIndex]->scale;
-			pMatrix->offsetX = m_vpMatrices[matrixIndex]->offsetX;
-			pMatrix->offsetY = m_vpMatrices[matrixIndex]->offsetY;
-			pMatrix->offsetZ = m_vpMatrices[matrixIndex]->offsetZ;
+			pMatrix->m_nameLength = m_vpMatrices[matrixIndex]->m_nameLength;
+			pMatrix->m_name = m_vpMatrices[matrixIndex]->m_name;
+			pMatrix->m_boneIndex = m_vpMatrices[matrixIndex]->m_boneIndex;
+			pMatrix->m_scale = m_vpMatrices[matrixIndex]->m_scale;
+			pMatrix->m_offsetX = m_vpMatrices[matrixIndex]->m_offsetX;
+			pMatrix->m_offsetY = m_vpMatrices[matrixIndex]->m_offsetY;
+			pMatrix->m_offsetZ = m_vpMatrices[matrixIndex]->m_offsetZ;
 		}
 
-		m_vpMatrices[matrixIndex]->isRemoved = false;
+		m_vpMatrices[matrixIndex]->m_isRemoved = false;
 		m_vpMatrices[matrixIndex] = pMatrix;
 	}
 }
@@ -1201,18 +1201,18 @@ void QubicleBinary::SwapMatrix(const char* matrixName, QubicleMatrix* pMatrix, b
 void QubicleBinary::AddQubicleMatrix(QubicleMatrix* pNewMatrix, bool copyMatrixParams)
 {
 	// First check if this matrix already exists
-	QubicleMatrix* pExistingMatrix = GetQubicleMatrix(pNewMatrix->name);
+	QubicleMatrix* pExistingMatrix = GetQubicleMatrix(pNewMatrix->m_name);
 
 	if (pExistingMatrix != nullptr)
 	{
 		// Replace existing matrix
-		SwapMatrix(pNewMatrix->name, pNewMatrix, copyMatrixParams);
+		SwapMatrix(pNewMatrix->m_name, pNewMatrix, copyMatrixParams);
 	}
 	else
 	{
 		// Add new matrix
 		m_vpMatrices.push_back(pNewMatrix);
-		pNewMatrix->isRemoved = false;
+		pNewMatrix->m_isRemoved = false;
 		m_numMatrices++;
 	}
 }
@@ -1221,9 +1221,9 @@ void QubicleBinary::RemoveQubicleMatrix(const char* matrixName)
 {
 	for (unsigned int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
-			m_vpMatrices[i]->isRemoved = true;
+			m_vpMatrices[i]->m_isRemoved = true;
 
 			return;
 		}
@@ -1234,9 +1234,9 @@ void QubicleBinary::SetQubicleMatrixRender(const char* matrixName, bool render)
 {
 	for (unsigned int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		if (strcmp(m_vpMatrices[i]->name, matrixName) == 0)
+		if (strcmp(m_vpMatrices[i]->m_name, matrixName) == 0)
 		{
-			m_vpMatrices[i]->isRemoved = (render == false);
+			m_vpMatrices[i]->m_isRemoved = (render == false);
 
 			return;
 		}
@@ -1250,7 +1250,7 @@ std::string QubicleBinary::GetSubSelectionName(int pickingId)
 
 	if (index >= 0 && index <= m_numMatrices - 1)
 	{
-		return m_vpMatrices[index]->name;
+		return m_vpMatrices[index]->m_name;
 	}
 
 	return "";
@@ -1269,23 +1269,23 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (m_vpMatrices[i]->isRemoved == true)
+		if (m_vpMatrices[i]->m_isRemoved == true)
 		{
 			continue;
 		}
 
 		m_pRenderer->PushMatrix();
 		// Scale for external matrix scale value
-		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->scale, m_vpMatrices[i]->scale, m_vpMatrices[i]->scale);
+		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale);
 
 		// Translate for initial block offset
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->matrixSizeX * 0.5f, -m_vpMatrices[i]->matrixSizeY * 0.5f, -m_vpMatrices[i]->matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
 
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->offsetX, m_vpMatrices[i]->offsetY, m_vpMatrices[i]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
 
 		// Store cull mode
 		CullMode cullMode = m_pRenderer->GetCullMode();
@@ -1319,7 +1319,7 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 		// Store the model matrix
 		if (reflection == false)
 		{
-			m_pRenderer->GetModelMatrix(&m_vpMatrices[i]->modelMatrix);
+			m_pRenderer->GetModelMatrix(&m_vpMatrices[i]->m_modelMatrix);
 		}
 
 		m_pRenderer->PushMatrix();
@@ -1341,11 +1341,11 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 		if (renderOutline || silhouette)
 		{
 			m_pRenderer->EndMeshRender();
-			m_pRenderer->RenderMeshNoColor(m_vpMatrices[i]->pMesh);
+			m_pRenderer->RenderMeshNoColor(m_vpMatrices[i]->m_pMesh);
 		}
 		else
 		{
-			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->pMesh);
+			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->m_pMesh);
 		}
 
 		if (m_meshAlpha < 1.0f)
@@ -1383,7 +1383,7 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 
 	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
-		if (m_vpMatrices[i]->isRemoved == true)
+		if (m_vpMatrices[i]->m_isRemoved == true)
 		{
 			continue;
 		}
@@ -1396,8 +1396,8 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		m_pRenderer->PushMatrix();
 
 		MS3DAnimator* pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::FullBody)];
-		if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetBodyBoneIndex())
+		if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
@@ -1405,23 +1405,23 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
-		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
+		else if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LeftArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
-		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+		else if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::RightArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
-		else if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLegsBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
+		else if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLegsBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
@@ -1436,22 +1436,22 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		if (pVoxelCharacter->IsBreathingAnimationStarted())
 		{
 			float offsetAmount = 0.0f;
-			if (m_vpMatrices[i]->boneIndex != -1)
+			if (m_vpMatrices[i]->m_boneIndex != -1)
 			{
-				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[i]->boneIndex);
+				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[i]->m_boneIndex);
 			}
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, offsetAmount, 0.0f);
 		}
 
 		// Body and hands/shoulders looking direction
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+			if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				vForward.y = 0.0f;
@@ -1477,9 +1477,9 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		}
 
 		// Translate by attached bone matrix
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[i]->boneIndex);
+			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[i]->m_boneIndex);
 			glm::vec3 boneScale = pVoxelCharacter->GetBoneScale();
 			m_pRenderer->ScaleWorldMatrix(boneScale.x, boneScale.y, boneScale.z);
 			m_pRenderer->MultiplyWorldMatrix(boneMatrix);
@@ -1490,9 +1490,9 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		m_pRenderer->RotateWorldMatrix(0.0f, 0.0f, -90.0f);
 
 		// Face looking direction
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetHeadBoneIndex())
+			if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				glm::vec3 vUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -1513,16 +1513,16 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		}
 
 		// Scale for external matrix scale value
-		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->scale, m_vpMatrices[i]->scale, m_vpMatrices[i]->scale);
+		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale);
 
 		// Translate for initial block offset
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->matrixSizeX * 0.5f, -m_vpMatrices[i]->matrixSizeY * 0.5f, -m_vpMatrices[i]->matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
 
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->offsetX, m_vpMatrices[i]->offsetY, m_vpMatrices[i]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
 
 		// Store cull mode
 		CullMode cullMode = m_pRenderer->GetCullMode();
@@ -1556,7 +1556,7 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		// Store the model matrix
 		if (reflection == false)
 		{
-			m_pRenderer->GetModelMatrix(&m_vpMatrices[i]->modelMatrix);
+			m_pRenderer->GetModelMatrix(&m_vpMatrices[i]->m_modelMatrix);
 		}
 
 		// Texture manipulation (for shadow rendering)
@@ -1575,11 +1575,11 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		if (renderOutline || silhouette)
 		{
 			m_pRenderer->EndMeshRender();
-			m_pRenderer->RenderMeshNoColor(m_vpMatrices[i]->pMesh);
+			m_pRenderer->RenderMeshNoColor(m_vpMatrices[i]->m_pMesh);
 		}
 		else
 		{
-			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->pMesh);
+			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->m_pMesh);
 		}
 
 		if (m_meshAlpha < 1.0f)
@@ -1622,12 +1622,12 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 
 	int matrixIndex = GetMatrixIndexForName(matrixName.c_str());
 
-	if (matrixIndex != -1 && m_vpMatrices[matrixIndex]->isRemoved == false)
+	if (matrixIndex != -1 && m_vpMatrices[matrixIndex]->m_isRemoved == false)
 	{
 		m_pRenderer->PushMatrix();
 		MS3DAnimator* pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::FullBody)];
-		if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
-			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetBodyBoneIndex())
+		if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex() ||
+			m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::HeadBody)];
 
@@ -1635,23 +1635,23 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation() * 0.65f, 0.0f, 0.0f);
 			m_pRenderer->TranslateWorldMatrix(0.0f, 0.0f, pVoxelCharacter->GetHeadAndUpperBodyLookTranslate());
 		}
-		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
+		else if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+			m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LeftArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
-		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+		else if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+			m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::RightArmHand)];
 
 			m_pRenderer->RotateWorldMatrix(pVoxelCharacter->GetHeadAndUpperBodyLookRotation(), 0.0f, 0.0f);
 		}
-		else if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLegsBoneIndex() ||
-			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
-			m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
+		else if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLegsBoneIndex() ||
+			m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightFootBoneIndex() ||
+			m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftFootBoneIndex())
 		{
 			pSkeletonToUse = pSkeleton[static_cast<int>(AnimationSections::LegsFeet)];
 
@@ -1664,22 +1664,22 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		if (pVoxelCharacter->IsBreathingAnimationStarted())
 		{
 			float offsetAmount = 0.0f;
-			if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+			if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 			{
-				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[matrixIndex]->boneIndex);
+				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[matrixIndex]->m_boneIndex);
 			}
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, offsetAmount, 0.0f);
 		}
 
 		// Body and hands/shoulders looking direction
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+			if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				vForward.y = 0.0f;
@@ -1705,9 +1705,9 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		}
 
 		// Translate by attached bone matrix
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[matrixIndex]->boneIndex);
+			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[matrixIndex]->m_boneIndex);
 			glm::vec3 boneScale = pVoxelCharacter->GetBoneScale();
 			m_pRenderer->ScaleWorldMatrix(boneScale.x, boneScale.y, boneScale.z);
 			m_pRenderer->MultiplyWorldMatrix(boneMatrix);
@@ -1718,9 +1718,9 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		}
 
 		// Face looking direction
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetHeadBoneIndex())
+			if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				glm::vec3 vUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -1741,16 +1741,16 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		}
 
 		// Scale for external matrix scale value
-		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[matrixIndex]->scale, m_vpMatrices[matrixIndex]->scale, m_vpMatrices[matrixIndex]->scale);
+		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[matrixIndex]->m_scale, m_vpMatrices[matrixIndex]->m_scale, m_vpMatrices[matrixIndex]->m_scale);
 
 		// Translate for initial block offset
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->m_matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeZ * 0.5f);
 
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->offsetX, m_vpMatrices[matrixIndex]->offsetY, m_vpMatrices[matrixIndex]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->m_offsetX, m_vpMatrices[matrixIndex]->m_offsetY, m_vpMatrices[matrixIndex]->m_offsetZ);
 
 		// Store cull mode
 		CullMode cullMode = m_pRenderer->GetCullMode();
@@ -1797,11 +1797,11 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		if (renderOutline || silhouette)
 		{
 			m_pRenderer->EndMeshRender();
-			m_pRenderer->RenderMeshNoColor(m_vpMatrices[matrixIndex]->pMesh);
+			m_pRenderer->RenderMeshNoColor(m_vpMatrices[matrixIndex]->m_pMesh);
 		}
 		else
 		{
-			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[matrixIndex]->pMesh);
+			m_pRenderer->MeshStaticBufferRender(m_vpMatrices[matrixIndex]->m_pMesh);
 		}
 
 		if (m_meshAlpha < 1.0f)
@@ -1893,12 +1893,12 @@ void QubicleBinary::RenderFace(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCh
 		if (useScale)
 		{
 			// Scale for external matrix scale value
-			m_pRenderer->ScaleWorldMatrix(m_vpMatrices[eyesMatrixIndex]->scale, m_vpMatrices[eyesMatrixIndex]->scale, m_vpMatrices[eyesMatrixIndex]->scale);
+			m_pRenderer->ScaleWorldMatrix(m_vpMatrices[eyesMatrixIndex]->m_scale, m_vpMatrices[eyesMatrixIndex]->m_scale, m_vpMatrices[eyesMatrixIndex]->m_scale);
 		}
 		if (useTranslate)
 		{
 			// Translate for external matrix offset value
-			m_pRenderer->TranslateWorldMatrix(m_vpMatrices[eyesMatrixIndex]->offsetX, m_vpMatrices[eyesMatrixIndex]->offsetY, m_vpMatrices[eyesMatrixIndex]->offsetZ);
+			m_pRenderer->TranslateWorldMatrix(m_vpMatrices[eyesMatrixIndex]->m_offsetX, m_vpMatrices[eyesMatrixIndex]->m_offsetY, m_vpMatrices[eyesMatrixIndex]->m_offsetZ);
 		}
 
 		m_pRenderer->TranslateWorldMatrix(eyeOffset.x, eyeOffset.y, eyeOffset.z);
@@ -1964,12 +1964,12 @@ void QubicleBinary::RenderFace(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCh
 	if (useScale)
 	{
 		// Scale for external matrix scale value
-		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[mouthMatrixIndex]->scale, m_vpMatrices[mouthMatrixIndex]->scale, m_vpMatrices[mouthMatrixIndex]->scale);
+		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[mouthMatrixIndex]->m_scale, m_vpMatrices[mouthMatrixIndex]->m_scale, m_vpMatrices[mouthMatrixIndex]->m_scale);
 	}
 	if (useTranslate)
 	{
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[mouthMatrixIndex]->offsetX, m_vpMatrices[mouthMatrixIndex]->offsetY, m_vpMatrices[mouthMatrixIndex]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[mouthMatrixIndex]->m_offsetX, m_vpMatrices[mouthMatrixIndex]->m_offsetY, m_vpMatrices[mouthMatrixIndex]->m_offsetZ);
 	}
 
 	m_pRenderer->TranslateWorldMatrix(mouthOffset.x, mouthOffset.y, mouthOffset.z);
@@ -1989,15 +1989,15 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 
 	for (unsigned int i = 0; i < m_numMatrices; i++)
 	{
-		if (m_vpMatrices[i]->isRemoved == true)
+		if (m_vpMatrices[i]->m_isRemoved == true)
 		{
 			continue;
 		}
 
 		MS3DAnimator* pSkeletonToUse;
 
-		if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-			m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
+		if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+			m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex())
 		{
 			pSkeletonToUse = pSkeletonLeft;
 		}
@@ -2011,22 +2011,22 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 		if (pVoxelCharacter->IsBreathingAnimationStarted())
 		{
 			float offsetAmount = 0.0f;
-			if (m_vpMatrices[i]->boneIndex != -1)
+			if (m_vpMatrices[i]->m_boneIndex != -1)
 			{
-				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[i]->boneIndex);
+				offsetAmount = pVoxelCharacter->GetBreathingAnimationOffsetForBone(m_vpMatrices[i]->m_boneIndex);
 			}
 
 			m_pRenderer->TranslateWorldMatrix(0.0f, offsetAmount, 0.0f);
 		}
 
 		// Body and hands/shoulders looking direction
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-				m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+			if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+				m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				vForward.y = 0.0f;
@@ -2052,9 +2052,9 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 		}
 
 		// Translate by attached bone matrix
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[i]->boneIndex);
+			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[i]->m_boneIndex);
 			glm::vec3 boneScale = pVoxelCharacter->GetBoneScale();
 			m_pRenderer->ScaleWorldMatrix(boneScale.x, boneScale.y, boneScale.z);
 			m_pRenderer->MultiplyWorldMatrix(boneMatrix);
@@ -2065,9 +2065,9 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 		}
 
 		// Face looking direction
-		if (m_vpMatrices[i]->boneIndex != -1)
+		if (m_vpMatrices[i]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[i]->boneIndex == pVoxelCharacter->GetHeadBoneIndex())
+			if (m_vpMatrices[i]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				glm::vec3 vUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -2088,16 +2088,16 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 		}
 
 		// Scale for external matrix scale value
-		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->scale, m_vpMatrices[i]->scale, m_vpMatrices[i]->scale);
+		m_pRenderer->ScaleWorldMatrix(m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale, m_vpMatrices[i]->m_scale);
 
 		// Translate for initial block offset
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->matrixSizeX * 0.5f, -m_vpMatrices[i]->matrixSizeY * 0.5f, -m_vpMatrices[i]->matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
 
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->offsetX, m_vpMatrices[i]->offsetY, m_vpMatrices[i]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
 
 		if (m_isRenderWireFrame)
 		{
@@ -2119,7 +2119,7 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 
 		m_pRenderer->EnableMaterial(m_materialID);
 
-		m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->pMesh);
+		m_pRenderer->MeshStaticBufferRender(m_vpMatrices[i]->m_pMesh);
 
 		// Texture manipulation (for shadow rendering)
 		m_pRenderer->PopTextureMatrix();
@@ -2142,20 +2142,20 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 
 	int matrixIndex = GetMatrixIndexForName(matrixName.c_str());
 
-	if (matrixIndex != -1 && m_vpMatrices[matrixIndex]->isRemoved == false)
+	if (matrixIndex != -1 && m_vpMatrices[matrixIndex]->m_isRemoved == false)
 	{
 		MS3DAnimator* pSkeletonToUse = pSkeleton;
 
 		m_pRenderer->PushMatrix();
 
 		// Body and hands/shoulders looking direction
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
-				m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
+			if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetBodyBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftShoulderBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetLeftHandBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightShoulderBoneIndex() ||
+				m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetRightHandBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				vForward.y = 0.0f;
@@ -2181,9 +2181,9 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 		}
 
 		// Translate by attached bone matrix
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[matrixIndex]->boneIndex);
+			Matrix4 boneMatrix = pSkeletonToUse->GetBoneMatrix(m_vpMatrices[matrixIndex]->m_boneIndex);
 			glm::vec3 boneScale = pVoxelCharacter->GetBoneScale();
 			m_pRenderer->ScaleWorldMatrix(boneScale.x, boneScale.y, boneScale.z);
 			m_pRenderer->MultiplyWorldMatrix(boneMatrix);
@@ -2194,9 +2194,9 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 		}
 
 		// Face looking direction
-		if (m_vpMatrices[matrixIndex]->boneIndex != -1)
+		if (m_vpMatrices[matrixIndex]->m_boneIndex != -1)
 		{
-			if (m_vpMatrices[matrixIndex]->boneIndex == pVoxelCharacter->GetHeadBoneIndex())
+			if (m_vpMatrices[matrixIndex]->m_boneIndex == pVoxelCharacter->GetHeadBoneIndex())
 			{
 				glm::vec3 vForward = normalize(pVoxelCharacter->GetFaceLookingDirection());
 				glm::vec3 vUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -2220,17 +2220,17 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 		if (matrixName == "Helm")
 		{
 			// NOTE : ONLY scale for portrait when we are rendering the helm, the head should stay a normal size.
-			m_pRenderer->ScaleWorldMatrix(m_vpMatrices[matrixIndex]->scale, m_vpMatrices[matrixIndex]->scale, m_vpMatrices[matrixIndex]->scale);
+			m_pRenderer->ScaleWorldMatrix(m_vpMatrices[matrixIndex]->m_scale, m_vpMatrices[matrixIndex]->m_scale, m_vpMatrices[matrixIndex]->m_scale);
 		}
 
 		// Translate for initial block offset
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->m_matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeZ * 0.5f);
 
 		// Translate for external matrix offset value
-		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->offsetX, m_vpMatrices[matrixIndex]->offsetY, m_vpMatrices[matrixIndex]->offsetZ);
+		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->m_offsetX, m_vpMatrices[matrixIndex]->m_offsetY, m_vpMatrices[matrixIndex]->m_offsetZ);
 
 		if (m_isRenderWireFrame)
 		{
@@ -2252,7 +2252,7 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 
 		m_pRenderer->EnableMaterial(m_materialID);
 
-		m_pRenderer->MeshStaticBufferRender(m_vpMatrices[matrixIndex]->pMesh);
+		m_pRenderer->MeshStaticBufferRender(m_vpMatrices[matrixIndex]->m_pMesh);
 
 		// Texture manipulation (for shadow rendering)
 		m_pRenderer->PopTextureMatrix();
