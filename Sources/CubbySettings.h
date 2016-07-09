@@ -33,6 +33,7 @@ public:
 	float GetMountainPersistence() const;
 	float GetMountainScale() const;
 	float GetMountainMultiplier() const;
+	float GetLoaderRadius() const;
 
 	// Load settings
 	void LoadSettings();

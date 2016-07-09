@@ -67,6 +67,11 @@ float CubbySettings::GetMountainMultiplier() const
 	return m_mountainMultiplier;
 }
 
+float CubbySettings::GetLoaderRadius() const
+{
+	return m_loaderRadius;
+}
+
 // Load settings
 void CubbySettings::LoadSettings()
 {

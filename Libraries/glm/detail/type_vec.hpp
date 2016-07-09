@@ -377,7 +377,7 @@ namespace glm
 
 #if(defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef lowp_vec2			vec2;
-	typedef lowp_vec3			vec3;
+	typedef lowp_vec3			glm::vec3vec3;
 	typedef lowp_vec4			vec4;
 #elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
 	typedef mediump_vec2		vec2;
