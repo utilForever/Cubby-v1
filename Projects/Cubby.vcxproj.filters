@@ -207,6 +207,9 @@
     <ClCompile Include="..\Sources\CubbyUpdate.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Blocks\ChunkManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -784,6 +787,9 @@
     </ClInclude>
     <ClInclude Include="..\Libraries\simplex\simplextextures.h">
       <Filter>Libraries\simplex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Blocks\ChunkManager.h">
+      <Filter>Sources\Blocks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
