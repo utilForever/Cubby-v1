@@ -64,6 +64,9 @@
     <Filter Include="Libraries\simplex">
       <UniqueIdentifier>{6db88efe-8c8c-426b-9275-d36d04c0fc98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Particles">
+      <UniqueIdentifier>{b3f17309-0a81-4d54-bbe9-4827fd686815}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -209,6 +212,15 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Blocks\ChunkManager.cpp">
       <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Particles\BlockParticle.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp">
+      <Filter>Sources\Particles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -790,6 +802,15 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Blocks\ChunkManager.h">
       <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Particles\BlockParticle.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h">
+      <Filter>Sources\Particles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
