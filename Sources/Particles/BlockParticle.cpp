@@ -13,10 +13,12 @@
 #include <Utils/Random.h>
 
 #include "BlockParticle.h"
+#include "BlockParticleEmitter.h"
+#include "BlockParticleEffect.h"
 
 // Constructor, Destructor
 BlockParticle::BlockParticle() :
-	m_pChunkManager(nullptr), m_isErase(false), m_isAllowFloorSliding(false),
+	m_isErase(false), m_isAllowFloorSliding(false),
 	m_isRandomStartRotation(false), m_gravityMultiplier(0.0f),
 	m_currentRed(0.0f), m_startRed(0.0f), m_startRedVariance(0.0f), m_endRed(0.0f), m_endRedVariance(0.0f),
 	m_currentGreen(0.0f), m_startGreen(0.0f), m_startGreenVariance(0.0f), m_endGreen(0.0f), m_endGreenVariance(0.0f),
@@ -33,7 +35,8 @@ BlockParticle::BlockParticle() :
 	m_isStartLifeDecayOnCollision(false), m_hasCollided(false),
 	m_gridPositionX(0), m_gridPositionY(0), m_gridPositionZ(0),
 	m_pCachedGridChunk(nullptr), m_pParent(nullptr),
-	m_isCreateEmitters(false), m_pCreatedEmitter(nullptr)
+	m_isCreateEmitters(false), m_pCreatedEmitter(nullptr),
+	m_pChunkManager(nullptr)
 {
 
 }
@@ -43,8 +46,13 @@ BlockParticle::~BlockParticle()
 	if (m_isCreateEmitters == true && m_pCreatedEmitter != nullptr)
 	{
 		m_pCreatedEmitter->m_pParentParticle = nullptr;
-		m_pCreatedEmitter->m_erase = true;
+		m_pCreatedEmitter->m_isErase = true;
 	}
+}
+
+void BlockParticle::SetChunkManager(ChunkManager* pChunkManager)
+{
+	m_pChunkManager = pChunkManager;
 }
 
 void BlockParticle::ClearParticleChunkCacheForChunk(Chunk* pChunk)
@@ -101,7 +109,7 @@ void BlockParticle::CalculateWorldTransformMatrix()
 
 	glm::vec3 pos = m_position;
 
-	if (m_pParent != nullptr && m_pParent->m_particlesFollowEmitter)
+	if (m_pParent != nullptr && m_pParent->m_shouldParticlesFollowEmitter)
 	{
 		// If we have a parent and we are locked to their position
 		pos += m_pParent->m_position;
@@ -126,15 +134,15 @@ void BlockParticle::CalculateWorldTransformMatrix()
 
 	pos = m_positionNoWorldOffset;
 
-	if (m_pParent != nullptr && m_pParent->m_particlesFollowEmitter)
+	if (m_pParent != nullptr && m_pParent->m_shouldParticlesFollowEmitter)
 	{
 		// If we have a parent and we are locked to their position
 		pos += m_pParent->m_position;
 
-		if (m_pParent->m_pParent != NULL)
+		if (m_pParent->m_pParent != nullptr)
 		{
 			// If our emitter's parent effect has a position offset
-			pos += m_pParent->m_pParent->m_position_NoWorldOffset;
+			pos += m_pParent->m_pParent->m_positionNoWorldOffset;
 		}
 	}
 
@@ -220,7 +228,7 @@ void BlockParticle::Update(float dt)
 		return;
 	}
 
-	if (m_pParent != nullptr && m_pParent->m_paused == true)
+	if (m_pParent != nullptr && m_pParent->m_isPaused == true)
 	{
 		// If our parent emitter is paused, return
 		return;
@@ -271,7 +279,7 @@ void BlockParticle::Update(float dt)
 			// Velocity towards point origin
 			glm::vec3 pointOrigin = m_pointOrigin;
 
-			if (m_pParent != nullptr && m_pParent->m_particlesFollowEmitter == false)
+			if (m_pParent != nullptr && m_pParent->m_shouldParticlesFollowEmitter == false)
 			{
 				if (m_pParent->m_pParent != nullptr)
 				{
@@ -330,7 +338,7 @@ void BlockParticle::Update(float dt)
 			glm::vec3 blockPos;
 			glm::vec3 particlePos = m_position;
 
-			if (m_pParent != nullptr && m_pParent->m_particlesFollowEmitter)
+			if (m_pParent != nullptr && m_pParent->m_shouldParticlesFollowEmitter)
 			{
 				particlePos += m_pParent->m_position;
 			}

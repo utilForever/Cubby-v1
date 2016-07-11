@@ -27,7 +27,6 @@ enum class EmitterType
 	Mesh,
 };
 
-// TODO: Declare Getter / Setter
 class BlockParticleEmitter
 {
 public:
@@ -47,10 +46,6 @@ public:
 
 	// Rendering
 	void Render() const;
-
-private:
-	Renderer* m_pRenderer;
-	BlockParticleManager* m_pBlockParticleManager;
 
 	bool m_isErase;
 
@@ -146,6 +141,10 @@ private:
 
 	// Parent particle
 	BlockParticle* m_pParentParticle;
+
+private:
+	Renderer* m_pRenderer;
+	BlockParticleManager* m_pBlockParticleManager;
 };
 
 #endif

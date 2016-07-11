@@ -11,6 +11,7 @@
 
 #include "BlockParticleEffect.h"
 #include "BlockParticleEmitter.h"
+#include "BlockParticleManager.h"
 
 BlockParticleEffect::BlockParticleEffect(Renderer* pRenderer, BlockParticleManager* pBlockParticleManager) :
 	m_pRenderer(pRenderer), m_pBlockParticleManager(pBlockParticleManager),
@@ -40,16 +41,6 @@ void BlockParticleEffect::ClearEmitters()
 			m_vpBlockParticleEmittersList[i]->SetErase(true);
 		}
 	}
-}
-
-void BlockParticleEffect::SetPosition(glm::vec3 pos)
-{
-	m_position = pos;
-}
-
-glm::vec3 BlockParticleEffect::GetPosition() const
-{
-	return m_position;
 }
 
 void BlockParticleEffect::Import(const char* fileName)

@@ -9,9 +9,10 @@
 
 #include <Maths/3DMaths.h>
 
+#include "BlockParticleEffect.h"
 #include "BlockParticleEmitter.h"
+#include "BlockParticleManager.h"
 
-// TODO: Implement Getter / Setter
 // Constructor, Destructor
 BlockParticleEmitter::BlockParticleEmitter(Renderer* pRenderer, BlockParticleManager* pBlockParticleManager) :
 	m_pRenderer(pRenderer), m_pBlockParticleManager(pBlockParticleManager),

@@ -24,6 +24,8 @@ public:
 	BlockParticle();
 	~BlockParticle();
 
+	void SetChunkManager(ChunkManager* pChunkManager);
+
 	void ClearParticleChunkCacheForChunk(Chunk* pChunk);
 
 	void CreateStartingParams();
@@ -38,9 +40,6 @@ public:
 
 	// Update
 	void Update(float dt);
-
-private:
-	ChunkManager* m_pChunkManager;
 
 	bool m_isErase;
 
@@ -155,6 +154,9 @@ private:
 	// Create Emitters instead of particles
 	bool m_isCreateEmitters;
 	BlockParticleEmitter* m_pCreatedEmitter;
+
+private:
+	ChunkManager* m_pChunkManager;
 };
 
 #endif

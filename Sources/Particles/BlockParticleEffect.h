@@ -29,9 +29,6 @@ public:
 
 	void ClearEmitters();
 
-	void SetPosition(glm::vec3 pos);
-	glm::vec3 GetPosition() const;
-
 	void Import(const char* fileName);
 	void Export(const char* fileName);
 
@@ -52,10 +49,6 @@ public:
 
 	// Rendering
 	void Render() const;
-
-private:
-	Renderer* m_pRenderer;
-	BlockParticleManager* m_pBlockParticleManager;
 
 	bool m_isErase;
 
@@ -82,6 +75,10 @@ private:
 	// Playback controls
 	bool m_isStarted;
 	bool m_isPaused;
+
+private:
+	Renderer* m_pRenderer;
+	BlockParticleManager* m_pBlockParticleManager;
 
 	BlockParticlesEmitterList m_vpBlockParticleEmittersList;
 };
