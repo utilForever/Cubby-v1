@@ -222,6 +222,9 @@
     <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp">
       <Filter>Sources\Particles</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -810,6 +813,9 @@
       <Filter>Sources\Particles</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Particles\BlockParticleManager.h">
       <Filter>Sources\Particles</Filter>
     </ClInclude>
   </ItemGroup>
