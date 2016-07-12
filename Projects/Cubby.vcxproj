@@ -182,6 +182,7 @@
     <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp" />
+    <ClCompile Include="..\Sources\Projectile\Projectile.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
@@ -378,6 +379,7 @@
     <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleManager.h" />
+    <ClInclude Include="..\Sources\Projectile\Projectile.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
     <ClInclude Include="..\Sources\Renderer\FrameBuffer.h" />

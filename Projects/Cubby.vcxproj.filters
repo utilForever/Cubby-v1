@@ -67,6 +67,9 @@
     <Filter Include="Sources\Particles">
       <UniqueIdentifier>{b3f17309-0a81-4d54-bbe9-4827fd686815}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Projectile">
+      <UniqueIdentifier>{b2d5ac31-bdaf-400d-a136-a0e66bee7f66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -224,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp">
       <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Projectile\Projectile.cpp">
+      <Filter>Sources\Projectile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -817,6 +823,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Particles\BlockParticleManager.h">
       <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Projectile\Projectile.h">
+      <Filter>Sources\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
