@@ -16,8 +16,7 @@
 
 #include "BlockParticleManager.h"
 
-float vertices[] =
-{
+float vertices[] = {
 	-0.5f, -0.5f, 0.5f, 1.0f, // Front
 	0.5f, -0.5f, 0.5f, 1.0f,
 	0.5f, 0.5f, 0.5f, 1.0f,
@@ -44,8 +43,7 @@ float vertices[] =
 	0.5f, -0.5f, 0.5f, 1.0f
 };
 
-float normals[] =
-{
+float normals[] = {
 	0.0f, 0.0f, 1.0f, 1.0f, // Front
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -72,8 +70,7 @@ float normals[] =
 	0.0f, -1.0f, 0.0f, 1.0f
 };
 
-int indices[] =
-{
+int indices[] = {
 	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
 };
 
@@ -82,7 +79,6 @@ BlockParticleManager::BlockParticleManager(Renderer* pRenderer, ChunkManager* pC
 	m_pRenderer(pRenderer), m_pChunkManager(pChunkManager),
 	m_particleEffectCounter(0), m_renderWireFrame(false), m_instanceRendering(true),
 	m_vertexArray(-1), m_positionBuffer(-1), m_normalBuffer(-1), m_colorBuffer(-1), m_matrixBuffer(-1), m_instanceShader(-1)
-
 {
 
 	bool shaderLoaded = m_pRenderer->LoadGLSLShader("Resources/Shaders/instance.vertex", "Resources/Shaders/instance.pixel", &m_instanceShader);
@@ -358,9 +354,13 @@ int BlockParticleManager::GetNumRenderableParticles(bool noWorldOffset)
 // Creation
 BlockParticle* BlockParticleManager::CreateBlockParticleFromEmitterParams(BlockParticleEmitter* pEmitter)
 {
+	std::random_device rd;
+	std::mt19937 mtRand(rd());
+
 	glm::vec3 posToSpawn = pEmitter->m_position;
 
 	glm::vec3 posOffset;
+
 	if (pEmitter->m_emitterType == EmitterType::Point)
 	{
 		// No position offset since we are emitting from a point
@@ -369,126 +369,129 @@ BlockParticle* BlockParticleManager::CreateBlockParticleFromEmitterParams(BlockP
 	{
 		if (pEmitter->m_isSpawnOutline)
 		{
-			float lRandPoint = float((rand() % 100) / 100.0f);
-			int lRandSide = rand() % 4;
+			float randPoint = static_cast<float>(mtRand() % 100) / 100.0f;
+			int randSide = mtRand() % 4;
 
-			glm::vec3 lSquarePosition;
-			float lHalfLength = pEmitter->m_emitterLengthX;
-			float lHalfWidth = pEmitter->m_emitterLengthZ;
-			if (lRandSide == 0)
+			glm::vec3 squarePosition;
+			float halfLength = pEmitter->m_emitterLengthX;
+			float halfWidth = pEmitter->m_emitterLengthZ;
+			
+			if (randSide == 0)
 			{
-				lSquarePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, 0.0f, -lHalfWidth);
+				squarePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, 0.0f, -halfWidth);
 			}
-			else if (lRandSide == 1)
+			else if (randSide == 1)
 			{
-				lSquarePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, 0.0f, lHalfWidth);
+				squarePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, 0.0f, halfWidth);
 			}
-			else if (lRandSide == 2)
+			else if (randSide == 2)
 			{
-				lSquarePosition = glm::vec3(-lHalfLength, 0.0f, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				squarePosition = glm::vec3(-halfLength, 0.0f, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
-			else if (lRandSide == 3)
+			else if (randSide == 3)
 			{
-				lSquarePosition = glm::vec3(lHalfLength, 0.0f, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				squarePosition = glm::vec3(halfLength, 0.0f, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
 
-			posOffset = lSquarePosition;
+			posOffset = squarePosition;
 		}
 		else
 		{
-			posOffset = glm::vec3(GetRandomNumber(-1, 1, 2)*pEmitter->m_emitterLengthX, 0.0f, GetRandomNumber(-1, 1, 2)*pEmitter->m_emitterLengthZ);
+			posOffset = glm::vec3(GetRandomNumber(-1, 1, 2) * pEmitter->m_emitterLengthX, 0.0f, GetRandomNumber(-1, 1, 2) * pEmitter->m_emitterLengthZ);
 		}
 	}
 	else if (pEmitter->m_emitterType == EmitterType::Cube)
 	{
 		// Get a random point around the cube
-		float lRandPoint = float((rand() % 100) / 100.0f);
-		int lRandEdge = rand() % 12;
+
+		float randPoint = static_cast<float>(mtRand() % 100) / 100.0f;
+		int randEdge = mtRand() % 12;
 
 		if (pEmitter->m_isSpawnOutline)
 		{
-			glm::vec3 lCubePosition;
-			float lHalfLength = pEmitter->m_emitterLengthX;
-			float lHalfHeight = pEmitter->m_emitterLengthY;
-			float lHalfWidth = pEmitter->m_emitterLengthZ;
-			if (lRandEdge == 0)
+			glm::vec3 cubePosition;
+			float halfLength = pEmitter->m_emitterLengthX;
+			float halfHeight = pEmitter->m_emitterLengthY;
+			float halfWidth = pEmitter->m_emitterLengthZ;
+
+			if (randEdge == 0)
 			{
-				lCubePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, -lHalfHeight, -lHalfWidth);
+				cubePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, -halfHeight, -halfWidth);
 			}
-			else if (lRandEdge == 1)
+			else if (randEdge == 1)
 			{
-				lCubePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, -lHalfHeight, lHalfWidth);
+				cubePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, -halfHeight, halfWidth);
 			}
-			else if (lRandEdge == 2)
+			else if (randEdge == 2)
 			{
-				lCubePosition = glm::vec3(-lHalfLength, -lHalfHeight, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				cubePosition = glm::vec3(-halfLength, -halfHeight, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
-			else if (lRandEdge == 3)
+			else if (randEdge == 3)
 			{
-				lCubePosition = glm::vec3(lHalfLength, -lHalfHeight, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				cubePosition = glm::vec3(halfLength, -halfHeight, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
-			else if (lRandEdge == 4)
+			else if (randEdge == 4)
 			{
-				lCubePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, lHalfHeight, -lHalfWidth);
+				cubePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, halfHeight, -halfWidth);
 			}
-			else if (lRandEdge == 5)
+			else if (randEdge == 5)
 			{
-				lCubePosition = glm::vec3(pEmitter->m_emitterLengthX*2.0f * lRandPoint - lHalfLength, lHalfHeight, lHalfWidth);
+				cubePosition = glm::vec3(pEmitter->m_emitterLengthX * 2.0f * randPoint - halfLength, halfHeight, halfWidth);
 			}
-			else if (lRandEdge == 6)
+			else if (randEdge == 6)
 			{
-				lCubePosition = glm::vec3(-lHalfLength, lHalfHeight, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				cubePosition = glm::vec3(-halfLength, halfHeight, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
-			else if (lRandEdge == 7)
+			else if (randEdge == 7)
 			{
-				lCubePosition = glm::vec3(lHalfLength, lHalfHeight, pEmitter->m_emitterLengthZ*2.0f * lRandPoint - lHalfWidth);
+				cubePosition = glm::vec3(halfLength, halfHeight, pEmitter->m_emitterLengthZ * 2.0f * randPoint - halfWidth);
 			}
-			else if (lRandEdge == 8)
+			else if (randEdge == 8)
 			{
-				lCubePosition = glm::vec3(-lHalfLength, pEmitter->m_emitterLengthY*2.0f * lRandPoint - lHalfHeight, -lHalfWidth);
+				cubePosition = glm::vec3(-halfLength, pEmitter->m_emitterLengthY * 2.0f * randPoint - halfHeight, -halfWidth);
 			}
-			else if (lRandEdge == 9)
+			else if (randEdge == 9)
 			{
-				lCubePosition = glm::vec3(-lHalfLength, pEmitter->m_emitterLengthY*2.0f * lRandPoint - lHalfHeight, lHalfWidth);
+				cubePosition = glm::vec3(-halfLength, pEmitter->m_emitterLengthY * 2.0f * randPoint - halfHeight, halfWidth);
 			}
-			else if (lRandEdge == 10)
+			else if (randEdge == 10)
 			{
-				lCubePosition = glm::vec3(lHalfLength, pEmitter->m_emitterLengthY*2.0f * lRandPoint - lHalfHeight, -lHalfWidth);
+				cubePosition = glm::vec3(halfLength, pEmitter->m_emitterLengthY * 2.0f * randPoint - halfHeight, -halfWidth);
 			}
-			else if (lRandEdge == 11)
+			else if (randEdge == 11)
 			{
-				lCubePosition = glm::vec3(lHalfLength, pEmitter->m_emitterLengthY*2.0f * lRandPoint - lHalfHeight, lHalfWidth);
+				cubePosition = glm::vec3(halfLength, pEmitter->m_emitterLengthY * 2.0f * randPoint - halfHeight, halfWidth);
 			}
 
-			posOffset = lCubePosition;
+			posOffset = cubePosition;
 		}
 		else
 		{
-			posOffset = glm::vec3(GetRandomNumber(-1, 1, 2)*pEmitter->m_emitterLengthX, GetRandomNumber(-1, 1, 2)*pEmitter->m_emitterLengthY, GetRandomNumber(-1, 1, 2)*pEmitter->m_emitterLengthZ);
+			posOffset = glm::vec3(GetRandomNumber(-1, 1, 2) * pEmitter->m_emitterLengthX, GetRandomNumber(-1, 1, 2) * pEmitter->m_emitterLengthY, GetRandomNumber(-1, 1, 2) * pEmitter->m_emitterLengthZ);
 		}
 	}
 	else if (pEmitter->m_emitterType == EmitterType::Circle)
 	{
 		// Get a random point int the circle
-		float lRandPoint = float((rand() % 100) / 100.0f);
-		float lAngle = DegreeToRadian(360 * lRandPoint);
+		float randPoint = static_cast<float>(mtRand() % 100) / 100.0f;
+		float angle = DegreeToRadian(360 * randPoint);
 
 		if (pEmitter->m_isSpawnOutline)
 		{
-			posOffset = glm::vec3(cos(lAngle) * pEmitter->m_emitterRadius, 0.0f, sin(lAngle) * pEmitter->m_emitterRadius);
+			posOffset = glm::vec3(cos(angle) * pEmitter->m_emitterRadius, 0.0f, sin(angle) * pEmitter->m_emitterRadius);
 		}
 		else
 		{
-			float lRandDistance = pEmitter->m_emitterRadius * (float((rand() % 100) / 100.0f));
-			posOffset = glm::vec3(cos(lAngle) * lRandDistance, 0.0f, sin(lAngle) * lRandDistance);
+			float randDistance = pEmitter->m_emitterRadius * (static_cast<float>(mtRand() % 100) / 100.0f);
+			posOffset = glm::vec3(cos(angle) * randDistance, 0.0f, sin(angle) * randDistance);
 		}
 	}
 	else if (pEmitter->m_emitterType == EmitterType::Sphere)
 	{
 		// Get a random point around the sphere
-		float z = 2.0f * float((rand() % 1000) / 1000.0f) - 1.0f;
-		float t = 2.0f * PI * float((rand() % 1000) / 1000.0f);
-		float w = sqrt(1.0f - z*z);
+		float z = 2.0f * static_cast<float>((mtRand() % 1000) / 1000.0f) - 1.0f;
+		float t = 2.0f * PI * static_cast<float>((mtRand() % 1000) / 1000.0f);
+		float w = sqrt(1.0f - z * z);
 		float x = w * cos(t);
 		float y = w * sin(t);
 		glm::vec3 outlinePoint = glm::vec3(x, y, z);
@@ -505,36 +508,37 @@ BlockParticle* BlockParticleManager::CreateBlockParticleFromEmitterParams(BlockP
 	}
 	else if (pEmitter->m_emitterType == EmitterType::Mesh)
 	{
+		// Do nothing
 	}
 
 	posToSpawn += posOffset;
 
+	glm::vec3 posToSpawnNoWorldOffset = posToSpawn;
 
-	glm::vec3 posToSpawn_NoWorldOffset = posToSpawn;
 	if (pEmitter->m_shouldParticlesFollowEmitter)
 	{
 		posToSpawn = glm::vec3(0.0f, 0.0f, 0.0f);
-		posToSpawn_NoWorldOffset = glm::vec3(0.0f, 0.0f, 0.0f);
+		posToSpawnNoWorldOffset = glm::vec3(0.0f, 0.0f, 0.0f);
 	}
 	else if (pEmitter->m_pParent != nullptr && pEmitter->m_pParentParticle == nullptr)
 	{
 		// If our emitter's parent effect has a position offset
 		posToSpawn += pEmitter->m_pParent->m_position;
-		posToSpawn_NoWorldOffset += pEmitter->m_pParent->m_positionNoWorldOffset;
+		posToSpawnNoWorldOffset += pEmitter->m_pParent->m_positionNoWorldOffset;
 	}
 
 	// Get the create emitter
-	BlockParticleEmitter* pCreateEmitterParam = nullptr;
 	BlockParticleEmitter* pCreatedEmitter = nullptr;
+
 	if (pEmitter->m_isCreateEmitters)
 	{
-		pCreateEmitterParam = pEmitter->m_pParent->GetEmitter(pEmitter->m_createEmitterName);
+		BlockParticleEmitter* pCreateEmitterParam = pEmitter->m_pParent->GetEmitter(pEmitter->m_createEmitterName);
 
 		pCreatedEmitter = CreateBlockParticleEmitter("CreatedEmitter", glm::vec3(0.0f, 0.0f, 0.0f));
 		pCreatedEmitter->CopyParams(pCreateEmitterParam);
 	}
 
-	BlockParticle* pBlockParticle = CreateBlockParticle(posToSpawn, posToSpawn_NoWorldOffset, pEmitter->m_gravityDirection, pEmitter->m_gravityMultiplier, pEmitter->m_pointOrigin,
+	BlockParticle* pBlockParticle = CreateBlockParticle(posToSpawn, posToSpawnNoWorldOffset, pEmitter->m_gravityDirection, pEmitter->m_gravityMultiplier, pEmitter->m_pointOrigin,
 		pEmitter->m_startScale, pEmitter->m_startScaleVariance, pEmitter->m_endScale, pEmitter->m_endScaleVariance,
 		pEmitter->m_startRed, pEmitter->m_startGreen, pEmitter->m_startBlue, pEmitter->m_startAlpha,
 		pEmitter->m_startRedVariance, pEmitter->m_startGreenVariance, pEmitter->m_startBlueVariance, pEmitter->m_startAlphaVariance,
@@ -678,11 +682,11 @@ BlockParticleEffect* BlockParticleManager::ImportParticleEffect(std::string file
 	return pBlockParticleEffect;
 }
 
-void BlockParticleManager::DestroyParticleEffect(unsigned int particleEffectId)
+void BlockParticleManager::DestroyParticleEffect(unsigned int particleEffectID)
 {
-	for (unsigned int i = 0; i < m_vpBlockParticleEffectsList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEffectsList.size(); ++i)
 	{
-		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectId)
+		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectID)
 		{
 			m_vpBlockParticleEffectsList[i]->ClearEmitters();
 			m_vpBlockParticleEffectsList[i]->m_isErase = true;
@@ -690,25 +694,25 @@ void BlockParticleManager::DestroyParticleEffect(unsigned int particleEffectId)
 	}
 }
 
-void BlockParticleManager::UpdateParticleEffectPosition(unsigned int particleEffectId, glm::vec3 position, glm::vec3 position_noWorldOffset)
+void BlockParticleManager::UpdateParticleEffectPosition(unsigned int particleEffectID, glm::vec3 position, glm::vec3 positionNoWorldOffset)
 {
-	for (unsigned int i = 0; i < m_vpBlockParticleEffectsList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEffectsList.size(); ++i)
 	{
-		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectId)
+		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectID)
 		{
 			m_vpBlockParticleEffectsList[i]->m_position = position;
-			m_vpBlockParticleEffectsList[i]->m_positionNoWorldOffset = position_noWorldOffset;
+			m_vpBlockParticleEffectsList[i]->m_positionNoWorldOffset = positionNoWorldOffset;
 
 			return;
 		}
 	}
 }
 
-void BlockParticleManager::SetRenderNoWoldOffsetViewport(unsigned int particleEffectId, bool renderNoWoldOffsetViewport)
+void BlockParticleManager::SetRenderNoWoldOffsetViewport(unsigned int particleEffectID, bool renderNoWoldOffsetViewport)
 {
-	for (unsigned int i = 0; i < m_vpBlockParticleEffectsList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEffectsList.size(); ++i)
 	{
-		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectId)
+		if (m_vpBlockParticleEffectsList[i]->m_particleEffectID == particleEffectID)
 		{
 			m_vpBlockParticleEffectsList[i]->m_isRenderNoWoldOffsetViewport = renderNoWoldOffsetViewport;
 
@@ -721,7 +725,7 @@ void BlockParticleManager::ExplodeQubicleBinary(QubicleBinary* pQubicleBinary, f
 {
 	if (pQubicleBinary != nullptr)
 	{
-		for (int i = 0; i < pQubicleBinary->GetNumMatrices(); i++)
+		for (int i = 0; i < pQubicleBinary->GetNumMatrices(); ++i)
 		{
 			QubicleMatrix* pMatrix = pQubicleBinary->GetQubicleMatrix(i);
 
@@ -729,13 +733,14 @@ void BlockParticleManager::ExplodeQubicleBinary(QubicleBinary* pQubicleBinary, f
 			float g = 1.0f;
 			float b = 1.0f;
 			float a = 1.0f;
-			bool singleMeshColour = pQubicleBinary->GetSingleMeshColor(&r, &g, &b, &a);
-			ExplodeQubicleMatrix(pMatrix, scale, particleSpawnChance, singleMeshColour, r, g, b, a);
+			bool singleMeshColor = pQubicleBinary->GetSingleMeshColor(&r, &g, &b, &a);
+			
+			ExplodeQubicleMatrix(pMatrix, scale, particleSpawnChance, singleMeshColor, r, g, b, a);
 		}
 	}
 }
 
-void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float scale, int particleSpawnChance, bool allSameColour, float sameR, float sameG, float sameB, float sameA)
+void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float scale, int particleSpawnChance, bool allSameColor, float sameR, float sameG, float sameB, float sameA)
 {
 	if (pMatrix != nullptr)
 	{
@@ -744,25 +749,21 @@ void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float sc
 		float b = 1.0f;
 		float a = 1.0f;
 
-		for (unsigned int x = 0; x < pMatrix->m_matrixSizeX; x++)
+		for (size_t x = 0; x < pMatrix->m_matrixSizeX; ++x)
 		{
-			for (unsigned int y = 0; y < pMatrix->m_matrixSizeY; y++)
+			for (size_t y = 0; y < pMatrix->m_matrixSizeY; ++y)
 			{
-				for (unsigned int z = 0; z < pMatrix->m_matrixSizeZ; z++)
+				for (size_t z = 0; z < pMatrix->m_matrixSizeZ; ++z)
 				{
-					if (pMatrix->GetActive(x, y, z) == false)
-					{
-						continue;
-					}
-					else
+					if (pMatrix->GetActive(x, y, z) == true)
 					{
 						if (GetRandomNumber(0, 100) > particleSpawnChance)
 						{
-							// Don't ALWAYS spawn ALL blocks.
+							// Don't always spawn all blocks.
 							continue;
 						}
 
-						if (allSameColour)
+						if (allSameColor)
 						{
 							r = sameR;
 							g = sameG;
@@ -776,25 +777,27 @@ void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float sc
 
 						a = 1.0f;
 
-						glm::vec3 blockPosition = glm::vec3((float)x, (float)y, (float)z);
+						glm::vec3 blockPosition = glm::vec3(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z));
 
 						float startScale = scale;
 						float endScale = scale;
 						startScale *= GetRandomNumber(90, 100, 2) * 0.01f;
 						endScale *= GetRandomNumber(25, 75, 2) * 0.01f;
 
-						glm::vec3 new_blockPosition;
-						Matrix4::Multiply(pMatrix->m_modelMatrix, blockPosition, new_blockPosition);
-						blockPosition = new_blockPosition;
+						glm::vec3 newBlockPosition;
+						Matrix4::Multiply(pMatrix->m_modelMatrix, blockPosition, newBlockPosition);
+						blockPosition = newBlockPosition;
 
-						float rotX; float rotY; float rotZ;
+						float rotX;
+						float rotY;
+						float rotZ;
 						pMatrix->m_modelMatrix.GetEuler(&rotX, &rotY, &rotZ);
 
-						glm::vec3 center = glm::vec3((float)pMatrix->m_matrixSizeX*0.5f, (float)pMatrix->m_matrixSizeY*0.5f, (float)pMatrix->m_matrixSizeZ*0.5f);
+						glm::vec3 center = glm::vec3(static_cast<float>(pMatrix->m_matrixSizeX) * 0.5f, static_cast<float>(pMatrix->m_matrixSizeY) * 0.5f, static_cast<float>(pMatrix->m_matrixSizeZ) * 0.5f);
 
-						glm::vec3 new_center;
-						Matrix4::Multiply(pMatrix->m_modelMatrix, center, new_center);
-						center = new_center;
+						glm::vec3 newCenter;
+						Matrix4::Multiply(pMatrix->m_modelMatrix, center, newCenter);
+						center = newCenter;
 
 						glm::vec3 toOrigin = normalize(center - blockPosition);
 
@@ -803,6 +806,7 @@ void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float sc
 						glm::vec3 gravity = glm::vec3(0.0f, -1.0f, 0.0f);
 						glm::vec3 pointOrigin = glm::vec3(0.0f, 0.0f, 0.0f);
 						BlockParticle* pParticle = CreateBlockParticle(blockPosition, blockPosition, gravity, 1.5f, pointOrigin, startScale, 0.0f, endScale, 0.0f, r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, lifeTime, 0.0f, 0.0f, 0.0f, -toOrigin + glm::vec3(0.0f, 2.0f, 0.0f), glm::vec3(0.85f, 2.0f, 0.85f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(180.0f, 180.0f, 180.0f), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, false, glm::vec3(rotX, rotY, rotZ), true, false, false, false, nullptr);
+						
 						if (pParticle != nullptr)
 						{
 							pParticle->m_isAllowFloorSliding = false;
@@ -814,40 +818,40 @@ void BlockParticleManager::ExplodeQubicleMatrix(QubicleMatrix* pMatrix, float sc
 	}
 }
 
-bool needs_erasing_blockparticle_effect(BlockParticleEffect* aB)
+bool isNeedErasingBlockParticleEffect(BlockParticleEffect* effect)
 {
-	bool needsErase = aB->m_isErase;
+	bool isNeedErase = effect->m_isErase;
 
-	if (needsErase == true)
+	if (isNeedErase == true)
 	{
-		delete aB;
+		delete effect;
 	}
 
-	return needsErase;
+	return isNeedErase;
 }
 
-bool needs_erasing_blockparticle_emitter(BlockParticleEmitter* aB)
+bool isNeedErasingBlockParticleEmitter(BlockParticleEmitter* emitter)
 {
-	bool needsErase = aB->m_isErase;
+	bool isNeedErase = emitter->m_isErase;
 
-	if (needsErase == true)
+	if (isNeedErase == true)
 	{
-		delete aB;
+		delete emitter;
 	}
 
-	return needsErase;
+	return isNeedErase;
 }
 
-bool needs_erasing_blockparticle(BlockParticle* aB)
+bool isNeedErasingBlockParticle(BlockParticle* particle)
 {
-	bool needsErase = aB->m_isErase;
+	bool isNeedErase = particle->m_isErase;
 
-	if (needsErase == true)
+	if (isNeedErase == true)
 	{
-		delete aB;
+		delete particle;
 	}
 
-	return needsErase;
+	return isNeedErase;
 }
 
 // Rendering modes
@@ -865,55 +869,55 @@ void BlockParticleManager::SetInstancedRendering(bool instance)
 void BlockParticleManager::Update(float dt)
 {
 	// Update block particle emitters
-	m_vpBlockParticleEmittersList.erase(remove_if(m_vpBlockParticleEmittersList.begin(), m_vpBlockParticleEmittersList.end(), needs_erasing_blockparticle_emitter), m_vpBlockParticleEmittersList.end());
+	m_vpBlockParticleEmittersList.erase(remove_if(m_vpBlockParticleEmittersList.begin(), m_vpBlockParticleEmittersList.end(), isNeedErasingBlockParticleEmitter), m_vpBlockParticleEmittersList.end());
 
 	// Add any new emitters
-	for (unsigned int i = 0; i < m_vpBlockParticleEmittersAddList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEmittersAddList.size(); ++i)
 	{
-		BlockParticleEmitter* lpAddedBlockParticleEmitter = m_vpBlockParticleEmittersAddList[i];
-		m_vpBlockParticleEmittersList.push_back(lpAddedBlockParticleEmitter);
+		BlockParticleEmitter* pAddedBlockParticleEmitter = m_vpBlockParticleEmittersAddList[i];
+
+		m_vpBlockParticleEmittersList.push_back(pAddedBlockParticleEmitter);
 	}
+
 	m_vpBlockParticleEmittersAddList.clear();
 
-	for (unsigned int i = 0; i < m_vpBlockParticleEmittersList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEmittersList.size(); ++i)
 	{
-		BlockParticleEmitter* lpBlockParticleEmitter = m_vpBlockParticleEmittersList[i];
+		BlockParticleEmitter* pBlockParticleEmitter = m_vpBlockParticleEmittersList[i];
 
-		lpBlockParticleEmitter->Update(dt);
+		pBlockParticleEmitter->Update(dt);
 	}
-
 
 	// Update particle effects
-	m_vpBlockParticleEffectsList.erase(remove_if(m_vpBlockParticleEffectsList.begin(), m_vpBlockParticleEffectsList.end(), needs_erasing_blockparticle_effect), m_vpBlockParticleEffectsList.end());
+	m_vpBlockParticleEffectsList.erase(remove_if(m_vpBlockParticleEffectsList.begin(), m_vpBlockParticleEffectsList.end(), isNeedErasingBlockParticleEffect), m_vpBlockParticleEffectsList.end());
 
-	for (unsigned int i = 0; i < m_vpBlockParticleEffectsList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEffectsList.size(); ++i)
 	{
-		BlockParticleEffect* lpBlockParticleEffect = m_vpBlockParticleEffectsList[i];
+		BlockParticleEffect* pBlockParticleEffect = m_vpBlockParticleEffectsList[i];
 
-		lpBlockParticleEffect->Update(dt);
+		pBlockParticleEffect->Update(dt);
 	}
 
-
 	// Update block particles
-	for (unsigned int i = 0; i < m_vpBlockParticlesList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticlesList.size(); ++i)
 	{
-		BlockParticle* lpBlockParticle = m_vpBlockParticlesList[i];
+		BlockParticle* pBlockParticle = m_vpBlockParticlesList[i];
 
-		if (lpBlockParticle->m_lifeTime <= 0.0f)
+		if (pBlockParticle->m_lifeTime <= 0.0f)
 		{
-			if (lpBlockParticle->m_waitAfterUpdateCompleteTimer <= 0.0f)
+			if (pBlockParticle->m_waitAfterUpdateCompleteTimer <= 0.0f)
 			{
 				// If we have elapsed our timer, then erase the effect and continue
-				lpBlockParticle->m_isErase = true;
+				pBlockParticle->m_isErase = true;
 
 				continue;
 			}
 		}
 
-		lpBlockParticle->Update(dt);
+		pBlockParticle->Update(dt);
 	}
 
-	m_vpBlockParticlesList.erase(remove_if(m_vpBlockParticlesList.begin(), m_vpBlockParticlesList.end(), needs_erasing_blockparticle), m_vpBlockParticlesList.end());
+	m_vpBlockParticlesList.erase(remove_if(m_vpBlockParticlesList.begin(), m_vpBlockParticlesList.end(), isNeedErasingBlockParticle), m_vpBlockParticlesList.end());
 }
 
 // Rendering
@@ -933,19 +937,21 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 {
 	glShader* pShader = m_pRenderer->GetShader(m_instanceShader);
 
-	GLint in_position = glGetAttribLocation(pShader->GetProgramObject(), "in_position");
-	GLint in_color = glGetAttribLocation(pShader->GetProgramObject(), "in_color");
-	GLint in_model_matrix = glGetAttribLocation(pShader->GetProgramObject(), "in_model_matrix");
+	// GLint inPosition = glGetAttribLocation(pShader->GetProgramObject(), "in_position");
+	GLint inColor = glGetAttribLocation(pShader->GetProgramObject(), "in_color");
+	GLint inModelMatrix = glGetAttribLocation(pShader->GetProgramObject(), "in_model_matrix");
 
-	int numBlockParticles = (int)m_vpBlockParticlesList.size();
+	int numBlockParticles = m_vpBlockParticlesList.size();
 	int numBlockParticlesRender = GetNumRenderableParticles(noWorldOffset);
+	
 	if (numBlockParticlesRender > 0)
 	{
 		float* newMatrices = new float[16 * numBlockParticlesRender];
 		float* newColors = new float[4 * numBlockParticlesRender];
 
 		int counter = 0;
-		for (int i = 0; i < numBlockParticles; i++)
+
+		for (int i = 0; i < numBlockParticles; ++i)
 		{
 			// If we are a emitter creation particle, don't render.
 			if (m_vpBlockParticlesList[i]->m_isCreateEmitters == true)
@@ -976,8 +982,10 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 			newColors[counter + 3] = m_vpBlockParticlesList[i]->m_currentAlpha;
 			counter += 4;
 		}
+
 		counter = 0;
-		for (int i = 0; i < numBlockParticles; i++)
+
+		for (int i = 0; i < numBlockParticles; ++i)
 		{
 			// If we are a emitter creation particle, don't render.
 			if (m_vpBlockParticlesList[i]->m_isCreateEmitters == true)
@@ -1051,31 +1059,35 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 		{
 			glDeleteBuffers(1, &m_colorBuffer);
 		}
+
 		// Bind buffer for colors and copy data into buffer
 		glGenBuffers(1, &m_colorBuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, m_colorBuffer);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * numBlockParticlesRender, newColors, GL_STATIC_READ);
-		glEnableVertexAttribArray(in_color);
-		glVertexAttribPointer(in_color, 4, GL_FLOAT, GL_FALSE, 4 * 4, 0);
-		glVertexAttribDivisor(in_color, 1);
+		glEnableVertexAttribArray(inColor);
+		glVertexAttribPointer(inColor, 4, GL_FLOAT, GL_FALSE, 4 * 4, 0);
+		glVertexAttribDivisor(inColor, 1);
 
 		if (m_matrixBuffer != -1)
 		{
 			glDeleteBuffers(1, &m_matrixBuffer);
 		}
+
 		// Bind buffer for matrix and copy data into buffer
 		glGenBuffers(1, &m_matrixBuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, m_matrixBuffer);
-		for (int i = 0; i < 4; i++)
+
+		for (int i = 0; i < 4; ++i)
 		{
-			glVertexAttribPointer(in_model_matrix + i,		// Location
-				4, GL_FLOAT, GL_FALSE,	// vec4
-				4 * 16,						// Stride
+			glVertexAttribPointer(inModelMatrix + i,	// Location
+				4, GL_FLOAT, GL_FALSE,					// vec4
+				4 * 16,									// Stride
 				reinterpret_cast<void *>(16 * i));		// Start offset
 
-			glEnableVertexAttribArray(in_model_matrix + i);
-			glVertexAttribDivisor(in_model_matrix + i, 1);
+			glEnableVertexAttribArray(inModelMatrix + i);
+			glVertexAttribDivisor(inModelMatrix + i, 1);
 		}
+
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 16 * numBlockParticlesRender, newMatrices, GL_STATIC_READ);
 
 		delete[] newColors;
@@ -1096,12 +1108,12 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 	glUniformMatrix4fv(projMatrixLoc, 1, false, projMat.GetMatrix());
 	glUniformMatrix4fv(viewMatrixLoc, 1, false, viewMat.GetMatrix());
 
-	GLint in_light_position = glGetUniformLocation(pShader->GetProgramObject(), "in_light_position");
-	GLint in_light_const_a = glGetUniformLocation(pShader->GetProgramObject(), "in_light_const_a");
-	GLint in_light_linear_a = glGetUniformLocation(pShader->GetProgramObject(), "in_light_linear_a");
-	GLint in_light_quad_a = glGetUniformLocation(pShader->GetProgramObject(), "in_light_quad_a");
-	GLint in_light_ambient = glGetUniformLocation(pShader->GetProgramObject(), "in_light_ambient");
-	GLint in_light_diffuse = glGetUniformLocation(pShader->GetProgramObject(), "in_light_diffuse");
+	// GLint inLightPosition = glGetUniformLocation(pShader->GetProgramObject(), "in_light_position");
+	// GLint inLightConstA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_const_a");
+	// GLint inLightLinearA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_linear_a");
+	// GLint inLight_quadA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_quad_a");
+	// GLint inLightAmbient = glGetUniformLocation(pShader->GetProgramObject(), "in_light_ambient");
+	// GLint inLightDiffuse = glGetUniformLocation(pShader->GetProgramObject(), "in_light_diffuse");
 
 	if (m_renderWireFrame)
 	{
@@ -1131,18 +1143,17 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 void BlockParticleManager::RenderDefault(bool noWorldOffset)
 {
 	// Render all block particles
-	BlockParticlesList::iterator iterator;
-	for (iterator = m_vpBlockParticlesList.begin(); iterator != m_vpBlockParticlesList.end(); ++iterator)
+	for (auto iter = m_vpBlockParticlesList.begin(); iter != m_vpBlockParticlesList.end(); ++iter)
 	{
-		BlockParticle* lpBlockParticle = (*iterator);
+		BlockParticle* pBlockParticle = *iter;
 
 		// Update the block's alpha depending on the life left
-		for (int i = 0; i < 24; i++)
+		for (int i = 0; i < 24; ++i)
 		{
-			m_vertexBuffer[i].r = lpBlockParticle->m_currentRed;
-			m_vertexBuffer[i].g = lpBlockParticle->m_currentGreen;
-			m_vertexBuffer[i].b = lpBlockParticle->m_currentBlue;
-			m_vertexBuffer[i].a = lpBlockParticle->m_currentAlpha;
+			m_vertexBuffer[i].r = pBlockParticle->m_currentRed;
+			m_vertexBuffer[i].g = pBlockParticle->m_currentGreen;
+			m_vertexBuffer[i].b = pBlockParticle->m_currentBlue;
+			m_vertexBuffer[i].a = pBlockParticle->m_currentAlpha;
 		}
 
 		if (m_renderWireFrame)
@@ -1156,15 +1167,16 @@ void BlockParticleManager::RenderDefault(bool noWorldOffset)
 			m_pRenderer->SetRenderMode(RenderMode::SOLID);
 		}
 
-		RenderBlockParticle(lpBlockParticle, noWorldOffset);
+		RenderBlockParticle(pBlockParticle, noWorldOffset);
 	}
 }
 
-void BlockParticleManager::RenderBlockParticle(BlockParticle* pBlockParticle, bool noWorldOffset)
+void BlockParticleManager::RenderBlockParticle(BlockParticle* pBlockParticle, bool noWorldOffset) const
 {
 	pBlockParticle->CalculateWorldTransformMatrix();
 
 	m_pRenderer->PushMatrix();
+
 	if (noWorldOffset)
 	{
 		m_pRenderer->MultiplyWorldMatrix(pBlockParticle->m_worldMatrixNoPositionOffset);
@@ -1175,17 +1187,22 @@ void BlockParticleManager::RenderBlockParticle(BlockParticle* pBlockParticle, bo
 	}
 
 	Matrix4 worldMatrix;
+
 	m_pRenderer->GetModelMatrix(&worldMatrix);
 
 	m_pRenderer->PushTextureMatrix();
+
 	m_pRenderer->MultiplyWorldMatrix(worldMatrix);
 
 	m_pRenderer->PushMatrix();
+
 	m_pRenderer->SetPrimitiveMode(PrimitiveMode::QUADS);
 	m_pRenderer->RenderFromArray(VertexType::POSITION_NORMAL_COLOR, m_blockMaterialID, 0, 24, 24, 0, &m_vertexBuffer, nullptr, nullptr);
+
 	m_pRenderer->PopMatrix();
 
 	m_pRenderer->PopTextureMatrix();
+
 	m_pRenderer->PopMatrix();
 }
 
@@ -1197,7 +1214,7 @@ void BlockParticleManager::RenderDebug()
 
 void BlockParticleManager::RenderEmitters()
 {
-	for (unsigned int i = 0; i < m_vpBlockParticleEmittersList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEmittersList.size(); ++i)
 	{
 		BlockParticleEmitter* lpBlockParticleEmitter = m_vpBlockParticleEmittersList[i];
 
@@ -1207,7 +1224,7 @@ void BlockParticleManager::RenderEmitters()
 
 void BlockParticleManager::RenderEffects()
 {
-	for (unsigned int i = 0; i < m_vpBlockParticleEffectsList.size(); i++)
+	for (size_t i = 0; i < m_vpBlockParticleEffectsList.size(); ++i)
 	{
 		BlockParticleEffect* lpBlockParticleEffect = m_vpBlockParticleEffectsList[i];
 

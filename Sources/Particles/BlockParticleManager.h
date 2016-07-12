@@ -85,7 +85,7 @@ public:
 	void Render(bool noWorldOffset);
 	void RenderInstanced(bool noWorldOffset);
 	void RenderDefault(bool noWorldOffset);
-	void RenderBlockParticle(BlockParticle* pBlockParticle, bool noWorldOffset);
+	void RenderBlockParticle(BlockParticle* pBlockParticle, bool noWorldOffset) const;
 	void RenderDebug();
 	void RenderEmitters();
 	void RenderEffects();
