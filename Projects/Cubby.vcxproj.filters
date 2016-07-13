@@ -231,6 +231,9 @@
     <ClCompile Include="..\Sources\Projectile\Projectile.cpp">
       <Filter>Sources\Projectile</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp">
+      <Filter>Sources\Projectile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -825,6 +828,9 @@
       <Filter>Sources\Particles</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Projectile\Projectile.h">
+      <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Projectile\ProjectileManager.h">
       <Filter>Sources\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
