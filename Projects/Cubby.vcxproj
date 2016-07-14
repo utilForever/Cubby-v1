@@ -92,7 +92,7 @@
       <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;..\Libraries\fmod\libs\fmod_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -104,7 +104,7 @@
       <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\d\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261d_64.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\d\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261d_64.lib;..\Libraries\fmod\libs\fmod64_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -121,7 +121,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Libraries\glfw\libs\2015\r\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Libraries\glfw\libs\2015\r\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261.lib;..\Libraries\fmod\libs\fmod_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -137,7 +137,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\r\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261_64.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\r\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261_64.lib;..\Libraries\fmod\libs\fmod64_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
