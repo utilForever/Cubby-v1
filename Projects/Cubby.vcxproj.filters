@@ -70,6 +70,12 @@
     <Filter Include="Sources\Projectile">
       <UniqueIdentifier>{b2d5ac31-bdaf-400d-a136-a0e66bee7f66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Scenery">
+      <UniqueIdentifier>{b991beab-8304-4bff-b2be-a67a3aa96393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Skybox">
+      <UniqueIdentifier>{0216fd6e-f5c1-4373-9d64-1d9bb503ae83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -233,6 +239,12 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp">
       <Filter>Sources\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Scenery\SceneryManager.cpp">
+      <Filter>Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Skybox\Skybox.cpp">
+      <Filter>Sources\Skybox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -832,6 +844,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Projectile\ProjectileManager.h">
       <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Scenery\SceneryManager.h">
+      <Filter>Sources\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Skybox\Skybox.h">
+      <Filter>Sources\Skybox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

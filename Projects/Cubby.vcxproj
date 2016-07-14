@@ -195,6 +195,8 @@
     <ClCompile Include="..\Sources\Renderer\Texture.cpp" />
     <ClCompile Include="..\Sources\Renderer\tga.cpp" />
     <ClCompile Include="..\Sources\Renderer\VertexArray.cpp" />
+    <ClCompile Include="..\Sources\Scenery\SceneryManager.cpp" />
+    <ClCompile Include="..\Sources\Skybox\Skybox.cpp" />
     <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +397,8 @@
     <ClInclude Include="..\Sources\Renderer\tga.h" />
     <ClInclude Include="..\Sources\Renderer\VertexArray.h" />
     <ClInclude Include="..\Sources\Renderer\Viewport.h" />
+    <ClInclude Include="..\Sources\Scenery\SceneryManager.h" />
+    <ClInclude Include="..\Sources\Skybox\Skybox.h" />
     <ClInclude Include="..\Sources\Utils\Interpolator.h" />
     <ClInclude Include="..\Sources\Utils\Random.h" />
   </ItemGroup>
