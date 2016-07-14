@@ -89,7 +89,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -115,7 +115,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -149,6 +149,39 @@
     <ClCompile Include="..\Libraries\inih\ini.c" />
     <ClCompile Include="..\Libraries\inih\INIReader.cpp" />
     <ClCompile Include="..\Libraries\libnoise\noiseutils.cpp" />
+    <ClCompile Include="..\Libraries\lua\lapi.c" />
+    <ClCompile Include="..\Libraries\lua\lauxlib.c" />
+    <ClCompile Include="..\Libraries\lua\lbaselib.c" />
+    <ClCompile Include="..\Libraries\lua\lbitlib.c" />
+    <ClCompile Include="..\Libraries\lua\lcode.c" />
+    <ClCompile Include="..\Libraries\lua\lcorolib.c" />
+    <ClCompile Include="..\Libraries\lua\lctype.c" />
+    <ClCompile Include="..\Libraries\lua\ldblib.c" />
+    <ClCompile Include="..\Libraries\lua\ldebug.c" />
+    <ClCompile Include="..\Libraries\lua\ldo.c" />
+    <ClCompile Include="..\Libraries\lua\ldump.c" />
+    <ClCompile Include="..\Libraries\lua\lfunc.c" />
+    <ClCompile Include="..\Libraries\lua\lgc.c" />
+    <ClCompile Include="..\Libraries\lua\linit.c" />
+    <ClCompile Include="..\Libraries\lua\liolib.c" />
+    <ClCompile Include="..\Libraries\lua\llex.c" />
+    <ClCompile Include="..\Libraries\lua\lmathlib.c" />
+    <ClCompile Include="..\Libraries\lua\lmem.c" />
+    <ClCompile Include="..\Libraries\lua\loadlib.c" />
+    <ClCompile Include="..\Libraries\lua\lobject.c" />
+    <ClCompile Include="..\Libraries\lua\lopcodes.c" />
+    <ClCompile Include="..\Libraries\lua\loslib.c" />
+    <ClCompile Include="..\Libraries\lua\lparser.c" />
+    <ClCompile Include="..\Libraries\lua\lstate.c" />
+    <ClCompile Include="..\Libraries\lua\lstring.c" />
+    <ClCompile Include="..\Libraries\lua\lstrlib.c" />
+    <ClCompile Include="..\Libraries\lua\ltable.c" />
+    <ClCompile Include="..\Libraries\lua\ltablib.c" />
+    <ClCompile Include="..\Libraries\lua\ltm.c" />
+    <ClCompile Include="..\Libraries\lua\lundump.c" />
+    <ClCompile Include="..\Libraries\lua\lutf8lib.c" />
+    <ClCompile Include="..\Libraries\lua\lvm.c" />
+    <ClCompile Include="..\Libraries\lua\lzio.c" />
     <ClCompile Include="..\Libraries\simplex\simplexnoise.cpp" />
     <ClCompile Include="..\Libraries\simplex\simplextextures.cpp" />
     <ClCompile Include="..\Libraries\tinythread\tinythread.cpp" />
@@ -349,6 +382,55 @@
     <ClInclude Include="..\Libraries\inih\ini.h" />
     <ClInclude Include="..\Libraries\inih\INIReader.h" />
     <ClInclude Include="..\Libraries\libnoise\noiseutils.h" />
+    <ClInclude Include="..\Libraries\lua\lapi.h" />
+    <ClInclude Include="..\Libraries\lua\lauxlib.h" />
+    <ClInclude Include="..\Libraries\lua\lcode.h" />
+    <ClInclude Include="..\Libraries\lua\lctype.h" />
+    <ClInclude Include="..\Libraries\lua\ldebug.h" />
+    <ClInclude Include="..\Libraries\lua\ldo.h" />
+    <ClInclude Include="..\Libraries\lua\lfunc.h" />
+    <ClInclude Include="..\Libraries\lua\lgc.h" />
+    <ClInclude Include="..\Libraries\lua\llex.h" />
+    <ClInclude Include="..\Libraries\lua\llimits.h" />
+    <ClInclude Include="..\Libraries\lua\lmem.h" />
+    <ClInclude Include="..\Libraries\lua\lobject.h" />
+    <ClInclude Include="..\Libraries\lua\lopcodes.h" />
+    <ClInclude Include="..\Libraries\lua\lparser.h" />
+    <ClInclude Include="..\Libraries\lua\lprefix.h" />
+    <ClInclude Include="..\Libraries\lua\lstate.h" />
+    <ClInclude Include="..\Libraries\lua\lstring.h" />
+    <ClInclude Include="..\Libraries\lua\ltable.h" />
+    <ClInclude Include="..\Libraries\lua\ltm.h" />
+    <ClInclude Include="..\Libraries\lua\lua.h" />
+    <ClInclude Include="..\Libraries\lua\lua.hpp" />
+    <ClInclude Include="..\Libraries\lua\luaconf.h" />
+    <ClInclude Include="..\Libraries\lua\lualib.h" />
+    <ClInclude Include="..\Libraries\lua\lundump.h" />
+    <ClInclude Include="..\Libraries\lua\lvm.h" />
+    <ClInclude Include="..\Libraries\lua\lzio.h" />
+    <ClInclude Include="..\Libraries\selene\selene.h" />
+    <ClInclude Include="..\Libraries\selene\selene\BaseFun.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Class.h" />
+    <ClInclude Include="..\Libraries\selene\selene\ClassFun.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Ctor.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Dtor.h" />
+    <ClInclude Include="..\Libraries\selene\selene\exception.h" />
+    <ClInclude Include="..\Libraries\selene\selene\exotics.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Fun.h" />
+    <ClInclude Include="..\Libraries\selene\selene\function.h" />
+    <ClInclude Include="..\Libraries\selene\selene\LuaName.h" />
+    <ClInclude Include="..\Libraries\selene\selene\LuaRef.h" />
+    <ClInclude Include="..\Libraries\selene\selene\MetatableRegistry.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Obj.h" />
+    <ClInclude Include="..\Libraries\selene\selene\ObjFun.h" />
+    <ClInclude Include="..\Libraries\selene\selene\primitives.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Registry.h" />
+    <ClInclude Include="..\Libraries\selene\selene\ResourceHandler.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Selector.h" />
+    <ClInclude Include="..\Libraries\selene\selene\State.h" />
+    <ClInclude Include="..\Libraries\selene\selene\traits.h" />
+    <ClInclude Include="..\Libraries\selene\selene\Tuple.h" />
+    <ClInclude Include="..\Libraries\selene\selene\util.h" />
     <ClInclude Include="..\Libraries\simplex\simplexnoise.h" />
     <ClInclude Include="..\Libraries\simplex\simplextextures.h" />
     <ClInclude Include="..\Libraries\tinythread\fast_mutex.h" />

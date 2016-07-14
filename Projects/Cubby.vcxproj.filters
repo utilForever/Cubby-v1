@@ -76,6 +76,15 @@
     <Filter Include="Sources\Skybox">
       <UniqueIdentifier>{0216fd6e-f5c1-4373-9d64-1d9bb503ae83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\selene">
+      <UniqueIdentifier>{b0733a73-533d-41ab-8f73-67008d98ab24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\selene\selene">
+      <UniqueIdentifier>{7e49f26b-7ff9-4f9e-8b9d-8d09cf60dc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\lua">
+      <UniqueIdentifier>{49bc633b-4259-4d59-a53a-3571ac8ff09f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -245,6 +254,105 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Skybox\Skybox.cpp">
       <Filter>Sources\Skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lapi.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lauxlib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lbaselib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lbitlib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lcode.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lcorolib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lctype.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ldblib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ldebug.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ldo.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ldump.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lfunc.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lgc.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\linit.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\liolib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\llex.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lmathlib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lmem.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\loadlib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lobject.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lopcodes.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\loslib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lparser.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lstate.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lstring.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lstrlib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ltable.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ltablib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\ltm.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lundump.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lutf8lib.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lvm.c">
+      <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\lua\lzio.c">
+      <Filter>Libraries\lua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -850,6 +958,153 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Skybox\Skybox.h">
       <Filter>Sources\Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene.h">
+      <Filter>Libraries\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\BaseFun.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Class.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\ClassFun.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Ctor.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Dtor.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\exception.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\exotics.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Fun.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\function.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\LuaName.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\LuaRef.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\MetatableRegistry.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Obj.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\ObjFun.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\primitives.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Registry.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\ResourceHandler.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Selector.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\State.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\traits.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\Tuple.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\selene\selene\util.h">
+      <Filter>Libraries\selene\selene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lapi.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lauxlib.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lcode.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lctype.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\ldebug.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\ldo.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lfunc.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lgc.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\llex.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\llimits.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lmem.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lobject.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lopcodes.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lparser.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lprefix.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lstate.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lstring.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\ltable.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\ltm.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lua.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lua.hpp">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\luaconf.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lualib.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lundump.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lvm.h">
+      <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\lua\lzio.h">
+      <Filter>Libraries\lua</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
