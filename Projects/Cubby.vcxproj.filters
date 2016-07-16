@@ -85,6 +85,12 @@
     <Filter Include="Libraries\lua">
       <UniqueIdentifier>{49bc633b-4259-4d59-a53a-3571ac8ff09f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Sounds">
+      <UniqueIdentifier>{bde99f1d-88dd-4837-8b0a-362e44264bda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Mods">
+      <UniqueIdentifier>{3e4d5f25-07cf-48d1-83b1-329f021e9a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -353,6 +359,12 @@
     </ClCompile>
     <ClCompile Include="..\Libraries\lua\lzio.c">
       <Filter>Libraries\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Sounds\SoundManager.cpp">
+      <Filter>Sources\Sounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp">
+      <Filter>Sources\Sounds</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1105,6 +1117,12 @@
     </ClInclude>
     <ClInclude Include="..\Libraries\lua\lzio.h">
       <Filter>Libraries\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Sounds\SoundManager.h">
+      <Filter>Sources\Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Sounds\SoundEffects.h">
+      <Filter>Sources\Sounds</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

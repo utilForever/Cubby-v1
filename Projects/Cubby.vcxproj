@@ -230,6 +230,8 @@
     <ClCompile Include="..\Sources\Renderer\VertexArray.cpp" />
     <ClCompile Include="..\Sources\Scenery\SceneryManager.cpp" />
     <ClCompile Include="..\Sources\Skybox\Skybox.cpp" />
+    <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp" />
+    <ClCompile Include="..\Sources\Sounds\SoundManager.cpp" />
     <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +483,8 @@
     <ClInclude Include="..\Sources\Renderer\Viewport.h" />
     <ClInclude Include="..\Sources\Scenery\SceneryManager.h" />
     <ClInclude Include="..\Sources\Skybox\Skybox.h" />
+    <ClInclude Include="..\Sources\Sounds\SoundEffects.h" />
+    <ClInclude Include="..\Sources\Sounds\SoundManager.h" />
     <ClInclude Include="..\Sources\Utils\Interpolator.h" />
     <ClInclude Include="..\Sources\Utils\Random.h" />
   </ItemGroup>
