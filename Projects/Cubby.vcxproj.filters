@@ -52,9 +52,6 @@
     <Filter Include="Libraries\inih">
       <UniqueIdentifier>{9a432b28-06ec-40bb-9363-28a442ad4f08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Lighting">
-      <UniqueIdentifier>{63e5ac89-6707-4434-b383-9131b6b34a4a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Blocks">
       <UniqueIdentifier>{5c772e0a-fc52-4879-8023-92a2d41c3812}</UniqueIdentifier>
     </Filter>
@@ -85,11 +82,20 @@
     <Filter Include="Libraries\lua">
       <UniqueIdentifier>{49bc633b-4259-4d59-a53a-3571ac8ff09f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Sounds">
-      <UniqueIdentifier>{bde99f1d-88dd-4837-8b0a-362e44264bda}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Mods">
       <UniqueIdentifier>{3e4d5f25-07cf-48d1-83b1-329f021e9a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\TextEffects">
+      <UniqueIdentifier>{f0db5cc3-3f13-4c94-9d5d-22d614120b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Lighting">
+      <UniqueIdentifier>{63e5ac89-6707-4434-b383-9131b6b34a4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Instance">
+      <UniqueIdentifier>{a68addae-5263-424c-9d17-c6c2c4aa821c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Sounds">
+      <UniqueIdentifier>{bde99f1d-88dd-4837-8b0a-362e44264bda}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -365,6 +371,15 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp">
       <Filter>Sources\Sounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Mods\ModsManager.cpp">
+      <Filter>Sources\Mods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Instance\InstanceManager.cpp">
+      <Filter>Sources\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\TextEffects\AnimatedText.cpp">
+      <Filter>Sources\TextEffects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1123,6 +1138,15 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Sounds\SoundEffects.h">
       <Filter>Sources\Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Mods\ModsManager.h">
+      <Filter>Sources\Mods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Instance\InstanceManager.h">
+      <Filter>Sources\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\TextEffects\AnimatedText.h">
+      <Filter>Sources\TextEffects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

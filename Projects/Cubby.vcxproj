@@ -193,6 +193,7 @@
     <ClCompile Include="..\Sources\CubbySettings.cpp" />
     <ClCompile Include="..\Sources\CubbyUpdate.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
+    <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
     <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp" />
     <ClCompile Include="..\Sources\Lighting\LightingManager.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
@@ -211,6 +212,7 @@
     <ClCompile Include="..\Sources\Models\VoxelCharacter.cpp" />
     <ClCompile Include="..\Sources\Models\VoxelObject.cpp" />
     <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp" />
+    <ClCompile Include="..\Sources\Mods\ModsManager.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticle.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp" />
@@ -232,6 +234,7 @@
     <ClCompile Include="..\Sources\Skybox\Skybox.cpp" />
     <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp" />
     <ClCompile Include="..\Sources\Sounds\SoundManager.cpp" />
+    <ClCompile Include="..\Sources\TextEffects\AnimatedText.cpp" />
     <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -444,6 +447,7 @@
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
+    <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
     <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
     <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
@@ -462,6 +466,7 @@
     <ClInclude Include="..\Sources\Models\VoxelCharacter.h" />
     <ClInclude Include="..\Sources\Models\VoxelObject.h" />
     <ClInclude Include="..\Sources\Models\VoxelWeapon.h" />
+    <ClInclude Include="..\Sources\Mods\ModsManager.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticle.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h" />
@@ -485,6 +490,7 @@
     <ClInclude Include="..\Sources\Skybox\Skybox.h" />
     <ClInclude Include="..\Sources\Sounds\SoundEffects.h" />
     <ClInclude Include="..\Sources\Sounds\SoundManager.h" />
+    <ClInclude Include="..\Sources\TextEffects\AnimatedText.h" />
     <ClInclude Include="..\Sources\Utils\Interpolator.h" />
     <ClInclude Include="..\Sources\Utils\Random.h" />
   </ItemGroup>
