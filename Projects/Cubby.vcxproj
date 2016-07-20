@@ -235,6 +235,7 @@
     <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp" />
     <ClCompile Include="..\Sources\Sounds\SoundManager.cpp" />
     <ClCompile Include="..\Sources\TextEffects\AnimatedText.cpp" />
+    <ClCompile Include="..\Sources\TextEffects\TextEffectsManager.cpp" />
     <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +492,7 @@
     <ClInclude Include="..\Sources\Sounds\SoundEffects.h" />
     <ClInclude Include="..\Sources\Sounds\SoundManager.h" />
     <ClInclude Include="..\Sources\TextEffects\AnimatedText.h" />
+    <ClInclude Include="..\Sources\TextEffects\TextEffectsManager.h" />
     <ClInclude Include="..\Sources\Utils\Interpolator.h" />
     <ClInclude Include="..\Sources\Utils\Random.h" />
   </ItemGroup>
