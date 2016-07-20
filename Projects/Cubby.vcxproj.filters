@@ -97,6 +97,9 @@
     <Filter Include="Sources\Sounds">
       <UniqueIdentifier>{bde99f1d-88dd-4837-8b0a-362e44264bda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Items">
+      <UniqueIdentifier>{588a5eec-06fa-4f20-9ce5-7a949ab6b64c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -1153,6 +1156,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\TextEffects\TextEffectsManager.h">
       <Filter>Sources\TextEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Items\ItemsEnum.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Items\EquipmentEnum.h">
+      <Filter>Sources\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

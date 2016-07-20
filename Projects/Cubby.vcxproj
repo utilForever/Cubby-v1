@@ -449,6 +449,8 @@
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
+    <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />
+    <ClInclude Include="..\Sources\Items\ItemsEnum.h" />
     <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
     <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />
