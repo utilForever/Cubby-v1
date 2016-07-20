@@ -3,8 +3,8 @@
 > Project Name: Cubby
 > Author: Chan-Ho Chris Ohk
 > Purpose
->    An enum list of all of the equipment in the game, used for equipment
->    tracking and equipment specific functionality.
+>    An enum list of all of the items in the game, used for item tracking
+>    and item specific functionality.
 > Created Time: 2016/07/21
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
@@ -12,110 +12,61 @@
 #ifndef CUBBY_ITEMS_ENUM_H
 #define CUBBY_ITEMS_ENUM_H
 
-enum class Equipment
+enum class Item
 {
 	None = 0,
 
-	// Weapons
-	NormalPickaxe,
+	// Dropped item in the world
+	DroppedItem,
+
+	// Herts and coins dropped from killing enemies
+	Coin,
+	Heart,
+
+	// Zombie gib
+	Gib,
+
+	// Interactable items
+	Tombstone,
+	Chest,
 	Torch,
-	Hammer,
-	MageStaff,
-	NecroStaff,
-	PriestStaff,
-	DruidStaff,
-	TwoHandedSword,
-	Boomerang,
-	Bomb,
-	KnifeLeft,
-	KnifeRight,
-	FireballHandLeft,
-	FireballHandRight,
-	Mace,
-	Sickle,
-	DragonBow,
+	Furnace,
+	Anvil,
+	QuestBoard,
+	CampFire,
+	Mannequin,
 
-	// Equipment
-	BlacksmithGloves,
-	NormalBoots,
-	NormalGloves,
-	NormalShoulders,
-	RocketBoots,
-	RegrowthBoots,
+	// Ingredients
+	SlimeJelly,
+	BeeWing,
+	Bone,
 
-	// Wooden
-	WoodenSword,
-	WoodenShield,
-	WoodenBow,
-	WoodenHelm,
-	WoodenArmor,
-	WoodenPants,
-	WoodenGloves,
-	WoodenBoots,
-	WoodenShoulders,
+	// Ore and mining
+	CopperVein,
+	CopperOre,
+	CopperBar,
+	IronVein,
+	IronOre,
+	IronBar,
+	SilverVein,
+	SilverOre,
+	SilverBar,
+	GoldVein,
+	GoldOre,
+	GoldBar,
 
-	// Cooper
-	// TODO: Add equipments
+	// World blocks
+	BlockGrass,
+	BlockDirt,
+	BlockStone,
+	BlockWood,
+	BlockLeaf,
+	BlockSand,
+	BlockCactus,
+	BlockRock,
+	BlockSnow,
 
-	// Iron
-	IronSword,
-	IronShoeld,
-	IronHelm,
-	IronArmor,
-	IronPants,
-	IronGloves,
-	IronBoots,
-	IronShoulders,
-
-	// Steel
-	SteelHelm,
-	SteelArmor,
-	SteelPants,
-	SteelGloves,
-	SteelBoots,
-	SteelShoulders,
-
-	// Silver
-	// TODO: Add equipments
-
-	// Gold
-	// TODO: Add equipments
-
-	// Ash
-	AshSword,
-	AshHelm,
-	AshArmor,
-	AshPants,
-	AshGloves,
-	AshBoots,
-	AshShoulders,
-
-	// Bone
-	BoneSword,
-	BoneHelm,
-	BoneArmor,
-	BonePants,
-	BoneGloves,
-	BoneBoots,
-	BoneShoulders,
-
-	// Ice
-	IceHelm,
-	IceArmor,
-	IcePants,
-	IceGloves,
-	IceBoots,
-	IceShoulders,
-
-	// Spike
-	SpikeHelm,
-	SpikeArmor,
-	SpikePants,
-	SpikeGloves,
-	SpikeBoots,
-	SpikeShoulders,
-
-	NUM_EQUIPMENT,
+	NUM_ITEMS,
 };
 
 #endif
