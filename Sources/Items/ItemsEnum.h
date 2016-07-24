@@ -12,7 +12,7 @@
 #ifndef CUBBY_ITEMS_ENUM_H
 #define CUBBY_ITEMS_ENUM_H
 
-enum class Item
+enum class ItemType
 {
 	None = 0,
 
