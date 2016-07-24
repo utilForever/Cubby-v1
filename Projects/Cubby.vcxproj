@@ -194,6 +194,8 @@
     <ClCompile Include="..\Sources\CubbyUpdate.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
+    <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
+    <ClCompile Include="..\Sources\Items\Item.cpp" />
     <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp" />
     <ClCompile Include="..\Sources\Lighting\LightingManager.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
@@ -449,7 +451,9 @@
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
+    <ClInclude Include="..\Sources\Inventory\InventoryManager.h" />
     <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />
+    <ClInclude Include="..\Sources\Items\Item.h" />
     <ClInclude Include="..\Sources\Items\ItemsEnum.h" />
     <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
     <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
