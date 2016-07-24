@@ -29,7 +29,7 @@ public:
 	unsigned int GetLightID() const;
 	float GetLifeTime() const;
 	float GetMaxLifeTime() const;
-	bool GetIsDyingLight() const;
+	bool IsDyingLight() const;
 
 	void SetPosition(glm::vec3 position);
 	void SetRadius(float radius);
@@ -38,7 +38,7 @@ public:
 	void SetLightID(unsigned int lightID);
 	void SetLifeTime(float lifeTime);
 	void SetMaxLifeTime(float maxLifeTime);
-	void SetIsDyingLight(bool isDyingLight);
+	void SetDyingLight(bool isDyingLight);
 
 	// Erase operations
 	void SetErase(bool isNeedErase);
