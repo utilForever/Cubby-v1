@@ -78,7 +78,7 @@ void LightingManager::AddDyingLight(glm::vec3 position, float radius, float diff
 
 	pNewLight->SetLifeTime(lifeTime);
 	pNewLight->SetMaxLifeTime(lifeTime);
-	pNewLight->SetIsDyingLight(true);
+	pNewLight->SetDyingLight(true);
 	
 	*pID = m_lightIndexCounter;
 
