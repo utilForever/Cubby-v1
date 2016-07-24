@@ -12,7 +12,7 @@
 #ifndef CUBBY_EQUIPMENT_ENUM_H
 #define CUBBY_EQUIPMENT_ENUM_H
 
-enum class Equipment
+enum class EquipmentType
 {
 	None = 0,
 
