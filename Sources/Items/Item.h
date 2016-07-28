@@ -81,26 +81,26 @@ public:
 
 	// Accessors / Setters
 	void SetPosition(glm::vec3 pos);
-	glm::vec3 GetPosition();
+	glm::vec3 GetPosition() const;
 	void SetVelocity(glm::vec3 vel);
-	glm::vec3 GetVelocity();
+	glm::vec3 GetVelocity() const;
 	void SetRotation(glm::vec3 rot);
-	glm::vec3 GetRotation();
+	glm::vec3 GetRotation() const;
 	void SetAngularVelocity(glm::vec3 angvel);
-	glm::vec3 GetAngularVelocity();
+	glm::vec3 GetAngularVelocity() const;
 	void SetGravityDirection(glm::vec3 dir);
-	glm::vec3 GetGravityDirection();
-	float GetScale();
-	float GetRadius();
-	glm::vec3 GetCenter();
+	glm::vec3 GetGravityDirection() const;
+	float GetScale() const;
+	float GetRadius() const;
+	glm::vec3 GetCenter() const;
 
 	// Inventory item params
 	void SetDroppedItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, bool left, bool right, const char* title, const char* description, float r, float g, float b, int quantity);
 	void SetDroppedItem(InventoryItem* pItem);
-	InventoryItem* GetDroppedInventoryItem();
+	InventoryItem* GetDroppedInventoryItem() const;
 
 	// Collectible
-	bool IsCollectible();
+	bool IsCollectible() const;
 	void SetIsCollectible(bool collect);
 	void SetCollectionDelay(float delay);
 	bool IsItemPickedUp();
