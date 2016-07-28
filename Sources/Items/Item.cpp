@@ -253,3 +253,180 @@ void Item::RemoveItemSpawner(ItemSpawner* pSpawner)
 		m_pParentItemSpawner = nullptr;
 	}
 }
+
+// Accessors / Setters
+void Item::SetPosition(glm::vec3 pos)
+{
+	m_position = pos;
+}
+
+glm::vec3 Item::GetPosition() const
+{
+	return m_position;
+}
+
+void Item::SetVelocity(glm::vec3 vel)
+{
+	m_velocity = vel;
+}
+
+glm::vec3 Item::GetVelocity() const
+{
+	return m_velocity;
+}
+
+void Item::SetRotation(glm::vec3 rot)
+{
+	m_rotation = rot;
+}
+
+glm::vec3 Item::GetRotation() const
+{
+	return m_rotation;
+}
+
+void Item::SetAngularVelocity(glm::vec3 angvel)
+{
+	m_angularVelocity = angvel;
+}
+
+glm::vec3 Item::GetAngularVelocity() const
+{
+	return m_angularVelocity;
+}
+
+void Item::SetGravityDirection(glm::vec3 dir)
+{
+	m_gravityDirection = dir;
+
+	if (length(m_gravityDirection) >= 0.0001f)
+	{
+		m_gravityDirection = normalize(m_gravityDirection);
+	}
+}
+
+glm::vec3 Item::GetGravityDirection() const
+{
+	return m_gravityDirection;
+}
+
+float Item::GetScale() const
+{
+	return m_renderScale;
+}
+
+float Item::GetRadius() const
+{
+	return m_radius;
+}
+
+glm::vec3 Item::GetCenter() const
+{
+	glm::vec3 center = m_position + (m_pVoxelItem->GetCenter() * GetScale());
+	return center;
+}
+
+// Inventory item params
+void Item::SetDroppedItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, bool left, bool right, const char* title, const char* description, float r, float g, float b, int quantity)
+{
+	if (m_droppedInventoryItem == nullptr)
+	{
+		m_droppedInventoryItem = new InventoryItem();
+	}
+
+	m_droppedInventoryItem->m_fileName = fileName;
+	m_droppedInventoryItem->m_IconfileName = iconFileName;
+	m_droppedInventoryItem->m_title = title;
+	m_droppedInventoryItem->m_description = description;
+
+	m_droppedInventoryItem->m_itemType = itemType;
+
+	m_droppedInventoryItem->m_item = item;
+
+	m_droppedInventoryItem->m_status = status;
+
+	m_droppedInventoryItem->m_equipSlot = equipSlot;
+
+	m_droppedInventoryItem->m_itemQuality = itemQuality;
+
+	m_droppedInventoryItem->m_left = left;
+	m_droppedInventoryItem->m_right = right;
+
+	m_droppedInventoryItem->m_placementR = r;
+	m_droppedInventoryItem->m_placementG = g;
+	m_droppedInventoryItem->m_placementB = b;
+
+	m_droppedInventoryItem->m_lootSlotX = -1;
+	m_droppedInventoryItem->m_lootSlotY = -1;
+
+	m_droppedInventoryItem->m_equipped = false;
+
+	m_droppedInventoryItem->m_scale = 1.0f;
+	m_droppedInventoryItem->m_offsetX = 0.0f;
+	m_droppedInventoryItem->m_offsetY = 0.0f;
+	m_droppedInventoryItem->m_offsetZ = 0.0f;
+
+	m_droppedInventoryItem->m_quantity = quantity;
+
+	m_droppedInventoryItem->m_remove = false;
+}
+
+void Item::SetDroppedItem(InventoryItem* pItem)
+{
+	SetDroppedItem(pItem->m_fileName.c_str(), pItem->m_IconfileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality,
+		pItem->m_left, pItem->m_right, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity);
+}
+
+InventoryItem* Item::GetDroppedInventoryItem() const
+{
+	return m_droppedInventoryItem;
+}
+
+// Collectible
+bool Item::IsCollectible() const
+{
+	return m_isCollectible && m_collectionDelay <= 0.0f;
+}
+
+void Item::SetIsCollectible(bool collect)
+{
+	m_isCollectible = collect;
+}
+
+void Item::SetCollectionDelay(float delay)
+{
+	m_collectionDelay = delay;
+}
+
+bool Item::IsItemPickedUp()
+{
+	return m_itemPickup;
+}
+
+void Item::SetPickupGotoPosition(glm::vec3 pickupPos)
+{
+	m_autoDisappear = false;
+	m_itemPickup = true;
+	m_pickupPos = pickupPos;
+}
+
+// Auto disappear
+void Item::SetAutoDisappear(float disappearTime)
+{
+	m_autoDisappear = true;
+	m_autoDisappearTimer = disappearTime;
+}
+
+// Animation
+bool Item::IsStillAnimating()
+{
+	for (int animatedSectionsIndex = 0; animatedSectionsIndex < m_pVoxelItem->GetNumAimatedSections(); animatedSectionsIndex++)
+	{
+		if (m_pVoxelItem->HasSubSectionAnimationFinished(animatedSectionsIndex) == false)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
