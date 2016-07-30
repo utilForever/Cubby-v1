@@ -177,17 +177,17 @@ public:
 	void Update(float dt);
 	void UpdatePhysics(float dt);
 	void UpdateTimers(float dt);
-	void UpdatePlayerMagnet(float dt);
-	void UpdateItemLights(float dt);
-	void UpdateItemParticleEffects(float dt);
+	void UpdatePlayerMagnet();
+	void UpdateItemLights() const;
+	void UpdateItemParticleEffects() const;
 
 	// Rendering
-	void Render(bool outline, bool reflection, bool silhouette);
+	void Render(bool outline, bool reflection, bool silhouette) const;
 	void RenderDebug();
 	void RenderCollisionRegions();
 
 protected:
-	static void _PickupAnimationFinished(void *apData);
+	static void _PickupAnimationFinished(void *pData);
 	void PickupAnimationFinished();
 
 private:
