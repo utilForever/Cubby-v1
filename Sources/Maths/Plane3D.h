@@ -21,6 +21,9 @@ public:
 	Plane3D(glm::vec3 v1, glm::vec3 v2, glm::vec3 v3);
 	Plane3D(float a, float b, float c, float d);
 
+	// Getter
+	glm::vec3 GetNormal() const;
+
 	// Operations
 	float GetPointDistance(glm::vec3 point) const;
 

@@ -57,6 +57,12 @@ Plane3D::Plane3D(float a, float b, float c, float d)
 	this->d = d / vLength;
 }
 
+// Getter
+glm::vec3 Plane3D::GetNormal() const
+{
+	return m_normal;
+}
+
 // Operations
 float Plane3D::GetPointDistance(glm::vec3 point) const
 {
