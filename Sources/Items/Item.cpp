@@ -16,8 +16,10 @@
 #include <Lighting/LightingManager.h>
 #include <Maths/3DMaths.h>
 #include <Models/VoxelObject.h>
+#include <Utils/Random.h>
 
 #include "Item.h"
+#include <CubbyGame.h>
 
 // Constructor, Destructor
 Item::Item(Renderer* pRenderer, ChunkManager* pChunkManager, QubicleBinaryManager* pQubicleBinaryManager, std::string itemTitle, ItemType itemType, float scale) :
@@ -1055,4 +1057,230 @@ void Item::UpdateCollisionRadius()
 float Item::GetCollisionRadius() const
 {
 	return m_collisionRadius;
+}
+
+// Interaction
+void Item::SetInteractable(bool interactable)
+{
+	m_interactable = interactable;
+}
+
+bool Item::IsInteractable() const
+{
+	return m_interactable;
+}
+
+bool Item::IsInteracting() const
+{
+	return m_itemInteracting;
+}
+
+void Item::Interact()
+{
+	m_interactCount++;
+
+	bool isNeedErase = false;
+	bool spawnSubItems = false;
+	bool createHitEffect = false;
+	bool createCrumbleBlockParticles = false;
+
+	if (m_interactCount < m_maxInteractCount)
+	{
+		bool changeItemModel = false;
+
+		char itemFileName[64];
+		if (m_itemType == ItemType::CopperVein)
+		{
+			changeItemModel = true;
+			spawnSubItems = true;
+			createHitEffect = true;
+			createCrumbleBlockParticles = true;
+			sprintf(itemFileName, "Resources/gamedata/items/CopperVein/CopperVein%i.item", m_interactCount);
+		}
+		if (m_itemType == ItemType::IronVein)
+		{
+			changeItemModel = true;
+			spawnSubItems = true;
+			createHitEffect = true;
+			createCrumbleBlockParticles = true;
+			sprintf(itemFileName, "Resources/gamedata/items/IronVein/IronVein%i.item", m_interactCount);
+		}
+		if (m_itemType == ItemType::SilverVein)
+		{
+			changeItemModel = true;
+			spawnSubItems = true;
+			createHitEffect = true;
+			createCrumbleBlockParticles = true;
+			sprintf(itemFileName, "Resources/gamedata/items/SilverVein/SilverVein%i.item", m_interactCount);
+		}
+		if (m_itemType == ItemType::GoldVein)
+		{
+			changeItemModel = true;
+			spawnSubItems = true;
+			createHitEffect = true;
+			createCrumbleBlockParticles = true;
+			sprintf(itemFileName, "Resources/gamedata/items/GoldVein/GoldVein%i.item", m_interactCount);
+		}
+
+		if (changeItemModel)
+		{
+			delete m_pVoxelItem;
+			m_pVoxelItem = new VoxelWeapon(m_pRenderer, m_pQubicleBinaryManager);
+			m_pVoxelItem->SetVoxelCharacterParent(nullptr);
+			m_pVoxelItem->LoadWeapon(itemFileName, false);
+		}
+	}
+	else
+	{
+		if (m_itemType == ItemType::CopperVein || m_itemType == ItemType::IronVein || m_itemType == ItemType::SilverVein || m_itemType == ItemType::GoldVein)
+		{
+			isNeedErase = true;
+			spawnSubItems = true;
+			createHitEffect = true;
+		}
+	}
+
+	// Chest open/close animation
+	if (m_itemType == ItemType::Chest)
+	{
+		m_pVoxelItem->StartSubSectionAnimation();
+
+		if (m_itemInteracting)
+		{
+			m_itemInteracting = false;
+		}
+		else
+		{
+			if (m_interactCount == m_maxInteractCount)
+			{
+				SpawnSubItems();
+			}
+
+			m_itemInteracting = true;
+		}
+	}
+
+	// TODO: Sitting in chair
+	//if(m_itemType == ItemType::Chair)
+	//{
+	//	m_pPlayer->SetPosition(m_position + vec3(0.0f, 0.01f, 0.0f));
+	//	m_pPlayer->SetRotation(m_rotation.y);
+	//	m_pPlayer->SetSitting(true);
+	//}
+
+	// Spawn sub items
+	if (spawnSubItems)
+	{
+		SpawnSubItems();
+	}
+
+	// Crumble particle effects
+	if (createCrumbleBlockParticles)
+	{
+		// Create some block particle effects for the crumbling ore veins
+		int numCrubleBlocks = 10;
+		for (int i = 0; i < numCrubleBlocks; i++)
+		{
+			float startScale = m_renderScale;
+			float endScale = m_renderScale;
+			startScale *= GetRandomNumber(90, 100, 2) * 0.01f;
+			endScale *= GetRandomNumber(25, 75, 2) * 0.01f;
+			float lifeTime = 4.0f + GetRandomNumber(-100, 200, 1) * 0.0075f;
+			glm::vec3 gravity = glm::vec3(0.0f, -1.0f, 0.0f);
+			glm::vec3 pointOrigin = glm::vec3(0.0f, 0.0f, 0.0f);
+			float r = 0.49f; float g = 0.44f; float b = 0.44f; float a = 1.0f;
+			glm::vec3 spawnPos = GetCenter() + glm::vec3(GetRandomNumber(-1, 1, 2) * 0.5f, GetRandomNumber(-1, 1, 2) * 0.5f, GetRandomNumber(-1, 1, 2) * 0.5f);
+			
+			BlockParticle* pParticle = m_pBlockParticleManager->CreateBlockParticle(spawnPos, spawnPos, gravity, 1.5f, pointOrigin, startScale, 0.0f, endScale, 0.0f, r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, lifeTime, 0.0f, 0.0f, 0.0f, glm::vec3(0.0f, 3.0f, 0.0f), glm::vec3(1.85f, 3.0f, 1.85f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(180.0f, 180.0f, 180.0f), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, true, glm::vec3(0.0f, 0.0f, 0.0f), true, false, false, false, nullptr);
+			if (pParticle != nullptr)
+			{
+				pParticle->m_isAllowFloorSliding = true;
+			}
+		}
+	}
+
+	// Do a hit particle effect
+	if (createHitEffect)
+	{
+		glm::vec3 direction = GetCenter() - m_pPlayer->GetCenter();
+		glm::vec3 hitParticlePos = GetCenter() - (normalize(direction) * (m_radius*0.5f));
+		unsigned int effectID = -1;
+		
+		BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
+		pBlockParticleEffect->PlayEffect();
+	}
+
+	if (isNeedErase)
+	{
+		// Explode the item
+		Explode();
+
+		// Erase
+		SetErase(true);
+	}
+}
+
+void Item::SpawnSubItems()
+{
+	int numItems = GetRandomNumber(2, 4);
+
+	if (m_itemType == ItemType::Chest)
+	{
+		// Spawn more coins
+		numItems += 3;
+	}
+
+	for (int i = 0; i < numItems; ++i)
+	{
+		float radius = 0.5f;
+		float angle = DegreeToRadian(GetRandomNumber(0, 360, 1));
+		glm::vec3 ItemPosition = GetCenter() + glm::vec3(cos(angle) * radius, 0.0f, sin(angle) * radius);
+
+		glm::vec3 gravity = glm::vec3(0.0f, -1.0f, 0.0f);
+		gravity = normalize(gravity);
+		
+		Item* pItem;
+	
+		ItemSubSpawnData* pItemSubSpawnData = m_pItemManager->GetItemSubSpawnData(m_itemType);
+		if (pItemSubSpawnData != nullptr)
+		{
+			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), pItemSubSpawnData->m_spawnedItemFilename.c_str(), pItemSubSpawnData->m_spawnedItem, pItemSubSpawnData->m_spawnedItemTitle.c_str(), pItemSubSpawnData->m_interactable, pItemSubSpawnData->m_collectible, pItemSubSpawnData->m_scale);
+
+			if (pItem != nullptr)
+			{
+				pItem->SetGravityDirection(gravity);
+				glm::vec3 velocity = ItemPosition - GetCenter();
+				pItem->SetVelocity(normalize(velocity) * static_cast<float>(GetRandomNumber(2, 4, 2)) + glm::vec3(0.0f, 9.5f + GetRandomNumber(-2, 4, 2), 0.0f));
+				pItem->SetRotation(glm::vec3(0.0f, GetRandomNumber(0, 360, 2), 0.0f));
+				pItem->SetAngularVelocity(glm::vec3(0.0f, 90.0f, 0.0f));
+
+				if (pItemSubSpawnData->m_droppedItemItem != ItemType::Coin)
+				{
+					pItem->SetDroppedItem(pItemSubSpawnData->m_droppedItemFilename.c_str(), pItemSubSpawnData->m_droppedItemTextureFilename.c_str(), pItemSubSpawnData->m_droppedItemInventoryType, pItemSubSpawnData->m_droppedItemItem, pItemSubSpawnData->m_droppedItemStatus, pItemSubSpawnData->m_droppedItemEquipSlot, pItemSubSpawnData->m_droppedItemQuality, pItemSubSpawnData->m_droppedItemLeft, pItemSubSpawnData->m_droppedItemRight, pItemSubSpawnData->m_droppedItemTitle.c_str(), pItemSubSpawnData->m_droppedItemDescription.c_str(), pItemSubSpawnData->m_droppedItemPlacementR, pItemSubSpawnData->m_droppedItemPlacementG, pItemSubSpawnData->m_droppedItemPlacementB, pItemSubSpawnData->m_droppedItemQuantity);
+				}
+
+				pItem->SetAutoDisappear(20.0f + (GetRandomNumber(-20, 20, 1) * 0.2f));
+			}
+		}
+	}
+}
+
+void Item::SetCurrentInteractCount(int currentInteract)
+{
+	m_interactCount = currentInteract;
+}
+
+int Item::GetCurrentInteractCount() const
+{
+	return m_interactCount;
+}
+
+void Item::SetMaxtInteractCount(int maxInteract)
+{
+	m_maxInteractCount = maxInteract;
+}
+
+int Item::GetMaxInteractCount() const
+{
+	return m_maxInteractCount;
 }
