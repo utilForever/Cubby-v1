@@ -1284,3 +1284,495 @@ int Item::GetMaxInteractCount() const
 {
 	return m_maxInteractCount;
 }
+
+// Update
+void Item::Update(float dt)
+{
+	if (m_erase)
+	{
+		return;
+	}
+
+	if (m_pVoxelItem != nullptr)
+	{
+		m_pVoxelItem->Update(dt);
+	}
+
+	// Update grid position
+	UpdateGridPosition();
+
+	// Update timers
+	UpdateTimers(dt);
+
+	// Update player magnet
+	UpdatePlayerMagnet();
+
+	// If we don't belong to a chunk
+	if (m_pCachedGridChunk == nullptr)
+	{
+		return;
+	}
+
+	// Make sure that an owning chunk knows about us
+	if (m_pOwningChunk == nullptr || m_pOwningChunk->IsInsideChunk(m_position) == false)
+	{
+		if (m_pOwningChunk != nullptr)
+		{
+			m_pOwningChunk->RemoveItem(this);
+		}
+
+		m_pOwningChunk = m_pChunkManager->GetChunkFromPosition(m_position.x, m_position.y, m_position.z);
+
+		if (m_pOwningChunk != nullptr)
+		{
+			m_pOwningChunk->AddItem(this);
+		}
+
+		return;
+	}
+
+	// Auto disappear
+	if (m_autoDisappear)
+	{
+		if (m_autoDisappearTimer <= 0.0f)
+		{
+			SetErase(true);
+
+			return;
+		}
+	}
+
+	// Update physics
+	UpdatePhysics(dt);
+}
+
+void Item::UpdatePhysics(float dt)
+{
+	glm::vec3 acceleration = (m_gravityDirection * 9.81f) * 4.0f;
+
+	// Integrate velocity
+	m_velocity += acceleration * dt;
+
+	// Integrate angular velocity and rotation
+	glm::vec3 angularAcceleration(0.0f, 0.0f, 0.0f);
+	m_angularVelocity += angularAcceleration * dt;
+	m_rotation += m_angularVelocity * dt;
+
+	if (m_worldCollide)
+	{
+		int blockX, blockY, blockZ;
+		glm::vec3 blockPos;
+
+		// Check collision
+		glm::vec3 velocityToUse = m_velocity;
+		glm::vec3 velAmount = velocityToUse*dt;
+		glm::vec3 pNormal;
+		int numberDivision = 1;
+
+		while (length(velAmount) >= 1.0f)
+		{
+			numberDivision++;
+			velAmount = velocityToUse*(dt / numberDivision);
+		}
+
+		for (int i = 0; i < numberDivision; ++i)
+		{
+			float dtToUse = (dt / numberDivision) + ((dt / numberDivision) * i);
+			glm::vec3 posToCheck = GetCenter() + velocityToUse*dtToUse;
+
+			if (CheckCollisions(posToCheck, m_previousPosition, &pNormal, &velAmount))
+			{
+				// Reset velocity, we don't have any bounce
+				m_velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+				velocityToUse = glm::vec3(0.0f, 0.0f, 0.0f);
+			}
+		}
+
+		// Integrate position
+		m_position += velocityToUse * dt;
+
+		// Owning chunks
+		if (m_pOwningChunk != nullptr && m_pOwningChunk->IsSetup() && m_pOwningChunk->IsInsideChunk(m_position))
+		{
+			Chunk* pChunk = GetCachedGridChunkOrFromPosition(m_position);
+			bool active = m_pChunkManager->GetBlockActiveFrom3DPosition(m_position.x, m_position.y, m_position.z, &blockPos, &blockX, &blockY, &blockZ, &pChunk);
+
+			if (active == true)
+			{
+				// Roll back the integration, since we will intersect the block otherwise
+				m_position -= m_velocity * dt;
+
+				m_velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+			}
+		}
+		else
+		{
+			if (m_pOwningChunk != nullptr)
+			{
+				m_pOwningChunk->RemoveItem(this);
+			}
+
+			m_pOwningChunk = m_pChunkManager->GetChunkFromPosition(m_position.x, m_position.y, m_position.z);
+
+			if (m_pOwningChunk != nullptr)
+			{
+				m_pOwningChunk->AddItem(this);
+			}
+
+			if (m_pOwningChunk == nullptr)
+			{
+				m_position -= m_velocity * dt;
+				m_velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+			}
+		}
+	}
+	else
+	{
+		// Integrate position
+		m_position += m_velocity * dt;
+	}
+
+	m_previousPosition = GetCenter();
+}
+
+void Item::UpdateTimers(float dt)
+{
+	if (m_isCollectible)
+	{
+		m_collectionDelay -= dt;
+	}
+
+	// Disappear for pickup
+	if (m_disappear)
+	{
+		if (m_disappearTimer > 0.0f)
+		{
+			m_disappearTimer -= dt;
+		}
+	}
+
+	// Auto disappear
+	if (m_autoDisappear)
+	{
+		if (m_autoDisappearTimer > 0.0f)
+		{
+			m_autoDisappearTimer -= dt;
+		}
+	}
+}
+
+void Item::UpdatePlayerMagnet()
+{
+	if (IsItemPickedUp())
+	{
+		if (m_disappear)
+		{
+			m_renderScale = m_disappearScale;
+
+			if (m_disappearTimer <= 0.0f)
+			{
+				if (m_disappearAnimationStarted == false)
+				{
+					Interpolator::GetInstance()->AddFloatInterpolation(&m_disappearScale, m_disappearScale, 0.0f, 0.5f, -100.0f, nullptr, _PickupAnimationFinished, this);
+
+					m_disappearAnimationStarted = true;
+				}
+			}
+		}
+		else
+		{
+			glm::vec3 diff = m_pickupPos - m_position;
+			float lengthSize = length(diff);
+
+			if (lengthSize < 0.01f)
+			{
+				m_disappear = true;
+				m_disappearTimer = m_disappearDelay;
+				m_disappearScale = m_renderScale;
+			}
+			else
+			{
+				diff = normalize(diff);
+				m_position += diff * lengthSize*0.25f;
+			}
+		}
+	}
+	else
+	{
+		if (IsCollectible())
+		{
+			if (m_droppedInventoryItem == nullptr || m_pInventoryManager->CanAddInventoryItem(GetItemTitle(), GetItemType(), 1))
+			{
+				float yAdditionalMaagnetOffset = 0.5f;
+
+				// Magnet towards the player
+				if (m_pPlayer->IsDead() == false && length(m_pPlayer->GetCenter() - GetCenter()) < m_pPlayer->GetRadius() + 4.0f)
+				{
+					glm::vec3 toPlayer = (m_pPlayer->GetCenter() + glm::vec3(0.0f, yAdditionalMaagnetOffset, 0.0f)) - GetCenter();
+					SetGravityDirection(toPlayer);
+					SetVelocity(normalize(toPlayer)*(20.0f / length(toPlayer)));
+					SetWorldCollide(false);
+				}
+				else
+				{
+					SetGravityDirection(glm::vec3(0.0f, -1.0f, 0.0f));
+					SetWorldCollide(true);
+				}
+
+				// Check if we have been picked up by the player
+				if (m_pPlayer->IsDead() == false && length((m_pPlayer->GetCenter() + glm::vec3(0.0f, yAdditionalMaagnetOffset, 0.0f)) - GetCenter()) < m_pPlayer->GetRadius())
+				{
+					SetPickupGotoPosition(m_pPlayer->GetCenter() + glm::vec3(0.0f, 2.5f, 0.0f));
+					SetVelocity(glm::vec3(0.0f, 0.0f, 0.0f));
+					SetGravityDirection(glm::vec3(0.0f, 0.0f, 0.0f));
+
+					if (m_itemType == ItemType::Heart)
+					{
+						m_pPlayer->GiveHealth(10.0f);
+					}
+
+					if (m_itemType == ItemType::Coin)
+					{
+						m_pPlayer->GiveCoins(1);
+					}
+
+					if (m_droppedInventoryItem != nullptr)
+					{
+						m_pInventoryManager->AddInventoryItem(m_droppedInventoryItem, -1, -1);
+					}
+				}
+			}
+		}
+	}
+}
+
+void Item::UpdateItemLights() const
+{
+	if (m_erase)
+	{
+		return;
+	}
+
+	if (m_pVoxelItem != nullptr)
+	{
+		for (int i = 0; i < m_pVoxelItem->GetNumLights(); ++i)
+		{
+			unsigned int lightID;
+			glm::vec3 lightPos;
+			float lightRadius;
+			float lightDiffuseMultiplier;
+			Color lightColor;
+			bool connectedToSegment;
+
+			m_pVoxelItem->GetLightParams(i, &lightID, &lightPos, &lightRadius, &lightDiffuseMultiplier, &lightColor, &connectedToSegment);
+
+			if (lightID == -1)
+			{
+				m_pLightingManager->AddLight(glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, 1.0f, Color(1.0f, 1.0f, 1.0f, 1.0f), &lightID);
+				m_pVoxelItem->SetLightingID(i, lightID);
+			}
+
+			if (connectedToSegment == false)
+			{
+				lightPos *= m_renderScale;
+
+				// Rotate due to characters forward vector
+				float rotationAngle = acos(dot(glm::vec3(0.0f, 0.0f, 1.0f), m_forward));
+				if (m_forward.x < 0.0f)
+				{
+					rotationAngle = -rotationAngle;
+				}
+				Matrix4 rotationMatrix;
+				rotationMatrix.SetRotation(0.0f, rotationAngle, 0.0f);
+				lightPos = rotationMatrix * lightPos;
+
+				// Translate to position
+				lightPos += m_position;
+			}
+
+			m_pLightingManager->UpdateLightPosition(lightID, lightPos);
+			m_pLightingManager->UpdateLightRadius(lightID, lightRadius * m_renderScale);
+			m_pLightingManager->UpdateLightDiffuseMultiplier(lightID, lightDiffuseMultiplier);
+			m_pLightingManager->UpdateLightColor(lightID, lightColor);
+		}
+	}
+}
+
+void Item::UpdateItemParticleEffects() const
+{
+	if (m_erase)
+	{
+		return;
+	}
+
+	if (m_pVoxelItem != nullptr)
+	{
+		for (int i = 0; i < m_pVoxelItem->GetNumParticleEffects(); ++i)
+		{
+			unsigned int particleEffectID;
+			glm::vec3 particleEffectPos;
+			std::string effectName;
+			bool connectedToSegment;
+
+			m_pVoxelItem->GetParticleEffectParams(i, &particleEffectID, &particleEffectPos, &effectName, &connectedToSegment);
+
+			if (particleEffectID == -1)
+			{
+				m_pBlockParticleManager->ImportParticleEffect(effectName, particleEffectPos, &particleEffectID);
+				m_pVoxelItem->SetParticleEffectID(i, particleEffectID);
+			}
+
+			if (connectedToSegment == false)
+			{
+				particleEffectPos *= m_renderScale;
+
+				// Rotate due to characters forward vector
+				float rotationAngle = acos(dot(glm::vec3(0.0f, 0.0f, 1.0f), m_forward));
+				if (m_forward.x < 0.0f)
+				{
+					rotationAngle = -rotationAngle;
+				}
+
+				Matrix4 rotationMatrix;
+				rotationMatrix.SetRotation(0.0f, rotationAngle, 0.0f);
+				particleEffectPos = rotationMatrix * particleEffectPos;
+
+				// Translate to position
+				particleEffectPos += m_position;
+			}
+
+			m_pBlockParticleManager->UpdateParticleEffectPosition(particleEffectID, particleEffectPos, particleEffectPos);
+		}
+	}
+}
+
+// Rendering
+void Item::Render(bool outline, bool reflection, bool silhouette) const
+{
+	if (m_erase == true)
+	{
+		return;
+	}
+
+	if (m_pOwningChunk == nullptr || m_pOwningChunk->IsUnloading())
+	{
+		return;
+	}
+
+	if (m_pVoxelItem != nullptr)
+	{
+		Color OutlineColor(1.0f, 1.0f, 0.0f, 1.0f);
+
+		m_pRenderer->PushMatrix();
+		m_pRenderer->MultiplyWorldMatrix(m_worldMatrix);
+		m_pRenderer->ScaleWorldMatrix(m_renderScale, m_renderScale, m_renderScale);
+		m_pVoxelItem->Render(outline, reflection, silhouette, OutlineColor);
+		m_pRenderer->PopMatrix();
+	}
+}
+
+void Item::RenderDebug()
+{
+	if (m_erase == true)
+	{
+		return;
+	}
+
+	if (m_pOwningChunk == nullptr || m_pOwningChunk->IsUnloading())
+	{
+		return;
+	}
+
+	m_pRenderer->PushMatrix();
+
+	m_pRenderer->TranslateWorldMatrix(GetCenter().x, GetCenter().y, GetCenter().z);
+
+	m_pRenderer->PushMatrix();
+
+	m_pRenderer->SetLineWidth(1.0f);
+	m_pRenderer->SetRenderMode(RenderMode::WIREFRAME);
+	m_pRenderer->RotateWorldMatrix(GetRotation().x, GetRotation().y, GetRotation().z);
+
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->DrawSphere(m_radius, 20, 20);
+
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 0.0f, 1.0f);
+	m_pRenderer->DrawSphere(m_collisionRadius, 20, 20);
+
+	m_pRenderer->PopMatrix();
+
+	m_pRenderer->PopMatrix();
+
+	// Render interaction point
+	m_pRenderer->PushMatrix();
+
+	float length = 0.5f;
+	m_pRenderer->TranslateWorldMatrix(GetInteractionPosition().x, GetInteractionPosition().y, GetInteractionPosition().z);
+
+	m_pRenderer->SetRenderMode(RenderMode::SOLID);
+	m_pRenderer->SetLineWidth(2.0f);
+	m_pRenderer->EnableImmediateMode(ImmediateModePrimitive::LINES);
+
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(-length, 0.0f, 0.0f);
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(length, 0.0f, 0.0f);
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(0.0f, -length, 0.0f);
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(0.0f, length, 0.0f);
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(0.0f, 0.0f, -length);
+	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
+	m_pRenderer->ImmediateVertex(0.0f, 0.0f, length);
+
+	m_pRenderer->DisableImmediateMode();
+
+	m_pRenderer->PopMatrix();
+
+	// Render link to owning chunk
+	if (m_pOwningChunk != nullptr)
+	{
+		m_pRenderer->PushMatrix();
+
+		m_pRenderer->EnableImmediateMode(ImmediateModePrimitive::LINES);
+		m_pRenderer->ImmediateVertex(m_position.x, m_position.y, m_position.z);
+		m_pRenderer->ImmediateVertex(m_pOwningChunk->GetPosition().x + Chunk::BLOCK_RENDER_SIZE*Chunk::CHUNK_SIZE, m_pOwningChunk->GetPosition().y + Chunk::BLOCK_RENDER_SIZE*Chunk::CHUNK_SIZE, m_pOwningChunk->GetPosition().z + Chunk::BLOCK_RENDER_SIZE*Chunk::CHUNK_SIZE);
+		m_pRenderer->DisableImmediateMode();
+
+		m_pRenderer->PopMatrix();
+	}
+
+	// Render collision regions
+	RenderCollisionRegions();
+}
+
+void Item::RenderCollisionRegions()
+{
+	for (size_t i = 0; i < m_vpBoundingRegionList.size(); ++i)
+	{
+		BoundingRegion* pRegion = m_vpBoundingRegionList[i];
+
+		m_pRenderer->PushMatrix();
+		m_pRenderer->TranslateWorldMatrix(GetCenter().x, GetCenter().y, GetCenter().z);
+
+		Matrix4 justParentRotation;
+		justParentRotation.SetRotation(DegreeToRadian(m_rotation.x), DegreeToRadian(m_rotation.y), DegreeToRadian(m_rotation.z));
+		m_pRenderer->MultiplyWorldMatrix(justParentRotation);
+
+		m_pRenderer->ScaleWorldMatrix(m_renderScale, m_renderScale, m_renderScale);
+		pRegion->Render(m_pRenderer);
+		m_pRenderer->PopMatrix();
+	}
+}
+
+void Item::_PickupAnimationFinished(void* pData)
+{
+	Item* pItem = static_cast<Item*>(pData);
+	pItem->PickupAnimationFinished();
+}
+
+void Item::PickupAnimationFinished()
+{
+	SetErase(true);
+}
