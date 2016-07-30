@@ -196,6 +196,7 @@
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
     <ClCompile Include="..\Sources\Items\Item.cpp" />
+    <ClCompile Include="..\Sources\Items\StatAttribute.cpp" />
     <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp" />
     <ClCompile Include="..\Sources\Lighting\LightingManager.cpp" />
     <ClCompile Include="..\Sources\main.cpp" />
@@ -455,6 +456,7 @@
     <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />
     <ClInclude Include="..\Sources\Items\Item.h" />
     <ClInclude Include="..\Sources\Items\ItemsEnum.h" />
+    <ClInclude Include="..\Sources\Items\StatAttribute.h" />
     <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
     <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
     <ClInclude Include="..\Sources\Maths\3DMaths.h" />

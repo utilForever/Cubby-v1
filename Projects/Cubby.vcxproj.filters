@@ -396,6 +396,9 @@
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp">
       <Filter>Sources\Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Items\StatAttribute.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1177,6 +1180,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Inventory\InventoryManager.h">
       <Filter>Sources\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Items\StatAttribute.h">
+      <Filter>Sources\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
