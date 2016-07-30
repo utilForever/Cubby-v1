@@ -21,9 +21,8 @@ enum class BoundingRegionType
 	Cube,
 };
 
-class BoundingRegion
+struct BoundingRegion
 {
-public:
 	// Constructor
 	BoundingRegion();
 	// Destructor
@@ -34,7 +33,6 @@ public:
 	// TODO: Implement Render();
 	// void Render(Renderer* pRenderer);
 
-private:
 	BoundingRegionType m_boundingType;
 	glm::vec3 m_origin;
 	float m_radius;
