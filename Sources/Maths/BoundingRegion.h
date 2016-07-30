@@ -12,8 +12,6 @@
 
 #include <vector>
 
-#include <Renderer/Renderer.h>
-
 #include "Matrix4.h"
 #include "Plane3D.h"
 
@@ -32,7 +30,8 @@ struct BoundingRegion
 
 	// Operations
 	void UpdatePlanes(Matrix4 transformationMatrix, float scale);
-	void Render(Renderer* pRenderer);
+	// TODO: Implement Render();
+	// void Render(Renderer* pRenderer);
 
 	BoundingRegionType m_boundingType;
 	glm::vec3 m_origin;
