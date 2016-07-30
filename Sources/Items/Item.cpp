@@ -11,7 +11,10 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <algorithm>
+
 #include <Lighting/LightingManager.h>
+#include <Maths/3DMaths.h>
 #include <Models/VoxelObject.h>
 
 #include "Item.h"
@@ -398,7 +401,7 @@ void Item::SetCollectionDelay(float delay)
 	m_collectionDelay = delay;
 }
 
-bool Item::IsItemPickedUp()
+bool Item::IsItemPickedUp() const
 {
 	return m_itemPickup;
 }
@@ -418,9 +421,9 @@ void Item::SetAutoDisappear(float disappearTime)
 }
 
 // Animation
-bool Item::IsStillAnimating()
+bool Item::IsStillAnimating() const
 {
-	for (int animatedSectionsIndex = 0; animatedSectionsIndex < m_pVoxelItem->GetNumAimatedSections(); animatedSectionsIndex++)
+	for (int animatedSectionsIndex = 0; animatedSectionsIndex < m_pVoxelItem->GetNumAimatedSections(); ++animatedSectionsIndex)
 	{
 		if (m_pVoxelItem->HasSubSectionAnimationFinished(animatedSectionsIndex) == false)
 		{
@@ -429,4 +432,627 @@ bool Item::IsStillAnimating()
 	}
 
 	return false;
+}
+
+// Rendering helpers
+void Item::SetOutlineRender(bool outline)
+{
+	m_outlineRender = outline;
+}
+
+bool Item::IsOutlineRender() const
+{
+	return m_outlineRender;
+}
+
+void Item::SetWireFrameRender(bool wireframe) const
+{
+	if (m_pVoxelItem != nullptr)
+	{
+		m_pVoxelItem->SetWireFrameRender(wireframe);
+	}
+}
+
+void Item::CalculateWorldTransformMatrix()
+{
+	m_worldMatrix.LoadIdentity();
+	m_worldMatrix.SetRotation(DegreeToRadian(m_rotation.x), DegreeToRadian(m_rotation.y), DegreeToRadian(m_rotation.z));
+	m_worldMatrix.SetTranslation(m_position);
+
+	for (size_t i = 0; i < m_vpBoundingRegionList.size(); ++i)
+	{
+		Matrix4 justParentRotation;
+		justParentRotation.SetRotation(DegreeToRadian(m_rotation.x), DegreeToRadian(m_rotation.y), DegreeToRadian(m_rotation.z));
+
+		m_vpBoundingRegionList[i]->UpdatePlanes(justParentRotation, m_renderScale);
+	}
+}
+
+// Item type
+ItemType Item::GetItemType() const
+{
+	return m_itemType;
+}
+
+// Item title
+const char* Item::GetItemTitle() const
+{
+	return m_itemTitle.c_str();
+}
+
+// Should we create dying lights when we unload
+void Item::SetCreateDyingLights(bool dyingLights)
+{
+	m_createDyingLights = dyingLights;
+}
+
+// Grid
+void Item::UpdateGridPosition()
+{
+	int gridPositionX = static_cast<int>((m_position.x + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+	int gridPositionY = static_cast<int>((m_position.y + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+	int gridPositionZ = static_cast<int>((m_position.z + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+
+	if (m_position.x <= -0.5f)
+	{
+		gridPositionX -= 1;
+	}
+	if (m_position.y <= -0.5f)
+	{
+		gridPositionY -= 1;
+	}
+	if (m_position.z <= -0.5f)
+	{
+		gridPositionZ -= 1;
+	}
+
+	if (gridPositionX != m_gridPositionX || gridPositionY != m_gridPositionY || gridPositionZ != m_gridPositionZ || m_pCachedGridChunk == nullptr)
+	{
+		m_gridPositionX = gridPositionX;
+		m_gridPositionY = gridPositionY;
+		m_gridPositionZ = gridPositionZ;
+
+		m_pCachedGridChunk = m_pChunkManager->GetChunk(m_gridPositionX, m_gridPositionY, m_gridPositionZ);
+	}
+}
+
+Chunk* Item::GetCachedGridChunkOrFromPosition(glm::vec3 pos) const
+{
+	// First check if the position is in the same grid as the cached chunk
+	int gridPositionX = static_cast<int>((pos.x + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+	int gridPositionY = static_cast<int>((pos.y + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+	int gridPositionZ = static_cast<int>((pos.z + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
+
+	if (pos.x <= -0.5f)
+	{
+		gridPositionX -= 1;
+	}
+	if (pos.y <= -0.5f)
+	{
+		gridPositionY -= 1;
+	}
+	if (pos.z <= -0.5f)
+	{
+		gridPositionZ -= 1;
+	}
+
+	if (gridPositionX != m_gridPositionX || gridPositionY != m_gridPositionY || gridPositionZ != m_gridPositionZ)
+	{
+		return nullptr;
+	}
+	
+	return m_pCachedGridChunk;
+}
+
+// Loot items
+int Item::GetNumLootItems() const
+{
+	return static_cast<int>(m_vpInventoryItemList.size());
+}
+
+InventoryItem* Item::GetLootItem(int index)
+{
+	return m_vpInventoryItemList[index];
+}
+
+InventoryItem* Item::AddLootItem(InventoryItem* pItem, int slotX, int slotY)
+{
+	if(pItem != nullptr)
+	{
+		InventoryItem* pAddedLootItem = AddLootItem(pItem->m_fileName.c_str(), pItem->m_IconfileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_left, pItem->m_right, pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity, slotX, slotY);
+
+		for(size_t i = 0; i < pItem->m_vpStatAttributes.size(); ++i)
+		{
+			pAddedLootItem->AddStatAttribute(pItem->m_vpStatAttributes[i]->GetType(), pItem->m_vpStatAttributes[i]->GetModifyAmount());
+		}
+
+		return pAddedLootItem;
+	}
+
+	return nullptr;
+}
+
+InventoryItem* Item::AddLootItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, const char* title, const char* description, bool left, bool right, float r, float g, float b, int quantity, int slotX, int slotY)
+{
+	bool addToExistingItem = false;
+
+	if (quantity != -1)
+	{
+		addToExistingItem = true;
+	}
+
+	if (addToExistingItem)
+	{
+		for (size_t i = 0; i < m_vpInventoryItemList.size(); ++i)
+		{
+			if (strcmp(title, m_vpInventoryItemList[i]->m_title.c_str()) == 0)
+			{
+				m_vpInventoryItemList[i]->m_quantity += quantity;
+
+				return m_vpInventoryItemList[i];
+			}
+		}
+	}
+
+	InventoryItem* pNewItem = new InventoryItem();
+
+	pNewItem->m_fileName = fileName;
+	pNewItem->m_IconfileName = iconFileName;
+	pNewItem->m_title = title;
+	pNewItem->m_description = description;
+
+	pNewItem->m_itemType = itemType;
+	pNewItem->m_item = item;
+	pNewItem->m_status = status;
+	pNewItem->m_equipSlot = equipSlot;
+	pNewItem->m_itemQuality = itemQuality;
+
+	pNewItem->m_left = left;
+	pNewItem->m_right = right;
+
+	pNewItem->m_placementR = r;
+	pNewItem->m_placementG = g;
+	pNewItem->m_placementB = b;
+
+	pNewItem->m_lootSlotX = slotX;
+	pNewItem->m_lootSlotY = slotY;
+
+	pNewItem->m_equipped = false;
+
+	pNewItem->m_quantity = quantity;
+
+	pNewItem->m_remove = false;
+
+	m_vpInventoryItemList.push_back(pNewItem);
+
+	return pNewItem;
+}
+
+bool IsNeedErasing(InventoryItem* item)
+{
+	bool isNeedErase = item->m_remove;
+
+	if (isNeedErase == true)
+	{
+		delete item;
+	}
+
+	return isNeedErase;
+}
+
+void Item::RemoveLootItem(InventoryItem* pInventoryItem)
+{
+	for(size_t i = 0; i < m_vpInventoryItemList.size(); ++i)
+	{
+		if(m_vpInventoryItemList[i] == pInventoryItem)
+		{
+			pInventoryItem->m_remove = true;
+		}
+	}
+
+	m_vpInventoryItemList.erase(remove_if(m_vpInventoryItemList.begin(), m_vpInventoryItemList.end(), IsNeedErasing), m_vpInventoryItemList.end());
+}
+
+void Item::ClearLootItems()
+{
+	for(size_t i = 0; i < m_vpInventoryItemList.size(); ++i)
+	{
+		delete m_vpInventoryItemList[i];
+		m_vpInventoryItemList[i] = nullptr;
+	}
+	m_vpInventoryItemList.clear();
+}
+
+InventoryItemList Item::GetLootItemList() const
+{
+	return m_vpInventoryItemList;
+}
+
+// Interaction position
+void Item::SetInteractionPositionOffset(glm::vec3 offset)
+{
+	m_interactionPositionOffset = offset;
+}
+
+glm::vec3 Item::GetInteractionPosition() const
+{
+	return GetCenter() + m_interactionPositionOffset;
+}
+
+// World collision
+void Item::SetWorldCollide(bool collide)
+{
+	m_worldCollide = collide;
+}
+
+bool Item::CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, glm::vec3* pNormal, glm::vec3* pMovement) const
+{
+	float radius = GetRadius();
+
+	glm::vec3 movementCache = *pMovement;
+
+	// World collisions
+	bool worldCollision = false;
+
+	glm::vec3 floorPosition;
+
+	if (m_pChunkManager->FindClosestFloor(positionCheck, &floorPosition) == false)
+	{
+		*pMovement = glm::vec3(0.0f, 0.0f, 0.0f);
+		return true;
+	}
+
+	int blockX, blockY, blockZ;
+	glm::vec3 blockPos;
+	int numChecks = 1 + static_cast<int>(radius / (Chunk::BLOCK_RENDER_SIZE * 2.0f));
+
+	for (int x = -numChecks; x <= numChecks; x++)
+	{
+		for (int y = -numChecks; y <= numChecks; y++)
+		{
+			for (int z = -numChecks; z <= numChecks; z++)
+			{
+				*pNormal = glm::vec3(0.0f, 0.0f, 0.0f);
+
+				Chunk* pChunk = GetCachedGridChunkOrFromPosition(positionCheck + glm::vec3(Chunk::BLOCK_RENDER_SIZE * 2.0f * x, Chunk::BLOCK_RENDER_SIZE * 2.0f * y, Chunk::BLOCK_RENDER_SIZE * 2.0f * z));
+				bool active = m_pChunkManager->GetBlockActiveFrom3DPosition(positionCheck.x + (Chunk::BLOCK_RENDER_SIZE * 2.0f * x), positionCheck.y + (Chunk::BLOCK_RENDER_SIZE * 2.0f * y), positionCheck.z + (Chunk::BLOCK_RENDER_SIZE * 2.0f * z), &blockPos, &blockX, &blockY, &blockZ, &pChunk);
+
+				if (active == false)
+				{
+					if (pChunk == nullptr || pChunk->IsSetup() == false)
+					{
+						*pMovement = glm::vec3(0.0f, 0.0f, 0.0f);
+						worldCollision = false;
+					}
+				}
+				else if (active == true)
+				{
+					Plane3D planes[6];
+					planes[0] = Plane3D(glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec3(Chunk::BLOCK_RENDER_SIZE, 0.0f, 0.0f));
+					planes[1] = Plane3D(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(-Chunk::BLOCK_RENDER_SIZE, 0.0f, 0.0f));
+					planes[2] = Plane3D(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, Chunk::BLOCK_RENDER_SIZE, 0.0f));
+					planes[3] = Plane3D(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, -Chunk::BLOCK_RENDER_SIZE, 0.0f));
+					planes[4] = Plane3D(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, Chunk::BLOCK_RENDER_SIZE));
+					planes[5] = Plane3D(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, -Chunk::BLOCK_RENDER_SIZE));
+
+					float distance;
+					int inside = 0;
+					bool insideCache[6];
+
+					for (int i = 0; i < 6; i++)
+					{
+						glm::vec3 pointToCheck = blockPos - previousPosition;
+						distance = planes[i].GetPointDistance(pointToCheck);
+
+						if (distance < -radius)
+						{
+							// Outside...
+							insideCache[i] = false;
+						}
+						else if (distance < radius)
+						{
+							// Intersecting..
+							insideCache[i] = true;
+						}
+						else
+						{
+							// Inside...
+							insideCache[i] = true;
+						}
+					}
+
+					for (int i = 0; i < 6; i++)
+					{
+						glm::vec3 pointToCheck = blockPos - positionCheck;
+						distance = planes[i].GetPointDistance(pointToCheck);
+
+						if (distance < -radius)
+						{
+							// Outside...
+						}
+						else if (distance < radius)
+						{
+							// Intersecting..
+							inside++;
+							if (insideCache[i] == false)
+							{
+								*pNormal += planes[i].GetNormal();
+							}
+						}
+						else
+						{
+							// Inside...
+							inside++;
+							if (insideCache[i] == false)
+							{
+								*pNormal += planes[i].GetNormal();
+							}
+						}
+					}
+
+					if (inside == 6)
+					{
+						if (length(*pNormal) <= 1.0f)
+						{
+							if (length(*pNormal) > 0.0f)
+							{
+								*pNormal = normalize(*pNormal);
+							}
+
+							float dotResult = dot(*pNormal, *pMovement);
+							*pNormal *= dotResult;
+
+							*pMovement -= *pNormal;
+
+							worldCollision = true;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (worldCollision)
+	{
+		return true;
+	}
+
+	*pMovement = movementCache;
+
+	return false;
+}
+
+// Bounding collision region
+void Item::CreateBoundingRegion(glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale)
+{
+	if (m_vpBoundingRegionList.size() >= 1)
+	{
+		return;
+	}
+
+	SetCollisionEnabled(true);
+
+	BoundingRegion* pNewRegion = new BoundingRegion();
+
+	pNewRegion->m_origin = origin;
+	pNewRegion->m_boundingType = boundingType;
+	pNewRegion->m_radius = radius;
+	pNewRegion->m_xLength = xWidth;
+	pNewRegion->m_yLength = yWidth;
+	pNewRegion->m_zLength = zWidth;
+	pNewRegion->m_scale = scale;
+
+	Matrix4 transformMatrix;
+	pNewRegion->UpdatePlanes(transformMatrix, 1.0f);
+
+	m_vpBoundingRegionList.push_back(pNewRegion);
+}
+
+void Item::UpdateBoundingRegion(int index, glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale)
+{
+	if (m_vpBoundingRegionList.size() == 0)
+	{
+		CreateBoundingRegion(origin, boundingType, radius, xWidth, yWidth, zWidth, scale);
+	}
+
+	if (index >= static_cast<int>(m_vpBoundingRegionList.size()))
+	{
+		return;
+	}
+
+	BoundingRegion* pRegion = m_vpBoundingRegionList[index];
+
+	pRegion->m_origin = origin;
+	pRegion->m_boundingType = boundingType;
+	pRegion->m_radius = radius;
+	pRegion->m_xLength = xWidth;
+	pRegion->m_yLength = yWidth;
+	pRegion->m_zLength = zWidth;
+	pRegion->m_scale = scale;
+
+	Matrix4 transformMatrix;
+	pRegion->UpdatePlanes(transformMatrix, 1.0f);
+}
+
+void Item::AddBoundingRegion(glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale)
+{
+	BoundingRegion* pNewRegion = new BoundingRegion();
+
+	pNewRegion->m_origin = origin;
+	pNewRegion->m_boundingType = boundingType;
+	pNewRegion->m_radius = radius;
+	pNewRegion->m_xLength = xWidth;
+	pNewRegion->m_yLength = yWidth;
+	pNewRegion->m_zLength = zWidth;
+	pNewRegion->m_scale = scale;
+
+	Matrix4 transformMatrix;
+	pNewRegion->UpdatePlanes(transformMatrix, 1.0f);
+
+	m_vpBoundingRegionList.push_back(pNewRegion);
+}
+
+BoundingRegionList Item::GetBoundingRegionList() const
+{
+	return m_vpBoundingRegionList;
+}
+
+// Explode
+void Item::Explode()
+{
+	CalculateWorldTransformMatrix();
+
+	if (m_pVoxelItem != nullptr)
+	{
+		for (int animatedSectionsIndex = 0; animatedSectionsIndex < m_pVoxelItem->GetNumAimatedSections(); ++animatedSectionsIndex)
+		{
+			AnimatedSection* pAnimatedSection = m_pVoxelItem->GetAnimatedSection(animatedSectionsIndex);
+			QubicleBinary* pQubicleModel = pAnimatedSection->pVoxelObject->GetQubicleModel();
+			m_pBlockParticleManager->ExplodeQubicleBinary(pQubicleModel, m_renderScale, 100);
+		}
+	}
+}
+
+bool Item::IsColliding(glm::vec3 center, glm::vec3 previousCenter, float radius, glm::vec3* pNormal, glm::vec3* pMovement)
+{
+	bool colliding = false;
+
+	center = GetCenter() - center;
+	previousCenter = GetCenter() - previousCenter;
+
+	*pNormal = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	for (size_t i = 0; i < m_vpBoundingRegionList.size(); ++i)
+	{
+		BoundingRegion* pRegion = m_vpBoundingRegionList[i];
+
+		if (pRegion->m_boundingType == BoundingRegionType::Sphere)
+		{
+			glm::vec3 toRegion = center + (pRegion->m_origin * m_renderScale);
+			float lengthSize = length(toRegion);
+
+			if (lengthSize <= pRegion->m_radius * pRegion->m_scale + radius)
+			{
+				glm::vec3 toPrevious = previousCenter + pRegion->m_origin;
+				*pNormal = -normalize(toPrevious);
+
+				colliding = true;
+			}
+		}
+
+		if (pRegion->m_boundingType == BoundingRegionType::Cube)
+		{
+			float distance;
+			int inside = 0;
+			bool insideCache[6];
+
+			for (int j = 0; j < 6; j++)
+			{
+				distance = pRegion->m_planes[j].GetPointDistance(previousCenter + (pRegion->m_origin * m_renderScale));
+
+				if (distance < -radius)
+				{
+					// Outside...
+					insideCache[j] = false;
+				}
+				else if (distance < radius)
+				{
+					// Intersecting..
+					insideCache[j] = true;
+				}
+				else
+				{
+					// Inside...
+					insideCache[j] = true;
+				}
+			}
+
+			for (int j = 0; j < 6; j++)
+			{
+				distance = pRegion->m_planes[j].GetPointDistance(center + (pRegion->m_origin * m_renderScale));
+
+				if (distance < -radius)
+				{
+					// Outside...
+				}
+				else if (distance < radius)
+				{
+					// Intersecting..
+					inside++;
+					if (insideCache[j] == false)
+					{
+						*pNormal += pRegion->m_planes[j].GetNormal();
+					}
+				}
+				else
+				{
+					// Inside...
+					inside++;
+					if (insideCache[j] == false)
+					{
+						*pNormal += pRegion->m_planes[j].GetNormal();
+					}
+				}
+			}
+
+			if (inside == 6)
+			{
+				if (length(*pNormal) <= 1.0f)
+				{
+					if (length(*pNormal) > 0.0f)
+					{
+						*pNormal = normalize(*pNormal);
+					}
+
+					colliding = true;
+				}
+			}
+		}
+	}
+
+	if (colliding)
+	{
+		float dotResult = dot(*pNormal, *pMovement);
+		*pNormal *= dotResult;
+
+		*pMovement -= *pNormal;
+	}
+
+	return colliding;
+}
+
+void Item::SetCollisionEnabled(bool set)
+{
+	m_collisionEnabled = set;
+}
+
+bool Item::IsCollisionEnabled() const
+{
+	return m_collisionEnabled;
+}
+
+void Item::UpdateCollisionRadius()
+{
+	int numX = m_pVoxelItem->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeX;
+	int numY = m_pVoxelItem->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeY;
+	int numZ = m_pVoxelItem->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeZ;
+
+	int max = numX;
+	if (numY > max)
+	{
+		max = numY;
+	}
+	if (numZ > max)
+	{
+		max = numZ;
+	}
+
+	m_collisionRadius = max * (Chunk::BLOCK_RENDER_SIZE * 1.75f);
+	m_collisionRadius *= m_renderScale;
+	m_collisionRadius *= m_pVoxelItem->GetRenderScale();
+}
+
+float Item::GetCollisionRadius() const
+{
+	return m_collisionRadius;
 }
