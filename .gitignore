@@ -199,3 +199,4 @@ FakesAssemblies/
 *.ipdb
 Cubby.lib
 Cubby.exp
+Projects/Cubby.VC.db
