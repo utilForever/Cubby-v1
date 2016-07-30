@@ -164,14 +164,14 @@ public:
 
 	// Interaction
 	void SetInteractable(bool interactable);
-	bool IsInteractable();
-	bool IsInteracting();
+	bool IsInteractable() const;
+	bool IsInteracting() const;
 	void Interact();
 	void SpawnSubItems();
 	void SetCurrentInteractCount(int currentInteract);
-	int GetCurrentInteractCount();
+	int GetCurrentInteractCount() const;
 	void SetMaxtInteractCount(int maxInteract);
-	int GetMaxInteractCount();
+	int GetMaxInteractCount() const;
 
 	// Update
 	void Update(float dt);
