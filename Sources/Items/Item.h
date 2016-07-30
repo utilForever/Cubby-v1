@@ -103,61 +103,61 @@ public:
 	bool IsCollectible() const;
 	void SetIsCollectible(bool collect);
 	void SetCollectionDelay(float delay);
-	bool IsItemPickedUp();
+	bool IsItemPickedUp() const;
 	void SetPickupGotoPosition(glm::vec3 pickupPos);
 
 	// Auto disappear
 	void SetAutoDisappear(float disappearTime);
 
 	// Animation
-	bool IsStillAnimating();
+	bool IsStillAnimating() const;
 
 	// Rendering helpers
 	void SetOutlineRender(bool outline);
-	bool IsOutlineRender();
-	void SetWireFrameRender(bool wireframe);
+	bool IsOutlineRender() const;
+	void SetWireFrameRender(bool wireframe) const;
 	void CalculateWorldTransformMatrix();
 
 	// Loot items
-	int GetNumLootItems();
+	int GetNumLootItems() const;
 	InventoryItem* GetLootItem(int index);
 	InventoryItem* AddLootItem(InventoryItem* pItem, int slotX, int slotY);
 	InventoryItem* AddLootItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, const char* title, const char* description, bool left, bool right, float r, float g, float b, int quantity, int slotX, int slotY);
 	void RemoveLootItem(InventoryItem* pInventoryItem);
 	void ClearLootItems();
-	InventoryItemList GetLootItemList();
+	InventoryItemList GetLootItemList() const;
 
 	// Item type
-	ItemType GetItemType();
+	ItemType GetItemType() const;
 
 	// Item title
-	const char* GetItemTitle();
+	const char* GetItemTitle() const;
 
 	// Should we create dying lights when we unload
 	void SetCreateDyingLights(bool dyingLights);
 
 	// Grid
 	void UpdateGridPosition();
-	Chunk* GetCachedGridChunkOrFromPosition(glm::vec3 pos);
+	Chunk* GetCachedGridChunkOrFromPosition(glm::vec3 pos) const;
 
 	// Interaction position
 	void SetInteractionPositionOffset(glm::vec3 offset);
-	glm::vec3 GetInteractionPosition();
+	glm::vec3 GetInteractionPosition() const;
 
 	// World collision
 	void SetWorldCollide(bool collide);
-	bool CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, glm::vec3* pNormal, glm::vec3* pMovement);
+	bool CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, glm::vec3* pNormal, glm::vec3* pMovement) const;
 
 	// Bounding collision region
 	void CreateBoundingRegion(glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale);
 	void UpdateBoundingRegion(int index, glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale);
 	void AddBoundingRegion(glm::vec3 origin, BoundingRegionType boundingType, float radius, float xWidth, float yWidth, float zWidth, float scale);
-	BoundingRegionList GetBoundingRegionList();
+	BoundingRegionList GetBoundingRegionList() const;
 	bool IsColliding(glm::vec3 center, glm::vec3 previousCenter, float radius, glm::vec3* pNormal, glm::vec3* pMovement);
 	void SetCollisionEnabled(bool set);
-	bool IsCollisionEnabled();
+	bool IsCollisionEnabled() const;
 	void UpdateCollisionRadius();
-	float GetCollisionRadius();
+	float GetCollisionRadius() const;
 
 	// Explode
 	void Explode();
@@ -284,6 +284,7 @@ private:
 	// Are we able to be interactable?
 	bool m_interactable;
 
+	// Are we currently interacting with this item
 	// Are we currently interacting with this item
 	bool m_itemInteracting;
 
