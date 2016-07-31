@@ -59,7 +59,7 @@ enum class EquipmentType
 
 	// Iron
 	IronSword,
-	IronShoeld,
+	IronShield,
 	IronHelm,
 	IronArmor,
 	IronPants,
