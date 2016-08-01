@@ -35,12 +35,12 @@ public:
 
 	// Accessors
 	void SetPosition(glm::vec3 pos);
-	glm::vec3 GetPosition();
+	glm::vec3 GetPosition() const;
 	void SetInitialPosition(glm::vec3 pos);
-	glm::vec3 GetInitialPosition();
+	glm::vec3 GetInitialPosition() const;
 	void SetFacingDirection(glm::vec3 dir);
-	glm::vec3 GetFacingDirection();
-	bool ShouldFollowPlayer();
+	glm::vec3 GetFacingDirection() const;
+	bool ShouldFollowPlayer() const;
 
 	// Spawning params
 	void SetSpawningParams(float initialSpawnDelay, float spawnTimer, int maxNumItemsActive, glm::vec3 spawnRandomOffset, bool shouldSpawnOnGround, glm::vec3 groundSpawnOffset, bool followPlayerIntheWorld, bool spawnFullLoaderRange, float minDistanceFromPlayer, Biome biomeSpawn, float spawnScale);
