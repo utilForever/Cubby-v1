@@ -197,6 +197,7 @@
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
     <ClCompile Include="..\Sources\Items\EquipmentUtils.cpp" />
     <ClCompile Include="..\Sources\Items\Item.cpp" />
+    <ClCompile Include="..\Sources\Items\ItemManager.cpp" />
     <ClCompile Include="..\Sources\Items\ItemSpawner.cpp" />
     <ClCompile Include="..\Sources\Items\ItemUtils.cpp" />
     <ClCompile Include="..\Sources\Items\StatAttribute.cpp" />
@@ -458,6 +459,7 @@
     <ClInclude Include="..\Sources\Inventory\InventoryManager.h" />
     <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />
     <ClInclude Include="..\Sources\Items\Item.h" />
+    <ClInclude Include="..\Sources\Items\ItemManager.h" />
     <ClInclude Include="..\Sources\Items\ItemsEnum.h" />
     <ClInclude Include="..\Sources\Items\ItemSpawner.h" />
     <ClInclude Include="..\Sources\Items\StatAttribute.h" />

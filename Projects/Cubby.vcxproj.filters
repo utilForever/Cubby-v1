@@ -408,6 +408,9 @@
     <ClCompile Include="..\Sources\Items\ItemSpawner.cpp">
       <Filter>Sources\Items</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Items\ItemManager.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1194,6 +1197,9 @@
       <Filter>Sources\Items</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Items\ItemSpawner.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Items\ItemManager.h">
       <Filter>Sources\Items</Filter>
     </ClInclude>
   </ItemGroup>
