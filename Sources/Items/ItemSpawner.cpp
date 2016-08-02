@@ -7,10 +7,12 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+
 #include <Blocks/BiomeManager.h>
+#include <Utils/Random.h>
 
 #include "ItemSpawner.h"
-#include <Utils/Random.h>
 
 // Constructor, Destructor
 ItemSpawner::ItemSpawner(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer, ItemManager* pItemManager, NPCManager* pNPCManager) :
@@ -115,11 +117,12 @@ ItemType ItemSpawner::GetItemTypeToSpawn()
 	return m_vpItemTypeList[randomNum];
 }
 
-bool ItemSpawner::GetSpawnPosition(glm::vec3* pSpawnPosition)
+bool ItemSpawner::GetSpawnPosition(glm::vec3* pSpawnPosition) const
 {
-	bool lLocationGood = false;
+	bool locationGood = false;
 	int numTries = 0;
-	while (lLocationGood == false && numTries < 10)
+
+	while (locationGood == false && numTries < 10)
 	{
 		glm::vec3 spawnPos = m_position;
 		glm::vec3 randomOffset;
@@ -127,20 +130,21 @@ bool ItemSpawner::GetSpawnPosition(glm::vec3* pSpawnPosition)
 		if (m_spawnFullLoaderRange)
 		{
 			float loaderRadius = m_pChunkManager->GetLoaderRadius();
-			randomOffset = glm::vec3(GetRandomNumber(-100, 100, 2)*0.01f*loaderRadius, GetRandomNumber(-100, 100, 2)*0.01f*loaderRadius, GetRandomNumber(-100, 100, 2)*0.01f*loaderRadius);
+			randomOffset = glm::vec3(GetRandomNumber(-100, 100, 2) * 0.01f * loaderRadius, GetRandomNumber(-100, 100, 2) * 0.01f * loaderRadius, GetRandomNumber(-100, 100, 2) * 0.01f * loaderRadius);
 		}
 		else
 		{
-			randomOffset = glm::vec3(GetRandomNumber(-100, 100, 2)*0.01f*(m_spawnRandomOffset.x - 8.0f), GetRandomNumber(-100, 100, 2)*0.01f*(m_spawnRandomOffset.y - 8.0f), GetRandomNumber(-100, 100, 2)*0.01f*(m_spawnRandomOffset.z - 8.0f));
+			randomOffset = glm::vec3(GetRandomNumber(-100, 100, 2) * 0.01f * (m_spawnRandomOffset.x - 8.0f), GetRandomNumber(-100, 100, 2) * 0.01f * (m_spawnRandomOffset.y - 8.0f), GetRandomNumber(-100, 100, 2) * 0.01f * (m_spawnRandomOffset.z - 8.0f));
 		}
 
 		spawnPos += randomOffset;
 
 		int blockX, blockY, blockZ;
 		glm::vec3 blockPos;
-		Chunk* pChunk = NULL;
+		Chunk* pChunk = nullptr;
 		bool active = m_pChunkManager->GetBlockActiveFrom3DPosition(spawnPos.x, spawnPos.y, spawnPos.z, &blockPos, &blockX, &blockY, &blockZ, &pChunk);
-		if (pChunk != NULL && pChunk->IsSetup() && active == false)
+		
+		if (pChunk != nullptr && pChunk->IsSetup() && active == false)
 		{
 			if (m_shouldSpawnOnGround)
 			{
@@ -150,11 +154,11 @@ bool ItemSpawner::GetSpawnPosition(glm::vec3* pSpawnPosition)
 					spawnPos = floorPosition + glm::vec3(0.0f, 0.01f, 0.0f);
 					spawnPos += m_groundSpawnOffset;
 
-					Biome biome = VoxGame::GetInstance()->GetBiomeManager()->GetBiome(spawnPos);
+					Biome biome = CubbyGame::GetInstance()->GetBiomeManager()->GetBiome(spawnPos);
 					if (biome == m_biomeSpawn)
 					{
 						*pSpawnPosition = spawnPos;
-						lLocationGood = true;
+						locationGood = true;
 					}
 				}
 			}
@@ -163,7 +167,7 @@ bool ItemSpawner::GetSpawnPosition(glm::vec3* pSpawnPosition)
 		numTries++;
 	}
 
-	return lLocationGood;
+	return locationGood;
 }
 
 // Updating
@@ -186,26 +190,26 @@ void ItemSpawner::Update(float dt)
 				glm::vec3 toPlayer = spawnPos - m_pPlayer->GetCenter();
 				if (length(toPlayer) > m_minDistanceFromPlayer)
 				{
-					eItem itemType = GetItemTypeToSpawn();
-					string itemFilename = GetItemFilenameForType(itemType);
+					ItemType itemType = GetItemTypeToSpawn();
+					std::string itemFilename = GetItemFilenameForType(itemType);
 
 					Item* pItem = m_pItemManager->CreateItem(spawnPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), itemFilename.c_str(), itemType, "SpawnedItem", true, false, m_spawnScale);
 					pItem->SetItemSpawner(this);
 
-					if (itemType == eItem_CopperVein || itemType == eItem_IronVein || itemType == eItem_SilverVein || itemType == eItem_GoldVein)
+					if (itemType == ItemType::CopperVein || itemType == ItemType::IronVein || itemType == ItemType::SilverVein || itemType == ItemType::GoldVein)
 					{
 						// Interaction with ore deposits
 						pItem->SetMaxtInteractCount(4);
 					}
-					if (itemType == eItem_Chest)
+					if (itemType == ItemType::Chest)
 					{
 						int xPos = 0;
 						int yPos = LootGUI::MAX_NUM_SLOTS_VERTICAL - 1;
 
 						// Create random loot inside the chest
-						eEquipment equipment = eEquipment_None;
-						InventoryItem* pRandomLoot = VoxGame::GetInstance()->GetRandomLootManager()->GetRandomLootItem(&equipment);
-						if (pRandomLoot != NULL && equipment != eEquipment_None)
+						EquipmentType equipment = EquipmentType::None;
+						InventoryItem* pRandomLoot = CubbyGame::GetInstance()->GetRandomLootManager()->GetRandomLootItem(&equipment);
+						if (pRandomLoot != nullptr && equipment != EquipmentType::None)
 						{
 							InventoryItem* pRandomLootItem = pItem->AddLootItem(pRandomLoot, xPos, yPos);
 							pRandomLootItem->m_scale = pRandomLoot->m_scale;
@@ -245,88 +249,91 @@ void ItemSpawner::UpdateTimers(float dt)
 }
 
 // Rendering
-void ItemSpawner::Render()
-{
-
-}
-
-void ItemSpawner::RenderDebug()
+void ItemSpawner::RenderDebug() const
 {
 	m_pRenderer->PushMatrix();
-	float l_length = 0.5f;
-	float l_height = 0.5f;
-	float l_width = 0.5f;
+	
+	float length = 0.5f;
+	float height = 0.5f;
+	float width = 0.5f;
 
 	m_pRenderer->TranslateWorldMatrix(m_position.x, m_position.y, m_position.z);
 
-	m_pRenderer->SetRenderMode(RM_WIREFRAME);
-	m_pRenderer->SetCullMode(CM_NOCULL);
+	m_pRenderer->SetRenderMode(RenderMode::WIREFRAME);
+	m_pRenderer->SetCullMode(CullMode::NOCULL);
 	m_pRenderer->SetLineWidth(1.0f);
 
-	// TODO : Loader culling
-	/*		if(m_pChunkManager->IsInsideLoader(m_position) == false)
+	// TODO: Loader culling
+	//if(m_pChunkManager->IsInsideLoader(m_position) == false)
+	//{
+	//	m_pRenderer->ImmediateColorAlpha(0.1f, 0.8f, 0.85f, 1.0f);
+	//}
+
+	if (m_spawning && m_canSpawn)
 	{
-	m_pRenderer->ImmediateColourAlpha(0.1f, 0.8f, 0.85f, 1.0f);
-	}
-	else */if (m_spawning && m_canSpawn)
-	{
-		m_pRenderer->ImmediateColourAlpha(0.1f, 0.8f, 0.05f, 1.0f);
+		m_pRenderer->ImmediateColorAlpha(0.1f, 0.8f, 0.05f, 1.0f);
 	}
 	else if (m_spawning)
 	{
-		m_pRenderer->ImmediateColourAlpha(0.8f, 0.8f, 0.05f, 1.0f);
+		m_pRenderer->ImmediateColorAlpha(0.8f, 0.8f, 0.05f, 1.0f);
 	}
 	else
 	{
-		m_pRenderer->ImmediateColourAlpha(0.8f, 0.1f, 0.05f, 1.0f);
+		m_pRenderer->ImmediateColorAlpha(0.8f, 0.1f, 0.05f, 1.0f);
 	}
 
-	m_pRenderer->EnableImmediateMode(IM_QUADS);
+	m_pRenderer->EnableImmediateMode(ImmediateModePrimitive::QUADS);
+
 	m_pRenderer->ImmediateNormal(0.0f, 0.0f, -1.0f);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, -l_width);
-	m_pRenderer->ImmediateVertex(l_length, l_height, -l_width);
+	m_pRenderer->ImmediateVertex(length, -height, -width);
+	m_pRenderer->ImmediateVertex(-length, -height, -width);
+	m_pRenderer->ImmediateVertex(-length, height, -width);
+	m_pRenderer->ImmediateVertex(length, height, -width);
 
 	m_pRenderer->ImmediateNormal(0.0f, 0.0f, 1.0f);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, l_width);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, l_width);
-	m_pRenderer->ImmediateVertex(l_length, l_height, l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, l_width);
+	m_pRenderer->ImmediateVertex(-length, -height, width);
+	m_pRenderer->ImmediateVertex(length, -height, width);
+	m_pRenderer->ImmediateVertex(length, height, width);
+	m_pRenderer->ImmediateVertex(-length, height, width);
 
 	m_pRenderer->ImmediateNormal(1.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, l_width);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(l_length, l_height, -l_width);
-	m_pRenderer->ImmediateVertex(l_length, l_height, l_width);
+	m_pRenderer->ImmediateVertex(length, -height, width);
+	m_pRenderer->ImmediateVertex(length, -height, -width);
+	m_pRenderer->ImmediateVertex(length, height, -width);
+	m_pRenderer->ImmediateVertex(length, height, width);
 
 	m_pRenderer->ImmediateNormal(-1.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, -l_width);
+	m_pRenderer->ImmediateVertex(-length, -height, -width);
+	m_pRenderer->ImmediateVertex(-length, -height, width);
+	m_pRenderer->ImmediateVertex(-length, height, width);
+	m_pRenderer->ImmediateVertex(-length, height, -width);
 
 	m_pRenderer->ImmediateNormal(0.0f, -1.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, -l_width);
-	m_pRenderer->ImmediateVertex(l_length, -l_height, l_width);
-	m_pRenderer->ImmediateVertex(-l_length, -l_height, l_width);
+	m_pRenderer->ImmediateVertex(-length, -height, -width);
+	m_pRenderer->ImmediateVertex(length, -height, -width);
+	m_pRenderer->ImmediateVertex(length, -height, width);
+	m_pRenderer->ImmediateVertex(-length, -height, width);
 
 	m_pRenderer->ImmediateNormal(0.0f, 1.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(l_length, l_height, -l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, -l_width);
-	m_pRenderer->ImmediateVertex(-l_length, l_height, l_width);
-	m_pRenderer->ImmediateVertex(l_length, l_height, l_width);
+	m_pRenderer->ImmediateVertex(length, height, -width);
+	m_pRenderer->ImmediateVertex(-length, height, -width);
+	m_pRenderer->ImmediateVertex(-length, height, width);
+	m_pRenderer->ImmediateVertex(length, height, width);
+
 	m_pRenderer->DisableImmediateMode();
 
 	// Spawn facing direction
-	m_pRenderer->SetRenderMode(RM_SOLID);
+	m_pRenderer->SetRenderMode(RenderMode::SOLID);
+
 	m_pRenderer->SetLineWidth(3.0f);
-	m_pRenderer->EnableImmediateMode(IM_LINES);
+	m_pRenderer->EnableImmediateMode(ImmediateModePrimitive::LINES);
+
 	m_pRenderer->ImmediateVertex(0.0f, 0.0f, 0.0f);
 	m_pRenderer->ImmediateVertex(m_spawnFacingDirection.x*1.5f, m_spawnFacingDirection.y*1.5f, m_spawnFacingDirection.z*1.5f);
+	
 	m_pRenderer->DisableImmediateMode();
 
-	m_pRenderer->SetCullMode(CM_BACK);
+	m_pRenderer->SetCullMode(CullMode::BACK);
+	
 	m_pRenderer->PopMatrix();
 }
