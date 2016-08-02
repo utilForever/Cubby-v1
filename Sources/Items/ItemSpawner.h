@@ -53,15 +53,14 @@ public:
 	void StartSpawning(float initialDelay);
 	void StopSpawning();
 	ItemType GetItemTypeToSpawn();
-	bool GetSpawnPosition(glm::vec3* pSpawnPosition);
+	bool GetSpawnPosition(glm::vec3* pSpawnPosition) const;
 
 	// Updating
 	void Update(float dt);
 	void UpdateTimers(float dt);
 
 	// Rendering
-	void Render();
-	void RenderDebug();
+	void RenderDebug() const;
 
 private:
 	Renderer* m_pRenderer;
