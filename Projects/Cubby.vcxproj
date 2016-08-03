@@ -200,6 +200,7 @@
     <ClCompile Include="..\Sources\Items\ItemManager.cpp" />
     <ClCompile Include="..\Sources\Items\ItemSpawner.cpp" />
     <ClCompile Include="..\Sources\Items\ItemUtils.cpp" />
+    <ClCompile Include="..\Sources\Items\RandomLootManager.cpp" />
     <ClCompile Include="..\Sources\Items\StatAttribute.cpp" />
     <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp" />
     <ClCompile Include="..\Sources\Lighting\LightingManager.cpp" />
@@ -462,6 +463,7 @@
     <ClInclude Include="..\Sources\Items\ItemManager.h" />
     <ClInclude Include="..\Sources\Items\ItemsEnum.h" />
     <ClInclude Include="..\Sources\Items\ItemSpawner.h" />
+    <ClInclude Include="..\Sources\Items\RandomLootManager.h" />
     <ClInclude Include="..\Sources\Items\StatAttribute.h" />
     <ClInclude Include="..\Sources\Lighting\DynamicLight.h" />
     <ClInclude Include="..\Sources\Lighting\LightingManager.h" />
