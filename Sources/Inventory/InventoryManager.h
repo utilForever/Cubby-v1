@@ -248,15 +248,15 @@ public:
 	void ExportInventory(std::string playerName);
 	void ImportInventory(std::string playerName);
 
-	bool IsInventoryFull();
+	bool IsInventoryFull() const;
 
-	ItemTextData* GetItemTextData(ItemType item);
-	bool CanDestroyItemWithHammer(ItemType item);
+	ItemTextData* GetItemTextData(ItemType item) const;
+	bool CanDestroyItemWithHammer(ItemType item) const;
 
 	bool CanAddInventoryItem(const char* title, ItemType item, int quantity);
 
 	InventoryItem* CreateInventoryItem(InventoryItem* pItem);
-	InventoryItem* CreateInventoryItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, bool left, bool right, const char* title, const char* description, float r, float g, float b, int quantity, int lootSlotX, int lootSlotY, int setInventorySlotX, int setInventorySlotY);
+	InventoryItem* CreateInventoryItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, bool left, bool right, const char* title, const char* description, float r, float g, float b, int quantity, int lootSlotX, int lootSlotY);
 	InventoryItem* CreateInventoryItemForCrafting(ItemType item, int quantity, ItemQuality itemQuality);
 	InventoryItem* CreateEquipmentItemFromType(EquipmentType equipment);
 
@@ -280,7 +280,7 @@ public:
 	void EquipInventoryItem(int slotIndex, EquipSlot equipSlot);
 	void EquipInventoryItem(int xPos, int yPos, EquipSlot equipSlot);
 
-	void EquipLootItem(int xPos, int yPos, InventoryItem* pInventoryItem, EquipSlot equipSlot);
+	void EquipLootItem(InventoryItem* pInventoryItem, EquipSlot equipSlot);
 
 	void UnequipItem(int xPos, int yPos, EquipSlot equipSlot);
 	void UnequipItemToLootGUI(EquipSlot equipSlot);
@@ -288,16 +288,16 @@ public:
 
 	InventoryItem* GetInventoryItemForEquipSlot(EquipSlot equipSlot);
 
-	bool IsEquippedStatus(ItemStatus status);
+	bool IsEquippedStatus(ItemStatus status) const;
 
 	// Coins
-	int GetNumCoins();
+	int GetNumCoins() const;
 	void GiveCoins(int numCoins);
 	void TakeCoins(int numCoins);
-	bool CoinsUpdated();
+	bool CoinsUpdated() const;
 	void SetCoinsUpdated(bool set);
 
-	void Update(float dt);
+	void Update();
 
 	// Constants
 	static const int MAX_NUM_SLOTS_HORIZONTAL = 6;
@@ -305,7 +305,7 @@ public:
 	static const int MAX_NUM_INVENTORY_SLOTS = MAX_NUM_SLOTS_HORIZONTAL * MAX_NUM_SLOTS_VERTICAL;
 
 protected:
-	int ConvertSlotsToIndex(int x, int y);
+	int ConvertSlotsToIndex(int x, int y) const;
 
 private:
 	bool m_InventoryGUINeedsUpdate;
