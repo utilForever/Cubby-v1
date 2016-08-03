@@ -117,7 +117,7 @@ std::string GetItemDescriptionForType(ItemType type)
 	}
 }
 
-std::string GetItemFilenameForType(ItemType type)
+std::string GetItemFileNameForType(ItemType type)
 {
 	switch (type)
 	{

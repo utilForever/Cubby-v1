@@ -193,7 +193,7 @@ std::string GetEquipmentDescriptionForType(EquipmentType type)
 	}
 }
 
-std::string GetEquipmentFilenameForType(EquipmentType type)
+std::string GetEquipmentFileNameForType(EquipmentType type)
 {
 	switch (type)
 	{

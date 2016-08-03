@@ -32,13 +32,13 @@ class ItemSpawner;
 std::string GetItemTitleForType(ItemType type);
 std::string GetItemDescriptionForType(ItemType type);
 float GetItemRadiusForType(ItemType type);
-std::string GetItemFilenameForType(ItemType type);
+std::string GetItemFileNameForType(ItemType type);
 std::string GetItemTextureForType(ItemType type);
 
 // Equipment helper functionality
 std::string GetEquipmentTitleForType(EquipmentType type);
 std::string GetEquipmentDescriptionForType(EquipmentType type);
-std::string GetEquipmentFilenameForType(EquipmentType type);
+std::string GetEquipmentFileNameForType(EquipmentType type);
 std::string GetEquipmentTextureForType(EquipmentType type);
 InventoryType GetInventoryTypeForEquipment(EquipmentType type);
 EquipSlot GetEquipSlotForEquipment(EquipmentType type);

@@ -191,7 +191,7 @@ void ItemSpawner::Update(float dt)
 				if (length(toPlayer) > m_minDistanceFromPlayer)
 				{
 					ItemType itemType = GetItemTypeToSpawn();
-					std::string itemFilename = GetItemFilenameForType(itemType);
+					std::string itemFilename = GetItemFileNameForType(itemType);
 
 					Item* pItem = m_pItemManager->CreateItem(spawnPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), itemFilename.c_str(), itemType, "SpawnedItem", true, false, m_spawnScale);
 					pItem->SetItemSpawner(this);
