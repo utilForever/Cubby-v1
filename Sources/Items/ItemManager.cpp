@@ -20,7 +20,7 @@
 
 // Constants
 float ItemManager::ITEM_INTERACTION_DISTANCE = 2.5f;
-float ItemManager::ITEM_INERACCTION_RADIUS_CHECK = 0.75f;
+float ItemManager::ITEM_INTERACTION_RADIUS_CHECK = 0.75f;
 
 // Constructor, Destructor
 ItemManager::ItemManager(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer) :
@@ -334,7 +334,7 @@ Item* ItemManager::CheckItemPlayerInteraction()
 		if (lengthSize > pItem->GetRadius() && lengthSize < ITEM_INTERACTION_DISTANCE + pItem->GetRadius())
 		{
 			// Make sure we are facing
-			if (dotProduct > ITEM_INERACCTION_RADIUS_CHECK)
+			if (dotProduct > ITEM_INTERACTION_RADIUS_CHECK)
 			{
 				if (dotProduct > maxDotProduct)
 				{
@@ -491,7 +491,7 @@ void ItemManager::UpdateHoverItems()
 		if (lengthSize > pItem->GetRadius() && lengthSize < ITEM_INTERACTION_DISTANCE + pItem->GetRadius())
 		{
 			// Make sure we are facing
-			if (dotProduct > ITEM_INERACCTION_RADIUS_CHECK)
+			if (dotProduct > ITEM_INTERACTION_RADIUS_CHECK)
 			{
 				if (dotProduct > maxDotProduct)
 				{

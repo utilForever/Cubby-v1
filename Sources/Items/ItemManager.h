@@ -108,7 +108,7 @@ public:
 
 	// Constants
 	static float ITEM_INTERACTION_DISTANCE;
-	static float ITEM_INERACCTION_RADIUS_CHECK;
+	static float ITEM_INTERACTION_RADIUS_CHECK;
 
 private:
 	void AddItemSubSpawnData(ItemType sourceItem, BlockType sourceBlockType, ItemType spawnedItem, std::string spawnedItemFilename, std::string spawnedItemTitle, bool interactable, bool collectible, float scale,
