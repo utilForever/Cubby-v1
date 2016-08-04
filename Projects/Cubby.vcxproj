@@ -225,6 +225,7 @@
     <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp" />
+    <ClCompile Include="..\Sources\Player\Player.cpp" />
     <ClCompile Include="..\Sources\Player\PlayerStats.cpp" />
     <ClCompile Include="..\Sources\Projectile\Projectile.cpp" />
     <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp" />
@@ -489,6 +490,7 @@
     <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleManager.h" />
+    <ClInclude Include="..\Sources\Player\Player.h" />
     <ClInclude Include="..\Sources\Player\PlayerClass.h" />
     <ClInclude Include="..\Sources\Player\PlayerStats.h" />
     <ClInclude Include="..\Sources\Projectile\Projectile.h" />

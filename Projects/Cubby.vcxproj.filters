@@ -420,6 +420,9 @@
     <ClCompile Include="..\Sources\Player\PlayerStats.cpp">
       <Filter>Sources\Player</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Player\Player.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1218,6 +1221,9 @@
       <Filter>Sources\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Player\PlayerClass.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Player\Player.h">
       <Filter>Sources\Player</Filter>
     </ClInclude>
   </ItemGroup>
