@@ -40,7 +40,7 @@ enum class InventoryType
 	WeaponMace,
 	WeaponDagger,
 	WeaponSickle,
-	Weapon2HandedSword,
+	WeaponTwoHandedSword,
 	WeaponShield,
 	WeaponBoomerang,
 	WeaponBomb,
