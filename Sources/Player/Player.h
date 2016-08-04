@@ -107,7 +107,7 @@ public:
 
 	// Unloading
 	void LoadWeapon(bool left, std::string weaponFile) const;
-	void UnloadWeapon(bool left);
+	void UnloadWeapon(bool left) const;
 
 	// Equipping items
 	void EquipItem(InventoryItem* pItem);
@@ -120,15 +120,15 @@ public:
 	bool CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, glm::vec3 *pNormal, glm::vec3 *pMovement, bool *pStepUpBlock);
 
 	// Selection
-	bool GetSelectionBlock(glm::vec3 *blockPos, int* chunkIndex, int* blockX, int* blockY, int* blockZ);
-	bool GetPlacementBlock(glm::vec3 *blockPos, int* chunkIndex, int* blockX, int* blockY, int* blockZ);
+	bool GetSelectionBlock(glm::vec3* blockPos, int* blockX, int* blockY, int* blockZ) const;
+	bool GetPlacementBlock(glm::vec3* blockPos, int* blockX, int* blockY, int* blockZ) const;
 
 	// World
 	void UpdateGridPosition();
 	int GetGridX() const;
 	int GetGridY() const;
 	int GetGridZ() const;
-	Chunk* GetCachedGridChunkOrFromPosition(glm::vec3 pos);
+	Chunk* GetCachedGridChunkOrFromPosition(glm::vec3 pos) const;
 	void ClearChunkCacheForChunk(Chunk* pChunk);
 
 	// Camera
@@ -142,42 +142,42 @@ public:
 	void StartGame();
 
 	// Movement
-	glm::vec3 GetPositionMovementAmount();
+	glm::vec3 GetPositionMovementAmount() const;
 	glm::vec3 MoveAbsolute(glm::vec3 direction, const float speed, bool shouldChangeForward = true);
 	void Move(const float speed);
 	void Strafe(const float speed);
 	void Levitate(const float speed);
 	void StopMoving();
 	void Jump();
-	bool CanJump();
+	bool CanJump() const;
 	void SetMoveToTargetPosition(glm::vec3 pos);
 	void DisableMoveToTargetPosition();
 	void SetLookAtTargetAfterMoveToPosition(glm::vec3 lookAt);
 	void CreateFloorParticles();
 
 	// Dead
-	bool IsDead();
+	bool IsDead() const;
 
 	// Level up
-	void LevelUp();
+	void LevelUp() const;
 
 	// Game play
-	float GetHealth();
-	float GetMaxHealth();
-	float GetMagic();
-	float GetMaxMagic();
+	float GetHealth() const;
+	float GetMaxHealth() const;
+	float GetMagic() const;
+	float GetMaxMagic() const;
 	void GiveHealth(float amount);
-	void GiveCoins(int amount);
+	void GiveCoins(int amount) const;
 
 	// Player stats
-	void SetSupressStatsExport(bool supress);
-	PlayerStats* GetPlayerStats();
-	std::string GetStrengthModifierString();
-	std::string GetDexterityModifierString();
-	std::string GetIntelligenceModifierString();
-	std::string GetVitalityModifierString();
-	std::string GetArmorModifierString();
-	std::string GetLuckModifierString();
+	void SetSupressStatsExport(bool supress) const;
+	PlayerStats* GetPlayerStats() const;
+	std::string GetStrengthModifierString() const;
+	std::string GetDexterityModifierString() const;
+	std::string GetIntelligenceModifierString() const;
+	std::string GetVitalityModifierString() const;
+	std::string GetArmorModifierString() const;
+	std::string GetLuckModifierString() const;
 
 	// Combat
 	void PressAttack();
@@ -205,7 +205,7 @@ public:
 	// Crafting
 	void SetCrafting(bool crafting);
 	void SetCraftingItem(bool crafting);
-	bool IsCrafting();
+	bool IsCrafting() const;
 
 	// Looking
 	void LookAtPoint(glm::vec3 point);
@@ -244,63 +244,63 @@ public:
 	void SetBomb(bool s);
 	void SetSpellHands(bool s);
 
-	bool IsNormal();
-	bool IsSword();
-	bool IsAxe();
-	bool IsHammer();
-	bool IsMace();
-	bool IsDagger();
-	bool IsSickle();
-	bool IsTwoHandedSword();
-	bool IsShield();
-	bool IsBoomerang();
-	bool IsBow();
-	bool IsStaff();
-	bool IsWand();
-	bool IsPickaxe();
-	bool IsTorch();
-	bool IsItemPlacing();
-	bool IsSceneryPlacing();
-	bool IsBlockPlacing();
-	bool IsConsumable();
-	bool IsBomb();
-	bool IsSpellHands();
+	bool IsNormal() const;
+	bool IsSword() const;
+	bool IsAxe() const;
+	bool IsHammer() const;
+	bool IsMace() const;
+	bool IsDagger() const;
+	bool IsSickle() const;
+	bool IsTwoHandedSword() const;
+	bool IsShield() const;
+	bool IsBoomerang() const;
+	bool IsBow() const;
+	bool IsStaff() const;
+	bool IsWand() const;
+	bool IsPickaxe() const;
+	bool IsTorch() const;
+	bool IsItemPlacing() const;
+	bool IsSceneryPlacing() const;
+	bool IsBlockPlacing() const;
+	bool IsConsumable() const;
+	bool IsBomb() const;
+	bool IsSpellHands() const;
 
 	// Rendering modes
-	void SetWireFrameRender(bool wireframe);
-	void SetPlayerAlpha(float alpha);
-	void SetFirstPersonMode();
-	void SetThirdPersonMode();
+	void SetWireFrameRender(bool wireframe) const;
+	void SetPlayerAlpha(float alpha) const;
+	void SetFirstPersonMode() const;
+	void SetThirdPersonMode() const;
 
 	// Rendering Helpers
 	void CalculateWorldTransformMatrix();
-	void RebuildVoxelCharacter(bool faceMerge);
+	void RebuildVoxelCharacter(bool faceMerge) const;
 
 	// Updating
 	void Update(float dt);
-	void UpdateAnimations(float dt);
+	void UpdateAnimations();
 	void UpdatePhysics(float dt);
 	void UpdateMovement(float dt);
 	void UpdateWorking(float dt);
 	void UpdateLookingAndForwardTarget(float dt);
 	void UpdateMagic(float dt);
 	void UpdateTimers(float dt);
-	void UpdateWeaponLights(float dt);
-	void UpdateWeaponParticleEffects(float dt);
+	void UpdateWeaponLights() const;
+	void UpdateWeaponParticleEffects() const;
 	void UpdateChargingAttack(float dt);
-	void UpdateCombat(float dt);
-	void UpdateBlockSelection(float dt);
+	void UpdateCombat();
+	void UpdateBlockSelection();
 
 	// Rendering
-	void Render();
-	void RenderFirstPerson();
-	void RenderWeaponTrails();
-	void RenderFace();
-	void RenderPaperdoll();
-	void RenderPaperdollFace();
-	void RenderPortrait();
-	void RenderPortraitFace();
-	void RenderSelectionBlock();
+	void Render() const;
+	void RenderFirstPerson() const;
+	void RenderWeaponTrails() const;
+	void RenderFace() const;
+	void RenderPaperdoll() const;
+	void RenderPaperdollFace() const;
+	void RenderPortrait() const;
+	void RenderPortraitFace() const;
+	void RenderSelectionBlock() const;
 	void RenderDebug();
 	void RenderProjectileHitboxDebug();
 
@@ -507,6 +507,11 @@ private:
 
 	// Player radius
 	float m_radius;
+
+	// Footstep sounds
+	int m_footstepSoundIndex;
+	float m_footstepSoundTimer;
+	float m_footstepSoundDistance;
 
 	// Animation params
 	bool m_animationFinished[static_cast<int>(AnimationSections::NumSections)];
