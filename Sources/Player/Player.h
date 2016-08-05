@@ -182,12 +182,12 @@ public:
 	// Combat
 	void PressAttack();
 	void ReleaseAttack();
-	bool CanAttackLeft();
-	bool CanAttackRight();
-	bool GetAttackEnabled();
-	float GetAttackRadius();
-	float GetAttackRotation();
-	float GetAttackSegmentAngle();
+	bool CanAttackLeft() const;
+	bool CanAttackRight() const;
+	bool GetAttackEnabled() const;
+	float GetAttackRadius() const;
+	float GetAttackRotation() const;
+	float GetAttackSegmentAngle() const;
 	void CheckEnemyDamageRadius(Enemy* pEnemy);
 	void CheckProjectileDamageRadius(Projectile* pProjectile);
 	void DoDamage(float amount, Color textColor, glm::vec3 knockbackDirection, float knockbackAmount, bool createParticleHit);
@@ -200,7 +200,7 @@ public:
 	// Enemy target
 	void SetEnemyDied(Enemy* pEnemy);
 	void SetTargetEnemy(Enemy* pTargetEnemy);
-	Enemy* GetTargetEnemy();
+	Enemy* GetTargetEnemy() const;
 
 	// Crafting
 	void SetCrafting(bool crafting);
@@ -214,12 +214,12 @@ public:
 	void SetBodyTurnSpeedMultiplier(float multiplier);
 
 	// Projectile hitbox
-	ProjectileHitboxType GetProjectileHitboxType();
-	float GetProjectileHitboxRadius();
-	float GetProjectileHitboxXLength();
-	float GetProjectileHitboxYLength();
-	float GetProjectileHitboxZLength();
-	glm::vec3 GetProjectileHitboxCenter();
+	ProjectileHitboxType GetProjectileHitboxType() const;
+	float GetProjectileHitboxRadius() const;
+	float GetProjectileHitboxXLength() const;
+	float GetProjectileHitboxYLength() const;
+	float GetProjectileHitboxZLength() const;
+	glm::vec3 GetProjectileHitboxCenter() const;
 
 	// Player equipped attributes
 	void SetNormal();
