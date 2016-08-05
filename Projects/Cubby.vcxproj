@@ -226,6 +226,7 @@
     <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp" />
     <ClCompile Include="..\Sources\Player\Player.cpp" />
+    <ClCompile Include="..\Sources\Player\PlayerCombat.cpp" />
     <ClCompile Include="..\Sources\Player\PlayerStats.cpp" />
     <ClCompile Include="..\Sources\Projectile\Projectile.cpp" />
     <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp" />
