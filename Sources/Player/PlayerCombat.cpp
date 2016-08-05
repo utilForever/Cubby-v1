@@ -11,11 +11,11 @@
 
 #include <CubbyGame.h>
 
+#include <Maths/3DMaths.h>
 #include <Utils/Interpolator.h>
 #include <Utils/Random.h>
 
 #include "Player.h"
-#include <Maths/3DMaths.h>
 
 // Combat
 void Player::PressAttack()
