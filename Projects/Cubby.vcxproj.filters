@@ -106,6 +106,9 @@
     <Filter Include="Sources\Player">
       <UniqueIdentifier>{b4f20a37-97a7-408b-8e75-09d3c7e3322b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\NPC">
+      <UniqueIdentifier>{dfd772de-85fe-477d-8b72-6c391835c1c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -425,6 +428,12 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Player\PlayerCombat.cpp">
       <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\NPC\NPC.cpp">
+      <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\NPC\NPCManager.cpp">
+      <Filter>Sources\NPC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1228,6 +1237,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Player\Player.h">
       <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\NPC\NPC.h">
+      <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\NPC\NPCManager.h">
+      <Filter>Sources\NPC</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -221,6 +221,8 @@
     <ClCompile Include="..\Sources\Models\VoxelObject.cpp" />
     <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp" />
     <ClCompile Include="..\Sources\Mods\ModsManager.cpp" />
+    <ClCompile Include="..\Sources\NPC\NPC.cpp" />
+    <ClCompile Include="..\Sources\NPC\NPCManager.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticle.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp" />
     <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp" />
@@ -487,6 +489,8 @@
     <ClInclude Include="..\Sources\Models\VoxelObject.h" />
     <ClInclude Include="..\Sources\Models\VoxelWeapon.h" />
     <ClInclude Include="..\Sources\Mods\ModsManager.h" />
+    <ClInclude Include="..\Sources\NPC\NPC.h" />
+    <ClInclude Include="..\Sources\NPC\NPCManager.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticle.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h" />
     <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h" />
