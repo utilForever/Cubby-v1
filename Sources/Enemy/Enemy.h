@@ -189,7 +189,7 @@ public:
 	void Update(float dt);
 	void UpdatePhysics(float dt);
 	void UpdateLookingAndForwardTarget(float dt);
-	void UpdateCombat(float dt);
+	void UpdateCombat();
 	void UpdateGameplay() const;
 	void UpdateMeleeCombat();
 	void UpdateRangedCombat();

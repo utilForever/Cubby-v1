@@ -2987,7 +2987,7 @@ void Enemy::Update(float dt)
 	UpdateMovement(dt);
 
 	// Update combat
-	UpdateCombat(dt);
+	UpdateCombat();
 
 	// Update gameplay
 	UpdateGameplay();
@@ -3249,7 +3249,7 @@ void Enemy::UpdateLookingAndForwardTarget(float dt)
 	}
 }
 
-void Enemy::UpdateCombat(float dt)
+void Enemy::UpdateCombat()
 {
 	if (m_sapped)
 	{
