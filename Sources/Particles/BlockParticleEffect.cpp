@@ -43,6 +43,16 @@ void BlockParticleEffect::ClearEmitters()
 	}
 }
 
+void BlockParticleEffect::SetPosition(glm::vec3 pos)
+{
+	m_position = pos;
+}
+
+glm::vec3 BlockParticleEffect::GetPosition() const
+{
+	return m_position;
+}
+
 void BlockParticleEffect::Import(const char* fileName)
 {
 	std::ifstream importFile;

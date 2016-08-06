@@ -29,6 +29,9 @@ public:
 
 	void ClearEmitters();
 
+	void SetPosition(glm::vec3 pos);
+	glm::vec3 GetPosition() const;
+
 	void Import(const char* fileName);
 	void Export(const char* fileName);
 
