@@ -194,6 +194,8 @@
     <ClCompile Include="..\Sources\CubbyUpdate.cpp" />
     <ClCompile Include="..\Sources\CubbyWindow.cpp" />
     <ClCompile Include="..\Sources\Enemy\Enemy.cpp" />
+    <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp" />
+    <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
     <ClCompile Include="..\Sources\Items\EquipmentUtils.cpp" />
@@ -463,6 +465,8 @@
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Enemy\Enemy.h" />
+    <ClInclude Include="..\Sources\Enemy\EnemyManager.h" />
+    <ClInclude Include="..\Sources\Enemy\EnemySpawner.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
     <ClInclude Include="..\Sources\Inventory\InventoryManager.h" />
     <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />

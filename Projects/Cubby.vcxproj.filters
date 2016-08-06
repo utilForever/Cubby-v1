@@ -441,6 +441,12 @@
     <ClCompile Include="..\Sources\Enemy\Enemy.cpp">
       <Filter>Sources\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1251,6 +1257,12 @@
       <Filter>Sources\NPC</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Enemy\Enemy.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Enemy\EnemySpawner.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Enemy\EnemyManager.h">
       <Filter>Sources\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
