@@ -16,10 +16,12 @@
 #include <NPC/NPCManager.h>
 #include <Player/Player.h>
 #include <Sounds/SoundEffects.h>
+#include <Utils/Interpolator.h>
 #include <Utils/Random.h>
 
+#include "EnemyManager.h"
+#include "EnemySpawner.h"
 #include "Enemy.h"
-#include <Utils/Interpolator.h>
 
 // Constructor, Destructor
 Enemy::Enemy(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer, LightingManager* pLightingManager, BlockParticleManager* pBlockParticleManager, TextEffectsManager* pTextEffectsManager, ItemManager* pItemManager, ProjectileManager* pProjectileManager, HUD* pHUD, EnemyManager* pEnemyManager, NPCManager* pNPCManager, QubicleBinaryManager* pQubicleBinaryManager, EnemyType enemyType) :
