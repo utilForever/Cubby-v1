@@ -109,6 +109,9 @@
     <Filter Include="Sources\NPC">
       <UniqueIdentifier>{dfd772de-85fe-477d-8b72-6c391835c1c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Enemy">
+      <UniqueIdentifier>{00952acf-5d41-4409-82db-ec4d9b5480a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -434,6 +437,9 @@
     </ClCompile>
     <ClCompile Include="..\Sources\NPC\NPCManager.cpp">
       <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Enemy\Enemy.cpp">
+      <Filter>Sources\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1243,6 +1249,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\NPC\NPCManager.h">
       <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Enemy\Enemy.h">
+      <Filter>Sources\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
