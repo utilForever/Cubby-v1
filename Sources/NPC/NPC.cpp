@@ -3673,11 +3673,11 @@ void NPC::AttackEnabledDelayTimerFinished()
 
 		if (m_attackCounter == 1)
 		{
-			spellSpawnPosition += -(GetRightVector()*0.4f);
+			spellSpawnPosition += -(GetRightVector() * 0.4f);
 		}
 		else
 		{
-			spellSpawnPosition += (GetRightVector()*0.4f);
+			spellSpawnPosition += (GetRightVector() * 0.4f);
 		}
 
 		glm::vec3 toTarget = m_pTargetEnemy->GetProjectileHitboxCenter() - GetCenter();
