@@ -115,6 +115,15 @@
     <Filter Include="Sources\Quests">
       <UniqueIdentifier>{e46534eb-4346-42bb-afb6-2ec98d0d7c51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\GameGUI">
+      <UniqueIdentifier>{2fb1365f-ca45-4858-af7d-89103dc2ef59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\GUI">
+      <UniqueIdentifier>{6d215b0f-2cbc-49ec-9e39-9cafd9b02731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Scenes">
+      <UniqueIdentifier>{c999ce18-2f31-45b4-b3c3-17231189f0e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -458,6 +467,42 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Quests\QuestJournal.cpp">
       <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\EventListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Event.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\MouseEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\MouseListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\KeyEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\KeyListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\FocusEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\FocusListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Point.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Dimensions.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Utils\TimeManager.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Utils\CountdownTimer.cpp">
+      <Filter>Sources\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1285,6 +1330,42 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Quests\QuestJournal.h">
       <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\EventListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\MouseListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Event.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\MouseEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\KeyEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\KeyListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\FocusEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\FocusListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Point.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Dimensions.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Utils\TimeManager.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Utils\CountdownTimer.h">
+      <Filter>Sources\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
