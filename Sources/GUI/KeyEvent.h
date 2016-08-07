@@ -15,7 +15,7 @@
 enum class KeyEventType
 {
 	PRESSED = 0,
-	ELEASED,
+	RELEASED,
 	TYPED,
 
 	CHARACTER_ENTERED,
