@@ -112,6 +112,9 @@
     <Filter Include="Sources\Enemy">
       <UniqueIdentifier>{00952acf-5d41-4409-82db-ec4d9b5480a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Quests">
+      <UniqueIdentifier>{e46534eb-4346-42bb-afb6-2ec98d0d7c51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -446,6 +449,15 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp">
       <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Quests\Quest.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Quests\QuestManager.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Quests\QuestJournal.cpp">
+      <Filter>Sources\Quests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1264,6 +1276,15 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Enemy\EnemyManager.h">
       <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Quests\Quest.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Quests\QuestManager.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Quests\QuestJournal.h">
+      <Filter>Sources\Quests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

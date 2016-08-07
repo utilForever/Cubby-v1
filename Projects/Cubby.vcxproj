@@ -235,6 +235,9 @@
     <ClCompile Include="..\Sources\Player\PlayerStats.cpp" />
     <ClCompile Include="..\Sources\Projectile\Projectile.cpp" />
     <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp" />
+    <ClCompile Include="..\Sources\Quests\Quest.cpp" />
+    <ClCompile Include="..\Sources\Quests\QuestJournal.cpp" />
+    <ClCompile Include="..\Sources\Quests\QuestManager.cpp" />
     <ClCompile Include="..\Sources\Renderer\Camera.cpp" />
     <ClCompile Include="..\Sources\Renderer\Color.cpp" />
     <ClCompile Include="..\Sources\Renderer\Frustum.cpp" />
@@ -506,6 +509,9 @@
     <ClInclude Include="..\Sources\Player\PlayerStats.h" />
     <ClInclude Include="..\Sources\Projectile\Projectile.h" />
     <ClInclude Include="..\Sources\Projectile\ProjectileManager.h" />
+    <ClInclude Include="..\Sources\Quests\Quest.h" />
+    <ClInclude Include="..\Sources\Quests\QuestJournal.h" />
+    <ClInclude Include="..\Sources\Quests\QuestManager.h" />
     <ClInclude Include="..\Sources\Renderer\Camera.h" />
     <ClInclude Include="..\Sources\Renderer\Color.h" />
     <ClInclude Include="..\Sources\Renderer\FrameBuffer.h" />
