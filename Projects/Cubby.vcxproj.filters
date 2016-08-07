@@ -504,6 +504,12 @@
     <ClCompile Include="..\Sources\Utils\CountdownTimer.cpp">
       <Filter>Sources\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Component.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Container.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1366,6 +1372,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Utils\CountdownTimer.h">
       <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Component.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Container.h">
+      <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

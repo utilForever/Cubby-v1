@@ -196,6 +196,8 @@
     <ClCompile Include="..\Sources\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
+    <ClCompile Include="..\Sources\GUI\Component.cpp" />
+    <ClCompile Include="..\Sources\GUI\Container.cpp" />
     <ClCompile Include="..\Sources\GUI\Dimensions.cpp" />
     <ClCompile Include="..\Sources\GUI\Event.cpp" />
     <ClCompile Include="..\Sources\GUI\EventListener.cpp" />
@@ -482,6 +484,8 @@
     <ClInclude Include="..\Sources\Enemy\Enemy.h" />
     <ClInclude Include="..\Sources\Enemy\EnemyManager.h" />
     <ClInclude Include="..\Sources\Enemy\EnemySpawner.h" />
+    <ClInclude Include="..\Sources\GUI\Component.h" />
+    <ClInclude Include="..\Sources\GUI\Container.h" />
     <ClInclude Include="..\Sources\GUI\Dimensions.h" />
     <ClInclude Include="..\Sources\GUI\Event.h" />
     <ClInclude Include="..\Sources\GUI\EventListener.h" />
