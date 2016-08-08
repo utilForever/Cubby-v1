@@ -510,6 +510,24 @@
     <ClCompile Include="..\Sources\GUI\Container.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Label.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\DirectDrawRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Icon.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\AbstractButton.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1379,6 +1397,21 @@
     <ClInclude Include="..\Sources\GUI\Container.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Label.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\DirectDrawRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\RenderRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\AbstractButton.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Libraries\glm\detail\func_common.inl">
@@ -1710,6 +1743,9 @@
     </None>
     <None Include="..\Libraries\glm\gtx\wrap.inl">
       <Filter>Libraries\glm\gtx</Filter>
+    </None>
+    <None Include="..\Sources\GUI\Icon.h">
+      <Filter>Sources\GUI</Filter>
     </None>
   </ItemGroup>
 </Project>
