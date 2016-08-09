@@ -197,6 +197,8 @@
     <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
     <ClCompile Include="..\Sources\GUI\AbstractButton.cpp" />
+    <ClCompile Include="..\Sources\GUI\Button.cpp" />
+    <ClCompile Include="..\Sources\GUI\Checkbox.cpp" />
     <ClCompile Include="..\Sources\GUI\Component.cpp" />
     <ClCompile Include="..\Sources\GUI\Container.cpp" />
     <ClCompile Include="..\Sources\GUI\Dimensions.cpp" />
@@ -491,6 +493,8 @@
     <ClInclude Include="..\Sources\Enemy\EnemyManager.h" />
     <ClInclude Include="..\Sources\Enemy\EnemySpawner.h" />
     <ClInclude Include="..\Sources\GUI\AbstractButton.h" />
+    <ClInclude Include="..\Sources\GUI\Button.h" />
+    <ClInclude Include="..\Sources\GUI\Checkbox.h" />
     <ClInclude Include="..\Sources\GUI\Component.h" />
     <ClInclude Include="..\Sources\GUI\Container.h" />
     <ClInclude Include="..\Sources\GUI\Dimensions.h" />
