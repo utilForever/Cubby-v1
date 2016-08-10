@@ -203,6 +203,7 @@
     <ClCompile Include="..\Sources\GUI\Container.cpp" />
     <ClCompile Include="..\Sources\GUI\Dimensions.cpp" />
     <ClCompile Include="..\Sources\GUI\DirectDrawRectangle.cpp" />
+    <ClCompile Include="..\Sources\GUI\DraggableRenderRectangle.cpp" />
     <ClCompile Include="..\Sources\GUI\Event.cpp" />
     <ClCompile Include="..\Sources\GUI\EventListener.cpp" />
     <ClCompile Include="..\Sources\GUI\FocusEvent.cpp" />
@@ -499,6 +500,7 @@
     <ClInclude Include="..\Sources\GUI\Container.h" />
     <ClInclude Include="..\Sources\GUI\Dimensions.h" />
     <ClInclude Include="..\Sources\GUI\DirectDrawRectangle.h" />
+    <ClInclude Include="..\Sources\GUI\DraggableRenderRectangle.h" />
     <ClInclude Include="..\Sources\GUI\Event.h" />
     <ClInclude Include="..\Sources\GUI\EventListener.h" />
     <ClInclude Include="..\Sources\GUI\FocusEvent.h" />

@@ -534,6 +534,9 @@
     <ClCompile Include="..\Sources\GUI\Checkbox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\DraggableRenderRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1422,6 +1425,9 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\Checkbox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\DraggableRenderRectangle.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
