@@ -22,12 +22,6 @@ using CountdownTimerList = std::vector<CountdownTimer*>;
 class TimeManager
 {
 public:
-	TimeManager() = default;
-	TimeManager(const TimeManager&) = delete;
-	TimeManager(TimeManager&&) = delete;
-	TimeManager& operator=(const TimeManager&) = delete;
-	TimeManager& operator=(TimeManager&&) = delete;
-
 	static TimeManager* GetInstance();
 	void Destroy();
 
@@ -40,6 +34,12 @@ public:
 	void Update(float dt);
 
 private:
+	TimeManager() = default;
+	TimeManager(const TimeManager&) = delete;
+	TimeManager(TimeManager&&) = delete;
+	TimeManager& operator=(const TimeManager&) = delete;
+	TimeManager& operator=(TimeManager&&) = delete;
+
 	// A dynamic array of our countdown timers
 	CountdownTimerList m_vpCountdownTimers;
 
