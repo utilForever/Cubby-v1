@@ -537,6 +537,12 @@
     <ClCompile Include="..\Sources\GUI\DraggableRenderRectangle.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\FocusManager.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\FormattedLabel.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1428,6 +1434,12 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\DraggableRenderRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\FocusManager.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\FormattedLabel.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
