@@ -32,8 +32,8 @@ public:
 
 	void SetOutline(bool outline);
 
-	void SetDimensions(int x, int y, int width, int height);
-	void SetDimensions(const Dimensions& r);
+	void SetDimensions(int x, int y, int width, int height) override;
+	void SetDimensions(const Dimensions& r) override;
 
 	void SetVerticalAlignment(VerticalAlignment alignment);
 	VerticalAlignment GetVerticalAlignment() const;
@@ -65,7 +65,7 @@ protected:
 
 	void ClearLabels();
 
-	void DrawSelf();
+	void DrawSelf() override;
 
 private:
 	std::string m_text;
