@@ -210,6 +210,9 @@
     <ClCompile Include="..\Sources\GUI\FocusListener.cpp" />
     <ClCompile Include="..\Sources\GUI\FocusManager.cpp" />
     <ClCompile Include="..\Sources\GUI\FormattedLabel.cpp" />
+    <ClCompile Include="..\Sources\GUI\GUIWindow.cpp" />
+    <ClCompile Include="..\Sources\GUI\GUIWindowCloseButton.cpp" />
+    <ClCompile Include="..\Sources\GUI\GUIWindowMinimizeButton.cpp" />
     <ClCompile Include="..\Sources\GUI\Icon.cpp" />
     <ClCompile Include="..\Sources\GUI\KeyEvent.cpp" />
     <ClCompile Include="..\Sources\GUI\KeyListener.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp" />
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
     <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp" />
+    <ClCompile Include="..\Sources\GUI\TitleBar.cpp" />
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
     <ClCompile Include="..\Sources\Items\EquipmentUtils.cpp" />
@@ -509,6 +513,9 @@
     <ClInclude Include="..\Sources\GUI\FocusListener.h" />
     <ClInclude Include="..\Sources\GUI\FocusManager.h" />
     <ClInclude Include="..\Sources\GUI\FormattedLabel.h" />
+    <ClInclude Include="..\Sources\GUI\GUIWindow.h" />
+    <ClInclude Include="..\Sources\GUI\GUIWindowCloseButton.h" />
+    <ClInclude Include="..\Sources\GUI\GUIWindowMinimizeButton.h" />
     <ClInclude Include="..\Sources\GUI\KeyEvent.h" />
     <ClInclude Include="..\Sources\GUI\KeyListener.h" />
     <ClInclude Include="..\Sources\GUI\Label.h" />
@@ -517,6 +524,7 @@
     <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h" />
     <ClInclude Include="..\Sources\GUI\Point.h" />
     <ClInclude Include="..\Sources\GUI\RenderRectangle.h" />
+    <ClInclude Include="..\Sources\GUI\TitleBar.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
     <ClInclude Include="..\Sources\Inventory\InventoryManager.h" />
     <ClInclude Include="..\Sources\Items\EquipmentEnum.h" />
