@@ -217,6 +217,8 @@
     <ClCompile Include="..\Sources\GUI\KeyEvent.cpp" />
     <ClCompile Include="..\Sources\GUI\KeyListener.cpp" />
     <ClCompile Include="..\Sources\GUI\Label.cpp" />
+    <ClCompile Include="..\Sources\GUI\Menu.cpp" />
+    <ClCompile Include="..\Sources\GUI\MenuItem.cpp" />
     <ClCompile Include="..\Sources\GUI\MouseEvent.cpp" />
     <ClCompile Include="..\Sources\GUI\MouseListener.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp" />
@@ -519,6 +521,8 @@
     <ClInclude Include="..\Sources\GUI\KeyEvent.h" />
     <ClInclude Include="..\Sources\GUI\KeyListener.h" />
     <ClInclude Include="..\Sources\GUI\Label.h" />
+    <ClInclude Include="..\Sources\GUI\Menu.h" />
+    <ClInclude Include="..\Sources\GUI\MenuItem.h" />
     <ClInclude Include="..\Sources\GUI\MouseEvent.h" />
     <ClInclude Include="..\Sources\GUI\MouseListener.h" />
     <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h" />

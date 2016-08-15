@@ -555,6 +555,12 @@
     <ClCompile Include="..\Sources\GUI\TitleBar.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Menu.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\MenuItem.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1464,6 +1470,12 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\GUIWindowMinimizeButton.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Menu.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\MenuItem.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
