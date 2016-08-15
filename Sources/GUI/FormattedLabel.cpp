@@ -680,7 +680,7 @@ void FormattedLabel::DrawSelf()
 
 	m_pRenderer->PopMatrix();
 
-	// DEBUG : Text bounds checking
+	// DEBUG: Text bounds checking
 	int stringWidth = m_pRenderer->GetFreeTypeTextWidth(m_normalFont, "%s", m_text.c_str());
 	int stringHeight = m_pRenderer->GetFreeTypeTextHeight(m_normalFont, "%s", m_text.c_str());
 
