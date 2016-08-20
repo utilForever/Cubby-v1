@@ -35,7 +35,7 @@ public:
 
 	ComponentType GetComponentType() const;
 
-	bool IsParentMenuOpen();
+	bool IsParentMenuOpen() const;
 
 	void MenuItemSelectedFromPulldowmMenu();
 
