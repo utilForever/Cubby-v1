@@ -8,6 +8,8 @@
 *************************************************************************/
 
 #include "DirectDrawRectangle.h"
+#include "FocusManager.h"
+#include "GUIWindow.h"
 #include "Icon.h"
 #include "Menu.h"
 #include "MenuItem.h"
@@ -271,9 +273,9 @@ void MenuItem::SetHeight(int height)
 	m_pDisabledIcon->SetHeight(height);
 }
 
-void MenuItem::SetOnlyShowSelectedIcons(bool lShow)
+void MenuItem::SetOnlyShowSelectedIcons(bool show)
 {
-	m_onlyShowSelectedItems = lShow;
+	m_onlyShowSelectedItems = show;
 
 	if (m_onlyShowSelectedItems)
 	{
@@ -357,11 +359,11 @@ void MenuItem::MouseEntered(const MouseEvent& event)
 
 			parent = parent->GetParent();
 		}
-		int lMenuX = location.x;
-		int lMenuY = location.y - fullMenuDisplayHeight;
-		int lMenuWidth = pParentMenu->GetBiggestWidth() + (pParentMenu->GetMenuItemSpacer() * 2);
+		int menuX = location.x;
+		int menuY = location.y - fullMenuDisplayHeight;
+		int menuWidth = pParentMenu->GetBiggestWidth() + (pParentMenu->GetMenuItemSpacer() * 2);
 
-		if (event.GetX() > lMenuX && event.GetX() <= lMenuX + lMenuWidth && event.GetY() > lMenuY && event.GetY() <= lMenuY + fullMenuDisplayHeight)
+		if (event.GetX() > menuX && event.GetX() <= menuX + menuWidth && event.GetY() > menuY && event.GetY() <= menuY + fullMenuDisplayHeight)
 		{
 			SetHover(true);
 
@@ -370,7 +372,7 @@ void MenuItem::MouseEntered(const MouseEvent& event)
 	}
 }
 
-void MenuItem::MouseExited(const MouseEvent& lEvent)
+void MenuItem::MouseExited(const MouseEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
@@ -385,18 +387,18 @@ void MenuItem::MouseExited(const MouseEvent& lEvent)
 	OnMouseExit();
 }
 
-void MenuItem::MousePressed(const MouseEvent& lEvent)
+void MenuItem::MousePressed(const MouseEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
 		return;
 	}
 
-	// If our parent is a GUIWindow, then makew this window have focus in the GUI, used to make it's depth the highest
-	if (GetParent() != NULL && GetParent()->GetComponentType() == EComponentType_GUIWindow)
+	// If our parent is a GUIWindow, then make this window have focus in the GUI, used to make it's depth the highest
+	if (GetParent() != nullptr && GetParent()->GetComponentType() == ComponentType::GUIWindow)
 	{
-		GUIWindow* lpParentWindow = (GUIWindow *)GetParent();
-		lpParentWindow->SetFocusWindow();
+		GUIWindow* pParentWindow = static_cast<GUIWindow*>(GetParent());
+		pParentWindow->SetFocusWindow();
 	}
 
 	SetSelected(true);
@@ -404,40 +406,40 @@ void MenuItem::MousePressed(const MouseEvent& lEvent)
 	OnMousePressed();
 }
 
-void MenuItem::MouseReleased(const MouseEvent& lEvent)
+void MenuItem::MouseReleased(const MouseEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
 		return;
 	}
 
-	Menu* lpParentMenu = (Menu*)GetParent();
+	Menu* pParentMenu = static_cast<Menu*>(GetParent());
 
 	// Make sure that we are inside the bounds of the parent menu
-	if (lpParentMenu->GetPullDownMenuParent() != NULL)
+	if (pParentMenu->GetPullDownMenuParent() != nullptr)
 	{
-		int lTextHeight = m_pRenderer->GetFreeTypeTextHeight(lpParentMenu->GetPullDownMenuParent()->GetGUIFont(), "%s", lpParentMenu->GetMenuTitle().c_str());
-		int lMenuHeight = lTextHeight + (lpParentMenu->GetMenuItemSpacer() * 2);
-		int lFullMenuDisplayHeight = lpParentMenu->GetPullDownMenuParent()->GetMaxNumItemsDisplayed() * lMenuHeight;
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(pParentMenu->GetPullDownMenuParent()->GetGUIFont(), "%s", pParentMenu->GetMenuTitle().c_str());
+		int menuHeight = textHeight + (pParentMenu->GetMenuItemSpacer() * 2);
+		int fullMenuDisplayHeight = pParentMenu->GetPullDownMenuParent()->GetMaxNumItemsDisplayed() * menuHeight;
 
-		Point location = lpParentMenu->GetPullDownMenuParent()->GetLocation();
-		for (Component* parent = lpParentMenu->GetPullDownMenuParent()->GetParent(); parent != 0;)
+		Point location = pParentMenu->GetPullDownMenuParent()->GetLocation();
+		for (Component* parent = pParentMenu->GetPullDownMenuParent()->GetParent(); parent != nullptr;)
 		{
 			Point parentLocation = parent->GetLocation();
 
-			location.m_x += parentLocation.m_x;
-			location.m_y += parentLocation.m_y;
+			location.x += parentLocation.x;
+			location.y += parentLocation.y;
 
 			parent = parent->GetParent();
 		}
-		int lMenuX = location.m_x;
-		int lMenuY = location.m_y - lFullMenuDisplayHeight;
-		int lMenuWidth = lpParentMenu->GetBiggestWidth() + (lpParentMenu->GetMenuItemSpacer() * 2);
+		int menuX = location.x;
+		int menuY = location.y - fullMenuDisplayHeight;
+		int menuWidth = pParentMenu->GetBiggestWidth() + (pParentMenu->GetMenuItemSpacer() * 2);
 
-		if (lEvent.GetX() > lMenuX && lEvent.GetX() <= lMenuX + lMenuWidth && lEvent.GetY() > lMenuY && lEvent.GetY() <= lMenuY + lFullMenuDisplayHeight)
+		if (event.GetX() > menuX && event.GetX() <= menuX + menuWidth && event.GetY() > menuY && event.GetY() <= menuY + fullMenuDisplayHeight)
 		{
 			// Close the menu, since we have clicked this menu item
-			lpParentMenu->CloseMenu();
+			pParentMenu->CloseMenu();
 
 			SetHover(false);
 			SetSelected(false);
@@ -448,20 +450,20 @@ void MenuItem::MouseReleased(const MouseEvent& lEvent)
 	}
 
 
-	FocusManager::GetInstance()->SetFocusOwner(0);
+	FocusManager::GetInstance()->SetFocusOwner(nullptr);
 
 	OnMouseReleased();
 }
 
-void MenuItem::MouseReleasedOutside(const MouseEvent& lEvent)
+void MenuItem::MouseReleasedOutside(const MouseEvent& event)
 {
-	FocusManager::GetInstance()->SetFocusOwner(0);
+	FocusManager::GetInstance()->SetFocusOwner(nullptr);
 
-	Menu* lpParentMenu = (Menu*)GetParent();
-	lpParentMenu->CloseMenu();
+	Menu* pParentMenu = static_cast<Menu*>(GetParent());
+	pParentMenu->CloseMenu();
 }
 
-void MenuItem::MouseClicked(const MouseEvent& lEvent)
+void MenuItem::MouseClicked(const MouseEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
@@ -472,95 +474,93 @@ void MenuItem::MouseClicked(const MouseEvent& lEvent)
 	SetSelected(false);
 
 	// Close the menu, since we have clicked this menu item
-	Menu* lpParentMenu = (Menu*)GetParent();
-	lpParentMenu->CloseMenu();
+	Menu* pParentMenu = static_cast<Menu*>(GetParent());
+	pParentMenu->CloseMenu();
 
 	// Make sure that we are inside the bounds of the parent menu
-	if (lpParentMenu->GetPullDownMenuParent() != NULL)
+	if (pParentMenu->GetPullDownMenuParent() != nullptr)
 	{
-		int lTextHeight = m_pRenderer->GetFreeTypeTextHeight(lpParentMenu->GetPullDownMenuParent()->GetGUIFont(), "%s", lpParentMenu->GetMenuTitle().c_str());
-		int lMenuHeight = lTextHeight + (lpParentMenu->GetMenuItemSpacer() * 2);
-		int lFullMenuDisplayHeight = lpParentMenu->GetPullDownMenuParent()->GetMaxNumItemsDisplayed() * lMenuHeight;
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(pParentMenu->GetPullDownMenuParent()->GetGUIFont(), "%s", pParentMenu->GetMenuTitle().c_str());
+		int menuHeight = textHeight + (pParentMenu->GetMenuItemSpacer() * 2);
+		int fullMenuDisplayHeight = pParentMenu->GetPullDownMenuParent()->GetMaxNumItemsDisplayed() * menuHeight;
 
-		Point location = lpParentMenu->GetPullDownMenuParent()->GetLocation();
-		for (Component* parent = lpParentMenu->GetPullDownMenuParent()->GetParent(); parent != 0;)
+		Point location = pParentMenu->GetPullDownMenuParent()->GetLocation();
+		for (Component* parent = pParentMenu->GetPullDownMenuParent()->GetParent(); parent != nullptr;)
 		{
 			Point parentLocation = parent->GetLocation();
 
-			location.m_x += parentLocation.m_x;
-			location.m_y += parentLocation.m_y;
+			location.x += parentLocation.x;
+			location.y += parentLocation.y;
 
 			parent = parent->GetParent();
 		}
-		int lMenuX = location.m_x;
-		int lMenuY = location.m_y - lFullMenuDisplayHeight;
-		int lMenuWidth = lpParentMenu->GetBiggestWidth() + (lpParentMenu->GetMenuItemSpacer() * 2);
+		int menuX = location.x;
+		int menuY = location.y - fullMenuDisplayHeight;
+		int menuWidth = pParentMenu->GetBiggestWidth() + (pParentMenu->GetMenuItemSpacer() * 2);
 
-		if (lEvent.GetX() > lMenuX && lEvent.GetX() <= lMenuX + lMenuWidth && lEvent.GetY() > lMenuY && lEvent.GetY() <= lMenuY + lFullMenuDisplayHeight)
+		if (event.GetX() > menuX && event.GetX() <= menuX + menuWidth && event.GetY() > menuY && event.GetY() <= menuY + fullMenuDisplayHeight)
 		{
 			// Signal that we have pressed this menu item
 			MenuItemPressed();
 		}
 	}
 
-	FocusManager::GetInstance()->SetFocusOwner(0);
+	FocusManager::GetInstance()->SetFocusOwner(nullptr);
 
 	OnMouseClicked();
 }
 
-void MenuItem::MenuItemPressed()
+void MenuItem::MenuItemPressed() const
 {
 	// Call the callback function callback if this class is just a simple button
-	if (m_Callback)
+	if (m_callback)
 	{
-		m_Callback(m_pCallbackData);
+		m_callback(m_pCallbackData);
 	}
 }
 
-void MenuItem::FocusLost(const FocusEvent& lEvent)
+void MenuItem::FocusLost(const FocusEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
 		return;
 	}
 
-	Menu* lpParentMenu = (Menu*)GetParent();
-	lpParentMenu->CloseMenu();
+	Menu* pParentMenu = static_cast<Menu*>(GetParent());
+	pParentMenu->CloseMenu();
 }
 
-void MenuItem::FocusGained(const FocusEvent& lEvent)
+void MenuItem::FocusGained(const FocusEvent& event)
 {
 	if (!IsParentMenuOpen())
 	{
-		FocusManager::GetInstance()->SetFocusOwner(0);
-
-		return;
+		FocusManager::GetInstance()->SetFocusOwner(nullptr);
 	}
 }
 
 void MenuItem::OnMouseEnter()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void MenuItem::OnMouseExit()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void MenuItem::OnMousePressed()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void MenuItem::OnMouseReleased()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void MenuItem::OnMouseClicked()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void MenuItem::DrawSelf()
