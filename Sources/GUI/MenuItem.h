@@ -22,35 +22,35 @@ public:
 
 	~MenuItem();
 
-	void AddEventListeners();
-	void RemoveEventListeners();
+	void AddEventListeners() override;
+	void RemoveEventListeners() override;
 
-	void SetDimensions(int x, int y, int width, int height);
-	void SetDimensions(const Dimensions& r);
-	void SetWidth(int width);
-	void SetHeight(int height);
+	void SetDimensions(int x, int y, int width, int height) override;
+	void SetDimensions(const Dimensions& r) override;
+	void SetWidth(int width) override;
+	void SetHeight(int height) override;
 
 	void SetOnlyShowSelectedIcons(bool isShow);
 	bool IsOnlyShowSelectedIcons() const;
 
-	ComponentType GetComponentType() const;
+	ComponentType GetComponentType() const override;
 
 	bool IsParentMenuOpen() const;
 
 	void MenuItemSelectedFromPulldowmMenu();
 
 protected:
-	void MouseEntered(const MouseEvent& event);
-	void MouseExited(const MouseEvent& event);
-	void MousePressed(const MouseEvent& event);
-	void MouseReleased(const MouseEvent& event);
-	void MouseReleasedOutside(const MouseEvent& event);
-	void MouseClicked(const MouseEvent& event);
+	void MouseEntered(const MouseEvent& event) override;
+	void MouseExited(const MouseEvent& event) override;
+	void MousePressed(const MouseEvent& event) override;
+	void MouseReleased(const MouseEvent& event) override;
+	void MouseReleasedOutside(const MouseEvent& event) override;
+	void MouseClicked(const MouseEvent& event) override;
 
-	void MenuItemPressed();
+	void MenuItemPressed() const;
 
-	void FocusLost(const FocusEvent& event);
-	void FocusGained(const FocusEvent& event);
+	void FocusLost(const FocusEvent& event) override;
+	void FocusGained(const FocusEvent& event) override;
 
 	virtual void OnMouseEnter();
 	virtual void OnMouseExit();
@@ -58,7 +58,7 @@ protected:
 	virtual void OnMouseReleased();
 	virtual void OnMouseClicked();
 
-	void DrawSelf();
+	void DrawSelf() override;
 
 private:
 	bool m_onlyShowSelectedItems;
