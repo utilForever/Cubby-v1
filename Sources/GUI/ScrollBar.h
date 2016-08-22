@@ -25,7 +25,7 @@
 enum class ScrollBarDirection
 {
 	Horizontal = 0,
-	EScrollBarDirection_Vertical,
+	Vertical,
 };
 
 
