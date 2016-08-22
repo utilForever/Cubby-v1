@@ -222,6 +222,7 @@
     <ClCompile Include="..\Sources\GUI\MenuItem.cpp" />
     <ClCompile Include="..\Sources\GUI\MouseEvent.cpp" />
     <ClCompile Include="..\Sources\GUI\MouseListener.cpp" />
+    <ClCompile Include="..\Sources\GUI\MultiLineTextBox.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp" />
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
     <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp" />
@@ -528,6 +529,7 @@
     <ClInclude Include="..\Sources\GUI\MenuItem.h" />
     <ClInclude Include="..\Sources\GUI\MouseEvent.h" />
     <ClInclude Include="..\Sources\GUI\MouseListener.h" />
+    <ClInclude Include="..\Sources\GUI\MultiLineTextBox.h" />
     <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h" />
     <ClInclude Include="..\Sources\GUI\Point.h" />
     <ClInclude Include="..\Sources\GUI\RenderRectangle.h" />
