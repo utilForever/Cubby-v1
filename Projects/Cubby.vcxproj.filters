@@ -570,6 +570,9 @@
     <ClCompile Include="..\Sources\GUI\MultiLineTextBox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\SelectionManager.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1494,6 +1497,9 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\MultiLineTextBox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\SelectionManager.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>

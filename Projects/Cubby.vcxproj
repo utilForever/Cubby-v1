@@ -227,6 +227,7 @@
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
     <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp" />
     <ClCompile Include="..\Sources\GUI\ScrollBar.cpp" />
+    <ClCompile Include="..\Sources\GUI\SelectionManager.cpp" />
     <ClCompile Include="..\Sources\GUI\TitleBar.cpp" />
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
     <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp" />
@@ -534,6 +535,7 @@
     <ClInclude Include="..\Sources\GUI\Point.h" />
     <ClInclude Include="..\Sources\GUI\RenderRectangle.h" />
     <ClInclude Include="..\Sources\GUI\ScrollBar.h" />
+    <ClInclude Include="..\Sources\GUI\SelectionManager.h" />
     <ClInclude Include="..\Sources\GUI\TitleBar.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
     <ClInclude Include="..\Sources\Inventory\InventoryManager.h" />
