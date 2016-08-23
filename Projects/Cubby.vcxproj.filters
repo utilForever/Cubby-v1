@@ -573,6 +573,9 @@
     <ClCompile Include="..\Sources\GUI\SelectionManager.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\OptionBox.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1500,6 +1503,9 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\SelectionManager.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\OptionBox.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>

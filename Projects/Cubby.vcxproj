@@ -224,6 +224,7 @@
     <ClCompile Include="..\Sources\GUI\MouseListener.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiLineTextBox.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp" />
+    <ClCompile Include="..\Sources\GUI\OptionBox.cpp" />
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
     <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp" />
     <ClCompile Include="..\Sources\GUI\ScrollBar.cpp" />
@@ -532,6 +533,7 @@
     <ClInclude Include="..\Sources\GUI\MouseListener.h" />
     <ClInclude Include="..\Sources\GUI\MultiLineTextBox.h" />
     <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h" />
+    <ClInclude Include="..\Sources\GUI\OptionBox.h" />
     <ClInclude Include="..\Sources\GUI\Point.h" />
     <ClInclude Include="..\Sources\GUI\RenderRectangle.h" />
     <ClInclude Include="..\Sources\GUI\ScrollBar.h" />
