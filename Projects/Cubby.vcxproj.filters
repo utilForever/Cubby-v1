@@ -579,6 +579,9 @@
     <ClCompile Include="..\Sources\GUI\OptionController.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\ProgressBar.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1512,6 +1515,9 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\OptionController.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\ProgressBar.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
