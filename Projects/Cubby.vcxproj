@@ -224,6 +224,7 @@
     <ClCompile Include="..\Sources\GUI\MouseListener.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiLineTextBox.cpp" />
     <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp" />
+    <ClCompile Include="..\Sources\GUI\OpenGLGUI.cpp" />
     <ClCompile Include="..\Sources\GUI\OptionBox.cpp" />
     <ClCompile Include="..\Sources\GUI\OptionController.cpp" />
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
@@ -233,6 +234,7 @@
     <ClCompile Include="..\Sources\GUI\ScrollBar.cpp" />
     <ClCompile Include="..\Sources\GUI\SelectionManager.cpp" />
     <ClCompile Include="..\Sources\GUI\Slider.cpp" />
+    <ClCompile Include="..\Sources\GUI\TextBox.cpp" />
     <ClCompile Include="..\Sources\GUI\TitleBar.cpp" />
     <ClCompile Include="..\Sources\GUI\TreeView.cpp" />
     <ClCompile Include="..\Sources\Instance\InstanceManager.cpp" />
@@ -538,6 +540,7 @@
     <ClInclude Include="..\Sources\GUI\MouseListener.h" />
     <ClInclude Include="..\Sources\GUI\MultiLineTextBox.h" />
     <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h" />
+    <ClInclude Include="..\Sources\GUI\OpenGLGUI.h" />
     <ClInclude Include="..\Sources\GUI\OptionBox.h" />
     <ClInclude Include="..\Sources\GUI\OptionController.h" />
     <ClInclude Include="..\Sources\GUI\Point.h" />
@@ -547,6 +550,7 @@
     <ClInclude Include="..\Sources\GUI\ScrollBar.h" />
     <ClInclude Include="..\Sources\GUI\SelectionManager.h" />
     <ClInclude Include="..\Sources\GUI\Slider.h" />
+    <ClInclude Include="..\Sources\GUI\TextBox.h" />
     <ClInclude Include="..\Sources\GUI\TitleBar.h" />
     <ClInclude Include="..\Sources\GUI\TreeView.h" />
     <ClInclude Include="..\Sources\Instance\InstanceManager.h" />
