@@ -585,6 +585,12 @@
     <ClCompile Include="..\Sources\GUI\PulldownMenu.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GUI\Slider.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\GUI\TreeView.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1524,6 +1530,12 @@
       <Filter>Sources\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\PulldownMenu.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\Slider.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GUI\TreeView.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
   </ItemGroup>
