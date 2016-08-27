@@ -228,6 +228,7 @@
     <ClCompile Include="..\Sources\GUI\OptionController.cpp" />
     <ClCompile Include="..\Sources\GUI\Point.cpp" />
     <ClCompile Include="..\Sources\GUI\ProgressBar.cpp" />
+    <ClCompile Include="..\Sources\GUI\PulldownMenu.cpp" />
     <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp" />
     <ClCompile Include="..\Sources\GUI\ScrollBar.cpp" />
     <ClCompile Include="..\Sources\GUI\SelectionManager.cpp" />
@@ -539,6 +540,7 @@
     <ClInclude Include="..\Sources\GUI\OptionController.h" />
     <ClInclude Include="..\Sources\GUI\Point.h" />
     <ClInclude Include="..\Sources\GUI\ProgressBar.h" />
+    <ClInclude Include="..\Sources\GUI\PulldownMenu.h" />
     <ClInclude Include="..\Sources\GUI\RenderRectangle.h" />
     <ClInclude Include="..\Sources\GUI\ScrollBar.h" />
     <ClInclude Include="..\Sources\GUI\SelectionManager.h" />
