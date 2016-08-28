@@ -597,6 +597,9 @@
     <ClCompile Include="..\Sources\GUI\OpenGLGUI.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1549,6 +1552,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\GUI\OpenGLGUI.h">
       <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GameGUI\ActionBar.h">
+      <Filter>Sources\GameGUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

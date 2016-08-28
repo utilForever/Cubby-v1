@@ -102,11 +102,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\d\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261d_64.lib;..\Libraries\fmod\libs\fmod64_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -196,6 +200,7 @@
     <ClCompile Include="..\Sources\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
+    <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp" />
     <ClCompile Include="..\Sources\GUI\AbstractButton.cpp" />
     <ClCompile Include="..\Sources\GUI\Button.cpp" />
     <ClCompile Include="..\Sources\GUI\Checkbox.cpp" />
@@ -513,6 +518,7 @@
     <ClInclude Include="..\Sources\Enemy\Enemy.h" />
     <ClInclude Include="..\Sources\Enemy\EnemyManager.h" />
     <ClInclude Include="..\Sources\Enemy\EnemySpawner.h" />
+    <ClInclude Include="..\Sources\GameGUI\ActionBar.h" />
     <ClInclude Include="..\Sources\GUI\AbstractButton.h" />
     <ClInclude Include="..\Sources\GUI\Button.h" />
     <ClInclude Include="..\Sources\GUI\Checkbox.h" />
