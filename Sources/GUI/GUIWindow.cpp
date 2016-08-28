@@ -10,6 +10,7 @@
 #include "DirectDrawRectangle.h"
 #include "Icon.h"
 #include "MultiTextureIcon.h"
+#include "OpenGLGUI.h"
 #include "GUIWindow.h"
 
 // Constructor, Destructor
