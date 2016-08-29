@@ -306,7 +306,7 @@ void ActionBar::AddItemToActionBar(InventoryItem* pInventoryItem, int slotIndex,
 	//pActionButton->m_pInventorySlotItem = pItem;
 	//pActionButton->m_pItemIcon = pNewSlotItem;
 	pActionButton->m_pItemIcon = nullptr;
-	pActionButton->m_type = ActionBarItemType_Item;
+	pActionButton->m_type = ActionBarItemType::Item;
 	pActionButton->m_itemTitle = pInventoryItem->m_title;
 	pActionButton->m_slotNum = slotIndex;
 	pActionButton->m_inventoryX = inventoryX;
@@ -319,7 +319,7 @@ void ActionBar::AddItemToActionBar(InventoryItem* pInventoryItem, int slotIndex,
 	m_vpActionSlotItems.push_back(pActionButton);
 }
 
-bool needs_erasing(ActionButtonItem* item)
+bool IsNeedErase(ActionButtonItem* item)
 {
 	bool isNeedErase = item->m_erase;
 
@@ -337,7 +337,7 @@ void ActionBar::RemoveItemFromActionBar(ActionButtonItem* pButton)
 
 	m_pGUI->RemoveComponent(pButton->m_pItemIcon);
 
-	m_vpActionSlotItems.erase(remove_if(m_vpActionSlotItems.begin(), m_vpActionSlotItems.end(), needs_erasing), m_vpActionSlotItems.end());
+	m_vpActionSlotItems.erase(remove_if(m_vpActionSlotItems.begin(), m_vpActionSlotItems.end(), IsNeedErase), m_vpActionSlotItems.end());
 }
 
 void ActionBar::RemoveInventoryItemFromActionBar(std::string itemTitle)
@@ -428,7 +428,7 @@ void ActionBar::UseActionBarslot(int slotIndex)
 	ActionButtonItem* pItem = GetActionButtonForSlot(slotIndex);
 	if (pItem != nullptr && pItem->m_inventoryX != -1 && pItem->m_inventoryY != -1)
 	{
-		if (pItem->m_type == ActionBarItemType_Item)
+		if (pItem->m_type == Item)
 		{
 			InventoryItem* pInventoryItem = m_pInventoryManager->GetInventoryItemWithTitle(pItem->m_itemTitle);
 

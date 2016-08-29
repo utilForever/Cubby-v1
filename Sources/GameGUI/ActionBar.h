@@ -23,10 +23,10 @@ class InventoryGUI;
 class LootGUI;
 class CharacterGUI;
 
-enum ActionBarItemType
+enum class ActionBarItemType
 {
-	ActionBarItemType_Item = 0,
-	ActionBarItemType_Skill,
+	Item = 0,
+	Skill,
 };
 
 class ActionButtonItem
