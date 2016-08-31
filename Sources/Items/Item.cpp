@@ -340,7 +340,7 @@ void Item::SetDroppedItem(const char* fileName, const char* iconFileName, Invent
 	}
 
 	m_droppedInventoryItem->m_fileName = fileName;
-	m_droppedInventoryItem->m_IconfileName = iconFileName;
+	m_droppedInventoryItem->m_iconFileName = iconFileName;
 	m_droppedInventoryItem->m_title = title;
 	m_droppedInventoryItem->m_description = description;
 
@@ -378,7 +378,7 @@ void Item::SetDroppedItem(const char* fileName, const char* iconFileName, Invent
 
 void Item::SetDroppedItem(InventoryItem* pItem)
 {
-	SetDroppedItem(pItem->m_fileName.c_str(), pItem->m_IconfileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality,
+	SetDroppedItem(pItem->m_fileName.c_str(), pItem->m_iconFileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality,
 		pItem->m_left, pItem->m_right, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity);
 }
 
@@ -561,7 +561,7 @@ InventoryItem* Item::AddLootItem(InventoryItem* pItem, int slotX, int slotY)
 {
 	if(pItem != nullptr)
 	{
-		InventoryItem* pAddedLootItem = AddLootItem(pItem->m_fileName.c_str(), pItem->m_IconfileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_left, pItem->m_right, pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity, slotX, slotY);
+		InventoryItem* pAddedLootItem = AddLootItem(pItem->m_fileName.c_str(), pItem->m_iconFileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_left, pItem->m_right, pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity, slotX, slotY);
 
 		for(size_t i = 0; i < pItem->m_vpStatAttributes.size(); ++i)
 		{
@@ -599,7 +599,7 @@ InventoryItem* Item::AddLootItem(const char* fileName, const char* iconFileName,
 	InventoryItem* pNewItem = new InventoryItem();
 
 	pNewItem->m_fileName = fileName;
-	pNewItem->m_IconfileName = iconFileName;
+	pNewItem->m_iconFileName = iconFileName;
 	pNewItem->m_title = title;
 	pNewItem->m_description = description;
 

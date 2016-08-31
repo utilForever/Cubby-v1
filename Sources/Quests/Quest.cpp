@@ -78,7 +78,7 @@ void Quest::SetQuestReward(InventoryItem* pReward)
 {
 	m_pQuestReward = new InventoryItem();
 	m_pQuestReward->m_fileName = pReward->m_fileName;
-	m_pQuestReward->m_IconfileName = pReward->m_IconfileName;
+	m_pQuestReward->m_iconFileName = pReward->m_iconFileName;
 	m_pQuestReward->m_title = pReward->m_title;
 	m_pQuestReward->m_description = pReward->m_description;
 	m_pQuestReward->m_itemType = pReward->m_itemType;
@@ -185,7 +185,7 @@ void Quest::ExportQuest()
 			if (m_vpObjectives[i]->m_placementItem)
 			{
 				exportFile << m_vpObjectives[i]->m_placementItem->m_fileName << "|";
-				exportFile << m_vpObjectives[i]->m_placementItem->m_IconfileName << "|";
+				exportFile << m_vpObjectives[i]->m_placementItem->m_iconFileName << "|";
 				exportFile << static_cast<int>(m_vpObjectives[i]->m_placementItem->m_itemType) << "|";
 				exportFile << static_cast<int>(m_vpObjectives[i]->m_placementItem->m_item) << "|";
 				exportFile << static_cast<int>(m_vpObjectives[i]->m_placementItem->m_equipSlot) << "|";
@@ -371,7 +371,7 @@ void Quest::ImportQuest(const char* fileName)
 
 				pNewItem->m_fileName = itemFileName;
 
-				pNewItem->m_IconfileName = iconFileName;
+				pNewItem->m_iconFileName = iconFileName;
 
 				pNewItem->m_title = title;
 				pNewItem->m_description = description;

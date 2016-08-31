@@ -699,7 +699,7 @@ void CharacterGUI::CreateInventoryItems()
 			pNewSlotItem->SetDepth(3.0f);
 
 			char lItemTexture[128];
-			sprintf(lItemTexture, "%s", pItem->m_IconfileName.c_str());
+			sprintf(lItemTexture, "%s", pItem->m_iconFileName.c_str());
 			pNewSlotItem->AddIcon(m_pRenderer, lItemTexture, 64, 64, 56, 56, 4, 4, 1.5f);
 
 			std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
@@ -789,7 +789,7 @@ void CharacterGUI::CreateInventoryItems()
 				pBlockSlotItem->AddIcon(m_pRenderer, itemForegroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 3.0f);
 
 				char itemTexture[128];
-				sprintf(itemTexture, "%s", pItem->m_IconfileName.c_str());
+				sprintf(itemTexture, "%s", pItem->m_iconFileName.c_str());
 				pBlockSlotItem->AddIcon(m_pRenderer, itemTexture, 64, 64, 56, 56, 4, 4, 1.5f);
 
 				pBlockSlotItem->SetDimensions(x2, y2, width2, height2);
@@ -812,7 +812,7 @@ void CharacterGUI::CreateInventoryItems()
 				pBlockSlotItem->AddIcon(m_pRenderer, itemForegroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 3.0f);
 
 				char itemTexture[128];
-				sprintf(itemTexture, "%s", pItem->m_IconfileName.c_str());
+				sprintf(itemTexture, "%s", pItem->m_iconFileName.c_str());
 				pBlockSlotItem->AddIcon(m_pRenderer, itemTexture, 64, 64, 56, 56, 4, 4, 1.5f);
 
 				pBlockSlotItem->SetDimensions(x2, y2, width2, height2);

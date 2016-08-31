@@ -156,7 +156,7 @@ struct InventoryItem
 	std::string m_fileName;
 
 	// Icon filename for GUI
-	std::string m_IconfileName;
+	std::string m_iconFileName;
 
 	// Title
 	std::string m_title;

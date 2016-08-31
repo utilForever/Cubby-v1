@@ -551,7 +551,7 @@ void ActionBar::CreateActionButtonIcon(ActionButtonItem* pActionButton) const
 	pNewSlotItem->SetDepth(8.0f);
 
 	char itemTexture[128];
-	sprintf(itemTexture, "%s", pInventoryItem->m_IconfileName.c_str());
+	sprintf(itemTexture, "%s", pInventoryItem->m_iconFileName.c_str());
 	pNewSlotItem->AddIcon(m_pRenderer, itemTexture, 64, 64, 56, 56, 4, 4, 1.5f);
 
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();

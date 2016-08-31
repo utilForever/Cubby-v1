@@ -295,7 +295,7 @@ void InventoryManager::ExportInventory(std::string playerName)
 			{
 				exportFile << "1" << "|";
 				exportFile << pItem->m_fileName << "|";
-				exportFile << pItem->m_IconfileName << "|";
+				exportFile << pItem->m_iconFileName << "|";
 				exportFile << static_cast<int>(pItem->m_itemType) << "|";
 				exportFile << static_cast<int>(pItem->m_item) << "|";
 				exportFile << static_cast<int>(pItem->m_status) << "|";
@@ -337,7 +337,7 @@ void InventoryManager::ExportInventory(std::string playerName)
 			{
 				exportFile << "1" << "|";
 				exportFile << pItem->m_fileName << "|";
-				exportFile << pItem->m_IconfileName << "|";
+				exportFile << pItem->m_iconFileName << "|";
 				exportFile << static_cast<int>(pItem->m_itemType) << "|";
 				exportFile << static_cast<int>(pItem->m_item) << "|";
 				exportFile << static_cast<int>(pItem->m_status) << "|";
@@ -466,7 +466,7 @@ void InventoryManager::ImportInventory(std::string playerName)
 
 				pNewItem->m_fileName = fileName;
 
-				pNewItem->m_IconfileName = iconFileName;
+				pNewItem->m_iconFileName = iconFileName;
 
 				pNewItem->m_title = title;
 				pNewItem->m_description = description;
@@ -596,7 +596,7 @@ void InventoryManager::ImportInventory(std::string playerName)
 
 				pNewItem->m_fileName = fileName;
 				
-				pNewItem->m_IconfileName = iconFileName;
+				pNewItem->m_iconFileName = iconFileName;
 
 				pNewItem->m_title = title;
 				pNewItem->m_description = description;
@@ -687,14 +687,14 @@ bool InventoryManager::IsInventoryFull() const
 
 InventoryItem* InventoryManager::CreateInventoryItem(InventoryItem* pItem)
 {
-	return CreateInventoryItem(pItem->m_fileName.c_str(), pItem->m_IconfileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality, pItem->m_left, pItem->m_right, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity, pItem->m_lootSlotX, pItem->m_lootSlotY);
+	return CreateInventoryItem(pItem->m_fileName.c_str(), pItem->m_iconFileName.c_str(), pItem->m_itemType, pItem->m_item, pItem->m_status, pItem->m_equipSlot, pItem->m_itemQuality, pItem->m_left, pItem->m_right, pItem->m_title.c_str(), pItem->m_description.c_str(), pItem->m_placementR, pItem->m_placementG, pItem->m_placementB, pItem->m_quantity, pItem->m_lootSlotX, pItem->m_lootSlotY);
 }
 
 InventoryItem* InventoryManager::CreateInventoryItem(const char* fileName, const char* iconFileName, InventoryType itemType, ItemType item, ItemStatus status, EquipSlot equipSlot, ItemQuality itemQuality, bool left, bool right, const char* title, const char* description, float r, float g, float b, int quantity, int lootSlotX, int lootSlotY)
 {
 	InventoryItem* pNewItem = new InventoryItem();
 	pNewItem->m_fileName = fileName;
-	pNewItem->m_IconfileName = iconFileName;
+	pNewItem->m_iconFileName = iconFileName;
 	pNewItem->m_title = title;
 	pNewItem->m_description = description;
 
@@ -909,7 +909,7 @@ InventoryItem* InventoryManager::AddInventoryItem(const char* fileName, const ch
 			// Create the new inventory item
 			InventoryItem* pNewItem = new InventoryItem();
 			pNewItem->m_fileName = fileName;
-			pNewItem->m_IconfileName = iconFileName;
+			pNewItem->m_iconFileName = iconFileName;
 			pNewItem->m_title = title;
 			pNewItem->m_description = description;
 
@@ -961,7 +961,7 @@ InventoryItem* InventoryManager::AddInventoryItem(const char* fileName, const ch
 
 InventoryItem* InventoryManager::AddInventoryItem(InventoryItem* pInventoryItem, int inventoryX, int inventoryY)
 {
-	InventoryItem* pItem = AddInventoryItem(pInventoryItem->m_fileName.c_str(), pInventoryItem->m_IconfileName.c_str(), pInventoryItem->m_itemType, pInventoryItem->m_item, pInventoryItem->m_status, pInventoryItem->m_equipSlot, pInventoryItem->m_itemQuality, pInventoryItem->m_left, pInventoryItem->m_right, pInventoryItem->m_title.c_str(), pInventoryItem->m_description.c_str(), pInventoryItem->m_placementR, pInventoryItem->m_placementG, pInventoryItem->m_placementB, pInventoryItem->m_quantity, pInventoryItem->m_lootSlotX, pInventoryItem->m_lootSlotY, inventoryX, inventoryY);
+	InventoryItem* pItem = AddInventoryItem(pInventoryItem->m_fileName.c_str(), pInventoryItem->m_iconFileName.c_str(), pInventoryItem->m_itemType, pInventoryItem->m_item, pInventoryItem->m_status, pInventoryItem->m_equipSlot, pInventoryItem->m_itemQuality, pInventoryItem->m_left, pInventoryItem->m_right, pInventoryItem->m_title.c_str(), pInventoryItem->m_description.c_str(), pInventoryItem->m_placementR, pInventoryItem->m_placementG, pInventoryItem->m_placementB, pInventoryItem->m_quantity, pInventoryItem->m_lootSlotX, pInventoryItem->m_lootSlotY, inventoryX, inventoryY);
 
 	for (size_t i = 0; i < pInventoryItem->m_vpStatAttributes.size(); ++i)
 	{
