@@ -79,14 +79,14 @@ public:
 	void SetWindowDimensions(int windowWidth, int windowHeight);
 
 	// Skinning the GUI
-	void SkinGUI();
-	void UnSkinGUI();
+	void SkinGUI() const;
+	void UnSkinGUI() const;
 
 	// Loading
 	void Load(bool loadDelay = false, float loadDelayTime = 0.0f);
 	void Unload();
-	bool IsLoadDelayed();
-	bool IsLoaded();
+	bool IsLoadDelayed() const;
+	bool IsLoaded() const;
 
 	void CraftingComplete();
 
@@ -100,7 +100,7 @@ public:
 	void DeleteRecipeButtons();
 	void CreateIngredientsButtons();
 	void DeleteIngredientsButtons();
-	bool CanCraftRecipe();
+	bool CanCraftRecipe() const;
 
 	// Tooltips
 	void UpdateToolTipAppear(float dt);
@@ -110,11 +110,11 @@ public:
 
 	// Updating
 	void Update(float dt);
-	void UpdateCraftButton();
+	void UpdateCraftButton() const;
 	void UpdateFilteredRecipes();
 
 	// Rendering
-	void Render();
+	void Render() const;
 
 protected:
 	static void _CloseExitPressed(void* pData);
