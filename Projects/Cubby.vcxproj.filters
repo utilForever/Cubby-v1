@@ -609,6 +609,9 @@
     <ClCompile Include="..\Sources\GameGUI\HUD.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GameGUI\InventoryGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1572,6 +1575,9 @@
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GameGUI\HUD.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GameGUI\InventoryGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
   </ItemGroup>

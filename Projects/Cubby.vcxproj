@@ -204,6 +204,7 @@
     <ClCompile Include="..\Sources\GameGUI\CharacterGUI.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CraftingGUI.cpp" />
     <ClCompile Include="..\Sources\GameGUI\HUD.cpp" />
+    <ClCompile Include="..\Sources\GameGUI\InventoryGUI.cpp" />
     <ClCompile Include="..\Sources\GUI\AbstractButton.cpp" />
     <ClCompile Include="..\Sources\GUI\Button.cpp" />
     <ClCompile Include="..\Sources\GUI\Checkbox.cpp" />
@@ -525,6 +526,7 @@
     <ClInclude Include="..\Sources\GameGUI\CharacterGUI.h" />
     <ClInclude Include="..\Sources\GameGUI\CraftingGUI.h" />
     <ClInclude Include="..\Sources\GameGUI\HUD.h" />
+    <ClInclude Include="..\Sources\GameGUI\InventoryGUI.h" />
     <ClInclude Include="..\Sources\GUI\AbstractButton.h" />
     <ClInclude Include="..\Sources\GUI\Button.h" />
     <ClInclude Include="..\Sources\GUI\Checkbox.h" />
