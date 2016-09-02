@@ -7,10 +7,12 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include "LootGUI.h"
-#include "CubbyGame.h"
 #include <algorithm>
+
+#include <CubbyGame.h>
+
 #include "InventoryGUI.h"
+#include "LootGUI.h"
 
 // Constructor, Destructor
 LootGUI::LootGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager, ChunkManager* pChunkManager, Player* pPlayer, InventoryManager* pInventoryManager, int windowWidth, int windowHeight)
