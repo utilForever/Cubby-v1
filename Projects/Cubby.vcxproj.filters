@@ -615,6 +615,9 @@
     <ClCompile Include="..\Sources\GameGUI\LootGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\GameGUI\QuestGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1584,6 +1587,9 @@
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\GameGUI\LootGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\GameGUI\QuestGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
   </ItemGroup>
