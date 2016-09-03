@@ -26,7 +26,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_windowHeight = windowHeight;
 
 	// Character Window
-	m_pCharacterWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "Character");
+	m_pCharacterWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "Character");
 	m_pCharacterWindow->AllowMoving(true);
 	m_pCharacterWindow->AllowClosing(false);
 	m_pCharacterWindow->AllowMinimizing(false);
@@ -48,7 +48,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -77,41 +77,41 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsTabIconRight = new Icon(m_pRenderer, "", 164, 198);
 	m_pStatsTabIconRight->SetDepth(0.5f);
 
-	m_pCharacterTitleLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "[NAME]", Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pCharacterTitleLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "[NAME]", Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pCharacterTitleLabel->SetDepth(2.0f);
 
-	m_pStatsHeaderLabel1 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Strength", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel1 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Strength", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel1->SetOutline(true);
 	m_pStatsHeaderLabel1->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel1->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel1->SetDepth(2.0f);
-	m_pStatsHeaderLabel2 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Dexterity", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel2 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Dexterity", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel2->SetOutline(true);
 	m_pStatsHeaderLabel2->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel2->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel2->SetDepth(2.0f);
-	m_pStatsHeaderLabel3 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Intelligence", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel3 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Intelligence", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel3->SetOutline(true);
 	m_pStatsHeaderLabel3->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel3->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel3->SetDepth(2.0f);
-	m_pStatsHeaderLabel4 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Vitality", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel4 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Vitality", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel4->SetOutline(true);
 	m_pStatsHeaderLabel4->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel4->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel4->SetDepth(2.0f);
-	m_pStatsHeaderLabel5 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Armor", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel5 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Armor", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel5->SetOutline(true);
 	m_pStatsHeaderLabel5->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel5->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel5->SetDepth(2.0f);
-	m_pStatsHeaderLabel6 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), "Luck", Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStatsHeaderLabel6 = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), "Luck", Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStatsHeaderLabel6->SetOutline(true);
 	m_pStatsHeaderLabel6->SetOutlineColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsHeaderLabel6->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
 	m_pStatsHeaderLabel6->SetDepth(2.0f);
 
-	m_pStatsValueLabel1 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "1");
+	m_pStatsValueLabel1 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "1");
 	m_pStatsValueLabel1->SetOutline(true);
 	m_pStatsValueLabel1->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel1->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -119,7 +119,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel1->SetDepth(5.5f);
 	m_pStatsValueLabel1->SetWordWrap(true);
 	m_pStatsValueLabel1->SetHorizontalAlignment(HorizontalAlignment::Center);
-	m_pStatsValueLabel2 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "2");
+	m_pStatsValueLabel2 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "2");
 	m_pStatsValueLabel2->SetOutline(true);
 	m_pStatsValueLabel2->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel2->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -127,7 +127,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel2->SetDepth(5.5f);
 	m_pStatsValueLabel2->SetWordWrap(true);
 	m_pStatsValueLabel2->SetHorizontalAlignment(HorizontalAlignment::Center);
-	m_pStatsValueLabel3 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "3");
+	m_pStatsValueLabel3 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "3");
 	m_pStatsValueLabel3->SetOutline(true);
 	m_pStatsValueLabel3->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel3->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -135,7 +135,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel3->SetDepth(5.5f);
 	m_pStatsValueLabel3->SetWordWrap(true);
 	m_pStatsValueLabel3->SetHorizontalAlignment(HorizontalAlignment::Center);
-	m_pStatsValueLabel4 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "4");
+	m_pStatsValueLabel4 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "4");
 	m_pStatsValueLabel4->SetOutline(true);
 	m_pStatsValueLabel4->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel4->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -143,7 +143,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel4->SetDepth(5.5f);
 	m_pStatsValueLabel4->SetWordWrap(true);
 	m_pStatsValueLabel4->SetHorizontalAlignment(HorizontalAlignment::Center);
-	m_pStatsValueLabel5 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "5");
+	m_pStatsValueLabel5 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "5");
 	m_pStatsValueLabel5->SetOutline(true);
 	m_pStatsValueLabel5->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel5->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -151,7 +151,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel5->SetDepth(5.5f);
 	m_pStatsValueLabel5->SetWordWrap(true);
 	m_pStatsValueLabel5->SetHorizontalAlignment(HorizontalAlignment::Center);
-	m_pStatsValueLabel6 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), "6");
+	m_pStatsValueLabel6 = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), "6");
 	m_pStatsValueLabel6->SetOutline(true);
 	m_pStatsValueLabel6->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pStatsValueLabel6->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -160,7 +160,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pStatsValueLabel6->SetWordWrap(true);
 	m_pStatsValueLabel6->SetHorizontalAlignment(HorizontalAlignment::Center);
 
-	m_pStat1IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat1IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat1IncreaseButton->SetCallBackFunction(_Stat1IncreasePressed);
 	m_pStat1IncreaseButton->SetCallBackData(this);
 	//m_pStat1IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -168,7 +168,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat1IncreaseButton->SetSelectedIcon(m_pStatsIncreaseButtonIcon);
 	//m_pStat1IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat1IncreaseButton->SetDepth(1.1f);
-	m_pStat2IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat2IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat2IncreaseButton->SetCallBackFunction(_Stat2IncreasePressed);
 	m_pStat2IncreaseButton->SetCallBackData(this);
 	//m_pStat2IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -176,7 +176,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat2IncreaseButton->SetSelectedIcon(m_pStatsIncreaseButtonIcon);
 	//m_pStat2IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat2IncreaseButton->SetDepth(1.2f);
-	m_pStat3IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat3IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat3IncreaseButton->SetCallBackFunction(_Stat3IncreasePressed);
 	m_pStat3IncreaseButton->SetCallBackData(this);
 	//m_pStat3IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -184,7 +184,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat3IncreaseButton->SetSelectedIcon(m_pStatsIncreaseButtonIcon);
 	//m_pStat3IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat3IncreaseButton->SetDepth(1.3f);
-	m_pStat4IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat4IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat4IncreaseButton->SetCallBackFunction(_Stat4IncreasePressed);
 	m_pStat4IncreaseButton->SetCallBackData(this);
 	//m_pStat4IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -192,7 +192,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat4IncreaseButton->SetSelectedIcon(m_pStatsIncreaseButtonIcon);
 	//m_pStat4IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat4IncreaseButton->SetDepth(1.4f);
-	m_pStat5IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat5IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat5IncreaseButton->SetCallBackFunction(_Stat5IncreasePressed);
 	m_pStat5IncreaseButton->SetCallBackData(this);
 	//m_pStat5IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -200,7 +200,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat5IncreaseButton->SetSelectedIcon(m_pStatsIncreaseButtonIcon);
 	//m_pStat5IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat5IncreaseButton->SetDepth(1.5f);
-	m_pStat6IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pStat6IncreaseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pStat6IncreaseButton->SetCallBackFunction(_Stat6IncreasePressed);
 	m_pStat6IncreaseButton->SetCallBackData(this);
 	//m_pStat6IncreaseButton->SetDefaultIcon(m_pStatsIncreaseButtonIcon);
@@ -209,7 +209,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	//m_pStat6IncreaseButton->SetDisabledIcon(m_pStatsIncreaseButtonIcon);
 	m_pStat6IncreaseButton->SetDepth(1.6f);
 
-	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTabOpenCloseButton->SetDefaultIcon(m_pTabOpenCloseButtonIconLeft);
 	m_pTabOpenCloseButton->SetHoverIcon(m_pTabOpenCloseButtonIconLeftHover);
 	m_pTabOpenCloseButton->SetSelectedIcon(m_pTabOpenCloseButtonIconLeftPressed);
@@ -218,7 +218,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTabOpenCloseButton->SetCallBackFunction(_OpenCloseTabPressed);
 	m_pTabOpenCloseButton->SetCallBackData(this);
 
-	m_pArrowLeftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pArrowLeftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pArrowLeftButton->SetLabelOffset(0, 5);
 	m_pArrowLeftButton->SetCallBackFunctionPressed(_ArrowLeftPressed);
 	m_pArrowLeftButton->SetCallBackDataPressed(this);
@@ -226,7 +226,7 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pArrowLeftButton->SetCallBackDataReleased(this);
 	m_pArrowLeftButton->SetDepth(3.0f);
 
-	m_pArrowRightButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pArrowRightButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pArrowRightButton->SetLabelOffset(0, 5);
 	m_pArrowRightButton->SetCallBackFunctionPressed(_ArrowRightPressed);
 	m_pArrowRightButton->SetCallBackDataPressed(this);
@@ -294,14 +294,14 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipBackgroundEpic->SetDepth(5.5f);
 
 	char nameText[] = "[ITEM]";
-	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutline(true);
 	m_pTooltipNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
 	m_pTooltipNameLabel->SetDepth(5.5f);
 
 	char descText[] = "[REPLACE ME]";
-	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), descText);
+	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), descText);
 	m_pTooltipDescriptionLabel->SetOutline(true);
 	m_pTooltipDescriptionLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipDescriptionLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -310,14 +310,14 @@ CharacterGUI::CharacterGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipDescriptionLabel->SetWordWrap(true);
 
 	char slotText[] = "[SLOT]";
-	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipSlotLabel->SetOutline(true);
 	m_pTooltipSlotLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
 	m_pTooltipSlotLabel->SetDepth(5.5f);
 
 	char qualityText[] = "[QUALITY]";
-	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipQualityLabel->SetOutline(true);
 	m_pTooltipQualityLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
@@ -528,12 +528,12 @@ void CharacterGUI::SkinGUI()
 	m_pCloseExitButton->SetDisabledIcon(m_pFrontendManager->GetCloseExitButtonIcon());
 
 	m_pArrowLeftButton->SetDefaultIcon(m_pFrontendManager->GetLeftRotateArrow());
-	m_pArrowLeftButton->SetHoverIcon(m_pFrontendManager->GetLeftRotateArrow_Hover());
-	m_pArrowLeftButton->SetSelectedIcon(m_pFrontendManager->GetLeftRotateArrow_Pressed());
+	m_pArrowLeftButton->SetHoverIcon(m_pFrontendManager->GetLeftRotateArrowHover());
+	m_pArrowLeftButton->SetSelectedIcon(m_pFrontendManager->GetLeftRotateArrowPressed());
 	m_pArrowLeftButton->SetDisabledIcon(m_pFrontendManager->GetLeftRotateArrow());
 	m_pArrowRightButton->SetDefaultIcon(m_pFrontendManager->GetRightRotateArrow());
-	m_pArrowRightButton->SetHoverIcon(m_pFrontendManager->GetRightRotateArrow_Hover());
-	m_pArrowRightButton->SetSelectedIcon(m_pFrontendManager->GetRightRotateArrow_Pressed());
+	m_pArrowRightButton->SetHoverIcon(m_pFrontendManager->GetRightRotateArrowHover());
+	m_pArrowRightButton->SetSelectedIcon(m_pFrontendManager->GetRightRotateArrowPressed());
 	m_pArrowRightButton->SetDisabledIcon(m_pFrontendManager->GetRightRotateArrow());
 }
 
@@ -746,8 +746,8 @@ void CharacterGUI::CreateInventoryItems()
 			{
 				char quantity[128];
 				sprintf(quantity, "%i", pItem->m_quantity);
-				int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_18(), "%s", quantity);
-				pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 9 - textWidth, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+				int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", quantity);
+				pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 9 - textWidth, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 			}
 
 			CharacterSlotItem* pNewItem = new CharacterSlotItem();
@@ -1097,7 +1097,7 @@ void CharacterGUI::ShowTooltip(CharacterSlotItem* pCharacterItem)
 	m_pTooltipBackgroundRare->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 	m_pTooltipBackgroundEpic->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_30(), "%s", m_pTooltipNameLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont30(), "%s", m_pTooltipNameLabel->GetText().c_str());
 	m_pTooltipNameLabel->SetLocation(x + static_cast<int>(m_tooltipWidth * 0.5f) - static_cast<int>(textWidth * 0.5f), y + m_tooltipHeight - 35);
 
 	//textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_25(), "%s", m_pTooltipDescriptionLabel->GetText().c_str());
@@ -1105,7 +1105,7 @@ void CharacterGUI::ShowTooltip(CharacterSlotItem* pCharacterItem)
 
 	m_pTooltipSlotLabel->SetLocation(x + m_tooltipDescBorder, y + m_tooltipDescBorder);
 
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
 	m_pTooltipQualityLabel->SetLocation(x + m_tooltipWidth - m_tooltipDescBorder - textWidth, y + m_tooltipDescBorder);
 
 	m_tooltipQuality = pCharacterItem->m_pInventoryItem->m_itemQuality;
@@ -1362,7 +1362,7 @@ void CharacterGUI::Update(float dt)
 			m_pStatsTabIconLeft->SetDimensions(-m_statsTabWidth, (m_characterWindowHeight / 2) - (m_statsTabHeight / 2), m_statsTabWidth, m_statsTabHeight);
 			m_pStatsTabIconRight->SetDimensions(0, (m_characterWindowHeight / 2) - (m_statsTabHeight / 2), m_statsTabWidth, m_statsTabHeight);
 
-			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_Medium(), "%s", m_pCharacterTitleLabel->GetText().c_str());
+			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFontMedium(), "%s", m_pCharacterTitleLabel->GetText().c_str());
 			m_pCharacterTitleLabel->SetLocation(-m_statsTabWidth / 2 - textWidth / 2, m_statsTitleLabelY);
 
 			m_pStatsHeaderLabel1->SetLocation(-m_statsTabWidth + m_statsHeaderLabelXOffset, m_statsTitleLabelY - 26);
@@ -1431,7 +1431,7 @@ void CharacterGUI::Update(float dt)
 			m_pStatsTabIconLeft->SetDimensions(0, (m_characterWindowHeight / 2) - (m_statsTabHeight / 2), m_statsTabWidth, m_statsTabHeight);
 			m_pStatsTabIconRight->SetDimensions(m_characterWindowWidth, (m_characterWindowHeight / 2) - (m_statsTabHeight / 2), m_statsTabWidth, m_statsTabHeight);
 
-			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_Medium(), "%s", m_pCharacterTitleLabel->GetText().c_str());
+			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFontMedium(), "%s", m_pCharacterTitleLabel->GetText().c_str());
 			m_pCharacterTitleLabel->SetLocation(m_characterWindowWidth + m_statsTabWidth / 2 - textWidth / 2, m_statsTitleLabelY);
 
 			m_pStatsHeaderLabel1->SetLocation(m_characterWindowWidth + m_statsHeaderLabelXOffset - 4, m_statsTitleLabelY - 26);

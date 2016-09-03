@@ -32,12 +32,12 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Player death
 	char deathHeaderText[] = "You Have Died.";
-	m_pDeathHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_80(), deathHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pDeathHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont80(), deathHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pDeathHeaderLabel->SetOutline(true);
 	m_pDeathHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pDeathHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_80_Outline());
 
-	m_pRespawnButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Respawn", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pRespawnButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Respawn", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pRespawnButton->SetLabelOffset(0, 3);
 	m_pRespawnButton->SetPressedOffset(0, -4);
 	m_pRespawnButton->SetCallBackFunction(_RespawnPressed);
@@ -45,7 +45,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Level up
 	char levelupHeaderText[] = "Level Up!";
-	m_pLevelUpLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_80(), levelupHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pLevelUpLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont80(), levelupHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pLevelUpLabel->SetOutline(true);
 	m_pLevelUpLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pLevelUpLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_80_Outline());
@@ -56,7 +56,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Player health
 	char healthText[] = "100/100";
-	m_pHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), healthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
+	m_pHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), healthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pHealthLabel->SetOutline(true);
 	m_pHealthLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
 	m_pHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
@@ -73,7 +73,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Player magic
 	char magicText[] = "100/100";
-	m_pMagicLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_14(), magicText, Color(1.0f, 1.0f, 1.0f, 0.75f));
+	m_pMagicLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont14(), magicText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pMagicLabel->SetOutline(true);
 	m_pMagicLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
 	m_pMagicLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_14_Outline());
@@ -87,7 +87,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Player experience
 	char experienceText[] = "0/100";
-	m_pExperienceLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_18(), experienceText, Color(1.0f, 1.0f, 1.0f, 0.75f));
+	m_pExperienceLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), experienceText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pExperienceLabel->SetOutline(true);
 	m_pExperienceLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
 	m_pExperienceLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_18_Outline());
@@ -104,7 +104,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Enemy health
 	char enemyHealthText[] = "100/100";
-	m_pEnemyHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), enemyHealthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
+	m_pEnemyHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), enemyHealthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pEnemyHealthLabel->SetOutline(true);
 	m_pEnemyHealthLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
 	m_pEnemyHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
@@ -122,7 +122,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 
 	// Enemy name
 	char enemyNameText[] = "Enemy";
-	m_pEnemyNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), enemyNameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pEnemyNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), enemyNameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pEnemyNameLabel->SetOutline(true);
 	m_pEnemyNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pEnemyNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
@@ -348,14 +348,14 @@ void HUD::SetWindowDimensions(int windowWidth, int windowHeight)
 	m_windowHeight = windowHeight;
 
 	// Player death
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_80(), "%s", m_pDeathHeaderLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont80(), "%s", m_pDeathHeaderLabel->GetText().c_str());
 	m_pDeathHeaderLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_windowHeight * 0.5f + 150));
 	m_respawnButtonWidth = 200;
 	m_respawnButtonHeight = 75;
 	m_pRespawnButton->SetDimensions(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(m_respawnButtonWidth*0.5f)), static_cast<int>((m_windowHeight * 0.5f) - (m_respawnButtonHeight * 0.5f) + 75), static_cast<int>(m_respawnButtonWidth), static_cast<int>(m_respawnButtonHeight));
 
 	// Level up
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_80(), "%s", m_pLevelUpLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont80(), "%s", m_pLevelUpLabel->GetText().c_str());
 	m_pLevelUpLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_windowHeight * 0.5f - 25));
 
 	// Player portrait
@@ -395,7 +395,7 @@ void HUD::SetWindowDimensions(int windowWidth, int windowHeight)
 	m_enemyHealthHeight = 33.0f;
 	m_enemyHealthX = (m_windowWidth * 0.5f) - (m_enemyHealthWidth * 0.5f);
 	m_enemyHealthY = static_cast<float>(m_windowHeight - 75);
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pEnemyHealthLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pEnemyHealthLabel->GetText().c_str());
 	m_pEnemyHealthLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_windowHeight) + 7);
 	m_pEnemyNameLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_windowHeight) + 35);
 	m_pEnemyHealthContainerIcon->SetDimensions(static_cast<int>(m_enemyHealthX), static_cast<int>(m_enemyHealthY), static_cast<int>(m_enemyHealthWidth), static_cast<int>(m_enemyHealthHeight));
@@ -625,7 +625,7 @@ void HUD::LevelUp()
 	Interpolator::GetInstance()->AddFloatInterpolation(levelUpAlpha1);
 
 	// Do a movement up animation
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_80(), "%s", m_pLevelUpLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont80(), "%s", m_pLevelUpLabel->GetText().c_str());
 	m_pLevelUpLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_windowHeight * 0.5f - 50));
 
 	float totalTime = levelUpDelay + levelUpTimeIn + levelUpWait + levelUpTimeOut;
@@ -817,7 +817,7 @@ void HUD::RenderPlayerHealth()
 {
 	if (m_updatePlayerHealthTextLocation)
 	{
-		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pHealthLabel->GetText().c_str());
+		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pHealthLabel->GetText().c_str());
 		m_pHealthLabel->SetLocation(static_cast<int>(m_playerHealthX + (m_playerHealthWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_playerHealthY));
 
 		m_updatePlayerHealthTextLocation = false;
@@ -880,7 +880,7 @@ void HUD::RenderPlayerMagic()
 {
 	if (m_updatePlayerMagicTextLocation)
 	{
-		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_14(), "%s", m_pMagicLabel->GetText().c_str());
+		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont14(), "%s", m_pMagicLabel->GetText().c_str());
 		m_pMagicLabel->SetLocation(static_cast<int>(m_playerMagicX + (m_playerMagicWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_playerMagicY));
 
 		m_updatePlayerMagicTextLocation = false;
@@ -943,7 +943,7 @@ void HUD::RenderPlayerExperience()
 {
 	if (m_updatePlayerExperienceTextLocation)
 	{
-		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_18(), "%s", m_pExperienceLabel->GetText().c_str());
+		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", m_pExperienceLabel->GetText().c_str());
 		m_pExperienceLabel->SetLocation(static_cast<int>(m_playerExperienceX + (m_playerExperienceWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_playerExperienceY));
 
 		m_updatePlayerExperienceTextLocation = false;
@@ -1006,10 +1006,10 @@ void HUD::RenderEnemyHealth()
 {
 	if (m_updateEnemyTextLocation)
 	{
-		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pEnemyHealthLabel->GetText().c_str());
+		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pEnemyHealthLabel->GetText().c_str());
 		m_pEnemyHealthLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_enemyHealthY) + 7);
 
-		textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_30(), "%s", m_pEnemyNameLabel->GetText().c_str());
+		textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont30(), "%s", m_pEnemyNameLabel->GetText().c_str());
 		m_pEnemyNameLabel->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(textWidth * 0.5f)), static_cast<int>(m_enemyHealthY) + 35);
 
 		m_updateEnemyTextLocation = false;

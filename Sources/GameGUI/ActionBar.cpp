@@ -665,7 +665,7 @@ void ActionBar::CreateActionSlots()
 
 		int xPos = x + 9;
 		int yPos = y + 9;
-		Label* pNewLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), labelText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+		Label* pNewLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), labelText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 		pNewLabel->SetOutline(true);
 		pNewLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 		pNewLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());

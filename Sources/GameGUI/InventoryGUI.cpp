@@ -30,7 +30,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_windowHeight = windowHeight;
 
 	// Inventory Window
-	m_pInventoryWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "Inventory");
+	m_pInventoryWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "Inventory");
 	m_pInventoryWindow->AllowMoving(true);
 	m_pInventoryWindow->AllowClosing(false);
 	m_pInventoryWindow->AllowMinimizing(false);
@@ -49,7 +49,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -58,7 +58,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pDestroyIcon->SetDepth(2.1f);
 
 	char destroyText[] = "DESTROY";
-	m_pDestroyLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), destroyText, Color(1.0f, 1.0f, 1.0f, 0.25f));
+	m_pDestroyLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), destroyText, Color(1.0f, 1.0f, 1.0f, 0.25f));
 	m_pDestroyLabel->SetOutline(true);
 	m_pDestroyLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pDestroyLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_50_Outline());
@@ -68,7 +68,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pDropIcon->SetDepth(2.1f);
 
 	char dropText[] = "DROP";
-	m_pDropLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), dropText, Color(1.0f, 1.0f, 1.0f, 0.25f));
+	m_pDropLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), dropText, Color(1.0f, 1.0f, 1.0f, 0.25f));
 	m_pDropLabel->SetOutline(true);
 	m_pDropLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pDropLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_50_Outline());
@@ -112,14 +112,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipBackgroundEpic->SetDepth(5.5f);
 
 	char nameText[] = "[ITEM]";
-	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutline(true);
 	m_pTooltipNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
 	m_pTooltipNameLabel->SetDepth(5.5f);
 
 	char descText[] = "[REPLACE ME]";
-	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), descText);
+	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), descText);
 	m_pTooltipDescriptionLabel->SetOutline(true);
 	m_pTooltipDescriptionLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipDescriptionLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -128,14 +128,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipDescriptionLabel->SetWordWrap(true);
 
 	char slotText[] = "[SLOT]";
-	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipSlotLabel->SetOutline(true);
 	m_pTooltipSlotLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
 	m_pTooltipSlotLabel->SetDepth(5.5f);
 
 	char qualityText[] = "[QUALITY]";
-	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipQualityLabel->SetOutline(true);
 	m_pTooltipQualityLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
@@ -143,14 +143,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 
 	// Popup
 	char popupTitleText[] = "[POPUP TITLE]";
-	m_popupTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_40(), popupTitleText, Color(1.0f, 0.0f, 0.0f, 1.0f));
+	m_popupTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), popupTitleText, Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_popupTitle->SetOutline(true);
 	m_popupTitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_popupTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
 	m_popupTitle->SetDepth(9.0f);
 
 	char popupText[] = "[POPUP TEXT]";
-	m_popupText = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), popupText);
+	m_popupText = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), popupText);
 	m_popupText->SetOutline(true);
 	m_popupText->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_popupText->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -162,14 +162,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pPopupBackgroundIcon = new Icon(m_pRenderer, "", 270, 200);
 	m_pPopupBackgroundIcon->SetDepth(2.0f);
 
-	m_pPopupConfirmButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "Yes", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pPopupConfirmButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "Yes", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPopupConfirmButton->SetLabelOffset(0, 3);
 	m_pPopupConfirmButton->SetPressedOffset(0, -4);
 	m_pPopupConfirmButton->SetCallBackFunction(_PopupConfirmPressed);
 	m_pPopupConfirmButton->SetCallBackData(this);
 	m_pPopupConfirmButton->SetDepth(9.0f);
 
-	m_pPopupCancelButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "No", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pPopupCancelButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "No", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPopupCancelButton->SetLabelOffset(0, 3);
 	m_pPopupCancelButton->SetPressedOffset(0, -4);
 	m_pPopupCancelButton->SetCallBackFunction(_PopupCancelPressed);
@@ -433,15 +433,15 @@ void InventoryGUI::SetWindowDimensions(int windowWidth, int windowHeight)
 	GetDestroySlotDimensions(&x, &y, &width, &height);
 	m_pDestroyIcon->SetDimensions(x, y, width, height);
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_50(), "%s", m_pDestroyLabel->GetText().c_str());
-	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_50(), "%s", m_pDestroyLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont50(), "%s", m_pDestroyLabel->GetText().c_str());
+	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont50(), "%s", m_pDestroyLabel->GetText().c_str());
 	m_pDestroyLabel->SetLocation(x + static_cast<int>((width * 0.5f) - (textWidth * 0.5f)), y + static_cast<int>((height * 0.5f) - (textHeight * 0.5f)) + 5);
 
 	GetDropSlotDimensions(&x, &y, &width, &height);
 	m_pDropIcon->SetDimensions(x, y, width, height);
 
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_50(), "%s", m_pDropLabel->GetText().c_str());
-	textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_50(), "%s", m_pDropLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont50(), "%s", m_pDropLabel->GetText().c_str());
+	textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont50(), "%s", m_pDropLabel->GetText().c_str());
 	m_pDropLabel->SetLocation(x + static_cast<int>((width * 0.5f) - (textWidth * 0.5f)), y + static_cast<int>((height * 0.5f) - (textHeight * 0.5f)) + 5);
 
 	// Popup
@@ -563,8 +563,8 @@ void InventoryGUI::CreateInventoryItems()
 				{
 					char quantity[128];
 					sprintf(quantity, "%i", pItem->m_quantity);
-					int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_18(), "%s", quantity);
-					pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 10 - textWidth, 8, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+					int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", quantity);
+					pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 10 - textWidth, 8, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 				}
 
 				InventorySlotItem* pNewItem = new InventorySlotItem();
@@ -786,14 +786,14 @@ void InventoryGUI::ShowTooltip(InventorySlotItem* pInventoryItem)
 	m_pTooltipBackgroundRare->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 	m_pTooltipBackgroundEpic->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_30(), "%s", m_pTooltipNameLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont30(), "%s", m_pTooltipNameLabel->GetText().c_str());
 	m_pTooltipNameLabel->SetLocation(x + static_cast<int>(m_tooltipWidth * 0.5f) - static_cast<int>(textWidth * 0.5f), y + m_tooltipHeight - 35);
 
 	m_pTooltipDescriptionLabel->SetDimensions(x + m_tooltipDescBorder, y + m_tooltipDescBorder, m_tooltipWidth - (m_tooltipDescBorder * 2), m_tooltipHeight - (m_tooltipDescBorder * 2) - 35);
 
 	m_pTooltipSlotLabel->SetLocation(x + m_tooltipDescBorder, y + m_tooltipDescBorder);
 
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
 	m_pTooltipQualityLabel->SetLocation(x + m_tooltipWidth - m_tooltipDescBorder - textWidth, y + m_tooltipDescBorder);
 
 	m_tooltipQuality = pInventoryItem->m_pInventoryItem->m_itemQuality;
@@ -824,7 +824,7 @@ void InventoryGUI::OpenPopup(std::string popupTitle, std::string popupText) cons
 	m_pPopupConfirmButton->SetLabelColor(m_pFrontendManager->GetNormalFontColor());
 	m_pPopupCancelButton->SetLabelColor(m_pFrontendManager->GetNormalFontColor());
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_40(), "%s", popupTitle.c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont40(), "%s", popupTitle.c_str());
 	m_popupTitle->SetLocation(static_cast<int>((m_windowWidth * 0.5f) - (textWidth * 0.5f)), static_cast<int>((m_windowHeight * 0.5f) + (m_popupHeight * 0.5f)) - m_popupTitleSpacer - m_popupBorderSpacer + 100);
 	m_popupText->SetDimensions(static_cast<int>((m_windowWidth * 0.5f) - (m_popupWidth * 0.5f)) + m_popupBorderSpacer, static_cast<int>((m_windowHeight * 0.5f) - (m_popupHeight * 0.5f)) + 100, m_popupWidth - (m_popupBorderSpacer * 2), m_popupHeight - m_popupBorderSpacer - m_popupTitleSpacer);
 	m_pPopupConfirmButton->SetDimensions(static_cast<int>((m_windowWidth * 0.5f) + (m_popupWidth * 0.5f)) - static_cast<int>(m_popupBorderSpacer * 0.5f) - 110, static_cast<int>((m_windowHeight * 0.5f) - (m_popupIconSize * 0.5f)) - 50 + 100, 110, 47);

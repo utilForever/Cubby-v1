@@ -21,14 +21,14 @@ FrontendPage::FrontendPage(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pageType = pageType;
 
 	char titleText[] = "[TITLE]";
-	m_pPageTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pPageTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pPageTitle->SetOutline(true);
 	m_pPageTitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPageTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
 	m_pPageTitle->SetDepth(4.0f);
 
 	char subtitleText[] = "[Subtitle]";
-	m_pPageSubtitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), subtitleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pPageSubtitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), subtitleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pPageSubtitle->SetOutline(true);
 	m_pPageSubtitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPageSubtitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
@@ -110,10 +110,10 @@ void FrontendPage::Render()
 {
 	if (m_updateTitleTextCenterLocation)
 	{
-		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_40(), "%s", m_pPageTitle->GetText().c_str());
+		int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont40(), "%s", m_pPageTitle->GetText().c_str());
 		m_pPageTitle->SetLocation(static_cast<int>(m_windowWidth * 0.5f - textWidth * 0.5f), m_windowHeight - 50);
 
-		textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_25(), "%s", m_pPageSubtitle->GetText().c_str());
+		textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont25(), "%s", m_pPageSubtitle->GetText().c_str());
 		m_pPageSubtitle->SetLocation(static_cast<int>(m_windowWidth * 0.5f - textWidth * 0.5f), m_windowHeight - 75);
 
 		m_updateTitleTextCenterLocation = false;

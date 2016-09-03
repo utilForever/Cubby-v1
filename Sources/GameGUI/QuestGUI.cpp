@@ -24,7 +24,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_windowHeight = windowHeight;
 
 	// Quest Window
-	m_pQuestLogWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "Quest Log");
+	m_pQuestLogWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "Quest Log");
 	m_pQuestLogWindow->AllowMoving(true);
 	m_pQuestLogWindow->AllowClosing(false);
 	m_pQuestLogWindow->AllowMinimizing(false);
@@ -43,20 +43,20 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
 
 	char titleText[] = "";
-	m_pQuestTitleHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pQuestTitleHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pQuestTitleHeaderLabel->SetOutline(true);
 	m_pQuestTitleHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pQuestTitleHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
 	m_pQuestTitleHeaderLabel->SetDepth(4.0f);
 
 	char questLongText[] = "";
-	m_pQuestTextLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_22(), m_pFrontendManager->GetFrontendFont_22(), m_pFrontendManager->GetFrontendFont_22(), questLongText);
+	m_pQuestTextLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont22(), m_pFrontendManager->GetFrontendFont22(), m_pFrontendManager->GetFrontendFont22(), questLongText);
 	m_pQuestTextLabel->SetOutline(true);
 	m_pQuestTextLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pQuestTextLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -87,7 +87,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pQuestsTabIconLeft = new Icon(m_pRenderer, "", 164, 276);
 	m_pQuestsTabIconLeft->SetDepth(0.5f);
 
-	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTabOpenCloseButton->SetDefaultIcon(m_pTabOpenCloseButtonIconRight);
 	m_pTabOpenCloseButton->SetHoverIcon(m_pTabOpenCloseButtonIconRightHover);
 	m_pTabOpenCloseButton->SetSelectedIcon(m_pTabOpenCloseButtonIconRightPressed);
@@ -104,14 +104,14 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pQuestListScrollbar->SetScissorEnabled(true);
 
 	char currentQuestsText[] = "Current Quests";
-	m_pCurrentQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_22(), currentQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
+	m_pCurrentQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont22(), currentQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
 	m_pCurrentQuestsHeaderLabel->SetOutline(true);
 	m_pCurrentQuestsHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCurrentQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_22_Outline());
 	m_pCurrentQuestsHeaderLabel->SetDepth(4.0f);
 
 	char completedQuestsText[] = "Completed Quests";
-	m_pCompletedQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_22(), completedQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
+	m_pCompletedQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont22(), completedQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
 	m_pCompletedQuestsHeaderLabel->SetOutline(true);
 	m_pCompletedQuestsHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCompletedQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_22_Outline());
@@ -212,7 +212,7 @@ void QuestGUI::SetWindowDimensions(int windowWidth, int windowHeight)
 	m_pQuestListScrollbar->SetDimensions(m_questWindowWidth + m_questTabWidth - scrollbarWidth - 4, (m_questWindowHeight / 2) - (m_questTabHeight / 2) + 8, scrollbarWidth, scrollbarHeight);
 
 	// Quest headers
-	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
+	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
 	m_pCurrentQuestsHeaderLabel->SetLocation(m_questWindowWidth + 8, (m_questWindowHeight / 2) + (m_questTabHeight / 2) - textHeight - 4);
 
 	int numActiveQuests = static_cast<int>(m_vpCurrentQuestButtons.size()) + 1;
@@ -333,8 +333,8 @@ void QuestGUI::CreateQuestButtons()
 	{
 		Quest* pQuest = m_pQuestJournal->GetCurrentQuest(i);
 
-		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
-		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(1.0f, 1.0f, 1.0f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(1.0f, 1.0f, 1.0f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewButton->SetDefaultIcon(m_pAlphaButton);
 		pNewButton->SetHoverIcon(m_pAlphaButton);
@@ -346,7 +346,7 @@ void QuestGUI::CreateQuestButtons()
 		pNewButton->SetHoverLabelColor(m_pFrontendManager->GetHoverFontColor());
 		pNewButton->SetPressedLabelColor(m_pFrontendManager->GetPressedFontColor());
 
-		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_20(), "%s", pQuest->GetName().c_str());
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont20(), "%s", pQuest->GetName().c_str());
 		pNewButton->SetDimensions(0, 0, m_questTabWidth - 32, textHeight);
 
 		QuestButton* pQuestButton = new QuestButton();
@@ -365,8 +365,8 @@ void QuestGUI::CreateQuestButtons()
 	{
 		Quest* pQuest = m_pQuestJournal->GetCompletedQuest(i);
 
-		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
-		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(0.5f, 0.5f, 0.5f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(0.5f, 0.5f, 0.5f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewButton->SetDefaultIcon(m_pAlphaButton);
 		pNewButton->SetHoverIcon(m_pAlphaButton);
@@ -378,7 +378,7 @@ void QuestGUI::CreateQuestButtons()
 		pNewButton->SetHoverLabelColor(m_pFrontendManager->GetHoverFontColor());
 		pNewButton->SetPressedLabelColor(m_pFrontendManager->GetPressedFontColor());
 
-		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_20(), "%s", pQuest->GetName().c_str());
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont20(), "%s", pQuest->GetName().c_str());
 		pNewButton->SetDimensions(0, 0, m_questTabWidth - 32, textHeight);
 
 		QuestButton* pQuestButton = new QuestButton();
@@ -515,7 +515,7 @@ void QuestGUI::Update(float dt)
 		m_pQuestListScrollbar->SetScrollArea(-m_questTabWidth + 20, 0, m_questTabWidth - 20, scrollbarHeight);
 
 		// Quest headers
-		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
 		m_pCurrentQuestsHeaderLabel->SetLocation(-(m_questTabWidth) + 24, m_questTabHeight - textHeight - 12);
 
 		int numActiveQuests = static_cast<int>(m_vpCurrentQuestButtons.size()) + 1;
@@ -599,7 +599,7 @@ void QuestGUI::Update(float dt)
 		m_pQuestListScrollbar->SetScrollArea(-m_questTabWidth + 20, 0, m_questTabWidth - 20, scrollbarHeight);
 
 		// Quest headers
-		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
+		int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
 		m_pCurrentQuestsHeaderLabel->SetLocation(-(m_questTabWidth) + 24, m_questTabHeight - textHeight - 12);
 
 		int numActiveQuests = static_cast<int>(m_vpCurrentQuestButtons.size()) + 1;
@@ -627,7 +627,7 @@ void QuestGUI::Update(float dt)
 
 	// Scrollbar
 	int visibleSize = m_pQuestListScrollbar->GetScrollArea().height;
-	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont_22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
+	int textHeight = m_pRenderer->GetFreeTypeTextHeight(m_pFrontendManager->GetFrontendFont22(), "%s", m_pCurrentQuestsHeaderLabel->GetText().c_str());
 	int neededHeight = ((static_cast<int>(m_vpCurrentQuestButtons.size()) + static_cast<int>(m_vpCompletedQuestButtons.size()) + 2) * textHeight);
 	int heightDiff = neededHeight - visibleSize;
 

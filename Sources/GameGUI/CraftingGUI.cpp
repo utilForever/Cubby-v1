@@ -26,7 +26,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_windowHeight = windowHeight;
 
 	// Crafting Window
-	m_pCraftingWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "Crafting");
+	m_pCraftingWindow = new GUIWindow(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "Crafting");
 	m_pCraftingWindow->AllowMoving(true);
 	m_pCraftingWindow->AllowClosing(false);
 	m_pCraftingWindow->AllowMinimizing(false);
@@ -45,7 +45,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -65,7 +65,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pCraftButtonIconDisabled = new Icon(m_pRenderer, "", 115, 32);
 	m_pCraftButtonIconDisabled->SetDepth(2.0f);
 
-	m_pCraftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "Craft", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCraftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "Craft", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCraftButton->SetLabelOffset(0, 3);
 	m_pCraftButton->SetCallBackFunction(_CraftPressed);
 	m_pCraftButton->SetCallBackData(this);
@@ -78,14 +78,14 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pCraftingProgressBarBackgroundFiller = new Icon(m_pRenderer, "", 53, 14);
 	m_pCraftingProgressBarBackgroundFiller->SetDepth(1.5f);
 
-	m_pCraftingProgressBar = new ProgressBar(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), 0.0f, 100.0f);
+	m_pCraftingProgressBar = new ProgressBar(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), 0.0f, 100.0f);
 	m_pCraftingProgressBar->SetProgressFiller(m_pCraftingProgressBarFiller);
 	m_pCraftingProgressBar->SetProgressBackground(m_pCraftingProgressBarBackgroundFiller);
 
 	m_pSearchTextboxIcon = new Icon(m_pRenderer, "", 156, 24);
 	m_pSearchTextboxIcon->SetDepth(1.0f);
 
-	m_pSearchBox = new TextBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_Medium(), "", "");
+	m_pSearchBox = new TextBox(m_pRenderer, m_pFrontendManager->GetFrontendFontMedium(), "", "");
 	m_pSearchBox->SetBackgroundIcon(m_pSearchTextboxIcon);
 	m_pSearchBox->SetTextIndent(0);
 	m_pSearchBox->SetPipHeight(20);
@@ -137,14 +137,14 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTooltipBackgroundEpic->SetDepth(7.5f);
 
 	char nameText[] = "[ITEM]";
-	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutline(true);
 	m_pTooltipNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
 	m_pTooltipNameLabel->SetDepth(7.5f);
 
 	char descText[] = "[REPLACE ME]";
-	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25(), descText);
+	m_pTooltipDescriptionLabel = new FormattedLabel(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25(), descText);
 	m_pTooltipDescriptionLabel->SetOutline(true);
 	m_pTooltipDescriptionLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipDescriptionLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -153,14 +153,14 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTooltipDescriptionLabel->SetWordWrap(true);
 
 	char slotText[] = "[SLOT]";
-	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipSlotLabel->SetOutline(true);
 	m_pTooltipSlotLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
 	m_pTooltipSlotLabel->SetDepth(7.5f);
 
 	char qualityText[] = "[QUALITY]";
-	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
+	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipQualityLabel->SetOutline(true);
 	m_pTooltipQualityLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
@@ -775,7 +775,7 @@ void CraftingGUI::CreateRecipeButtons()
 		RecipeSlotItem* pSlotItem = new RecipeSlotItem();
 
 		// Create the item icon
-		Button* pNewResultsItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewResultsItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 		pNewResultsItem->SetDefaultIcon(m_pRecipeButtonIcon);
 		pNewResultsItem->SetHoverIcon(m_pRecipeButtonHoverIcon);
 		pNewResultsItem->SetSelectedIcon(m_pRecipeButtonPressedIcon);
@@ -797,7 +797,7 @@ void CraftingGUI::CreateRecipeButtons()
 		pNewResultsItem->AddIcon(m_pRenderer, itemTexture, 64, 64, 24, 24, 4, 4, 2.5f);
 
 		// Create the item label
-		pNewResultsItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pResultsItem->m_title, Color(1.0f, 1.0f, 1.0f, 1.0f), 34, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewResultsItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pResultsItem->m_title, Color(1.0f, 1.0f, 1.0f, 1.0f), 34, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewResultsItem->SetCallBackFunction(_ResultsItemPressed);
 		pNewResultsItem->SetCallBackData(pSlotItem);
@@ -857,7 +857,7 @@ void CraftingGUI::CreateIngredientsButtons()
 		IngredientsSlotItem* pSlotItem = new IngredientsSlotItem();
 
 		// Create the requirement button
-		Button* pNewCraftingItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewCraftingItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 		switch (pInventoryItem->m_itemQuality)
 		{
 		case ItemQuality::Common: { pNewCraftingItem->SetDefaultIcon(m_pInventoryBackgroundSlotBorderCommon); pNewCraftingItem->SetHoverIcon(m_pInventoryBackgroundSlotBorderCommon); pNewCraftingItem->SetSelectedIcon(m_pInventoryBackgroundSlotBorderCommon); break; }
@@ -920,8 +920,8 @@ void CraftingGUI::CreateIngredientsButtons()
 		{
 			char quantity[128];
 			sprintf(quantity, "%i", pInventoryItem->m_quantity);
-			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_18(), "%s", quantity);
-			pNewCraftingItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont_18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), 48 - textWidth, 4, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", quantity);
+			pNewCraftingItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), 48 - textWidth, 4, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 		}
 
 		pNewCraftingItem->SetEnterCallBackFunction(_IngredientItemEntered);
@@ -1144,14 +1144,14 @@ void CraftingGUI::ShowTooltip(RecipeSlotItem* pRecipeItem)
 	m_pTooltipBackgroundRare->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 	m_pTooltipBackgroundEpic->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_30(), "%s", m_pTooltipNameLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont30(), "%s", m_pTooltipNameLabel->GetText().c_str());
 	m_pTooltipNameLabel->SetLocation(x + static_cast<int>(m_tooltipWidth * 0.5f) - static_cast<int>(textWidth * 0.5f), y + m_tooltipHeight - 35);
 
 	m_pTooltipDescriptionLabel->SetDimensions(x + m_tooltipDescBorder, y + m_tooltipDescBorder, m_tooltipWidth - (m_tooltipDescBorder * 2), m_tooltipHeight - (m_tooltipDescBorder * 2) - 35);
 
 	m_pTooltipSlotLabel->SetLocation(x + m_tooltipDescBorder, y + m_tooltipDescBorder);
 
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
 	m_pTooltipQualityLabel->SetLocation(x + m_tooltipWidth - m_tooltipDescBorder - textWidth, y + m_tooltipDescBorder);
 
 	m_tooltipQuality = pRecipeItem->m_pInventoryItem->m_itemQuality;
@@ -1270,14 +1270,14 @@ void CraftingGUI::ShowTooltip(IngredientsSlotItem* pIngredientItem)
 	m_pTooltipBackgroundRare->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 	m_pTooltipBackgroundEpic->SetDimensions(x, y, m_tooltipWidth, m_tooltipHeight);
 
-	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_30(), "%s", m_pTooltipNameLabel->GetText().c_str());
+	int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont30(), "%s", m_pTooltipNameLabel->GetText().c_str());
 	m_pTooltipNameLabel->SetLocation(x + static_cast<int>(m_tooltipWidth * 0.5f) - static_cast<int>(textWidth * 0.5f), y + m_tooltipHeight - 35);
 
 	m_pTooltipDescriptionLabel->SetDimensions(x + m_tooltipDescBorder, y + m_tooltipDescBorder, m_tooltipWidth - (m_tooltipDescBorder * 2), m_tooltipHeight - (m_tooltipDescBorder * 2) - 35);
 
 	m_pTooltipSlotLabel->SetLocation(x + m_tooltipDescBorder, y + m_tooltipDescBorder);
 
-	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont_20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
+	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont20(), "%s", m_pTooltipQualityLabel->GetText().c_str());
 	m_pTooltipQualityLabel->SetLocation(x + m_tooltipWidth - m_tooltipDescBorder - textWidth, y + m_tooltipDescBorder);
 
 	m_tooltipQuality = pIngredientItem->m_pInventoryItem->m_itemQuality;
