@@ -204,6 +204,7 @@
     <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\Credits.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp" />
+    <ClCompile Include="..\Sources\Frontend\Pages\ModMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\OptionsMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\PauseMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\QuitPopup.cpp" />
@@ -315,6 +316,7 @@
     <ClCompile Include="..\Sources\TextEffects\AnimatedText.cpp" />
     <ClCompile Include="..\Sources\TextEffects\TextEffectsManager.cpp" />
     <ClCompile Include="..\Sources\Utils\CountdownTimer.cpp" />
+    <ClCompile Include="..\Sources\Utils\FileUtils.cpp" />
     <ClCompile Include="..\Sources\Utils\Interpolator.cpp" />
     <ClCompile Include="..\Sources\Utils\TimeManager.cpp" />
   </ItemGroup>
@@ -536,6 +538,7 @@
     <ClInclude Include="..\Sources\Frontend\FrontendScreens.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\Credits.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h" />
+    <ClInclude Include="..\Sources\Frontend\Pages\ModMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\OptionsMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\PauseMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\QuitPopup.h" />
@@ -648,6 +651,7 @@
     <ClInclude Include="..\Sources\TextEffects\AnimatedText.h" />
     <ClInclude Include="..\Sources\TextEffects\TextEffectsManager.h" />
     <ClInclude Include="..\Sources\Utils\CountdownTimer.h" />
+    <ClInclude Include="..\Sources\Utils\FileUtils.h" />
     <ClInclude Include="..\Sources\Utils\Interpolator.h" />
     <ClInclude Include="..\Sources\Utils\Random.h" />
     <ClInclude Include="..\Sources\Utils\TimeManager.h" />

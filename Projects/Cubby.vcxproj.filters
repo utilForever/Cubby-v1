@@ -642,6 +642,12 @@
     <ClCompile Include="..\Sources\Frontend\Pages\QuitPopup.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\Pages\ModMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Utils\FileUtils.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1639,6 +1645,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\Pages\QuitPopup.h">
       <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\Pages\ModMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Utils\FileUtils.h">
+      <Filter>Sources\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
