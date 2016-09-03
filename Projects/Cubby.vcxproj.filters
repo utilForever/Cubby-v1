@@ -124,6 +124,9 @@
     <Filter Include="Sources\Frontend">
       <UniqueIdentifier>{c999ce18-2f31-45b4-b3c3-17231189f0e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Frontend\Pages">
+      <UniqueIdentifier>{30e2e36e-dd7b-4423-adaf-3aa915705271}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\main.cpp">
@@ -623,6 +626,9 @@
     </ClCompile>
     <ClCompile Include="..\Sources\Frontend\FrontendManager.cpp">
       <Filter>Sources\Frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1606,6 +1612,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\FrontendManager.h">
       <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
