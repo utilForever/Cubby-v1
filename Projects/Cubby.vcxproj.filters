@@ -630,6 +630,9 @@
     <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\Pages\Credits.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1614,6 +1617,9 @@
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\Pages\Credits.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
   </ItemGroup>
