@@ -204,6 +204,7 @@
     <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\Credits.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp" />
+    <ClCompile Include="..\Sources\Frontend\Pages\OptionsMenu.cpp" />
     <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CharacterGUI.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CraftingGUI.cpp" />
@@ -533,6 +534,7 @@
     <ClInclude Include="..\Sources\Frontend\FrontendScreens.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\Credits.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h" />
+    <ClInclude Include="..\Sources\Frontend\Pages\OptionsMenu.h" />
     <ClInclude Include="..\Sources\GameGUI\ActionBar.h" />
     <ClInclude Include="..\Sources\GameGUI\CharacterGUI.h" />
     <ClInclude Include="..\Sources\GameGUI\CraftingGUI.h" />
