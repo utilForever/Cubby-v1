@@ -621,6 +621,9 @@
     <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp">
       <Filter>Sources\Frontend</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\FrontendManager.cpp">
+      <Filter>Sources\Frontend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1599,6 +1602,9 @@
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\FrontendPage.h">
+      <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\FrontendManager.h">
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
   </ItemGroup>
