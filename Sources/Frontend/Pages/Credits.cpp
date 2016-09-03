@@ -7,8 +7,9 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+
 #include "Credits.h"
-#include "CubbyGame.h"
 
 // Constructor, Destructor
 Credits::Credits(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager, int windowWidth, int windowHeight) :

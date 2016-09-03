@@ -7,10 +7,13 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+
+#include <Maths/3DMaths.h>
+
+#include "../FrontendManager.h"
+
 #include "OptionsMenu.h"
-#include "CubbyGame.h"
-#include "Frontend/FrontendManager.h"
-#include "Maths/3DMaths.h"
 
 // Constructor, Destructor
 OptionsMenu::OptionsMenu(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontPageManager, int windowWidth, int windowHeight) :

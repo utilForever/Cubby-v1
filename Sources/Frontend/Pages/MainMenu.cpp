@@ -9,11 +9,13 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+
+#include <Maths/3DMaths.h>
+
 #include "../FrontendManager.h"
 
 #include "MainMenu.h"
-#include "CubbyGame.h"
-#include "Maths/3DMaths.h"
 
 // Constructor, Destructor
 MainMenu::MainMenu(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontPageManager, int windowWidth, int windowHeight) :

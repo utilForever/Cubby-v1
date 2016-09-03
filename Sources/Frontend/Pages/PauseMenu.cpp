@@ -10,9 +10,11 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+
+#include "../FrontendManager.h"
+
 #include "PauseMenu.h"
-#include "CubbyGame.h"
-#include "Frontend/FrontendManager.h"
 
 // Constructor, Destructor
 PauseMenu::PauseMenu(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager, int windowWidth, int windowHeight) :
