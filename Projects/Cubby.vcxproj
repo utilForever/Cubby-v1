@@ -200,6 +200,7 @@
     <ClCompile Include="..\Sources\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp" />
     <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
+    <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp" />
     <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CharacterGUI.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CraftingGUI.cpp" />
@@ -524,6 +525,8 @@
     <ClInclude Include="..\Sources\Enemy\Enemy.h" />
     <ClInclude Include="..\Sources\Enemy\EnemyManager.h" />
     <ClInclude Include="..\Sources\Enemy\EnemySpawner.h" />
+    <ClInclude Include="..\Sources\Frontend\FrontendPage.h" />
+    <ClInclude Include="..\Sources\Frontend\FrontendScreens.h" />
     <ClInclude Include="..\Sources\GameGUI\ActionBar.h" />
     <ClInclude Include="..\Sources\GameGUI\CharacterGUI.h" />
     <ClInclude Include="..\Sources\GameGUI\CraftingGUI.h" />

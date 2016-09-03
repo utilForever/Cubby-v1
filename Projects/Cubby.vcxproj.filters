@@ -121,7 +121,7 @@
     <Filter Include="Sources\GUI">
       <UniqueIdentifier>{6d215b0f-2cbc-49ec-9e39-9cafd9b02731}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Scenes">
+    <Filter Include="Sources\Frontend">
       <UniqueIdentifier>{c999ce18-2f31-45b4-b3c3-17231189f0e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -617,6 +617,9 @@
     </ClCompile>
     <ClCompile Include="..\Sources\GameGUI\QuestGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp">
+      <Filter>Sources\Frontend</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1591,6 +1594,12 @@
     </ClInclude>
     <ClInclude Include="..\Sources\GameGUI\QuestGUI.h">
       <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\FrontendScreens.h">
+      <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\FrontendPage.h">
+      <Filter>Sources\Frontend</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
