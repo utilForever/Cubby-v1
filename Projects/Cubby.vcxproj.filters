@@ -639,6 +639,9 @@
     <ClCompile Include="..\Sources\Frontend\Pages\PauseMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\Pages\QuitPopup.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1632,6 +1635,9 @@
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\Pages\PauseMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\Pages\QuitPopup.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
   </ItemGroup>
