@@ -90,6 +90,7 @@ public:
 	std::string GetType() const;
 	void SetModelname(std::string modelName);
 	std::string GetModelName() const;
+	void SetPosition(glm::vec3 pos);
 	void SetRespawnPosition(glm::vec3 pos);
 	glm::vec3 GetRespawnPosition() const;
 	glm::vec3 GetCenter() const;

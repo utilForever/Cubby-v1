@@ -297,6 +297,11 @@ std::string Player::GetModelName() const
 	return m_modelName;
 }
 
+void Player::SetPosition(glm::vec3 pos)
+{
+	m_position = pos;
+}
+
 void Player::SetRespawnPosition(glm::vec3 pos)
 {
 	m_respawnPosition = pos;
