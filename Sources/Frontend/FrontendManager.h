@@ -196,6 +196,7 @@ public:
 	void SetSelectedNPC(NPC* pSelectedNPC);
 	void SetCharacterSubSelection(std::string subSelection);
 	void GotoNextCreditScreen();
+	void DisableShadowOption();
 
 	// Constants
 	float GetToolTipAppearDelay() const;

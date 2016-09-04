@@ -781,6 +781,17 @@ void FrontendManager::GotoNextCreditScreen()
 	}
 }
 
+void FrontendManager::DisableShadowOption()
+{
+	for (size_t i = 0; i < m_vpFrontendPages.size(); ++i)
+	{
+		if (m_vpFrontendPages[i]->GetPageType() == FrontendScreen_OptionsMenu)
+		{
+			((OptionsMenu*)m_vpFrontendPages[i])->DisableShadowOption();
+		}
+	}
+}
+
 // Constants
 float FrontendManager::GetToolTipAppearDelay() const
 {
