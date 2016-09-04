@@ -663,6 +663,9 @@
     <ClCompile Include="..\Sources\CubbyGUI.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\CubbyCamera.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1672,9 +1675,6 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\Pages\SelectCharacter.h">
       <Filter>Sources\Frontend\Pages</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\CubbyCamera.cpp">
-      <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
