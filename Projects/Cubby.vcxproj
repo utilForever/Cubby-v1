@@ -192,7 +192,10 @@
     <ClCompile Include="..\Sources\Blocks\BiomeManager.cpp" />
     <ClCompile Include="..\Sources\Blocks\Chunk.cpp" />
     <ClCompile Include="..\Sources\Blocks\ChunkManager.cpp" />
+    <ClCompile Include="..\Sources\CubbyControls.cpp" />
     <ClCompile Include="..\Sources\CubbyGame.cpp" />
+    <ClCompile Include="..\Sources\CubbyGUI.cpp" />
+    <ClCompile Include="..\Sources\CubbyInput.cpp" />
     <ClCompile Include="..\Sources\CubbyRender.cpp" />
     <ClCompile Include="..\Sources\CubbySettings.cpp" />
     <ClCompile Include="..\Sources\CubbyUpdate.cpp" />
@@ -529,6 +532,7 @@
     <ClInclude Include="..\Sources\Blocks\BlocksEnum.h" />
     <ClInclude Include="..\Sources\Blocks\Chunk.h" />
     <ClInclude Include="..\Sources\Blocks\ChunkManager.h" />
+    <ClInclude Include="..\Sources\CubbyCamera.cpp" />
     <ClInclude Include="..\Sources\CubbyGame.h" />
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
