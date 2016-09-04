@@ -38,6 +38,7 @@ public:
 	void SetFacing(const glm::vec3& facing);
 	void SetUp(const glm::vec3& up);
 	void SetRight(const glm::vec3& right);
+	const void SetZoomAmount(float amount);
 
 	// Camera movement
 	void Fly(const float speed, bool useFakePosition = false);

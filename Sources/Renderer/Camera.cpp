@@ -102,6 +102,11 @@ void Camera::SetRight(const glm::vec3& right)
 	m_right = right;
 }
 
+const void Camera::SetZoomAmount(float amount)
+{
+	m_zoomAmount = amount;
+}
+
 // Camera movement
 void Camera::Fly(const float speed, bool useFakePosition)
 {
