@@ -9,9 +9,20 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <inih/INIReader.h>
+
+#include <CubbyGame.h>
+
+#include "Pages/CreateCharacter.h"
+
 #include "FrontEndManager.h"
-#include "CubbyGame.h"
-#include "inih/INIReader.h"
+#include "Pages/MainMenu.h"
+#include "Pages/SelectCharacter.h"
+#include "Pages/QuitPopup.h"
+#include "Pages/PauseMenu.h"
+#include "Pages/OptionsMenu.h"
+#include "Pages/Credits.h"
+#include "Pages/ModMenu.h"
 
 // Constructor, Destructor
 FrontendManager::FrontendManager(Renderer* pRenderer, OpenGLGUI* pGUI)
@@ -19,7 +30,7 @@ FrontendManager::FrontendManager(Renderer* pRenderer, OpenGLGUI* pGUI)
 	m_pRenderer = pRenderer;
 	m_pGUI = pGUI;
 
-	m_pCamera = NULL;
+	m_pCamera = nullptr;
 
 	// Fonts
 	m_pRenderer->CreateFreeTypeFont("Resources/fonts/pf_ronda_seven.ttf", 26, &m_frontendFontLarge, true);
@@ -531,13 +542,13 @@ void FrontendManager::LoadCommonGraphics(std::string themeName)
 		if (ButtonSize(i) == ButtonSize::Size225x75) { sizeFolder = "225x75"; }
 
 		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDefault.tga";
-		m_pButtonIcon[ButtonSize(i)]->SetIcon(iconName);
+		m_pButtonIcon[i]->SetIcon(iconName);
 		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonHover.tga";
-		m_pButtonIconHover[ButtonSize(i)]->SetIcon(iconName);
+		m_pButtonIconHover[i]->SetIcon(iconName);
 		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonPressed.tga";
-		m_pButtonIconPressed[ButtonSize(i)]->SetIcon(iconName);
+		m_pButtonIconPressed[i]->SetIcon(iconName);
 		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDisabled.tga";
-		m_pButtonIconDisabled[ButtonSize(i)]->SetIcon(iconName);
+		m_pButtonIconDisabled[i]->SetIcon(iconName);
 	}
 
 	// Close button
@@ -605,7 +616,7 @@ void FrontendManager::LoadCommonGraphics(std::string themeName)
 }
 
 // Setup icons for components
-void FrontendManager::SetCheckboxIcons(CheckBox* pCheckBox)
+void FrontendManager::SetCheckboxIcons(CheckBox* pCheckBox) const
 {
 	pCheckBox->SetDefaultIcon(GetCheckboxIcon());
 	pCheckBox->SetHoverIcon(GetCheckboxIconHover());
@@ -617,7 +628,7 @@ void FrontendManager::SetCheckboxIcons(CheckBox* pCheckBox)
 	pCheckBox->SetToggledDisabledIcon(GetCheckboxIconToggledDisabled());
 }
 
-void FrontendManager::SetOptionboxIcons(OptionBox* pOptionBox)
+void FrontendManager::SetOptionboxIcons(OptionBox* pOptionBox) const
 {
 	pOptionBox->SetDefaultIcon(GetOptionboxIcon());
 	pOptionBox->SetHoverIcon(GetOptionboxIconHover());
@@ -629,7 +640,7 @@ void FrontendManager::SetOptionboxIcons(OptionBox* pOptionBox)
 	pOptionBox->SetToggledDisabledIcon(GetOptionboxIconToggledDisabled());
 }
 
-void FrontendManager::SetScrollbarIcons(ScrollBar* pScrollbar)
+void FrontendManager::SetScrollbarIcons(ScrollBar* pScrollbar) const
 {
 	pScrollbar->SetRightArrowDefaultIcon(GetScrollbarArrowDownIcon());
 	pScrollbar->SetRightArrowHoverIcon(GetScrollbarArrowDownHoverIcon());
@@ -646,7 +657,7 @@ void FrontendManager::SetScrollbarIcons(ScrollBar* pScrollbar)
 	pScrollbar->SetScrollbarDisabledIcon(GetScrollbarDisabledIcon());
 }
 
-void FrontendManager::SetSliderIcons(Slider* pSlider)
+void FrontendManager::SetSliderIcons(Slider* pSlider) const
 {
 	pSlider->SetScrollerDefaultIcon(GetSliderIconDefault());
 	pSlider->SetScrollerHoverIcon(GetSliderIconHover());
@@ -661,7 +672,7 @@ void FrontendManager::SetSliderIcons(Slider* pSlider)
 	pSlider->SetScrollBackbarDecrementIconDisabled(GetSliderIconDecrementButtonDisabled());
 }
 
-void FrontendManager::SetPulldownMenuIcons(PulldownMenu* pPulldownMenu)
+void FrontendManager::SetPulldownMenuIcons(PulldownMenu* pPulldownMenu) const
 {
 	SetScrollbarIcons(pPulldownMenu->GetPulldownScrollBar());
 	pPulldownMenu->SetPulldownIconDefault(GetScrollbarArrowDownIcon());
@@ -670,7 +681,7 @@ void FrontendManager::SetPulldownMenuIcons(PulldownMenu* pPulldownMenu)
 	pPulldownMenu->SetPulldownIconDisabled(GetScrollbarArrowDownDisabledIcon());
 }
 
-void FrontendManager::SetButtonIcons(Button* pButton, ButtonSize size)
+void FrontendManager::SetButtonIcons(Button* pButton, ButtonSize size) const
 {
 	pButton->SetDefaultIcon(GetButtonIcon(size));
 	pButton->SetHoverIcon(GetButtonIconHover(size));
@@ -678,19 +689,19 @@ void FrontendManager::SetButtonIcons(Button* pButton, ButtonSize size)
 	pButton->SetDisabledIcon(GetButtonIconDisabled(size));
 }
 
-void FrontendManager::SetTabIcons(OptionBox* pTab)
+void FrontendManager::SetTabIcons(OptionBox* pTab) const
 {
 	pTab->SetDefaultIcon(GetTab75OptionIcon());
 	pTab->SetHoverIcon(GetTab75OptionIconHover());
 	pTab->SetSelectedIcon(GetTab75OptionIconPressed());
-	pTab->SetDisabledIcon(GetTab75OptionIcon());  // HACK : Missing disabled graphic
+	pTab->SetDisabledIcon(GetTab75OptionIcon());  // HACK: Missing disabled graphic
 	pTab->SetToggledIcon(GetTab75OptionIconToggled());
 	pTab->SetToggledHoverIcon(GetTab75OptionIconToggledHover());
 	pTab->SetToggledSelectedIcon(GetTab75OptionIconToggledPressed());
-	pTab->SetToggledDisabledIcon(GetTab75OptionIconToggled());  // HACK : Missing disabled graphic
+	pTab->SetToggledDisabledIcon(GetTab75OptionIconToggled());  // HACK: Missing disabled graphic
 }
 
-// Common, shared frontend page params
+// Common, shared front-end page params
 float FrontendManager::GetCameraOrbitTimer() const
 {
 	return m_cameraOrbitTimer;
@@ -708,7 +719,7 @@ void FrontendManager::SetOptionsReturnToMainMenu(bool mainMenu)
 	{
 		if (m_vpFrontendPages[i]->GetPageType() == FrontendScreen::OptionsMenu)
 		{
-			((OptionsMenu*)m_vpFrontendPages[i])->SetReturnToMainMenu(mainMenu);
+			static_cast<OptionsMenu*>(m_vpFrontendPages[i])->SetReturnToMainMenu(mainMenu);
 		}
 	}
 }
@@ -719,65 +730,65 @@ void FrontendManager::SetModsMenuReturnToMainMenu(bool mainMenu)
 	{
 		if (m_vpFrontendPages[i]->GetPageType() == FrontendScreen::ModMenu)
 		{
-			((ModMenu*)m_vpFrontendPages[i])->SetReturnToMainMenu(mainMenu);
+			static_cast<ModMenu*>(m_vpFrontendPages[i])->SetReturnToMainMenu(mainMenu);
 		}
 	}
 }
 
-void FrontendManager::SetHoverNPC(NPC* pHoverNPC)
+void FrontendManager::SetHoverNPC(NPC* pHoverNPC) const
 {
 	if (m_currentScreen == FrontendScreen::SelectCharacter)
 	{
-		((SelectCharacter*)m_currentPage)->SetHoverNPC(pHoverNPC);
+		static_cast<SelectCharacter*>(m_currentPage)->SetHoverNPC(pHoverNPC);
 	}
 	else if (m_currentScreen == FrontendScreen::CreateCharacter)
 	{
-		((CreateCharacter*)m_currentPage)->SetHoverNPC(pHoverNPC);
+		static_cast<CreateCharacter*>(m_currentPage)->SetHoverNPC(pHoverNPC);
 	}
 }
 
-void FrontendManager::SetSelectedNPC(NPC* pSelectedNPC)
+void FrontendManager::SetSelectedNPC(NPC* pSelectedNPC) const
 {
 	if (m_currentScreen == FrontendScreen::SelectCharacter)
 	{
-		((SelectCharacter*)m_currentPage)->SetSelectedNPC(pSelectedNPC);
+		static_cast<SelectCharacter*>(m_currentPage)->SetSelectedNPC(pSelectedNPC);
 	}
 	else if (m_currentScreen == FrontendScreen::CreateCharacter)
 	{
-		((CreateCharacter*)m_currentPage)->SetSelectedNPC(pSelectedNPC);
+		static_cast<CreateCharacter*>(m_currentPage)->SetSelectedNPC(pSelectedNPC);
 	}
 }
 
-void FrontendManager::SetCharacterSubSelection(std::string subSelection)
+void FrontendManager::SetCharacterSubSelection(std::string subSelection) const
 {
 	if (m_currentScreen == FrontendScreen::CreateCharacter)
 	{
-		((CreateCharacter*)m_currentPage)->DeletePresetButtons();
+		static_cast<CreateCharacter*>(m_currentPage)->DeletePresetButtons();
 
-		PresetSection section = PresetSection_None;
+		PresetSection section = PresetSection::None;
 
-		if (subSelection == "Head") { section = PresetSection_Head; }
-		else if (subSelection == "Body") { section = PresetSection_Body; }
-		else if (subSelection == "Legs") { section = PresetSection_Legs; }
-		else if (subSelection == "Right_Shoulder") { section = PresetSection_RightShoulder; }
-		else if (subSelection == "Left_Shoulder") { section = PresetSection_LeftShoulder; }
-		else if (subSelection == "Right_Hand") { section = PresetSection_RightHand; }
-		else if (subSelection == "Left_Hand") { section = PresetSection_LeftHand; }
-		else if (subSelection == "Right_Foot") { section = PresetSection_RightFoot; }
-		else if (subSelection == "Left_Foot") { section = PresetSection_LeftFoot; }
+		if (subSelection == "Head") { section = PresetSection::Head; }
+		else if (subSelection == "Body") { section = PresetSection::Body; }
+		else if (subSelection == "Legs") { section = PresetSection::Legs; }
+		else if (subSelection == "Right_Shoulder") { section = PresetSection::RightShoulder; }
+		else if (subSelection == "Left_Shoulder") { section = PresetSection::LeftShoulder; }
+		else if (subSelection == "Right_Hand") { section = PresetSection::RightHand; }
+		else if (subSelection == "Left_Hand") { section = PresetSection::LeftHand; }
+		else if (subSelection == "Right_Foot") { section = PresetSection::RightFoot; }
+		else if (subSelection == "Left_Foot") { section = PresetSection::LeftFoot; }
 
-		if (section != PresetSection_None)
+		if (section != PresetSection::None)
 		{
-			((CreateCharacter*)m_currentPage)->CreatePresetButtons(section, true);
+			static_cast<CreateCharacter*>(m_currentPage)->CreatePresetButtons(section, true);
 		}
 	}
 }
 
-void FrontendManager::GotoNextCreditScreen()
+void FrontendManager::GotoNextCreditScreen() const
 {
 	if (m_currentScreen == FrontendScreen::Credits)
 	{
-		((Credits*)m_currentPage)->GotoNextCreditPage();
+		static_cast<Credits*>(m_currentPage)->GotoNextCreditPage();
 	}
 }
 
@@ -785,9 +796,9 @@ void FrontendManager::DisableShadowOption()
 {
 	for (size_t i = 0; i < m_vpFrontendPages.size(); ++i)
 	{
-		if (m_vpFrontendPages[i]->GetPageType() == FrontendScreen_OptionsMenu)
+		if (m_vpFrontendPages[i]->GetPageType() == FrontendScreen::OptionsMenu)
 		{
-			((OptionsMenu*)m_vpFrontendPages[i])->DisableShadowOption();
+			static_cast<OptionsMenu*>(m_vpFrontendPages[i])->DisableShadowOption();
 		}
 	}
 }
@@ -799,10 +810,8 @@ float FrontendManager::GetToolTipAppearDelay() const
 	{
 		return m_tooltipAppearDelay;
 	}
-	else
-	{
-		return 0.0f;
-	}
+
+	return 0.0f;
 }
 
 // Updating

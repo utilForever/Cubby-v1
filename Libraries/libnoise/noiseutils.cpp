@@ -22,8 +22,14 @@
 
 #include <fstream>
 
-#include <noise/interp.h>
-#include <noise/mathconsts.h>
+#include "noise/basictypes.h"
+#include "noise/exception.h"
+#include "noise/interp.h"
+#include "noise/mathconsts.h"
+#include "noise/misc.h"
+#include "noise/model/cylinder.h"
+#include "noise/model/plane.h"
+#include "noise/model/sphere.h"
 
 #include "noiseutils.h"
 

@@ -12,12 +12,13 @@
 
 #include <algorithm>
 
+#include <CubbyGame.h>
+#include <CubbySettings.h>
+
+#include <Maths/3DMaths.h>
 #include <Models/QubicleBinaryManager.h>
 #include <Renderer/Renderer.h>
 #include <Utils/Random.h>
-
-#include "CubbyGame.h"
-#include "CubbySettings.h"
 
 #include "BiomeManager.h"
 #include "ChunkManager.h"
@@ -31,7 +32,7 @@ ChunkManager::ChunkManager(Renderer* pRenderer, CubbySettings* pCubbySettings, Q
 	m_pRenderer->CreateMaterial(Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f), 64, &m_chunkMaterialID);
 
 	// Loader radius
-	m_loaderRadius = m_pCubbySettings->GetLoaderRadius();
+	m_loaderRadius = m_pCubbySettings->m_loaderRadius;
 
 	// Water
 	m_waterHeight = 0.0f;
@@ -971,7 +972,7 @@ void ChunkManager::CreateCollectibleBlock(BlockType blockType, glm::vec3 blockPo
 	
 	if (pItemSubSpawnData != nullptr)
 	{
-		pItem = m_pItemManager->CreateItem(blockPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), pItemSubSpawnData->m_spawnedItemFilename.c_str(), pItemSubSpawnData->m_spawnedItem, pItemSubSpawnData->m_spawnedItemTitle.c_str(), pItemSubSpawnData->m_interactable, pItemSubSpawnData->m_collectible, pItemSubSpawnData->m_scale);
+		pItem = m_pItemManager->CreateItem(blockPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), pItemSubSpawnData->m_spawnedItemFileName.c_str(), pItemSubSpawnData->m_spawnedItem, pItemSubSpawnData->m_spawnedItemTitle.c_str(), pItemSubSpawnData->m_interactable, pItemSubSpawnData->m_collectible, pItemSubSpawnData->m_scale);
 
 		if (pItem != nullptr)
 		{
@@ -985,7 +986,7 @@ void ChunkManager::CreateCollectibleBlock(BlockType blockType, glm::vec3 blockPo
 			pItem->SetRotation(glm::vec3(0.0f, GetRandomNumber(0, 360, 2), 0.0f));
 			pItem->SetAngularVelocity(glm::vec3(0.0f, 90.0f, 0.0f));
 
-			pItem->SetDroppedItem(pItemSubSpawnData->m_droppedItemFilename.c_str(), pItemSubSpawnData->m_droppedItemTextureFilename.c_str(), pItemSubSpawnData->m_droppedItemInventoryType, pItemSubSpawnData->m_droppedItemItem, pItemSubSpawnData->m_droppedItemStatus, pItemSubSpawnData->m_droppedItemEquipSlot, pItemSubSpawnData->m_droppedItemQuality, pItemSubSpawnData->m_droppedItemLeft, pItemSubSpawnData->m_droppedItemRight, pItemSubSpawnData->m_droppedItemTitle.c_str(), pItemSubSpawnData->m_droppedItemDescription.c_str(), pItemSubSpawnData->m_droppedItemPlacementR, pItemSubSpawnData->m_droppedItemPlacementG, pItemSubSpawnData->m_droppedItemPlacementB, pItemSubSpawnData->m_droppedItemQuantity);
+			pItem->SetDroppedItem(pItemSubSpawnData->m_droppedItemFileName.c_str(), pItemSubSpawnData->m_droppedItemTextureFileName.c_str(), pItemSubSpawnData->m_droppedItemInventoryType, pItemSubSpawnData->m_droppedItemItem, pItemSubSpawnData->m_droppedItemStatus, pItemSubSpawnData->m_droppedItemEquipSlot, pItemSubSpawnData->m_droppedItemQuality, pItemSubSpawnData->m_droppedItemLeft, pItemSubSpawnData->m_droppedItemRight, pItemSubSpawnData->m_droppedItemTitle.c_str(), pItemSubSpawnData->m_droppedItemDescription.c_str(), pItemSubSpawnData->m_droppedItemPlacementR, pItemSubSpawnData->m_droppedItemPlacementG, pItemSubSpawnData->m_droppedItemPlacementB, pItemSubSpawnData->m_droppedItemQuantity);
 			pItem->SetAutoDisappear(20.0f + (GetRandomNumber(-20, 20, 1) * 0.2f));
 			pItem->SetCollisionEnabled(false);
 		}
@@ -1005,7 +1006,7 @@ float ChunkManager::GetWaterHeight() const
 
 bool ChunkManager::IsUnderWater(glm::vec3 position)
 {
-	if (CubbyGame::GetInstance()->GetWaterRender() == false)
+	if (m_pCubbySettings->m_waterRendering == false)
 	{
 		return false;
 	}

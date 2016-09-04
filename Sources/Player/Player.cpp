@@ -13,6 +13,7 @@
 
 #include <Items/ItemManager.h>
 #include <Maths/3DMaths.h>
+#include <Models/VoxelObject.h>
 #include <Sounds/SoundEffects.h>
 #include <Utils/Interpolator.h>
 #include <Utils/Random.h>
@@ -2612,10 +2613,10 @@ void Player::Update(float dt)
 	UpdateChargingAttack(dt);
 
 	// Update combat
-	UpdateCombat(dt);
+	UpdateCombat();
 
 	// Update block selection
-	UpdateBlockSelection(dt);
+	UpdateBlockSelection();
 
 	// Update movement
 	UpdateMovement(dt);
@@ -2627,8 +2628,8 @@ void Player::Update(float dt)
 	UpdateLookingAndForwardTarget(dt);
 
 	// Update / Create weapon lights and particle effects
-	UpdateWeaponLights(dt);
-	UpdateWeaponParticleEffects(dt);
+	UpdateWeaponLights();
+	UpdateWeaponParticleEffects();
 
 	// Update magic
 	UpdateMagic(dt);

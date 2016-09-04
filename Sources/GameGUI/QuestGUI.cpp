@@ -43,7 +43,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -52,7 +52,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pQuestTitleHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pQuestTitleHeaderLabel->SetOutline(true);
 	m_pQuestTitleHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pQuestTitleHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
+	m_pQuestTitleHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont40Outline());
 	m_pQuestTitleHeaderLabel->SetDepth(4.0f);
 
 	char questLongText[] = "";
@@ -60,7 +60,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pQuestTextLabel->SetOutline(true);
 	m_pQuestTextLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pQuestTextLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pQuestTextLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_22_Outline());
+	m_pQuestTextLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont22Outline());
 	m_pQuestTextLabel->SetDepth(3.0f);
 	m_pQuestTextLabel->SetWordWrap(true);
 
@@ -87,7 +87,7 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pQuestsTabIconLeft = new Icon(m_pRenderer, "", 164, 276);
 	m_pQuestsTabIconLeft->SetDepth(0.5f);
 
-	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pTabOpenCloseButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pTabOpenCloseButton->SetDefaultIcon(m_pTabOpenCloseButtonIconRight);
 	m_pTabOpenCloseButton->SetHoverIcon(m_pTabOpenCloseButtonIconRightHover);
 	m_pTabOpenCloseButton->SetSelectedIcon(m_pTabOpenCloseButtonIconRightPressed);
@@ -107,14 +107,14 @@ QuestGUI::QuestGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pCurrentQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont22(), currentQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
 	m_pCurrentQuestsHeaderLabel->SetOutline(true);
 	m_pCurrentQuestsHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pCurrentQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_22_Outline());
+	m_pCurrentQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont22Outline());
 	m_pCurrentQuestsHeaderLabel->SetDepth(4.0f);
 
 	char completedQuestsText[] = "Completed Quests";
 	m_pCompletedQuestsHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont22(), completedQuestsText, Color(0.89f, 0.90f, 0.1f, 1.0f));
 	m_pCompletedQuestsHeaderLabel->SetOutline(true);
 	m_pCompletedQuestsHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pCompletedQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_22_Outline());
+	m_pCompletedQuestsHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont22Outline());
 	m_pCompletedQuestsHeaderLabel->SetDepth(4.0f);
 
 	m_pAlphaButton = new Icon(m_pRenderer, "", 4, 4);
@@ -261,8 +261,8 @@ void QuestGUI::SkinGUI()
 	m_pFrontendManager->SetScrollbarIcons(m_pQuestListScrollbar);
 
 	m_pCloseExitButton->SetDefaultIcon(m_pFrontendManager->GetCloseExitButtonIcon());
-	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIcon_Hover());
-	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIcon_Pressed());
+	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIconHover());
+	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIconPressed());
 	m_pCloseExitButton->SetDisabledIcon(m_pFrontendManager->GetCloseExitButtonIcon());
 }
 
@@ -333,8 +333,8 @@ void QuestGUI::CreateQuestButtons()
 	{
 		Quest* pQuest = m_pQuestJournal->GetCurrentQuest(i);
 
-		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
-		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(1.0f, 1.0f, 1.0f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), pQuest->GetName().c_str(), Color(1.0f, 1.0f, 1.0f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewButton->SetDefaultIcon(m_pAlphaButton);
 		pNewButton->SetHoverIcon(m_pAlphaButton);
@@ -365,8 +365,8 @@ void QuestGUI::CreateQuestButtons()
 	{
 		Quest* pQuest = m_pQuestJournal->GetCompletedQuest(i);
 
-		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
-		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pQuest->GetName().c_str(), Color(0.5f, 0.5f, 0.5f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewButton->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), pQuest->GetName().c_str(), Color(0.5f, 0.5f, 0.5f, 1.0f), 2, 2, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewButton->SetDefaultIcon(m_pAlphaButton);
 		pNewButton->SetHoverIcon(m_pAlphaButton);

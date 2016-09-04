@@ -10,6 +10,8 @@
 #ifndef CUBBY_RANDOM_LOOT_MANAGER_H
 #define CUBBY_RANDOM_LOOT_MANAGER_H
 
+#include <Enemy/Enemy.h>
+
 #include "Item.h"
 
 struct EnemyIngredientsSpawnData

@@ -12,6 +12,7 @@
 #include "FocusEvent.h"
 #include "KeyEvent.h"
 #include "MouseEvent.h"
+#include "SelectionManager.h"
 
 #include "Component.h"
 

@@ -7,10 +7,11 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include "Checkbox.h"
 #include "DirectDrawRectangle.h"
+#include "GUIWindow.h"
 #include "Icon.h"
 #include "MultiTextureIcon.h"
-#include "Checkbox.h"
 
 // Constructor, Destructor
 CheckBox::CheckBox(Renderer* pRenderer, unsigned int GUIFont, const std::string& label) :

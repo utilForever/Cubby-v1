@@ -428,7 +428,7 @@ void ActionBar::UseActionBarslot(int slotIndex)
 	ActionButtonItem* pItem = GetActionButtonForSlot(slotIndex);
 	if (pItem != nullptr && pItem->m_inventoryX != -1 && pItem->m_inventoryY != -1)
 	{
-		if (pItem->m_type == Item)
+		if (pItem->m_type == ActionBarItemType::Item)
 		{
 			InventoryItem* pInventoryItem = m_pInventoryManager->GetInventoryItemWithTitle(pItem->m_itemTitle);
 
@@ -668,7 +668,7 @@ void ActionBar::CreateActionSlots()
 		Label* pNewLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), labelText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 		pNewLabel->SetOutline(true);
 		pNewLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-		pNewLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
+		pNewLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont25Outline());
 		pNewLabel->SetLocation(xPos, yPos);
 		pNewLabel->SetDepth(9.0f);
 

@@ -12,6 +12,7 @@
 #include <CubbyGame.h>
 
 #include <Maths/3DMaths.h>
+#include <Models/VoxelObject.h>
 #include <Utils/Interpolator.h>
 #include <Utils/Random.h>
 
@@ -709,7 +710,7 @@ void Player::Explode()
 	{
 		sprintf(tombstoneFileName, "Resources/gamedata/items/Tombstone/Tombstone2.item");
 	}
-	Item* pTombstone = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), tombstoneFileName, eItem_Tombstone, "Tombstone", false, false, 0.08f);
+	Item* pTombstone = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), tombstoneFileName, ItemType::Tombstone, "Tombstone", false, false, 0.08f);
 	pTombstone->SetVelocity(glm::vec3(0.0f, 10.0f, 0.0f));
 	pTombstone->SetRotation(glm::vec3(0.0f, GetRandomNumber(0, 360, 1), 0.0f));
 

@@ -1485,7 +1485,7 @@ void CreateCharacter::Update(float dt)
 		for (size_t i = 0; i < m_vpDeleteButtonDataItems.size(); ++i)
 		{
 			Point customButtonLocation = m_vpDeleteButtonDataItems[i]->m_pPresetButtonConnectedTo->GetLocation();
-			m_vpDeleteButtonDataItems[i]->m_pDeleteButton->SetLocation(customButtonLocation.x + 48, customButtonLocation.m_y + 48);
+			m_vpDeleteButtonDataItems[i]->m_pDeleteButton->SetLocation(customButtonLocation.x + 48, customButtonLocation.y + 48);
 		}
 	}
 	else

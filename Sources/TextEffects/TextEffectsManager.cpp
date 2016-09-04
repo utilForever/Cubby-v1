@@ -64,6 +64,9 @@ AnimatedText* TextEffectsManager::CreateTextEffect(unsigned int fontID, unsigned
 
 	pEffect->SetTextWidth(m_pRenderer->GetFreeTypeTextWidth(pEffect->m_fontID, "%s", pEffect->GetText().c_str()));
 
+	float randomX = GetRandomNumber(-3, 3, 1) * 0.5f;
+	float randomZ = GetRandomNumber(-3, 3, 1) * 0.5f;
+
 	switch (effect)
 	{
 	case TextEffect::NoMovement:
@@ -89,8 +92,6 @@ AnimatedText* TextEffectsManager::CreateTextEffect(unsigned int fontID, unsigned
 		pEffect->m_lifeTime = lifeTime;
 		pEffect->m_scale = 1.0f;
 
-		float randomX = GetRandomNumber(-3, 3, 1) * 0.5f;
-		float randomZ = GetRandomNumber(-3, 3, 1) * 0.5f;
 		pEffect->m_velocity = glm::vec3(randomX, 3.0f, randomZ);
 	
 		break;

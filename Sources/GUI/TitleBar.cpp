@@ -10,6 +10,7 @@
 *************************************************************************/
 
 #include "DirectDrawRectangle.h"
+#include "GUIWindow.h"
 #include "Icon.h"
 #include "MultiTextureIcon.h"
 #include "TitleBar.h"
@@ -189,7 +190,7 @@ void TitleBar::MouseClicked(const MouseEvent& event)
 void TitleBar::MouseDragged(const MouseEvent& event)
 {
 	// Don't allow moving if we have disabled this
-	if (m_pParent->m_bAllowMoving)
+	if (m_pParent->m_allowMoving)
 	{
 		if (event.GetSource() == this)
 		{
@@ -214,7 +215,7 @@ void TitleBar::MouseDraggedOutside(const MouseEvent& event)
 		m_firstOutsideDrag = true;
 	}
 
-	if (m_pParent->m_bAllowMoving)
+	if (m_pParent->m_allowMoving)
 	{
 		if (event.GetSource() == this)
 		{
@@ -310,13 +311,13 @@ void TitleBar::SetDimensions(int x, int y, int width, int height)
 	int buttonHeight = height - (distanceFromBorder * 2);
 	int buttonX = width;
 
-	if (m_pParent->m_bAllowClosing)
+	if (m_pParent->m_allowClosing)
 	{
 		buttonX -= (buttonHeight + distanceFromBorder);
 		m_closeButton->SetDimensions(buttonX, distanceFromBorder, buttonHeight, buttonHeight);
 	}
 
-	if (m_pParent->m_bAllowMinimizing)
+	if (m_pParent->m_allowMinimizing)
 	{
 		buttonX -= (buttonHeight + distanceFromBorder * 2);
 		m_minimizeButton->SetDimensions(buttonX, distanceFromBorder, buttonHeight, buttonHeight);

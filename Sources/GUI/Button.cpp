@@ -7,6 +7,7 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include "GUIWindow.h"
 #include "Icon.h"
 #include "Button.h"
 

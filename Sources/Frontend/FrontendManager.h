@@ -63,13 +63,13 @@ public:
 	void LoadCommonGraphics(std::string themeName);
 
 	// Setup icons for components
-	void SetCheckboxIcons(CheckBox* pCheckBox);
-	void SetOptionboxIcons(OptionBox* pOptionBox);
-	void SetScrollbarIcons(ScrollBar* pScrollbar);
-	void SetSliderIcons(Slider* pSlider);
-	void SetPulldownMenuIcons(PulldownMenu* pPulldownMenu);
-	void SetButtonIcons(Button* pButton, ButtonSize size);
-	void SetTabIcons(OptionBox* pTab);
+	void SetCheckboxIcons(CheckBox* pCheckBox) const;
+	void SetOptionboxIcons(OptionBox* pOptionBox) const;
+	void SetScrollbarIcons(ScrollBar* pScrollbar) const;
+	void SetSliderIcons(Slider* pSlider) const;
+	void SetPulldownMenuIcons(PulldownMenu* pPulldownMenu) const;
+	void SetButtonIcons(Button* pButton, ButtonSize size) const;
+	void SetTabIcons(OptionBox* pTab) const;
 
 	// Fonts
 	unsigned int GetFrontendFontLarge() const { return m_frontendFontLarge; }
@@ -192,10 +192,10 @@ public:
 	// Frontend functionality
 	void SetOptionsReturnToMainMenu(bool mainMenu);
 	void SetModsMenuReturnToMainMenu(bool mainMenu);
-	void SetHoverNPC(NPC* pHoverNPC);
-	void SetSelectedNPC(NPC* pSelectedNPC);
-	void SetCharacterSubSelection(std::string subSelection);
-	void GotoNextCreditScreen();
+	void SetHoverNPC(NPC* pHoverNPC) const;
+	void SetSelectedNPC(NPC* pSelectedNPC) const;
+	void SetCharacterSubSelection(std::string subSelection) const;
+	void GotoNextCreditScreen() const;
 	void DisableShadowOption();
 
 	// Constants

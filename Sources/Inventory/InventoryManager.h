@@ -20,6 +20,13 @@
 #include <Items/EquipmentEnum.h>
 #include <Items/ItemsEnum.h>
 #include <Items/StatAttribute.h>
+#include <Player/PlayerClass.h>
+
+// Forward declaration
+class Player;
+class InventoryGUI;
+class LootGUI;
+class ActionBar;
 
 using StatAttributeList = std::vector<StatAttribute*>;
 
@@ -280,7 +287,7 @@ public:
 	void EquipInventoryItem(int slotIndex, EquipSlot equipSlot);
 	void EquipInventoryItem(int xPos, int yPos, EquipSlot equipSlot);
 
-	void EquipLootItem(InventoryItem* pInventoryItem, EquipSlot equipSlot);
+	void EquipLootItem(int xPos, int yPos, InventoryItem* pInventoryItem, EquipSlot equipSlot);
 
 	void UnequipItem(int xPos, int yPos, EquipSlot equipSlot);
 	void UnequipItemToLootGUI(EquipSlot equipSlot);

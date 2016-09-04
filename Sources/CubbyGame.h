@@ -170,8 +170,8 @@ public:
 	void MouseLeftReleased();
 	void MouseRightPressed();
 	void MouseRightReleased();
-	void MouseMiddlePressed();
-	void MouseMiddleReleased();
+	void MouseMiddlePressed() const;
+	void MouseMiddleReleased() const;
 	void MouseScroll(double x, double y);
 	void WrapCameraZoomValue();
 

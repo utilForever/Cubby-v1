@@ -11,6 +11,7 @@
 #include <Maths/3DMaths.h>
 #include <Models/VoxelObject.h>
 #include <Particles/BlockParticleManager.h>
+#include <Player/Player.h>
 #include <Utils/Interpolator.h>
 
 #include "Projectile.h"

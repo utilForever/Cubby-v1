@@ -23,7 +23,7 @@ class InventoryGUI;
 class CharacterGUI;
 class LootGUI;
 class ActionBar;
-class LootSlotItem;
+struct LootSlotItem;
 class ItemManager;
 
 class InventorySlotItem

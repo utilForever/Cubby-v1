@@ -388,7 +388,7 @@ InventoryType GetInventoryTypeForEquipment(EquipmentType type)
 	case EquipmentType::NecroStaff: { return InventoryType::WeaponStaff; }
 	case EquipmentType::PriestStaff: { return InventoryType::WeaponStaff; }
 	case EquipmentType::DruidStaff: { return InventoryType::WeaponStaff; }
-	case EquipmentType::TwoHandedSword: { return InventoryType::Weapon2HandedSword; }
+	case EquipmentType::TwoHandedSword: { return InventoryType::WeaponTwoHandedSword; }
 	case EquipmentType::Boomerang: { return InventoryType::WeaponBoomerang; }
 	case EquipmentType::Bomb: { return InventoryType::WeaponBomb; }
 	case EquipmentType::KnifeLeft: { return InventoryType::WeaponDagger; }

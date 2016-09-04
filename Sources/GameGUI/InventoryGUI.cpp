@@ -11,6 +11,7 @@
 
 #include <CubbyGame.h>
 
+#include <Models/VoxelObject.h>
 #include <Utils/Random.h>
 
 #include "ActionBar.h"
@@ -49,7 +50,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -61,7 +62,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pDestroyLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), destroyText, Color(1.0f, 1.0f, 1.0f, 0.25f));
 	m_pDestroyLabel->SetOutline(true);
 	m_pDestroyLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pDestroyLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_50_Outline());
+	m_pDestroyLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont50Outline());
 	m_pDestroyLabel->SetDepth(3.0f);
 
 	m_pDropIcon = new Icon(m_pRenderer, "", 175, 65);
@@ -71,7 +72,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pDropLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), dropText, Color(1.0f, 1.0f, 1.0f, 0.25f));
 	m_pDropLabel->SetOutline(true);
 	m_pDropLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pDropLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_50_Outline());
+	m_pDropLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont50Outline());
 	m_pDropLabel->SetDepth(3.0f);
 
 	m_pInventoryWindow->SetBackgroundIcon(m_pInventoryWindowBackgroundIcon);
@@ -115,7 +116,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutline(true);
 	m_pTooltipNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
+	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont30Outline());
 	m_pTooltipNameLabel->SetDepth(5.5f);
 
 	char descText[] = "[REPLACE ME]";
@@ -123,7 +124,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipDescriptionLabel->SetOutline(true);
 	m_pTooltipDescriptionLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipDescriptionLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipDescriptionLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
+	m_pTooltipDescriptionLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont25Outline());
 	m_pTooltipDescriptionLabel->SetDepth(5.5f);
 	m_pTooltipDescriptionLabel->SetWordWrap(true);
 
@@ -131,14 +132,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipSlotLabel->SetOutline(true);
 	m_pTooltipSlotLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pTooltipSlotLabel->SetDepth(5.5f);
 
 	char qualityText[] = "[QUALITY]";
 	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipQualityLabel->SetOutline(true);
 	m_pTooltipQualityLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pTooltipQualityLabel->SetDepth(5.5f);
 
 	// Popup
@@ -146,7 +147,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_popupTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), popupTitleText, Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_popupTitle->SetOutline(true);
 	m_popupTitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_popupTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
+	m_popupTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont40Outline());
 	m_popupTitle->SetDepth(9.0f);
 
 	char popupText[] = "[POPUP TEXT]";
@@ -154,7 +155,7 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_popupText->SetOutline(true);
 	m_popupText->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_popupText->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_popupText->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
+	m_popupText->SetOutlineFont(m_pFrontendManager->GetFrontendFont25Outline());
 	m_popupText->SetDepth(9.0f);
 	m_popupText->SetWordWrap(true);
 	m_popupText->SetHorizontalAlignment(HorizontalAlignment::Center);
@@ -162,14 +163,14 @@ InventoryGUI::InventoryGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pPopupBackgroundIcon = new Icon(m_pRenderer, "", 270, 200);
 	m_pPopupBackgroundIcon->SetDepth(2.0f);
 
-	m_pPopupConfirmButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "Yes", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pPopupConfirmButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "Yes", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPopupConfirmButton->SetLabelOffset(0, 3);
 	m_pPopupConfirmButton->SetPressedOffset(0, -4);
 	m_pPopupConfirmButton->SetCallBackFunction(_PopupConfirmPressed);
 	m_pPopupConfirmButton->SetCallBackData(this);
 	m_pPopupConfirmButton->SetDepth(9.0f);
 
-	m_pPopupCancelButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "No", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pPopupCancelButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "No", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pPopupCancelButton->SetLabelOffset(0, 3);
 	m_pPopupCancelButton->SetPressedOffset(0, -4);
 	m_pPopupCancelButton->SetCallBackFunction(_PopupCancelPressed);
@@ -271,12 +272,12 @@ void InventoryGUI::SkinGUI()
 	iconName = "Resources/textures/gui/" + themeName + "/common/popup_background.tga";
 	m_pPopupBackgroundIcon->SetIcon(iconName);
 
-	m_pFrontendManager->SetButtonIcons(m_pPopupConfirmButton, ButtonSize_110x47);
-	m_pFrontendManager->SetButtonIcons(m_pPopupCancelButton, ButtonSize_110x47);
+	m_pFrontendManager->SetButtonIcons(m_pPopupConfirmButton, ButtonSize::Size110x47);
+	m_pFrontendManager->SetButtonIcons(m_pPopupCancelButton, ButtonSize::Size110x47);
 
 	m_pCloseExitButton->SetDefaultIcon(m_pFrontendManager->GetCloseExitButtonIcon());
-	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIcon_Hover());
-	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIcon_Pressed());
+	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIconHover());
+	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIconPressed());
 	m_pCloseExitButton->SetDisabledIcon(m_pFrontendManager->GetCloseExitButtonIcon());
 
 	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
@@ -564,7 +565,7 @@ void InventoryGUI::CreateInventoryItems()
 					char quantity[128];
 					sprintf(quantity, "%i", pItem->m_quantity);
 					int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", quantity);
-					pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 10 - textWidth, 8, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+					pNewSlotItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont18Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), width - 10 - textWidth, 8, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 				}
 
 				InventorySlotItem* pNewItem = new InventorySlotItem();
@@ -896,7 +897,7 @@ void InventoryGUI::EquipItem(InventoryItem* pInventoryItem, int inventoryX, int 
 	m_pPlayer->EquipItem(pInventoryItem);
 
 	// If we already have an item in this equipment slot, switch it out
-	if (m_pEquippedItems[pInventoryItem->m_equipSlot] != "")
+	if (m_pEquippedItems[static_cast<int>(pInventoryItem->m_equipSlot)] != "")
 	{
 		m_pActionBar->UpdateActionBarSlots(m_pEquippedItems[static_cast<int>(pInventoryItem->m_equipSlot)], inventoryX, inventoryY);
 	}
@@ -1396,7 +1397,7 @@ void InventoryGUI::InventoryItemReleased(InventorySlotItem* pInventoryItem)
 								pItem->GetDroppedInventoryItem()->AddStatAttribute(pInventoryItem->m_pInventoryItem->m_vpStatAttributes[i]->GetType(), pInventoryItem->m_pInventoryItem->m_vpStatAttributes[i]->GetModifyAmount());
 							}
 
-							int numY = pItem->GetVoxelItem()->GetAnimatedSection(0)->m_pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeY;
+							int numY = pItem->GetVoxelItem()->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeY;
 							pItem->GetVoxelItem()->SetRenderOffset(glm::vec3(0.0f, numY * 0.5f, 0.0f));
 						}
 
@@ -1426,7 +1427,7 @@ void InventoryGUI::InventoryItemReleased(InventorySlotItem* pInventoryItem)
 					}
 					else
 					{
-						if (CubbyGame::GetInstance()->GetVoxSettings()->m_confirmItemDelete)
+						if (CubbyGame::GetInstance()->GetCubbySettings()->m_confirmItemDelete)
 						{
 							char popupTitle[256];
 							sprintf(popupTitle, "Delete");

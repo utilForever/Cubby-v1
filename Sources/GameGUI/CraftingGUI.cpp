@@ -7,10 +7,14 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include "CraftingGUI.h"
-#include "CubbyGame.h"
-#include "Utils/Random.h"
 #include <algorithm>
+
+#include <CubbyGame.h>
+
+#include <Models/VoxelObject.h>
+#include <Utils/Random.h>
+
+#include "CraftingGUI.h"
 
 // Constructor, Destructor
 CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager, ChunkManager* pChunkManager, Player* pPlayer, InventoryManager* pInventoryManager, int windowWidth, int windowHeight)
@@ -45,7 +49,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTitleBarBackgroundIcon = new Icon(m_pRenderer, "", 133, 35);
 	m_pTitleBarBackgroundIcon->SetDepth(1.0f);
 
-	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont_30_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCloseExitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), m_pFrontendManager->GetFrontendFont30Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCloseExitButton->SetLabelOffset(0, 5);
 	m_pCloseExitButton->SetCallBackFunction(_CloseExitPressed);
 	m_pCloseExitButton->SetCallBackData(this);
@@ -65,7 +69,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pCraftButtonIconDisabled = new Icon(m_pRenderer, "", 115, 32);
 	m_pCraftButtonIconDisabled->SetDepth(2.0f);
 
-	m_pCraftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "Craft", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCraftButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25Outline(), "Craft", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCraftButton->SetLabelOffset(0, 3);
 	m_pCraftButton->SetCallBackFunction(_CraftPressed);
 	m_pCraftButton->SetCallBackData(this);
@@ -140,7 +144,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTooltipNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), nameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipNameLabel->SetOutline(true);
 	m_pTooltipNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
+	m_pTooltipNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont30Outline());
 	m_pTooltipNameLabel->SetDepth(7.5f);
 
 	char descText[] = "[REPLACE ME]";
@@ -148,7 +152,7 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTooltipDescriptionLabel->SetOutline(true);
 	m_pTooltipDescriptionLabel->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pTooltipDescriptionLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipDescriptionLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
+	m_pTooltipDescriptionLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont25Outline());
 	m_pTooltipDescriptionLabel->SetDepth(7.5f);
 	m_pTooltipDescriptionLabel->SetWordWrap(true);
 
@@ -156,14 +160,14 @@ CraftingGUI::CraftingGUI(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* 
 	m_pTooltipSlotLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), slotText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipSlotLabel->SetOutline(true);
 	m_pTooltipSlotLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pTooltipSlotLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pTooltipSlotLabel->SetDepth(7.5f);
 
 	char qualityText[] = "[QUALITY]";
 	m_pTooltipQualityLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), qualityText, Color(0.5f, 0.5f, 0.5f, 1.0f));
 	m_pTooltipQualityLabel->SetOutline(true);
 	m_pTooltipQualityLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pTooltipQualityLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pTooltipQualityLabel->SetDepth(7.5f);
 
 	m_pCraftingWindow->SetBackgroundIcon(m_pCraftingWindowBackgroundIcon);
@@ -353,8 +357,8 @@ void CraftingGUI::SkinGUI() const
 	m_pCraftingWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
 	m_pCloseExitButton->SetDefaultIcon(m_pFrontendManager->GetCloseExitButtonIcon());
-	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIcon_Hover());
-	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIcon_Pressed());
+	m_pCloseExitButton->SetHoverIcon(m_pFrontendManager->GetCloseExitButtonIconHover());
+	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIconPressed());
 	m_pCloseExitButton->SetDisabledIcon(m_pFrontendManager->GetCloseExitButtonIcon());
 
 	m_pCraftButton->SetNormalLabelColor(m_pFrontendManager->GetNormalFontColor());
@@ -501,7 +505,7 @@ void CraftingGUI::CraftingComplete()
 					pItem->GetDroppedInventoryItem()->AddStatAttribute(m_pRecipeSlotItemSelected->m_pInventoryItem->m_vpStatAttributes[i]->GetType(), m_pRecipeSlotItemSelected->m_pInventoryItem->m_vpStatAttributes[i]->GetModifyAmount());
 				}
 
-				int numY = pItem->GetVoxelItem()->GetAnimatedSection(0)->m_pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeY;
+				int numY = pItem->GetVoxelItem()->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix(0)->m_matrixSizeY;
 				pItem->GetVoxelItem()->SetRenderOffset(glm::vec3(0.0f, numY*0.5f, 0.0f));
 			}
 		}
@@ -775,7 +779,7 @@ void CraftingGUI::CreateRecipeButtons()
 		RecipeSlotItem* pSlotItem = new RecipeSlotItem();
 
 		// Create the item icon
-		Button* pNewResultsItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont_25_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewResultsItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), m_pFrontendManager->GetFrontendFont25Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 		pNewResultsItem->SetDefaultIcon(m_pRecipeButtonIcon);
 		pNewResultsItem->SetHoverIcon(m_pRecipeButtonHoverIcon);
 		pNewResultsItem->SetSelectedIcon(m_pRecipeButtonPressedIcon);
@@ -797,7 +801,7 @@ void CraftingGUI::CreateRecipeButtons()
 		pNewResultsItem->AddIcon(m_pRenderer, itemTexture, 64, 64, 24, 24, 4, 4, 2.5f);
 
 		// Create the item label
-		pNewResultsItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), pResultsItem->m_title, Color(1.0f, 1.0f, 1.0f, 1.0f), 34, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+		pNewResultsItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), pResultsItem->m_title, Color(1.0f, 1.0f, 1.0f, 1.0f), 34, 7, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 
 		pNewResultsItem->SetCallBackFunction(_ResultsItemPressed);
 		pNewResultsItem->SetCallBackData(pSlotItem);
@@ -857,7 +861,7 @@ void CraftingGUI::CreateIngredientsButtons()
 		IngredientsSlotItem* pSlotItem = new IngredientsSlotItem();
 
 		// Create the requirement button
-		Button* pNewCraftingItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont_20_Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+		Button* pNewCraftingItem = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), m_pFrontendManager->GetFrontendFont20Outline(), "", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 		switch (pInventoryItem->m_itemQuality)
 		{
 		case ItemQuality::Common: { pNewCraftingItem->SetDefaultIcon(m_pInventoryBackgroundSlotBorderCommon); pNewCraftingItem->SetHoverIcon(m_pInventoryBackgroundSlotBorderCommon); pNewCraftingItem->SetSelectedIcon(m_pInventoryBackgroundSlotBorderCommon); break; }
@@ -921,7 +925,7 @@ void CraftingGUI::CreateIngredientsButtons()
 			char quantity[128];
 			sprintf(quantity, "%i", pInventoryItem->m_quantity);
 			int textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18(), "%s", quantity);
-			pNewCraftingItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont_18_Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), 48 - textWidth, 4, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
+			pNewCraftingItem->AddText(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), m_pFrontendManager->GetFrontendFont18Outline(), quantity, Color(1.0f, 1.0f, 1.0f, 1.0f), 48 - textWidth, 4, true, Color(0.0f, 0.0f, 0.0f, 1.0f));
 		}
 
 		pNewCraftingItem->SetEnterCallBackFunction(_IngredientItemEntered);

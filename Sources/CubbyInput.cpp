@@ -390,7 +390,7 @@ void CubbyGame::MouseLeftPressed()
 
 	if (IsCursorOn())
 	{
-		m_pGUI->MousePressed(MOUSE_BUTTON1);
+		m_pGUI->MousePressed(static_cast<int>(MouseButton::BUTTON1));
 	}
 
 	if (IsCursorOn() == false || !m_pGUI->IsMouseInteractingWithGUIComponent(false))
@@ -442,7 +442,7 @@ void CubbyGame::MouseLeftReleased()
 
 	if (IsCursorOn())
 	{
-		m_pGUI->MouseReleased(MOUSE_BUTTON1);
+		m_pGUI->MouseReleased(static_cast<int>(MouseButton::BUTTON1));
 	}
 
 	if (m_gameMode == GameMode::Debug || m_cameraMode == CameraMode::Debug)
@@ -472,7 +472,7 @@ void CubbyGame::MouseRightPressed()
 
 	if (IsCursorOn())
 	{
-		m_pGUI->MousePressed(MOUSE_BUTTON2);
+		m_pGUI->MousePressed(static_cast<int>(MouseButton::BUTTON2));
 	}
 
 	if (m_gameMode == GameMode::Game && m_cameraMode != CameraMode::FirstPerson)
@@ -495,25 +495,25 @@ void CubbyGame::MouseRightReleased()
 
 	if (IsCursorOn())
 	{
-		m_pGUI->MouseReleased(MOUSE_BUTTON2);
+		m_pGUI->MouseReleased(static_cast<int>(MouseButton::BUTTON2));
 	}
 
 	ReleaseEnemyTarget();
 }
 
-void CubbyGame::MouseMiddlePressed()
+void CubbyGame::MouseMiddlePressed() const
 {
 	if (IsCursorOn())
 	{
-		m_pGUI->MousePressed(MOUSE_BUTTON3);
+		m_pGUI->MousePressed(static_cast<int>(MouseButton::BUTTON3));
 	}
 }
 
-void CubbyGame::MouseMiddleReleased()
+void CubbyGame::MouseMiddleReleased() const
 {
 	if (IsCursorOn())
 	{
-		m_pGUI->MouseReleased(MOUSE_BUTTON3);
+		m_pGUI->MouseReleased(static_cast<int>(MouseButton::BUTTON3));
 	}
 }
 

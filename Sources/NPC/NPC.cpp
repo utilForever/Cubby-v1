@@ -3039,7 +3039,7 @@ void NPC::Update(float dt)
 	// Update aggro distance check for enemies to attack
 	if (m_updateAggroRadiusTimer <= 0.0f)
 	{
-		UpdateAggroRadius(dt);
+		UpdateAggroRadius();
 		m_updateAggroRadiusTimer = 1.0f + GetRandomNumber(0, 100, 2) * 0.01f;
 	}
 

@@ -26,41 +26,41 @@ MainMenu::MainMenu(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFront
 	m_pRenderer->LoadTexture("Resources/textures/vox_logo.tga", &m_logoWidth, &m_logoHeight, &texturewidth2, &textureheight2, &m_logoTexture);
 
 	m_pCreditLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "A game by @AlwaysGeeky", Color(1.0f, 1.0f, 1.0f, 1.0f));
-	m_pCreditLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_35_Outline());
+	m_pCreditLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont35Outline());
 	m_pCreditLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCreditLabel->SetOutline(true);
 
-	m_pSinglePlayerButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Single Player", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pSinglePlayerButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Single Player", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pSinglePlayerButton->SetLabelOffset(0, 5);
 	m_pSinglePlayerButton->SetPressedOffset(0, -4);
 	m_pSinglePlayerButton->SetCallBackFunction(_SinglePlayerPressed);
 	m_pSinglePlayerButton->SetCallBackData(this);
 
-	m_pMultiPlayerButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Multiplayer", Color(0.75f, 0.75f, 0.75f, 1.0f), Color(0.25f, 0.25f, 0.25f, 1.0f));
+	m_pMultiPlayerButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Multiplayer", Color(0.75f, 0.75f, 0.75f, 1.0f), Color(0.25f, 0.25f, 0.25f, 1.0f));
 	m_pMultiPlayerButton->SetLabelOffset(0, 5);
 	m_pMultiPlayerButton->SetPressedOffset(0, -4);
 	m_pMultiPlayerButton->SetCallBackFunction(_MultiPlayerPressed);
 	m_pMultiPlayerButton->SetCallBackData(this);
 
-	m_pOptionsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Options", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pOptionsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Options", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pOptionsButton->SetLabelOffset(0, 5);
 	m_pOptionsButton->SetPressedOffset(0, -4);
 	m_pOptionsButton->SetCallBackFunction(_OptionsPressed);
 	m_pOptionsButton->SetCallBackData(this);
 
-	m_pModsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Mods", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pModsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Mods", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pModsButton->SetLabelOffset(0, 5);
 	m_pModsButton->SetPressedOffset(0, -4);
 	m_pModsButton->SetCallBackFunction(_ModsPressed);
 	m_pModsButton->SetCallBackData(this);
 
-	m_pCreditsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Credits", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pCreditsButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Credits", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pCreditsButton->SetLabelOffset(0, 5);
 	m_pCreditsButton->SetPressedOffset(0, -4);
 	m_pCreditsButton->SetCallBackFunction(_CreditsPressed);
 	m_pCreditsButton->SetCallBackData(this);
 
-	m_pQuitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont_50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Quit", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pQuitButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Quit", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pQuitButton->SetLabelOffset(0, 5);
 	m_pQuitButton->SetPressedOffset(0, -4);
 	m_pQuitButton->SetCallBackFunction(_QuitPressed);

@@ -9,6 +9,9 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <GUI/OpenGLGUI.h>
+
+#include "FrontendManager.h"
 #include "FrontendPage.h"
 
 // Constructor, Destructor
@@ -24,14 +27,14 @@ FrontendPage::FrontendPage(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager
 	m_pPageTitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont40(), titleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pPageTitle->SetOutline(true);
 	m_pPageTitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pPageTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_40_Outline());
+	m_pPageTitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont40Outline());
 	m_pPageTitle->SetDepth(4.0f);
 
 	char subtitleText[] = "[Subtitle]";
 	m_pPageSubtitle = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont25(), subtitleText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pPageSubtitle->SetOutline(true);
 	m_pPageSubtitle->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pPageSubtitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont_25_Outline());
+	m_pPageSubtitle->SetOutlineFont(m_pFrontendManager->GetFrontendFont25Outline());
 	m_pPageSubtitle->SetDepth(4.0f);
 
 	m_addedTitles = false;

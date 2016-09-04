@@ -8,10 +8,11 @@
 *************************************************************************/
 
 #include "DirectDrawRectangle.h"
-#include "Icon.h"
-#include "MultiTextureIcon.h"
 #include "DraggableRenderRectangle.h"
+#include "GUIWindow.h"
+#include "Icon.h"
 #include "Label.h"
+#include "MultiTextureIcon.h"
 
 // Constructor, Destructor
 DraggableRenderRectangle::DraggableRenderRectangle(Renderer* pRenderer) :

@@ -1282,7 +1282,7 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(static_cast<int>(m_vpMatrices[i]->m_matrixSizeX) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeY) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeZ) * -0.5f);
 
 		// Translate for external matrix offset value
 		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
@@ -1519,7 +1519,7 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(static_cast<int>(m_vpMatrices[i]->m_matrixSizeX) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeY) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeZ) * -0.5f);
 
 		// Translate for external matrix offset value
 		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
@@ -1747,7 +1747,7 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->m_matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeX) * -0.5f, static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeY)* -0.5f, static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeZ) * -0.5f);
 
 		// Translate for external matrix offset value
 		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->m_offsetX, m_vpMatrices[matrixIndex]->m_offsetY, m_vpMatrices[matrixIndex]->m_offsetZ);
@@ -2094,7 +2094,7 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[i]->m_matrixSizeX * 0.5f, -m_vpMatrices[i]->m_matrixSizeY * 0.5f, -m_vpMatrices[i]->m_matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(static_cast<int>(m_vpMatrices[i]->m_matrixSizeX) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeY) * -0.5f, static_cast<int>(m_vpMatrices[i]->m_matrixSizeZ) * -0.5f);
 
 		// Translate for external matrix offset value
 		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[i]->m_offsetX, m_vpMatrices[i]->m_offsetY, m_vpMatrices[i]->m_offsetZ);
@@ -2227,7 +2227,7 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 		m_pRenderer->TranslateWorldMatrix(0.5f, 0.5f, 0.5f);
 
 		// Translate to center of model
-		m_pRenderer->TranslateWorldMatrix(-m_vpMatrices[matrixIndex]->m_matrixSizeX * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeY * 0.5f, -m_vpMatrices[matrixIndex]->m_matrixSizeZ * 0.5f);
+		m_pRenderer->TranslateWorldMatrix(static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeX) * -0.5f, static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeY) * -0.5f, static_cast<int>(m_vpMatrices[matrixIndex]->m_matrixSizeZ) * -0.5f);
 
 		// Translate for external matrix offset value
 		m_pRenderer->TranslateWorldMatrix(m_vpMatrices[matrixIndex]->m_offsetX, m_vpMatrices[matrixIndex]->m_offsetY, m_vpMatrices[matrixIndex]->m_offsetZ);

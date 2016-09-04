@@ -35,9 +35,9 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pDeathHeaderLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont80(), deathHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pDeathHeaderLabel->SetOutline(true);
 	m_pDeathHeaderLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pDeathHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_80_Outline());
+	m_pDeathHeaderLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont80Outline());
 
-	m_pRespawnButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont_50_Outline(), "Respawn", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
+	m_pRespawnButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont50(), m_pFrontendManager->GetFrontendFont50Outline(), "Respawn", Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f));
 	m_pRespawnButton->SetLabelOffset(0, 3);
 	m_pRespawnButton->SetPressedOffset(0, -4);
 	m_pRespawnButton->SetCallBackFunction(_RespawnPressed);
@@ -48,7 +48,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pLevelUpLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont80(), levelupHeaderText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pLevelUpLabel->SetOutline(true);
 	m_pLevelUpLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pLevelUpLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_80_Outline());
+	m_pLevelUpLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont80Outline());
 
 	// Player portrait
 	m_pPortraitBackgroundIcon = new Icon(m_pRenderer, "", 72, 72);
@@ -59,7 +59,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), healthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pHealthLabel->SetOutline(true);
 	m_pHealthLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
-	m_pHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pHealthLabel->SetDepth(2.0f);
 
 	m_pHealthContainerIcon = new Icon(m_pRenderer, "", 72, 64);
@@ -76,7 +76,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pMagicLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont14(), magicText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pMagicLabel->SetOutline(true);
 	m_pMagicLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
-	m_pMagicLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_14_Outline());
+	m_pMagicLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont14Outline());
 	m_pMagicLabel->SetDepth(2.0f);
 
 	m_pManaFillerIcon = new Icon(m_pRenderer, "", 84, 11);
@@ -90,7 +90,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pExperienceLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont18(), experienceText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pExperienceLabel->SetOutline(true);
 	m_pExperienceLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
-	m_pExperienceLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_18_Outline());
+	m_pExperienceLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont18Outline());
 	m_pExperienceLabel->SetDepth(2.0f);
 
 	m_pExperienceContainerIcon = new Icon(m_pRenderer, "", 328, 26);
@@ -107,7 +107,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pEnemyHealthLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont20(), enemyHealthText, Color(1.0f, 1.0f, 1.0f, 0.75f));
 	m_pEnemyHealthLabel->SetOutline(true);
 	m_pEnemyHealthLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 0.95f));
-	m_pEnemyHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_20_Outline());
+	m_pEnemyHealthLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont20Outline());
 	m_pEnemyHealthLabel->SetDepth(2.0f);
 
 
@@ -125,7 +125,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	m_pEnemyNameLabel = new Label(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), enemyNameText, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_pEnemyNameLabel->SetOutline(true);
 	m_pEnemyNameLabel->SetOutlineColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
-	m_pEnemyNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont_30_Outline());
+	m_pEnemyNameLabel->SetOutlineFont(m_pFrontendManager->GetFrontendFont30Outline());
 
 	// Portrait
 	m_pDynamicPortraitIcon = new Icon(m_pRenderer);
@@ -183,7 +183,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	//m_pCraftingCheckboxIconToggledPressed->SetDepth(2.0f);
 
 	// GUI panel checkboxes
-	//m_pInventoryCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pInventoryCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pInventoryCheckBox->SetCallBackFunction(_InventoryCheckboxPressed);
 	//m_pInventoryCheckBox->SetCallBackData(this);
 	//m_pInventoryCheckBox->SetDefaultIcon(m_pInventoryCheckboxIcon);
@@ -193,7 +193,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	//m_pInventoryCheckBox->SetToggledHoverIcon(m_pInventoryCheckboxIconToggledHover);
 	//m_pInventoryCheckBox->SetToggledSelectedIcon(m_pInventoryCheckboxIconToggledPressed);
 
-	//m_pCharacterCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pCharacterCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pCharacterCheckBox->SetCallBackFunction(_CharacterCheckboxPressed);
 	//m_pCharacterCheckBox->SetCallBackData(this);
 	//m_pCharacterCheckBox->SetDefaultIcon(m_pCharacterCheckboxIcon);
@@ -203,7 +203,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	//m_pCharacterCheckBox->SetToggledHoverIcon(m_pCharacterCheckboxIconToggledHover);
 	//m_pCharacterCheckBox->SetToggledSelectedIcon(m_pCharacterCheckboxIconToggledPressed);
 
-	//m_pQuestCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pQuestCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pQuestCheckBox->SetCallBackFunction(_QuestCheckboxPressed);
 	//m_pQuestCheckBox->SetCallBackData(this);
 	//m_pQuestCheckBox->SetDefaultIcon(m_pQuestCheckboxIcon);
@@ -213,7 +213,7 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	//m_pQuestCheckBox->SetToggledHoverIcon(m_pQuestCheckboxIconToggledHover);
 	//m_pQuestCheckBox->SetToggledSelectedIcon(m_pQuestCheckboxIconToggledPressed);
 
-	//m_pCraftingCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pCraftingCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pCraftingCheckBox->SetCallBackFunction(_CraftingCheckboxPressed);
 	//m_pCraftingCheckBox->SetCallBackData(this);
 	//m_pCraftingCheckBox->SetDefaultIcon(m_pCraftingCheckboxIcon);
@@ -223,11 +223,11 @@ HUD::HUD(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager
 	//m_pCraftingCheckBox->SetToggledHoverIcon(m_pCraftingCheckboxIconToggledHover);
 	//m_pCraftingCheckBox->SetToggledSelectedIcon(m_pCraftingCheckboxIconToggledPressed);
 
-	//m_pSkillsCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pSkillsCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pSkillsCheckBox->SetCallBackFunction(_SkillsCheckboxPressed);
 	//m_pSkillsCheckBox->SetCallBackData(this);
 
-	//m_pPetCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont_30(), "");
+	//m_pPetCheckBox = new CheckBox(m_pRenderer, m_pFrontendManager->GetFrontendFont30(), "");
 	//m_pPetCheckBox->SetCallBackFunction(_PetCheckboxPressed);
 	//m_pPetCheckBox->SetCallBackData(this);
 
@@ -458,7 +458,7 @@ void HUD::SkinGUI()
 	iconName = "Resources/textures/gui/" + themeName + "/HUD/enemy_health_filler_background.tga";
 	m_pEnemyHealthFillerBackgroundIcon->SetIcon(iconName);
 
-	m_pFrontendManager->SetButtonIcons(m_pRespawnButton, ButtonSize_225x75);
+	m_pFrontendManager->SetButtonIcons(m_pRespawnButton, ButtonSize::Size225x75);
 	m_pRespawnButton->SetDimensions(static_cast<int>((m_windowWidth * 0.5f) - static_cast<int>(m_respawnButtonWidth * 0.5f)), static_cast<int>((m_windowHeight * 0.5f) - (m_respawnButtonHeight * 0.5f) + 75), static_cast<int>(m_respawnButtonWidth), static_cast<int>(m_respawnButtonHeight));
 
 	m_pRespawnButton->SetNormalLabelColor(m_pFrontendManager->GetNormalFontColor());

@@ -15,7 +15,9 @@
 #include <fstream>
 #include <algorithm>
 
+#include <GameGUI/InventoryGUI.h>
 #include <Items/Item.h>
+#include <Player/Player.h>
 
 #include "InventoryManager.h"
 
@@ -1134,7 +1136,7 @@ void InventoryManager::EquipInventoryItem(int xPos, int yPos, EquipSlot equipSlo
 	EquipInventoryItem(index, equipSlot);
 }
 
-void InventoryManager::EquipLootItem(InventoryItem* pInventoryItem, EquipSlot equipSlot)
+void InventoryManager::EquipLootItem(int xPos, int yPos, InventoryItem* pInventoryItem, EquipSlot equipSlot)
 {
 	InventoryItem* newItem = CreateInventoryItem(pInventoryItem);
 	newItem->m_scale = pInventoryItem->m_scale;

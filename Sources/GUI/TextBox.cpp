@@ -7,8 +7,6 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <../Libraries/glfw/include/GLFW/glfw3.h>
-
 #include <Utils/TimeManager.h>
 
 #include "DirectDrawRectangle.h"
@@ -16,6 +14,8 @@
 #include "MultiTextureIcon.h"
 #include "Icon.h"
 #include "FocusManager.h"
+
+#include <../Libraries/glfw/include/GLFW/glfw3.h>
 
 // Constructor, Destructor
 TextBox::TextBox(Renderer* pRenderer, unsigned int GUIFont, const std::string &defaultText, const std::string &name) :

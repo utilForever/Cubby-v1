@@ -193,14 +193,14 @@ void Chunk::Setup()
 			Biome biome = CubbyGame::GetInstance()->GetBiomeManager()->GetBiome(glm::vec3(xPosition, 0.0f, zPosition));
 
 			// Get the 
-			float noise = octave_noise_2d(m_pVoxSettings->GetLandscapeOctaves(), m_pVoxSettings->GetLandscapePersistence(), m_pVoxSettings->GetLandscapeScale(), xPosition, zPosition);
+			float noise = octave_noise_2d(m_pVoxSettings->m_landscapeOctaves, m_pVoxSettings->m_landscapePersistence, m_pVoxSettings->m_landscapeScale, xPosition, zPosition);
 			float noiseNormalized = ((noise + 1.0f) * 0.5f);
 			float noiseHeight = noiseNormalized * CHUNK_SIZE;
 
 			// Multiple by mountain ratio
-			float mountainNoise = octave_noise_2d(m_pVoxSettings->GetMountainOctaves(), m_pVoxSettings->GetMountainPersistence(), m_pVoxSettings->GetMountainScale(), xPosition, zPosition);
+			float mountainNoise = octave_noise_2d(m_pVoxSettings->m_mountainOctaves, m_pVoxSettings->m_mountainPersistence, m_pVoxSettings->m_mountainScale, xPosition, zPosition);
 			float mountainNoiseNormalize = (mountainNoise + 1.0f) * 0.5f;
-			float mountainMultiplier = m_pVoxSettings->GetMountainMultiplier() * mountainNoiseNormalize;
+			float mountainMultiplier = m_pVoxSettings->m_mountainMultiplier * mountainNoiseNormalize;
 			noiseHeight *= mountainMultiplier;
 
 			// Smooth out for towns
