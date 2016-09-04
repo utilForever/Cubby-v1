@@ -651,6 +651,9 @@
     <ClCompile Include="..\Sources\Frontend\Pages\CreateCharacter.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Frontend\Pages\SelectCharacter.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\CubbyWindow.h">
@@ -1656,6 +1659,9 @@
       <Filter>Sources\Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Frontend\Pages\CreateCharacter.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Frontend\Pages\SelectCharacter.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
   </ItemGroup>

@@ -209,6 +209,7 @@
     <ClCompile Include="..\Sources\Frontend\Pages\OptionsMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\PauseMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\QuitPopup.cpp" />
+    <ClCompile Include="..\Sources\Frontend\Pages\SelectCharacter.cpp" />
     <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CharacterGUI.cpp" />
     <ClCompile Include="..\Sources\GameGUI\CraftingGUI.cpp" />
@@ -544,6 +545,7 @@
     <ClInclude Include="..\Sources\Frontend\Pages\OptionsMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\PauseMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\QuitPopup.h" />
+    <ClInclude Include="..\Sources\Frontend\Pages\SelectCharacter.h" />
     <ClInclude Include="..\Sources\GameGUI\ActionBar.h" />
     <ClInclude Include="..\Sources\GameGUI\CharacterGUI.h" />
     <ClInclude Include="..\Sources\GameGUI\CraftingGUI.h" />
