@@ -12,75 +12,14 @@
 #include <fstream>
 #include <iostream>
 
+#include <inih/INIReader.h>
+
 #include "CubbySettings.h"
-
-#include "inih/INIReader.h"
-
-// Getter
-int CubbySettings::GetWindowWidth() const
-{
-	return m_windowWidth;
-}
-
-int CubbySettings::GetWindowHeight() const
-{
-	return m_windowHeight;
-}
-
-bool CubbySettings::GetFullScreen() const
-{
-	return m_fullscreen;
-}
-
-float CubbySettings::GetLandscapeOctaves() const
-{
-	return m_landscapeOctaves;
-}
-
-float CubbySettings::GetLandscapePersistence() const
-{
-	return m_landscapePersistence;
-}
-
-float CubbySettings::GetLandscapeScale() const
-{
-	return m_landscapeScale;
-}
-
-float CubbySettings::GetMountainOctaves() const
-{
-	return m_mountainOctaves;
-}
-
-float CubbySettings::GetMountainPersistence() const
-{
-	return m_mountainPersistence;
-}
-
-float CubbySettings::GetMountainScale() const
-{
-	return m_mountainScale;
-}
-
-float CubbySettings::GetMountainMultiplier() const
-{
-	return m_mountainMultiplier;
-}
-
-float CubbySettings::GetLoaderRadius() const
-{
-	return m_loaderRadius;
-}
-
-bool CubbySettings::IsStepUpdating() const
-{
-	return m_stepUpdating;
-}
 
 // Load settings
 void CubbySettings::LoadSettings()
 {
-	std::string settingsIniFile = "../Configs/settings.ini";
+	std::string settingsIniFile = "Resources/config/settings.ini";
 	INIReader reader(settingsIniFile);
 
 	if (reader.ParseError() < 0)
@@ -125,15 +64,16 @@ void CubbySettings::LoadSettings()
 }
 
 // Save settings
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CubbySettings::SaveSettings() const
 {
-
+	// Do nothing
 }
 
 // Load options
 void CubbySettings::LoadOptions()
 {
-	std::string optionsIniFile = "../Configs/options.ini";
+	std::string optionsIniFile = "Resources/config/options.ini";
 	INIReader reader(optionsIniFile);
 
 	if (reader.ParseError() < 0)
@@ -173,7 +113,7 @@ void CubbySettings::SaveOptions() const
 	std::ofstream file;
 
 	// Open the file
-	std::string optionsIniFile = "../Configs/options.ini";
+	std::string optionsIniFile = "Resources/config/options.ini";
 	file.open(optionsIniFile.c_str(), std::ios::out);
 
 	file << "[Gameplay]\n";

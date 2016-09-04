@@ -11,27 +11,35 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#pragma once
+#ifndef CUBBY_WINDOW_H
+#define CUBBY_WINDOW_H
 
 #include <GLFW/glfw3.h>
 
+// Forward declaration
 class CubbyGame;
 class CubbySettings;
+
+struct Joystick
+{
+	bool m_present;
+	char* m_name;
+	float* m_axes;
+	unsigned char* m_buttons;
+	int m_axisCount;
+	int m_buttonCount;
+};
 
 class CubbyWindow
 {
 public:
 	// Constructor, Destructor
 	CubbyWindow(CubbyGame* pCubbyGame, CubbySettings* pCubbySettings);
-	~CubbyWindow();
+	~CubbyWindow() = default;
 
-	// Creation
 	void Create();
-
-	// Destruction
 	void Destroy() const;
-
-	// Rendering
+	void Update(float dt);
 	void Render() const;
 
 	void InitializeWindowContext(GLFWwindow* window);
@@ -39,15 +47,32 @@ public:
 	// Windows dimensions
 	int GetWindowWidth() const;
 	int GetWindowHeight() const;
+	void ResizeWindow(int width, int height);
 
 	// Minimized
 	bool GetMinimized() const;
 
-	// Full screen
+	// Cursor
+	int GetCursorX() const;
+	int GetCursorY() const;
+	void SetCursorPosition(int x, int y) const;
+	void TurnCursorOff(bool forceOff);
+	void TurnCursorOn(bool resetCursorPosition, bool forceOn) const;
+	bool IsCursorOn() const;
+
+	// Joysticks
+	void UpdateJoySticks();
+	bool IsJoyStickConnected(int joyStickNum);
+	float GetJoystickAxisValue(int joyStickNum, int axisIndex);
+	bool GetJoystickButton(int joyStickNum, int axisIndex);
+	float GetJoystickAnalogDeadZone() const;
+
+	// Fullscreen
 	void ToggleFullScreen(bool fullscreen);
 
 	// Events
 	void PollEvents() const;
+
 private:
 	CubbyGame* m_pCubbyGame;
 	CubbySettings* m_pCubbySettings;
@@ -61,12 +86,19 @@ private:
 	int m_oldWindowWidth;
 	int m_oldWindowHeight;
 
+	// Minimized flag
+	bool m_minimized;
+
 	// Cursor position
 	int m_cursorX;
 	int m_cursorY;
 	int m_cursorOldX;
 	int m_cursorOldY;
 
-	// Minimized flag
-	bool m_minimized;
+	// Joysticks
+	Joystick m_joysticks[GLFW_JOYSTICK_LAST - GLFW_JOYSTICK_1 + 1];
+	int m_joystickCount;
+	float m_joystickAnalogDeadZone;
 };
+
+#endif

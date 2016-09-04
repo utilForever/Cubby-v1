@@ -14,6 +14,7 @@
 
 int main()
 {
+	// Load the settings
 	CubbySettings* pCubbySettings = new CubbySettings();
 	pCubbySettings->LoadSettings();
 	pCubbySettings->LoadOptions();
@@ -22,11 +23,14 @@ int main()
 	CubbyGame* pCubbyGame = CubbyGame::GetInstance();
 	pCubbyGame->Create(pCubbySettings);
 
-	// Loop until the user closes the window
+	// Loop until the user closes the window or application
 	while (!pCubbyGame->ShouldClose())
 	{
 		// Poll input events
 		pCubbyGame->PollEvents();
+
+		// Update joysticks
+		pCubbyGame->UpdateJoySticks();
 		
 		// Update
 		pCubbyGame->Update();

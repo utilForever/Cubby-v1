@@ -15,26 +15,11 @@
 // Forward declaration
 class CubbyGame;
 
-class CubbySettings
+struct CubbySettings
 {
-public:
 	// Constructor, Destructor
 	CubbySettings() = default;
 	~CubbySettings() = default;
-
-	// Getter
-	int GetWindowWidth() const;
-	int GetWindowHeight() const;
-	bool GetFullScreen() const;
-	float GetLandscapeOctaves() const;
-	float GetLandscapePersistence() const;
-	float GetLandscapeScale() const;
-	float GetMountainOctaves() const;
-	float GetMountainPersistence() const;
-	float GetMountainScale() const;
-	float GetMountainMultiplier() const;
-	float GetLoaderRadius() const;
-	bool IsStepUpdating() const;
 
 	// Load settings
 	void LoadSettings();
@@ -46,7 +31,6 @@ public:
 	// Save options
 	void SaveOptions() const;
 
-private:
 	// Options ini file
 	// Gameplay
 	bool m_invertedMouse;
