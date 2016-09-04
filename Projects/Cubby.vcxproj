@@ -101,7 +101,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
@@ -136,7 +136,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>..\Sources;..\Sources\Libraries\glfw\include;..\Sources\Libraries\glew\include;..\Sources\Libraries\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
