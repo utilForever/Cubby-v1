@@ -16,12 +16,14 @@
 #include <unistd.h>
 #endif //_WIN32
 
+#include <CubbyGame.h>
+
+#include <Player/PlayerStats.h>
+#include <Utils/FileUtils.h>
+
 #include "../FrontendManager.h"
 
 #include "SelectCharacter.h"
-#include "CubbyGame.h"
-#include "Utils/FileUtils.h"
-#include "Player/PlayerStats.h"
 
 // Constructor, Destructor
 SelectCharacter::SelectCharacter(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontPageManager, int windowWidth, int windowHeight) :
