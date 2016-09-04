@@ -9,16 +9,24 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif //_WIN32
+
 #include <fstream>
+#include <iomanip>
+
+#include <CubbyGame.h>
+
+#include <Maths/3DMaths.h>
+#include <Quests/Quest.h>
+#include <Utils/FileUtils.h>
 
 #include "../FrontendManager.h"
 
 #include "CreateCharacter.h"
-#include "CubbyGame.h"
-#include "Quests/Quest.h"
-#include "Utils/FileUtils.h"
-#include <iomanip>
-#include "Maths/3DMaths.h"
 
 // Constructor, Destructor
 CreateCharacter::CreateCharacter(Renderer* pRenderer, OpenGLGUI* pGUI, FrontendManager* pFrontendManager, int windowWidth, int windowHeight) :
