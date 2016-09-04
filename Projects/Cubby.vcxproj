@@ -202,6 +202,7 @@
     <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp" />
     <ClCompile Include="..\Sources\Frontend\FrontendManager.cpp" />
     <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp" />
+    <ClCompile Include="..\Sources\Frontend\Pages\CreateCharacter.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\Credits.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp" />
     <ClCompile Include="..\Sources\Frontend\Pages\ModMenu.cpp" />
@@ -536,6 +537,7 @@
     <ClInclude Include="..\Sources\Frontend\FrontendManager.h" />
     <ClInclude Include="..\Sources\Frontend\FrontendPage.h" />
     <ClInclude Include="..\Sources\Frontend\FrontendScreens.h" />
+    <ClInclude Include="..\Sources\Frontend\Pages\CreateCharacter.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\Credits.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h" />
     <ClInclude Include="..\Sources\Frontend\Pages\ModMenu.h" />
