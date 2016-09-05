@@ -126,7 +126,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Libraries\glfw\libs\2015\r\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261.lib;..\Libraries\fmod\libs\fmod_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\Libraries\glfw\libs\2015\r\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261.lib;..\Libraries\libnoise\libs\2015\noise.lib;..\Libraries\fmod\libs\fmod_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
