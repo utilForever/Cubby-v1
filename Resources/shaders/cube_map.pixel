@@ -1,0 +1,18 @@
+varying vec4 position;
+varying vec3 normal;
+uniform samplerCube cubemap1;
+uniform samplerCube cubemap2;
+uniform float skyboxRatio;
+
+void main (void)
+{
+	vec3 packedNormal = (normalize(normal) + 1.0)*0.5; // Compress normal
+
+	vec3 diffuse1 = textureCube(cubemap1, gl_TexCoord[0].xyz).xyz;
+	vec3 diffuse2 = textureCube(cubemap2, gl_TexCoord[0].xyz).xyz;
+
+	vec3 finalColour = mix(diffuse1, diffuse2, skyboxRatio);
+	gl_FragData[0] = vec4(finalColour, 1.0);
+	gl_FragData[1] = vec4(position.xyz,0);
+	gl_FragData[2] = vec4(packedNormal,1.0);
+}

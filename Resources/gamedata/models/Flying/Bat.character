@@ -1,0 +1,23 @@
+boneScale: 1 1 1
+
+NumModifiers: 5
+
+boneName: Head
+Scale: 1
+Offset: 0 4 0
+
+boneName: Upper_Body
+Scale: 1
+Offset: 0 0 0
+
+boneName: Lower_Body
+Scale: 1
+Offset: 0 0 0
+
+boneName: Left_Wing
+Scale: 1
+Offset: 4 0 0
+
+boneName: Right_Wing
+Scale: 1
+Offset: -4 0 0

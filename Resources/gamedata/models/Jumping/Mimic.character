@@ -1,0 +1,11 @@
+boneScale: 1 1 1
+
+NumModifiers: 2
+
+boneName: Body
+Scale: 1
+Offset: 0 0 0
+
+boneName: Mimic_Head
+Scale: 1.01
+Offset: 0 0 0

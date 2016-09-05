@@ -1,0 +1,147 @@
+uniform sampler2D ShadowMap;
+
+varying vec4 ShadowCoord;
+
+varying vec4 position;
+varying vec3 normals;
+
+varying vec3 lightDir, eyeVec;
+varying float att;
+
+uniform bool renderShadow;
+uniform bool alwaysShadow;
+
+uniform bool enableFog;
+
+float LookupShadow(vec2 offSet)
+{
+	offSet.x *= 0.000075;
+	offSet.y *= 0.000075;
+
+	// Values are multiplied by ShadowCoord.w because shadow2DProj does a W division for us.
+	return texture2D(ShadowMap, ShadowCoord.xy + vec2(offSet.x * ShadowCoord.w, offSet.y * ShadowCoord.w) ).z;
+}
+
+void main (void)
+{
+	vec3 packedNormal = (normalize(normals) + 1.0)*0.5; // Compress normal
+	vec4 finalColour = vec4(1.0);
+
+	float shadow = 1.0;
+
+	// Normal map
+	vec3 N = normalize(normals);
+	vec3 L = normalize(lightDir);	
+	float lambertTerm = dot(N,L);
+
+	vec4 light_color = (gl_FrontLightModelProduct.sceneColor * gl_FrontMaterial.ambient) + ((gl_LightSource[0].ambient * gl_FrontMaterial.ambient) * att);
+
+	if(lambertTerm > 0.0)
+	{
+		light_color += gl_LightSource[0].diffuse * gl_FrontMaterial.diffuse * lambertTerm * att;
+		vec3 E = normalize(eyeVec);
+		vec3 R = reflect(-L, N);
+
+		float specular = pow(max(dot(R, E), 0.0), gl_FrontMaterial.shininess);
+
+		light_color += gl_LightSource[0].specular * gl_FrontMaterial.specular * specular * att;	
+	}
+
+	if(renderShadow && alwaysShadow == false)
+	{
+		vec4 shadowCoordinateWdivide = ShadowCoord / ShadowCoord.w;
+		//shadowCoordinateWdivide.z += 0.000075;
+
+		if (ShadowCoord.w > 0.0)
+		{
+			//float distanceFromLight = texture2D(ShadowMap,shadowCoordinateWdivide.st).z;
+			//shadow = distanceFromLight < shadowCoordinateWdivide.z ? 0.35 : 1.0 ;
+
+			// Simple lookup, no PCF
+			//shadow = LookupShadow(vec2(0.0,0.0)) < shadowCoordinateWdivide.z ? 0.35 : 1.0;
+		
+			/*
+			float x,y;
+			for (y = -4.5; y <= 4.5; y+=1.0)
+				for (x = -4.5; x <= 4.5; x+=1.0)
+					shadow += LookupShadow(vec2(x,y)) < shadowCoordinateWdivide.z ? 0.35 : 1.0;
+					
+			shadow /= 96.0;
+			*/
+
+			// 8x8 kernel PCF
+			float x,y;
+			for (y = -3.5; y <= 3.5; y+=1.0)
+				for (x = -3.5; x <= 3.5; x+=1.0)
+					shadow += LookupShadow(vec2(x,y)) < shadowCoordinateWdivide.z ? 0.35 : 1.0;
+					
+			shadow /= 64.0;
+
+			/*
+			float x,y;
+			for (y = -2.5; y <= 2.5; y+=1.0)
+				for (x = -2.5; x <= 2.5; x+=1.0)
+					shadow += LookupShadow(vec2(x,y)) < shadowCoordinateWdivide.z ? 0.35 : 1.0;
+					
+			shadow /= 32.0;
+			*/
+
+			// 4x4 kernel PCF
+			/*
+			float x,y;
+			for (y = -1.5 ; y <=1.5 ; y+=1.0)
+				for (x = -1.5 ; x <=1.5 ; x+=1.0)
+					shadow += LookupShadow(vec2(x,y)) < shadowCoordinateWdivide.z ? 0.35 : 1.0;
+		
+			shadow /= 16.0;
+			*/
+		}
+
+		if(lambertTerm > 0.0)
+		{
+		}
+		else
+		{
+			// If we are not facing the light, then we are definitely in shadow
+			shadow = 0.5;
+			light_color.r = max(0.75, light_color.r) - lambertTerm*0.25;
+			light_color.g = max(0.75, light_color.g) - lambertTerm*0.25;
+			light_color.b = max(0.75, light_color.b) - lambertTerm*0.25;
+		}		
+	}
+	else
+	{
+		shadow = 1.0;
+	}
+
+	if(alwaysShadow)
+	{
+		shadow = 0.25;
+	}
+
+	finalColour = vec4(gl_Color.r * shadow, gl_Color.g * shadow, gl_Color.b * shadow, gl_Color.a) * light_color;
+	finalColour.a = gl_Color.a;
+
+	// Fog modifier
+	if(enableFog)
+	{
+		vec4 fog_color = gl_Fog.color;
+		float fog = (gl_Fog.end - gl_FogFragCoord) * gl_Fog.scale;
+
+		if (fog <= 0.0)
+		{
+			finalColour.a = gl_Fog.color.a;
+		}
+		else if (fog >= 1.0)
+		{
+		}
+		else
+		{
+			finalColour.a = mix(gl_Fog.color, finalColour, fog).a;
+		}
+	}
+	
+	gl_FragData[0] = finalColour;
+	gl_FragData[1] = vec4(position.xyz,0);
+	gl_FragData[2] = vec4(packedNormal,1.0);
+}

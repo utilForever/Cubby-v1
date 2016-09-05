@@ -1,0 +1,26 @@
+varying vec3 normals;
+varying vec4 position;
+varying vec4 ShadowCoord;
+
+varying vec3 lightDir, eyeVec;
+varying float att;
+
+void main()
+{
+    ShadowCoord = gl_TextureMatrix[7] * gl_Vertex;
+
+	position = gl_ModelViewMatrix * gl_Vertex;
+	normals = gl_NormalMatrix * gl_Normal;
+
+	lightDir = vec3(gl_LightSource[0].position.xyz - position.xyz);
+	eyeVec = -position.xyz;
+
+	float d = length(lightDir);
+
+	att = 1.0 / ( gl_LightSource[0].constantAttenuation + (gl_LightSource[0].linearAttenuation*d) + (gl_LightSource[0].quadraticAttenuation*d*d) );
+
+	gl_Position = ftransform();
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+	gl_FrontColor = gl_Color;
+	gl_FogFragCoord = gl_Position.z;
+}

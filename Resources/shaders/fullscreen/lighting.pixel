@@ -1,0 +1,54 @@
+// From vert shader
+varying vec4 pos; // Location of fragment in view space
+
+// G-Buffer data
+uniform sampler2D normals;
+uniform sampler2D positions;
+uniform sampler2D depths;
+
+// Util vars
+uniform int screenWidth;
+uniform int screenHeight;
+
+uniform float nearZ;
+uniform float farZ;
+
+// Lighting vars
+uniform float radius;
+varying vec4 lpos; // Light position in view space
+uniform vec4 diffuseLightColor;
+uniform float diffuseScale;
+
+float readDepth(in vec2 coord)
+{  
+	if (coord.x < 0.0|| coord.y < 0.0)
+		return 1.0;
+
+	float posZ = texture2D(depths, coord).x;
+
+	return (1.0) / (nearZ + farZ - posZ * (farZ - nearZ));
+}  
+
+void main()
+{
+	// Normalize coord
+	vec2 coord = (gl_FragCoord).xy;
+	coord.x = coord.x / float(screenWidth);
+	coord.y = coord.y / float(screenHeight);
+	
+	// Data lookups
+	vec4 n = (texture2D(normals, coord)*2.0)-1.0;
+	vec3 p = texture2D(positions, coord).xyz;
+	
+	float depth = readDepth(coord);
+
+	// Lighting Calcs (view space)
+	vec3 ltop = lpos.xyz-p;
+	float diffuseModifier = max(dot(n.xyz, normalize(ltop)), 0.2)+0.2;
+	float noZTestFix = step(0.0, radius-length(ltop)); // 0.0 if dist > radius, 1.0 otherwise
+	float attenuation = 1.0 / (((length(ltop)/(1.0-((length(ltop)/radius)*(length(ltop)/radius))))/radius)+1.0);
+	vec4 diffuse = diffuseScale * diffuseModifier * diffuseLightColor * attenuation * noZTestFix * (1.0 - depth);
+	
+	// Set the color
+	gl_FragColor = diffuse;
+}

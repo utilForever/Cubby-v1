@@ -1,0 +1,41 @@
+offset: 0.0 6.5 0.0
+scale: 1.0
+
+numAnimatedSections: 1
+qubicleFile: ../Resources/gamedata/weapons/Hammer/Hammer.qb
+renderScale: 1.0
+renderOffset: 0 0 0
+autoStartAnimation: 0
+loopingAnimation: 0
+translateXSpeed: 0
+translateYSpeed: 0
+translateZSpeed: 0
+translateXRange: 0 0
+translateYRange: 0 0
+translateZRange: 0 0
+translateXTurnSpeed: 0
+translateYTurnSpeed: 0
+translateZTurnSpeed: 0
+rotationPoint: 0 0 0
+rotationXSpeed: 0
+rotationYSpeed: 0
+rotationZSpeed: 0
+rotationXRange: 0 0
+rotationYRange: 0 0
+rotationZRange: 0 0
+rotationXTurnSpeed: 0
+rotationYTurnSpeed: 0
+rotationZTurnSpeed: 0
+
+numLights: 0
+
+numParticleEffects: 0
+
+numWeaponTrails: 1
+trailTime: 0.25
+startOffsetPoint: 0 1 0
+endOffsetPoint: 0 10 0
+trailColour: 1 1 1
+followOrigin: 1
+
+weaponRadius: 1.0

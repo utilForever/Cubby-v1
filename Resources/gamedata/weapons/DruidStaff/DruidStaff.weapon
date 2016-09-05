@@ -1,0 +1,71 @@
+offset: -0.5 8.0 0.5
+scale: 0.8
+
+numAnimatedSections: 2
+qubicleFile: ../Resources/gamedata/weapons/DruidStaff/DruidStaff.qb
+renderScale: 1.0
+renderOffset: 0 0 0
+autoStartAnimation: 0
+loopingAnimation: 0
+translateXSpeed: 0
+translateYSpeed: 0
+translateZSpeed: 0
+translateXRange: 0 0
+translateYRange: 0 0
+translateZRange: 0 0
+translateXTurnSpeed: 0
+translateYTurnSpeed: 0
+translateZTurnSpeed: 0
+rotationPoint: 0 0 0
+rotationXSpeed: 0
+rotationYSpeed: 0
+rotationZSpeed: 0
+rotationXRange: 0 0
+rotationYRange: 0 0
+rotationZRange: 0 0
+rotationXTurnSpeed: 0
+rotationYTurnSpeed: 0
+rotationZTurnSpeed: 0
+
+qubicleFile: ../Resources/gamedata/weapons/DruidStaff/DruidStaffCrystal.qb
+renderScale: 1.0
+renderOffset: 0.0 27.0 -0.5
+autoStartAnimation: 1
+loopingAnimation: 1
+translateXSpeed: 1
+translateYSpeed: 1
+translateZSpeed: 0
+translateXRange: -0.1 0.1
+translateYRange: -0.1 0.1
+translateZRange: 0 0
+translateXTurnSpeed: 1
+translateYTurnSpeed: 1
+translateZTurnSpeed: 0
+rotationPoint: 0 0 0
+rotationXSpeed: 0
+rotationYSpeed: 60
+rotationZSpeed: 0
+rotationXRange: 0 360
+rotationYRange: 0 360
+rotationZRange: 0 360
+rotationXTurnSpeed: 0
+rotationYTurnSpeed: 60
+rotationZTurnSpeed: 0
+
+numLights: 1
+lightOffset: 0 0 0
+lightRadius: 10
+lightDiffuseMultiplier: 1
+lightColour: 0 1 0 1
+connectedToSection: 1
+
+numParticleEffects: 0
+
+numWeaponTrails: 1
+trailTime: 0.25
+startOffsetPoint: 0 5 0
+endOffsetPoint: 0 22 0
+trailColour: 0 1 0
+followOrigin: 1
+
+weaponRadius: 1.0

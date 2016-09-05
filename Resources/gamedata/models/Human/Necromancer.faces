@@ -1,0 +1,25 @@
+eyesOffset: -4 -5.5 5.04
+mouthOffset: -4 -5.5 5.06
+eyesSize: 9 9
+mouthSize: 9 9
+eyesWinkTexture: faces/eyes_purple/face_eyes_wink.tga
+eyesBone: Head
+mouthBone: Head
+
+numfaces: 7
+Normal faces/eyes_purple/face_eyes_normal.tga faces/face_mouth_normal.tga
+Happy faces/eyes_purple/face_eyes_happy.tga faces/face_mouth_happy.tga
+Sad faces/eyes_purple/face_eyes_sad.tga faces/face_mouth_sad.tga
+Angry faces/eyes_purple/face_eyes_angry.tga faces/face_mouth_angry.tga
+Surprised faces/eyes_purple/face_eyes_surprised.tga faces/face_mouth_surprised.tga
+Cheeky faces/eyes_purple/face_eyes_cheeky.tga faces/face_mouth_cheeky.tga
+Cry faces/eyes_purple/face_eyes_cry.tga faces/face_mouth_cry.tga
+
+numTalkingMouths: 6
+faces/face_mouth_talk1.tga
+faces/face_mouth_talk2.tga
+faces/face_mouth_talk3.tga
+faces/face_mouth_talk4.tga
+faces/face_mouth_talk5.tga
+faces/face_mouth_talk6.tga
+

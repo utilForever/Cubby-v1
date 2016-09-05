@@ -1,0 +1,40 @@
+boneScale: 1 1 1
+
+NumModifiers: 9
+
+boneName: Head
+Scale: 1
+Offset: 0 0 0
+
+boneName: Body
+Scale: 1
+Offset: 0 0 0
+
+boneName: Left_Shoulder
+Scale: 1
+Offset: 0 0 0
+
+boneName: Left_Hand
+Scale: 1
+Offset: 0 0 0
+
+boneName: Left_Foot
+Scale: 1
+Offset: 0 0 0
+
+boneName: Right_Foot
+Scale: 1
+Offset: 0 0 0
+
+boneName: Legs
+Scale: 1
+Offset: 0 0 0
+
+boneName: Right_Shoulder
+Scale: 1
+Offset: 0 0 0
+
+boneName: Right_Hand
+Scale: 1
+Offset: 0 0 0
+

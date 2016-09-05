@@ -1,0 +1,11 @@
+numAnimations: 1
+
+animationName: BindPose
+looping: 0
+startFrame: 1
+endFrame: 1
+blendFrame: 1
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0

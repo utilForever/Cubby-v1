@@ -1,0 +1,15 @@
+varying vec4 position;
+varying vec3 normal;
+
+void main()
+{	
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+
+	gl_Position = ftransform();
+
+	normal = gl_NormalMatrix * gl_Normal;
+	
+	position = gl_ModelViewMatrix * gl_Vertex;
+
+	gl_FrontColor = gl_Color;
+}

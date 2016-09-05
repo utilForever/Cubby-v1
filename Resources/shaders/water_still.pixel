@@ -1,0 +1,61 @@
+varying vec4 texProj;
+uniform sampler2D reflectionTexture;
+uniform samplerCube cubemap;
+varying vec4 position;
+varying vec3 normal, lightDir, halfVector;
+varying vec3 eyeDir;
+
+uniform bool enableFog;
+
+void main (void)
+{
+	vec3 reflectedDirection = normalize(reflect(eyeDir, normalize(normal)));
+	reflectedDirection.y = -reflectedDirection.y;
+
+	vec4 fragColor = textureCube(cubemap, reflectedDirection);
+
+	vec3 packedNormal = (normalize(normal) + 1.0)*0.5; // Compress normal
+
+	vec3 waveNormal, halfV;
+	float NdotL,NdotHV;
+	waveNormal = normalize(normal);
+	vec3 planeNormal = gl_NormalMatrix * vec3(0,1,0);
+	// Normal of the wave flattened onto the plane
+	vec3 flatNormal = waveNormal - dot(waveNormal, planeNormal) * planeNormal;
+	// Texture offset (not too sure why I need the negative sign here)
+	vec2 reflectOffset = normalize(-waveNormal.xy) * length(flatNormal) * 0.1;
+    
+	vec4 final_color = vec4(0.15,0.15,0.55,0.5) + (fragColor*0.35);
+
+	NdotL = pow(max(dot(waveNormal, lightDir),0.0), 5.0);
+    
+	if( texProj.w>0.0 ) // Suppress the reverse projection.
+	{
+		vec2 projCoords = texProj.xy/ texProj.w+reflectOffset;
+		vec4 ProjMapColor = texture2D(reflectionTexture, projCoords);
+		final_color += ProjMapColor*0.5;
+	}
+	final_color.a = 0.65;
+
+	if(enableFog)
+	{
+		vec4 fog_color = gl_Fog.color;
+		float fog = (gl_Fog.end - gl_FogFragCoord) * gl_Fog.scale;
+
+		if (fog <= 0.0)
+		{
+			final_color.a = gl_Fog.color.a;
+		}
+		else if (fog >= 1.0)
+		{
+		}
+		else
+		{
+			final_color.a = mix(gl_Fog.color, final_color, fog).a;
+		}
+	}
+
+	gl_FragData[0] = final_color;
+	gl_FragData[1] = vec4(position.xyz,0);
+	gl_FragData[2] = vec4(packedNormal,1.0);
+}

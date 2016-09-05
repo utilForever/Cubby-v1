@@ -1,0 +1,261 @@
+numAnimations: 26
+
+animationName: BindPose
+looping: 0
+startFrame: 0
+endFrame: 1
+blendFrame: 0
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: Run
+looping: 1
+startFrame: 2
+endFrame: 21
+blendFrame: 2
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: Jump
+looping: 0
+startFrame: 23
+endFrame: 41
+blendFrame: 23
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: Mine
+looping: 0
+startFrame: 42
+endFrame: 52
+blendFrame: 42
+startRightWeaponTrail: 45
+endRightWeaponTrail: 50
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: AnvilWork
+looping: 0
+startFrame: 53
+endFrame: 65
+blendFrame: 53
+startRightWeaponTrail: 58
+endRightWeaponTrail: 62
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: SwordAttack1
+looping: 0
+startFrame: 66
+endFrame: 76
+blendFrame: 66
+startRightWeaponTrail: 68
+endRightWeaponTrail: 73
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: SwordAttack2
+looping: 0
+startFrame: 77
+endFrame: 87
+blendFrame: 77
+startRightWeaponTrail: 80
+endRightWeaponTrail: 84
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: SwordAttack3
+looping: 0
+startFrame: 88
+endFrame: 103
+blendFrame: 88
+startRightWeaponTrail: 90
+endRightWeaponTrail: 100
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: BowStance
+looping: 0
+startFrame: 105
+endFrame: 105
+blendFrame: 105
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: BowCharge
+looping: 0
+startFrame: 106
+endFrame: 116
+blendFrame: 106
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: TargetPose
+looping: 0
+startFrame: 117
+endFrame: 117
+blendFrame: 117
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: MummyWalk
+looping: 1
+startFrame: 119
+endFrame: 139
+blendFrame: 118
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: LevelUp
+looping: 0
+startFrame: 140
+endFrame: 174
+blendFrame: 140
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: GhostPose
+looping: 1
+startFrame: 176
+endFrame: 196
+blendFrame: 176
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: StaffPose
+looping: 0
+startFrame: 197
+endFrame: 198
+blendFrame: 197
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: StaffRun
+looping: 1
+startFrame: 199
+endFrame: 219
+blendFrame: 199
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: StaffAttack
+looping: 0
+startFrame: 220
+endFrame: 230
+blendFrame: 220
+startRightWeaponTrail: 223
+endRightWeaponTrail: 226
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: SitPose
+looping: 0
+startFrame: 231
+endFrame: 231
+blendFrame: 231
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: HandSpellCastPose
+looping: 0
+startFrame: 233
+endFrame: 234
+blendFrame: 233
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: HandSpellCastRight
+looping: 0
+startFrame: 235
+endFrame: 245
+blendFrame: 235
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: HandSpellCastLeft
+looping: 0
+startFrame: 246
+endFrame: 256
+blendFrame: 246
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: HitResponse
+looping: 0
+startFrame: 257
+endFrame: 264
+blendFrame: 257
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: 2HandedSwordPose
+looping: 0
+startFrame: 265
+endFrame: 266
+blendFrame: 265
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: 2HandedSwordAttack
+looping: 0
+startFrame: 267
+endFrame: 282
+blendFrame: 267
+startRightWeaponTrail: 270
+endRightWeaponTrail: 278
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: ZombieCrawl
+looping: 1
+startFrame: 283
+endFrame: 298
+blendFrame: 283
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: ZombieSpawn
+looping: 0
+startFrame: 299
+endFrame: 349
+blendFrame: 299
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0

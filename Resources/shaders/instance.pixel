@@ -1,0 +1,21 @@
+#version 150
+ 
+in vec4 out_color;
+in vec4 out_position;
+in vec4 out_normal;
+
+out vec4 outputColor;
+out vec4 outputPosition;
+out vec4 outputNormal;
+
+void main()
+{
+	vec3 packedNormal = (normalize(out_normal.xyz) + 1.0)*0.5; // Compress normal
+
+	vec4 final_color = out_color;
+	final_color.a = out_color.a;
+
+	outputColor = final_color;
+	outputPosition = out_position;
+	outputNormal = vec4(packedNormal, 1.0);
+}

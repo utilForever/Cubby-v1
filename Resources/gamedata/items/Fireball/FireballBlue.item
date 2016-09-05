@@ -1,0 +1,44 @@
+offset: 0 0 0
+scale: 1.5
+
+numAnimatedSections: 1
+qubicleFile: ../Resources/gamedata/items/Fireball/fireball_blue.qb
+renderScale: 0.75
+renderOffset: 0 0 0
+autoStartAnimation: 0
+loopingAnimation: 0
+translateXSpeed: 0
+translateYSpeed: 0
+translateZSpeed: 0
+translateXRange: 0 0
+translateYRange: 0 0
+translateZRange: 0 0
+translateXTurnSpeed: 0
+translateYTurnSpeed: 0
+translateZTurnSpeed: 0
+rotationPoint: 0 0 0
+rotationXSpeed: 0
+rotationYSpeed: 0
+rotationZSpeed: 0
+rotationXRange: 0 0
+rotationYRange: 0 0
+rotationZRange: 0 0
+rotationXTurnSpeed: 0
+rotationYTurnSpeed: 0
+rotationZTurnSpeed: 0
+
+numLights: 1
+lightOffset: 0 0 0
+lightRadius: 30.0
+lightDiffuseMultiplier: 1.0
+lightColour: 0.2 0.56 1.0 1.0
+connectedToSection: 0
+
+numParticleEffects: 1
+particleEffect: ../Resources/gamedata/particles/fireball_hands.effect
+position: 0 0 0
+connectedToSection: 0
+
+numWeaponTrails: 0
+
+weaponRadius: 1.0

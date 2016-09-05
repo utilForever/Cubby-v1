@@ -1,0 +1,28 @@
+varying vec4 texProj;
+varying vec4 position;
+varying vec3 normal, lightDir, halfVector;
+varying vec3 eyeDir;
+
+void main()
+{	
+	normal = gl_NormalMatrix * gl_Normal;
+	lightDir = normalize(vec3(gl_LightSource[0].position));
+	halfVector = normalize(gl_LightSource[0].halfVector.xyz);
+    
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+    
+	position = gl_ModelViewMatrix * gl_Vertex;
+
+	eyeDir = vec3(gl_ModelViewMatrix * gl_Vertex);
+
+	mat4 remappingMat = mat4(
+                        0.5, 0.0, 0.0, 0.0,
+                        0.0, 0.5, 0.0, 0.0,
+                        0.0, 0.0, 0.5, 0.0, 
+                        0.5, 0.5, 0.5, 1.0 
+                        );
+
+	texProj = remappingMat * gl_ModelViewProjectionMatrix * gl_Vertex;
+
+	gl_FogFragCoord = gl_Position.z;
+}

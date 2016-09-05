@@ -1,0 +1,65 @@
+effectName: FireballHands
+endless: 1
+lifetime: 1.0
+
+numEmitters: 1
+emitterName: Emitter_1
+emitterPosition: 0 0 0
+creationTime: 0.01
+numParticles: 3
+followEmitter: 0
+orbit: 0
+orbitReverse: 0
+orbitRadius: 5
+orbitTime: 5
+emitterType: 4
+emitterRadius: 0.125
+emitterLengthX: 0.5
+emitterLengthY: 0.5
+emitterLengthZ: 0.5
+spawnOutline: 0
+gravityDir: 0 1 0
+gravityMultiplier: 0.25
+pointOrigin: 0 1 0
+startScale: 0.055
+startScaleVariance: 0.5
+endScale: 0.015
+endScaleVariance: 0.5
+startRed: 0
+startRedVariance: 0
+endRed: 0.25
+endRedVariance: 0.5
+startGreen: 0
+startGreenVariance: 0.25
+endGreen: 1
+endGreenVariance: 0.25
+startBlue: 1
+startBlueVariance: 0
+endBlue: 1
+endBlueVariance: 0
+startAlpha: 1
+startAlphaVariance: 0
+endAlpha: 1
+endAlphaVariance: 0
+lifeTime: 0.3
+lifeTimeVariance: 0.5
+velocityTowardsPoint: 3
+accelerationTowardsPoint: 0
+worldCollisions: 0
+destoryOnCollision: 0
+decayOnCollision: 0
+startVelocity: 0 1 0
+startVelocityVariance: 0 0 0
+randomStartRotation: 1
+startRotation: 0 0 0
+startAngularVelocity: 0 0 0
+startAngularVelocityVariance: 0 0 0
+tangentialVelocityXY: 0
+tangentialAccelerationXY: 0
+tangentialVelocityXZ: 0
+tangentialAccelerationXZ: 0
+tangentialVelocityYZ: 0
+tangentialAccelerationYZ: 0
+createEmitter: 0
+createEmitterName: NULL
+isReferenceEmitter: 0

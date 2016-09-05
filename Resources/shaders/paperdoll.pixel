@@ -1,0 +1,27 @@
+varying vec4 position;
+varying vec3 normal, lightDir, eyeVec;
+varying float att;
+
+void main (void)
+{
+	vec4 final_color = vec4(0.15);
+
+	vec3 packedNormal = (normalize(normal) + 1.0)*0.5; // Compress normal
+
+	vec3 N = normalize(normal);
+	vec3 L = normalize(lightDir);
+	
+	float lambertTerm = dot(N,L);
+	
+	if(lambertTerm > 0.0)
+	{
+		final_color += vec4(0.85);
+	}
+
+	final_color = final_color * gl_Color;
+	final_color.a = 1.0;
+
+	gl_FragData[0] = final_color;
+	gl_FragData[1] = vec4(position.xyz,0);
+	gl_FragData[2] = vec4(packedNormal,1.0);
+}

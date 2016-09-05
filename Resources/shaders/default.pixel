@@ -1,0 +1,11 @@
+varying vec4 position;
+varying vec3 normal;
+
+void main (void)
+{
+	vec3 packedNormal = (normalize(normal) + 1.0)*0.5; // Compress normal
+
+	gl_FragData[0] = gl_Color;
+	gl_FragData[1] = vec4(position.xyz,0);
+	gl_FragData[2] = vec4(packedNormal,1.0);
+}

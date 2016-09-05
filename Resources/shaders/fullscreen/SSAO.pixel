@@ -1,0 +1,150 @@
+#version 120
+
+// G-Buffer data
+uniform sampler2D bgl_DepthTexture;  // Depth texture  
+uniform sampler2D bgl_RenderedTexture; // Color texture
+uniform sampler2D bgl_TransparentTexture; // Transparent texture
+uniform sampler2D bgl_TransparentDepthTexture; // Transparent depth texture
+uniform sampler2D light;
+
+// Util vars
+uniform int screenWidth;
+uniform int screenHeight;
+
+uniform float nearZ;
+uniform float farZ;
+
+float pw = 1.0/float(screenWidth*5.0);
+float ph = 1.0/float(screenHeight*5.0);
+
+uniform float samplingMultiplier;
+
+uniform bool ssao_enabled;
+uniform bool lighting_enabled;
+
+float readDepth(in vec2 coord)
+{  
+	if (coord.x < 0.0|| coord.y < 0.0)
+		return 1.0;
+
+	float posZ = texture2D(bgl_DepthTexture, coord).x;
+
+	return (1.0) / (nearZ + farZ - posZ * (farZ - nearZ));
+}   
+
+float readTransparencyDepth(in vec2 coord)
+{  
+	if (coord.x < 0.0|| coord.y < 0.0)
+		return 1.0;
+
+	float posZ = texture2D(bgl_TransparentDepthTexture, coord).x;
+
+	return (1.0) / (nearZ + farZ - posZ * (farZ - nearZ));
+}  
+
+vec3 readColor(in vec2 coord)  
+{
+	vec3 color = texture2D(bgl_RenderedTexture, coord).xyz;
+
+	if(lighting_enabled)
+	{
+		color += texture2D(light, coord).xyz;
+	}
+
+	return color;
+} 
+
+vec3 readTransparency(in vec2 coord)  
+{
+	return (texture2D(bgl_TransparentTexture, coord).xyz);
+} 
+
+float compareDepths(in float depth1, in float depth2,inout int far)  
+{  
+	float diff = (depth1 - depth2)*100.0; //depth difference (0-100)
+	float gdisplace = 0.2; //gauss bell center
+	float garea = 2.0; //gauss bell width 2
+
+	// Reduce left bell width to avoid self-shadowing
+	if(diff < gdisplace)
+	{ 
+		garea = 0.2;
+	}
+	else
+	{
+		far = 1;
+	}
+	float gauss = pow(2.7182,-2.0*(diff-gdisplace)*(diff-gdisplace)/(garea*garea));
+
+	return gauss;
+}  
+
+float calAO(float depth,float dw, float dh)  
+{  
+	float temp = 0.0;
+	float temp2 = 0.0;
+	float coordw = gl_TexCoord[0].x + dw/depth;
+	float coordh = gl_TexCoord[0].y + dh/depth;
+	float coordw2 = gl_TexCoord[0].x - dw/depth;
+	float coordh2 = gl_TexCoord[0].y - dh/depth;
+
+	if (coordw  < 1.0 && coordw  > 0.0 && coordh < 1.0 && coordh  > 0.0)
+	{
+		vec2 coord = vec2(coordw , coordh);
+		vec2 coord2 = vec2(coordw2, coordh2);
+		int far = 0;
+		temp = compareDepths(depth, readDepth(coord),far);
+
+		//DEPTH EXTRAPOLATION:
+		if (far > 0)
+		{
+			temp2 = compareDepths(readDepth(coord2),depth,far);
+			temp += (1.0-temp)*temp2; 
+		}
+    }
+ 
+    return temp;  
+}   
+     
+void main(void)  
+{  
+	vec3 finalAO = vec3(1.0);
+	vec2 texturecoord = gl_TexCoord[0].xy;
+	float depth = readDepth(texturecoord);
+	float transparencyDepth = readTransparencyDepth(texturecoord);
+	if(ssao_enabled)
+	{
+		float ao = 0.0;
+
+		for(int i=0; i<4; ++i) 
+		{  
+			// Calculate color bleeding and ao
+			ao+=calAO(depth,  pw, ph);
+			ao+=calAO(depth,  pw, -ph);
+			ao+=calAO(depth,  -pw, ph);
+			ao+=calAO(depth,  -pw, -ph);
+
+			ao+=calAO(depth,  pw*2.2, 0.0);  
+			ao+=calAO(depth,  -pw*2.2, 0.0);  
+			ao+=calAO(depth,  0.0, ph*2.2);  
+			ao+=calAO(depth,  0.0, -ph*2.2);
+     
+			// Increase sampling area
+			pw *= samplingMultiplier;
+			ph *= samplingMultiplier;
+		}
+
+		// Final values, some adjusting
+		finalAO = vec3(1.0-(ao/32.0));
+	}
+
+	vec4 SSAOColor = vec4(readColor(gl_TexCoord[0].xy)*finalAO*1.0, texture2D(bgl_RenderedTexture, gl_TexCoord[0].xy).w);
+
+	vec4 transparencyColor = vec4(readTransparency(gl_TexCoord[0].xy), texture2D(bgl_TransparentTexture, gl_TexCoord[0].xy).w);
+	if(transparencyColor.w > 0 && transparencyDepth < depth)
+	{
+		SSAOColor = mix(SSAOColor, transparencyColor, transparencyColor.a);
+	}
+
+	gl_FragColor = SSAOColor;
+}

@@ -1,0 +1,31 @@
+numAnimations: 3
+
+animationName: BindPose
+looping: 0
+startFrame: 1
+endFrame: 1
+blendFrame: 1
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: Fly
+looping: 1
+startFrame: 2
+endFrame: 22
+blendFrame: 2
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0
+
+animationName: StingAttack
+looping: 0
+startFrame: 23
+endFrame: 38
+blendFrame: 23
+startRightWeaponTrail: 0
+endRightWeaponTrail: 0
+startLeftWeaponTrail: 0
+endLeftWeaponTrail: 0

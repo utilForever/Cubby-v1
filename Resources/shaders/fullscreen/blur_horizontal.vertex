@@ -1,0 +1,9 @@
+varying vec4 vTexCoord;
+
+void main(void)
+{
+        gl_Position = ftransform();
+  
+        // Image-space
+        vTexCoord = gl_Position * 0.5 + 0.5;
+}
