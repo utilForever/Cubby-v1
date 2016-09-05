@@ -40,7 +40,7 @@ void ModsManager::ClearMods()
 // Loading
 void ModsManager::LoadMods()
 {
-	std::string modsIniFile = "Resources/Config/mods.ini";
+	std::string modsIniFile = "../Resources/Config/mods.ini";
 	INIReader reader(modsIniFile);
 
 	// Gameplay mods
@@ -80,7 +80,7 @@ void ModsManager::SaveMods()
 	std::ofstream file;
 
 	// Open the file
-	std::string modsIniFile = "Resources/Config/mods.ini";
+	std::string modsIniFile = "../Resources/Config/mods.ini";
 	file.open(modsIniFile.c_str(), std::ios::out);
 
 	file << "[Gameplay]\n";

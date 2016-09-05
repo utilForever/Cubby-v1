@@ -33,33 +33,33 @@ FrontendManager::FrontendManager(Renderer* pRenderer, OpenGLGUI* pGUI)
 	m_pCamera = nullptr;
 
 	// Fonts
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/pf_ronda_seven.ttf", 26, &m_frontendFontLarge, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/pf_ronda_seven.ttf", 18, &m_frontendFontMedium, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/pf_ronda_seven.ttf", 12, &m_frontendFontSmall, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 14, &m_frontendFont14, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 14, &m_frontendFont14Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 18, &m_frontendFont18, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 18, &m_frontendFont18Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 20, &m_frontendFont20, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 20, &m_frontendFont20Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 22, &m_frontendFont22, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 22, &m_frontendFont22Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 25, &m_frontendFont25, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 25, &m_frontendFont25Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 30, &m_frontendFont30, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 30, &m_frontendFont30Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 35, &m_frontendFont35, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 35, &m_frontendFont35Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 40, &m_frontendFont40, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 40, &m_frontendFont40Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 50, &m_frontendFont50, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 50, &m_frontendFont50Outline, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 80, &m_frontendFont80, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 80, &m_frontendFont80Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/pf_ronda_seven.ttf", 26, &m_frontendFontLarge, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/pf_ronda_seven.ttf", 18, &m_frontendFontMedium, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/pf_ronda_seven.ttf", 12, &m_frontendFontSmall, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 14, &m_frontendFont14, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 14, &m_frontendFont14Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 18, &m_frontendFont18, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 18, &m_frontendFont18Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 20, &m_frontendFont20, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 20, &m_frontendFont20Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 22, &m_frontendFont22, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 22, &m_frontendFont22Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 25, &m_frontendFont25, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 25, &m_frontendFont25Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 30, &m_frontendFont30, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 30, &m_frontendFont30Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 35, &m_frontendFont35, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 35, &m_frontendFont35Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 40, &m_frontendFont40, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 40, &m_frontendFont40Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 50, &m_frontendFont50, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 50, &m_frontendFont50Outline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 80, &m_frontendFont80, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 80, &m_frontendFont80Outline, true);
 
 	// Text effects fonts
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolbackot.ttf", 34, &m_textEffectFontNormal, true);
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/screenloggercoolot.ttf", 34, &m_textEffectFontOutline, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolbackot.ttf", 34, &m_textEffectFontNormal, true);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/screenloggercoolot.ttf", 34, &m_textEffectFontOutline, true);
 
 	// Label colours
 	m_normalColor = Color(1.0f, 1.0f, 1.0f);
@@ -437,99 +437,99 @@ void FrontendManager::LoadCommonGraphics(std::string themeName)
 	std::string iconName;
 
 	// Checkbox
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkDefault.tga";
 	m_pCheckboxIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkHover.tga";
 	m_pCheckboxIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkPressed.tga";
 	m_pCheckboxIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkDisabled.tga";
 	m_pCheckboxIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkToggled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkToggled.tga";
 	m_pCheckboxIconToggled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledHover.tga";
 	m_pCheckboxIconToggledHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledPressed.tga";
 	m_pCheckboxIconToggledPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/checkbox/checkToggledDisabled.tga";
 	m_pCheckboxIconToggledDisabled->SetIcon(iconName);
 
 	// Optionbox
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionDefault.tga";
 	m_pOptionboxIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionHover.tga";
 	m_pOptionboxIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionPressed.tga";
 	m_pOptionboxIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionDisabled.tga";
 	m_pOptionboxIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionToggled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionToggled.tga";
 	m_pOptionboxIconToggled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledHover.tga";
 	m_pOptionboxIconToggledHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledPressed.tga";
 	m_pOptionboxIconToggledPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/optionbox/optionToggledDisabled.tga";
 	m_pOptionboxIconToggledDisabled->SetIcon(iconName);
 
 	// Scrollbar
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownDefault.tga";
 	m_pScrollbarArrowDownIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownHover.tga";
 	m_pScrollbarArrowDownIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownPressed.tga";
 	m_pScrollbarArrowDownIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowDownDisabled.tga";
 	m_pScrollbarArrowDownIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpDefault.tga";
 	m_pScrollbarArrowUpIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpHover.tga";
 	m_pScrollbarArrowUpIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpPressed.tga";
 	m_pScrollbarArrowUpIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/arrowUpDisabled.tga";
 	m_pScrollbarArrowUpIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/backgroundDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/backgroundDefault.tga";
 	m_pScrollbarBackgroundIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/backgroundDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/backgroundDisabled.tga";
 	m_pScrollbarBackgroundIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarDefault.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarDefault.tga";
 	m_pScrollbarIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarHover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarHover.tga";
 	m_pScrollbarIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarPressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarPressed.tga";
 	m_pScrollbarIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarDisabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/scrollbar/scrollbarDisabled.tga";
 	m_pScrollbarIconDisabled->SetIcon(iconName);
 
 	// Slider
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide.tga";
 	m_pSliderIconDefault->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide_hover.tga";
 	m_pSliderIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide_pressed.tga";
 	m_pSliderIconDrag->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide_blank.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide_blank.tga";
 	m_pSliderIconDefaultBlank->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide_hover_blank.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide_hover_blank.tga";
 	m_pSliderIconHoverBlank->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/slider/slider_slide_pressed_blank.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/slider/slider_slide_pressed_blank.tga";
 	m_pSliderIconDragBlank->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_default.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_default.tga";
 	m_pSliderIncrementIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_hover.tga";
 	m_pSliderIncrementIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_pressed.tga";
 	m_pSliderIncrementIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_disabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/plus_disabled.tga";
 	m_pSliderIncrementIconDisabled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_default.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_default.tga";
 	m_pSliderDecrementIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_hover.tga";
 	m_pSliderDecrementIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_pressed.tga";
 	m_pSliderDecrementIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_disabled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/increment_buttons/minus_disabled.tga";
 	m_pSliderDecrementIconDisabled->SetIcon(iconName);
 
 	// Buttons
@@ -541,54 +541,54 @@ void FrontendManager::LoadCommonGraphics(std::string themeName)
 		if (ButtonSize(i) == ButtonSize::Size110x47) { sizeFolder = "110x47"; }
 		if (ButtonSize(i) == ButtonSize::Size225x75) { sizeFolder = "225x75"; }
 
-		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDefault.tga";
+		iconName = "../Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDefault.tga";
 		m_pButtonIcon[i]->SetIcon(iconName);
-		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonHover.tga";
+		iconName = "../Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonHover.tga";
 		m_pButtonIconHover[i]->SetIcon(iconName);
-		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonPressed.tga";
+		iconName = "../Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonPressed.tga";
 		m_pButtonIconPressed[i]->SetIcon(iconName);
-		iconName = "Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDisabled.tga";
+		iconName = "../Resources/textures/gui/" + themeName + "/common/buttons/" + sizeFolder + "/buttonDisabled.tga";
 		m_pButtonIconDisabled[i]->SetIcon(iconName);
 	}
 
 	// Close button
-	iconName = "Resources/textures/gui/" + themeName + "/common/close_button/close_exit.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/close_button/close_exit.tga";
 	m_pCloseExitButtonIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/close_button/close_exit_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/close_button/close_exit_hover.tga";
 	m_pCloseExitButtonIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/close_button/close_exit_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/close_button/close_exit_pressed.tga";
 	m_pCloseExitButtonIconPressed->SetIcon(iconName);
 
 	// Rotate buttons
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_left.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_left.tga";
 	m_pArrowLeftIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_left_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_left_hover.tga";
 	m_pArrowLeftIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_left_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_left_pressed.tga";
 	m_pArrowLeftIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_right.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_right.tga";
 	m_pArrowRightIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_right_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_right_hover.tga";
 	m_pArrowRightIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/rotate/arrow_right_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/rotate/arrow_right_pressed.tga";
 	m_pArrowRightIconPressed->SetIcon(iconName);
 
 	// Tab options
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab.tga";
 	m_pTab75OptionIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab_hover.tga";
 	m_pTab75OptionIconHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab_pressed.tga";
 	m_pTab75OptionIconPressed->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled.tga";
 	m_pTab75OptionIconToggled->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled_hover.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled_hover.tga";
 	m_pTab75OptionIconToggledHover->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled_pressed.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/tab_option/tab_toggled_pressed.tga";
 	m_pTab75OptionIconToggledPressed->SetIcon(iconName);
 
 	// Label colors
-	std::string settingsIniFile = "Resources/textures/gui/" + themeName + "/theme.ini";
+	std::string settingsIniFile = "../Resources/textures/gui/" + themeName + "/theme.ini";
 	INIReader reader(settingsIniFile);
 
 	if (reader.ParseError() >= 0)

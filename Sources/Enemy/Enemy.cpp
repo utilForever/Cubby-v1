@@ -162,12 +162,12 @@ Enemy::Enemy(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer, 
 
 	SetupEnemyForType();
 
-	sprintf(characterBaseFolder, "Resources/gamedata/models");
-	sprintf(qbFileName, "Resources/gamedata/models/%s/%s.qb", m_typeString.c_str(), m_modelNameString.c_str());
-	sprintf(ms3dFileName, "Resources/gamedata/models/%s/%s.ms3d", m_typeString.c_str(), m_typeString.c_str());
-	sprintf(animListFileName, "Resources/gamedata/models/%s/%s.animlist", m_typeString.c_str(), m_typeString.c_str());
-	sprintf(facesFileName, "Resources/gamedata/models/%s/%s.faces", m_typeString.c_str(), m_modelNameString.c_str());
-	sprintf(characterFileName, "Resources/gamedata/models/%s/%s.character", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(characterBaseFolder, "../Resources/gamedata/models");
+	sprintf(qbFileName, "../Resources/gamedata/models/%s/%s.qb", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(ms3dFileName, "../Resources/gamedata/models/%s/%s.ms3d", m_typeString.c_str(), m_typeString.c_str());
+	sprintf(animListFileName, "../Resources/gamedata/models/%s/%s.animlist", m_typeString.c_str(), m_typeString.c_str());
+	sprintf(facesFileName, "../Resources/gamedata/models/%s/%s.faces", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(characterFileName, "../Resources/gamedata/models/%s/%s.character", m_typeString.c_str(), m_modelNameString.c_str());
 
 	if (m_enemyType == EnemyType::Doppelganger)
 	{
@@ -179,7 +179,7 @@ Enemy::Enemy(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer, 
 
 		m_pLightingManager->AddLight(glm::vec3(0.0f, 0.0f, 0.0f), 10.0f, 1.0f, Color(0.0f, 0.0f, 1.0f, 1.0f), &m_enemyLightID);
 
-		m_pEnemyParticleEffect = m_pBlockParticleManager->ImportParticleEffect("Resources/gamedata/particles/ghost_rain.effect", m_position, &m_enemyParticleEffectID);
+		m_pEnemyParticleEffect = m_pBlockParticleManager->ImportParticleEffect("../Resources/gamedata/particles/ghost_rain.effect", m_position, &m_enemyParticleEffectID);
 		m_pEnemyParticleEffect->PlayEffect();
 	}
 
@@ -740,7 +740,7 @@ void Enemy::InitEnemyForType()
 		// Add a quiver item to the enemy ranger
 		VoxelWeapon* pNewEquipment = new VoxelWeapon(m_pRenderer, m_pQubicleBinaryManager);
 		pNewEquipment->SetVoxelCharacterParent(nullptr);
-		pNewEquipment->LoadWeapon("Resources/gamedata/items/Quiver/Quiver.item", false);
+		pNewEquipment->LoadWeapon("../Resources/gamedata/items/Quiver/Quiver.item", false);
 
 		pNewEquipment->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->SetScaleAndOffsetForMatrix("Quiver", pNewEquipment->GetAnimatedSection(0)->renderScale, pNewEquipment->GetAnimatedSection(0)->renderOffset.x, pNewEquipment->GetAnimatedSection(0)->renderOffset.y, pNewEquipment->GetAnimatedSection(0)->renderOffset.z);
 		QubicleMatrix* pQuiverMatrix = pNewEquipment->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix("Quiver");
@@ -1846,7 +1846,7 @@ void Enemy::DoDamage(float amount, Color textColor, glm::vec3 knockbackDirection
 			// Do a hit particle effect
 			glm::vec3 hitParticlePos = GetCenter() - (normalize(knockbackDirection) * m_radius);
 			unsigned int effectID = -1;
-			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
+			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("../Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
 			pBlockParticleEffect->PlayEffect();
 		}
 
@@ -2194,12 +2194,12 @@ void Enemy::ConvertIntoOtherEnemyType(EnemyType newEnemyType, float scale)
 
 	SetupEnemyForType();
 
-	sprintf(characterBaseFolder, "Resources/gamedata/models");
-	sprintf(qbFileName, "Resources/gamedata/models/%s/%s.qb", m_typeString.c_str(), m_modelNameString.c_str());
-	sprintf(ms3dFileName, "Resources/gamedata/models/%s/%s.ms3d", m_typeString.c_str(), m_typeString.c_str());
-	sprintf(animListFileName, "Resources/gamedata/models/%s/%s.animlist", m_typeString.c_str(), m_typeString.c_str());
-	sprintf(facesFileName, "Resources/gamedata/models/%s/%s.faces", m_typeString.c_str(), m_modelNameString.c_str());
-	sprintf(characterFileName, "Resources/gamedata/models/%s/%s.character", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(characterBaseFolder, "../Resources/gamedata/models");
+	sprintf(qbFileName, "../Resources/gamedata/models/%s/%s.qb", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(ms3dFileName, "../Resources/gamedata/models/%s/%s.ms3d", m_typeString.c_str(), m_typeString.c_str());
+	sprintf(animListFileName, "../Resources/gamedata/models/%s/%s.animlist", m_typeString.c_str(), m_typeString.c_str());
+	sprintf(facesFileName, "../Resources/gamedata/models/%s/%s.faces", m_typeString.c_str(), m_modelNameString.c_str());
+	sprintf(characterFileName, "../Resources/gamedata/models/%s/%s.character", m_typeString.c_str(), m_modelNameString.c_str());
 
 	if (m_enemyType == EnemyType::Doppelganger)
 	{
@@ -2273,7 +2273,7 @@ void Enemy::SetSapped(bool sapped)
 	if (m_sapped == false && sapped)
 	{
 		// Turn on
-		m_pSappedParticleEffect = m_pBlockParticleManager->ImportParticleEffect("Resources/gamedata/particles/sapped.effect", GetAboveHeadPosition(), &m_sappedParticleEffectID);
+		m_pSappedParticleEffect = m_pBlockParticleManager->ImportParticleEffect("../Resources/gamedata/particles/sapped.effect", GetAboveHeadPosition(), &m_sappedParticleEffectID);
 		m_pSappedParticleEffect->PlayEffect();
 
 		m_pVoxelCharacter->BlendIntoAnimation(AnimationSections::FullBody, false, AnimationSections::FullBody, "BindPose", 0.1f);
@@ -2453,7 +2453,7 @@ void Enemy::Attack()
 				m_isChargingAttack = true;
 				m_chargeAmount = 0.0f;
 
-				LoadWeapon(false, "Resources/gamedata/items/Arrow/ArrowHold.item");
+				LoadWeapon(false, "../Resources/gamedata/items/Arrow/ArrowHold.item");
 
 				if (m_isIdle)
 				{
@@ -2559,7 +2559,7 @@ void Enemy::ReleaseAttack()
 	{
 		UnloadWeapon(false);
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "Resources/gamedata/items/Arrow/arrow.item", 0.08f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "../Resources/gamedata/items/Arrow/arrow.item", 0.08f);
 		pProjectile->SetProjectileType(false, true, true);
 		pProjectile->SetOwner(nullptr, nullptr, this);
 
@@ -2760,19 +2760,19 @@ void Enemy::SpawnGibs() const
 
 		if (i == 0)
 		{
-			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/ZombieGibs/SpineGib.item", ItemType::Gib, "Gib1", false, false, 0.08f);
+			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/ZombieGibs/SpineGib.item", ItemType::Gib, "Gib1", false, false, 0.08f);
 		}
 		else if (i == 1)
 		{
-			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/ZombieGibs/FootGib.item", ItemType::Gib, "Gib2", false, false, 0.08f);
+			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/ZombieGibs/FootGib.item", ItemType::Gib, "Gib2", false, false, 0.08f);
 		}
 		else if (i == 2)
 		{
-			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/ZombieGibs/Hand2Gib.item", ItemType::Gib, "Gib3", false, false, 0.08f);
+			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/ZombieGibs/Hand2Gib.item", ItemType::Gib, "Gib3", false, false, 0.08f);
 		}
 		else if (i == 3)
 		{
-			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/ZombieGibs/LegsGib.item", ItemType::Gib, "Gib4", false, false, 0.08f);
+			pItem = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/ZombieGibs/LegsGib.item", ItemType::Gib, "Gib4", false, false, 0.08f);
 		}
 
 		if (pItem != nullptr)
@@ -4047,11 +4047,11 @@ void Enemy::RenderForwardDebug() const
 
 	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 0.0f, 1.0f);
 	m_pRenderer->ImmediateVertex(0.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(m_forward.x*1.5f, m_forward.y*1.5f, m_forward.z*1.5f);
+	m_pRenderer->ImmediateVertex(m_forward.x * 1.5f, m_forward.y * 1.5f, m_forward.z * 1.5f);
 
 	m_pRenderer->ImmediateColorAlpha(0.0f, 1.0f, 0.0f, 1.0f);
 	m_pRenderer->ImmediateVertex(0.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(m_targetForward.x*1.5f, m_targetForward.y*1.5f, m_targetForward.z*1.5f);
+	m_pRenderer->ImmediateVertex(m_targetForward.x * 1.5f, m_targetForward.y * 1.5f, m_targetForward.z * 1.5f);
 	
 	m_pRenderer->DisableImmediateMode();
 	
@@ -4116,7 +4116,7 @@ void Enemy::RenderChargingAttackDebug() const
 	
 	m_pRenderer->ImmediateColorAlpha(0.0f, 1.0f, 1.0f, 1.0f);
 	m_pRenderer->ImmediateVertex(0.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(m_forward.x*chargingMultiply, m_forward.y*chargingMultiply, m_forward.z*chargingMultiply);
+	m_pRenderer->ImmediateVertex(m_forward.x * chargingMultiply, m_forward.y * chargingMultiply, m_forward.z * chargingMultiply);
 	
 	m_pRenderer->DisableImmediateMode();
 	
@@ -4298,7 +4298,7 @@ void Enemy::AttackEnabledDelayTimerFinished()
 		float liftAmount = 1.75f * (length(toTarget) * 0.065f);
 		glm::vec3 boneSpawnVelocity = (normalize(toTarget) * 15.0f) + glm::vec3(0.0f, liftAmount, 0.0f);
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boneSpawnPosition, boneSpawnVelocity, 0.0f, "Resources/gamedata/items/Bone/Bone.item", 0.04f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boneSpawnPosition, boneSpawnVelocity, 0.0f, "../Resources/gamedata/items/Bone/Bone.item", 0.04f);
 		pProjectile->SetProjectileType(false, true, true);
 		pProjectile->SetOwner(nullptr, nullptr, this);
 		pProjectile->SetGravityMultiplier(0.35f);
@@ -4320,7 +4320,7 @@ void Enemy::AttackEnabledDelayTimerFinished()
 
 		glm::vec3 fireballSpawnVelocity = normalize(toTarget) * powerAmount;
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
 		pProjectile->SetProjectileType(false, true, true);
 		pProjectile->SetOwner(nullptr, nullptr, this);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -4341,7 +4341,7 @@ void Enemy::AttackEnabledDelayTimerFinished()
 		}
 		glm::vec3 fireballSpawnVelocity = normalize(toTarget) * powerAmount;
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
 		pProjectile->SetProjectileType(false, true, true);
 		pProjectile->SetOwner(nullptr, nullptr, this);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -4361,7 +4361,7 @@ void Enemy::AttackEnabledDelayTimerFinished()
 		}
 		glm::vec3 boneSpawnVelocity = normalize(toTarget) * 15.0f;
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boneSpawnPosition, boneSpawnVelocity, 0.0f, "Resources/gamedata/items/Batshot/Batshot.item", 0.06f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boneSpawnPosition, boneSpawnVelocity, 0.0f, "../Resources/gamedata/items/Batshot/Batshot.item", 0.06f);
 		pProjectile->SetProjectileType(false, true, true);
 		pProjectile->SetOwner(nullptr, nullptr, this);
 		pProjectile->SetGravityMultiplier(0.0f);

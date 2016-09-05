@@ -71,7 +71,7 @@ std::vector<std::string> ListFilesInDirectory(std::string directoryName)
 	else
 	{
 		DWORD errorCode = GetLastError();
-		std::cout << "listFilesInDirectory() failed with error: " << errorCode << std::endl;
+		std::cout << "ListFilesInDirectory() failed with error: " << errorCode << std::endl;
 	}
 
 	return listFileNames;

@@ -1095,7 +1095,7 @@ void Item::Interact()
 			spawnSubItems = true;
 			createHitEffect = true;
 			createCrumbleBlockParticles = true;
-			sprintf(itemFileName, "Resources/gamedata/items/CopperVein/CopperVein%i.item", m_interactCount);
+			sprintf(itemFileName, "../Resources/gamedata/items/CopperVein/CopperVein%i.item", m_interactCount);
 		}
 		if (m_itemType == ItemType::IronVein)
 		{
@@ -1103,7 +1103,7 @@ void Item::Interact()
 			spawnSubItems = true;
 			createHitEffect = true;
 			createCrumbleBlockParticles = true;
-			sprintf(itemFileName, "Resources/gamedata/items/IronVein/IronVein%i.item", m_interactCount);
+			sprintf(itemFileName, "../Resources/gamedata/items/IronVein/IronVein%i.item", m_interactCount);
 		}
 		if (m_itemType == ItemType::SilverVein)
 		{
@@ -1111,7 +1111,7 @@ void Item::Interact()
 			spawnSubItems = true;
 			createHitEffect = true;
 			createCrumbleBlockParticles = true;
-			sprintf(itemFileName, "Resources/gamedata/items/SilverVein/SilverVein%i.item", m_interactCount);
+			sprintf(itemFileName, "../Resources/gamedata/items/SilverVein/SilverVein%i.item", m_interactCount);
 		}
 		if (m_itemType == ItemType::GoldVein)
 		{
@@ -1119,7 +1119,7 @@ void Item::Interact()
 			spawnSubItems = true;
 			createHitEffect = true;
 			createCrumbleBlockParticles = true;
-			sprintf(itemFileName, "Resources/gamedata/items/GoldVein/GoldVein%i.item", m_interactCount);
+			sprintf(itemFileName, "../Resources/gamedata/items/GoldVein/GoldVein%i.item", m_interactCount);
 		}
 
 		if (changeItemModel)
@@ -1206,7 +1206,7 @@ void Item::Interact()
 		glm::vec3 hitParticlePos = GetCenter() - (normalize(direction) * (m_radius*0.5f));
 		unsigned int effectID = -1;
 		
-		BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
+		BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("../Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
 		pBlockParticleEffect->PlayEffect();
 	}
 

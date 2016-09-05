@@ -142,7 +142,7 @@ void Quest::ExportQuest()
 	// Replace all spaces in the quest title, with underscores for the quest filename
 	std::string questName(m_questName);
 	replace(questName.begin(), questName.end(), ' ', '_');
-	sprintf(fileName, "Resources/gamedata/quests/%s.quest", questName.c_str());
+	sprintf(fileName, "../Resources/gamedata/quests/%s.quest", questName.c_str());
 
 	exportFile.open(fileName, std::ios_base::binary);
 
@@ -236,7 +236,7 @@ void Quest::ImportQuest(const char* fileName)
 	std::ifstream importFile;
 
 	char importFileName[128];
-	sprintf(importFileName, "Resources/gamedata/quests/%s.quest", fileName);
+	sprintf(importFileName, "../Resources/gamedata/quests/%s.quest", fileName);
 
 	importFile.open(importFileName, std::ios_base::binary);
 

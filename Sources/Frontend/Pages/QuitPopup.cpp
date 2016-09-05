@@ -80,7 +80,7 @@ void QuitPopup::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "Resources/textures/gui/" + themeName + "/QuitPopup/background.tga";
+	std::string iconName = "../Resources/textures/gui/" + themeName + "/QuitPopup/background.tga";
 	m_pBackgroundIcon->SetIcon(iconName);
 
 	m_pFrontendManager->SetButtonIcons(m_pConfirmButton, ButtonSize::Size110x47);

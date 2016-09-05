@@ -36,7 +36,7 @@ OpenGLGUI::OpenGLGUI(Renderer* pRenderer) :
 	m_audioVolume = 1.0f;
 
 	// Create the GUI font
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/arial.ttf", 17, &m_GUIFont);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/arial.ttf", 17, &m_GUIFont);
 }
 
 OpenGLGUI::~OpenGLGUI()

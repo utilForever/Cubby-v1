@@ -504,7 +504,7 @@ void CubbyGame::UpdateCharactersPulldown() const
 	m_pMainWindow->RemoveComponent(m_pCharacterPulldown);
 
 	char importDirectory[128];
-	sprintf(importDirectory, "media/gamedata/models/Human/*.*");
+	sprintf(importDirectory, "../Resources/gamedata/models/Human/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);

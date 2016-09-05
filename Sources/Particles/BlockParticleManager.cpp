@@ -81,7 +81,7 @@ BlockParticleManager::BlockParticleManager(Renderer* pRenderer, ChunkManager* pC
 	m_vertexArray(-1), m_positionBuffer(-1), m_normalBuffer(-1), m_colorBuffer(-1), m_matrixBuffer(-1), m_instanceShader(-1)
 {
 
-	bool shaderLoaded = m_pRenderer->LoadGLSLShader("Resources/Shaders/instance.vertex", "Resources/Shaders/instance.pixel", &m_instanceShader);
+	bool shaderLoaded = m_pRenderer->LoadGLSLShader("../Resources/Shaders/instance.vertex", "../Resources/Shaders/instance.pixel", &m_instanceShader);
 	assert(shaderLoaded == true);
 
 	// Materials

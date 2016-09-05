@@ -180,21 +180,21 @@ NPC::NPC(Renderer* pRenderer, ChunkManager* pChunkManager, Player* pPlayer, Ligh
 
 	if (characterSelectScreen)
 	{
-		sprintf(characterBaseFolder, "Resources/gamedata/models");
+		sprintf(characterBaseFolder, "../Resources/gamedata/models");
 		sprintf(qbFilename, "saves/characters/%s/%s.qb", modelName.c_str(), modelName.c_str());
-		sprintf(ms3dFilename, "Resources/gamedata/models/%s/%s.ms3d", m_type.c_str(), m_type.c_str());
-		sprintf(animListFilename, "Resources/gamedata/models/%s/%s.animlist", m_type.c_str(), m_type.c_str());
+		sprintf(ms3dFilename, "../Resources/gamedata/models/%s/%s.ms3d", m_type.c_str(), m_type.c_str());
+		sprintf(animListFilename, "../Resources/gamedata/models/%s/%s.animlist", m_type.c_str(), m_type.c_str());
 		sprintf(facesFilename, "saves/characters/%s/%s.faces", modelName.c_str(), modelName.c_str());
 		sprintf(characterFilename, "saves/characters/%s/%s.character", modelName.c_str(), modelName.c_str());
 	}
 	else
 	{
-		sprintf(characterBaseFolder, "Resources/gamedata/models");
-		sprintf(qbFilename, "Resources/gamedata/models/%s/%s.qb", m_type.c_str(), modelName.c_str());
-		sprintf(ms3dFilename, "Resources/gamedata/models/%s/%s.ms3d", m_type.c_str(), m_type.c_str());
-		sprintf(animListFilename, "Resources/gamedata/models/%s/%s.animlist", m_type.c_str(), m_type.c_str());
-		sprintf(facesFilename, "Resources/gamedata/models/%s/%s.faces", m_type.c_str(), modelName.c_str());
-		sprintf(characterFilename, "Resources/gamedata/models/%s/%s.character", m_type.c_str(), modelName.c_str());
+		sprintf(characterBaseFolder, "../Resources/gamedata/models");
+		sprintf(qbFilename, "../Resources/gamedata/models/%s/%s.qb", m_type.c_str(), modelName.c_str());
+		sprintf(ms3dFilename, "../Resources/gamedata/models/%s/%s.ms3d", m_type.c_str(), m_type.c_str());
+		sprintf(animListFilename, "../Resources/gamedata/models/%s/%s.animlist", m_type.c_str(), m_type.c_str());
+		sprintf(facesFilename, "../Resources/gamedata/models/%s/%s.faces", m_type.c_str(), modelName.c_str());
+		sprintf(characterFilename, "../Resources/gamedata/models/%s/%s.character", m_type.c_str(), modelName.c_str());
 	}
 
 	m_pVoxelCharacter->UnloadCharacter();
@@ -410,7 +410,7 @@ void NPC::SetNPCCombatType(NPCCombatType combatType, bool setWeaponModel)
 			// Add a quiver item to the enemy ranger
 			VoxelWeapon* pNewEquipment = new VoxelWeapon(m_pRenderer, m_pQubicleBinaryManager);
 			pNewEquipment->SetVoxelCharacterParent(nullptr);
-			pNewEquipment->LoadWeapon("Resources/gamedata/items/Quiver/Quiver.item", false);
+			pNewEquipment->LoadWeapon("../Resources/gamedata/items/Quiver/Quiver.item", false);
 
 			pNewEquipment->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->SetScaleAndOffsetForMatrix("Quiver", pNewEquipment->GetAnimatedSection(0)->renderScale, pNewEquipment->GetAnimatedSection(0)->renderOffset.x, pNewEquipment->GetAnimatedSection(0)->renderOffset.y, pNewEquipment->GetAnimatedSection(0)->renderOffset.z);
 			QubicleMatrix* pQuiverMatrix = pNewEquipment->GetAnimatedSection(0)->pVoxelObject->GetQubicleModel()->GetQubicleMatrix("Quiver");
@@ -1032,7 +1032,7 @@ void NPC::UnequipItem(EquipSlot equipSlot, bool left, bool right) const
 		m_pVoxelCharacter->AddQubicleMatrix(pBodyMatrix, false);
 
 		char characterFileName[128];
-		sprintf(characterFileName, "Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
+		sprintf(characterFileName, "../Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Body");
 	}
 	break;
@@ -1043,7 +1043,7 @@ void NPC::UnequipItem(EquipSlot equipSlot, bool left, bool right) const
 		m_pVoxelCharacter->AddQubicleMatrix(pLegsMatrix, false);
 
 		char characterFileName[128];
-		sprintf(characterFileName, "Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
+		sprintf(characterFileName, "../Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Legs");
 	}
 	break;
@@ -1064,7 +1064,7 @@ void NPC::UnequipItem(EquipSlot equipSlot, bool left, bool right) const
 		}
 
 		char characterFileName[128];
-		sprintf(characterFileName, "Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
+		sprintf(characterFileName, "../Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Right_Hand");
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Left_Hand");
 	}
@@ -1086,7 +1086,7 @@ void NPC::UnequipItem(EquipSlot equipSlot, bool left, bool right) const
 		}
 
 		char characterFileName[128];
-		sprintf(characterFileName, "Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
+		sprintf(characterFileName, "../Resources/gamedata/characters/%s/%s.character", m_type.c_str(), m_modelName.c_str());
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Right_Foot");
 		m_pVoxelCharacter->ResetMatrixParamsFromCharacterFile(characterFileName, "Left_Foot");
 	}
@@ -1484,7 +1484,7 @@ void NPC::DoDamage(float amount, Color textColor, glm::vec3 knockbackDirection, 
 			// Do a hit particle effect
 			glm::vec3 hitParticlePos = GetCenter() - (normalize(knockbackDirection) * m_radius);
 			unsigned int effectID = -1;
-			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
+			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("../Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
 			pBlockParticleEffect->PlayEffect();
 		}
 
@@ -1789,7 +1789,7 @@ void NPC::Attack()
 				m_isChargingAttack = true;
 				m_chargeAmount = 0.0f;
 
-				LoadWeapon(false, "Resources/gamedata/items/Arrow/ArrowHold.item");
+				LoadWeapon(false, "../Resources/gamedata/items/Arrow/ArrowHold.item");
 
 				if (m_isIdle)
 				{
@@ -1866,7 +1866,7 @@ void NPC::ReleaseAttack()
 	{
 		UnloadWeapon(false);
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "Resources/gamedata/items/Arrow/arrow.item", 0.08f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "../Resources/gamedata/items/Arrow/arrow.item", 0.08f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(nullptr, this, nullptr);
 
@@ -2635,7 +2635,7 @@ void NPC::UpdateWorking(float dt)
 				glm::vec3 anvilHitPos = m_lookPoint + glm::vec3(0.0f, 0.5f, 0.0f);
 
 				unsigned int effectID = -1;
-				BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/anvil_hit.effect", anvilHitPos, &effectID);
+				BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("../Resources/gamedata/particles/anvil_hit.effect", anvilHitPos, &effectID);
 				pBlockParticleEffect->PlayEffect();
 
 				// Stop weapon trails
@@ -3660,7 +3660,7 @@ void NPC::AttackEnabledDelayTimerFinished()
 
 		glm::vec3 fireballSpawnVelocity = (normalize(toTarget) * powerAmount);
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(fireballSpawnPosition, fireballSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/Fireball.item", 0.04f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(nullptr, this, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -3683,7 +3683,7 @@ void NPC::AttackEnabledDelayTimerFinished()
 		glm::vec3 toTarget = m_pTargetEnemy->GetProjectileHitboxCenter() - GetCenter();
 		glm::vec3 spellSpawnVelocity = (normalize(toTarget) * powerAmount);
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(nullptr, this, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);

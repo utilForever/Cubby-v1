@@ -285,7 +285,7 @@ void ModMenu::SelectLoadedMods()
 				{
 					m_vpModButtonData[j]->m_toggled = true;
 					std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-					std::string tickIcon = "Resources/textures/gui/" + themeName + "/common/tick.tga";
+					std::string tickIcon = "../Resources/textures/gui/" + themeName + "/common/tick.tga";
 					m_vpModButtonData[j]->m_pModButton->AddIcon(m_pRenderer, tickIcon.c_str(), 32, 32, 32, 32, buttonWidth - 38, 4, 3.25f);
 				}
 			}
@@ -304,11 +304,11 @@ void ModMenu::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "Resources/textures/gui/" + themeName + "/ModMenu/mod_title_icon.tga";
+	std::string iconName = "../Resources/textures/gui/" + themeName + "/ModMenu/mod_title_icon.tga";
 	m_pTitleBarIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/ModMenu/mod_window_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/ModMenu/mod_window_background.tga";
 	m_pModWindowBackgroundIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/ModMenu/titlebar_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/ModMenu/titlebar_background.tga";
 	m_pTitleBarBackgroundIcon->SetIcon(iconName);
 
 	m_pModWindow->SetBackgroundIcon(m_pModWindowBackgroundIcon);
@@ -361,15 +361,15 @@ void ModMenu::SkinGUI()
 	textWidth = m_pRenderer->GetFreeTypeTextWidth(m_pFrontendManager->GetFrontendFont18Outline(), "%s", m_pMiscMode->GetLabel().GetText().c_str());
 	m_pMiscMode->SetLabelPosition(static_cast<int>(75 * 0.5f - textWidth * 0.5f), 8);
 
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
 	m_pTooltipBackgroundCommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
 	m_pTooltipBackgroundUncommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
 	m_pTooltipBackgroundMagical->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
 	m_pTooltipBackgroundRare->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
 	m_pTooltipBackgroundEpic->SetIcon(iconName);
 
 	m_pGameplayMode->SetLabelColor(m_pFrontendManager->GetNormalFontColor());
@@ -448,7 +448,7 @@ void ModMenu::CreateGameplayModButtons()
 	int buttonY = m_modWindowHeight - buttonHeight - 17;
 
 	char importDirectory[128];
-	sprintf(importDirectory, "Resources/mods/gameplay/*.*");
+	sprintf(importDirectory, "../Resources/mods/gameplay/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -473,7 +473,7 @@ void ModMenu::CreateGameplayModButtons()
 
 			// Add thumbnail icon
 			char thumbnailIcon[128];
-			sprintf(thumbnailIcon, "Resources/mods/gameplay/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
+			sprintf(thumbnailIcon, "../Resources/mods/gameplay/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
 			pNewButton->AddIcon(m_pRenderer, thumbnailIcon, buttonWidth, buttonHeight, buttonWidth - 16, buttonHeight - 16, 8, 8, 2.5f);
 
 			// Add header text
@@ -493,7 +493,7 @@ void ModMenu::CreateGameplayModButtons()
 			pModButtonData->m_miscButton = false;
 
 			// Load the meta data file for the mod description and author
-			std::string settingsIniFile = "Resources/mods/gameplay/" + listFiles[modButtonCounter] + "/description.ini";
+			std::string settingsIniFile = "../Resources/mods/gameplay/" + listFiles[modButtonCounter] + "/description.ini";
 			INIReader reader(settingsIniFile);
 
 			if (reader.ParseError() >= 0)
@@ -553,7 +553,7 @@ void ModMenu::CreateGraphicsModButtons()
 	int buttonY = m_modWindowHeight - buttonHeight - 17;
 
 	char importDirectory[128];
-	sprintf(importDirectory, "Resources/graphics/*.*");
+	sprintf(importDirectory, "../Resources/graphics/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -578,7 +578,7 @@ void ModMenu::CreateGraphicsModButtons()
 
 			// Add thumbnail icon
 			char thumbnailIcon[128];
-			sprintf(thumbnailIcon, "Resources/graphics/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
+			sprintf(thumbnailIcon, "../Resources/graphics/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
 			pNewButton->AddIcon(m_pRenderer, thumbnailIcon, buttonWidth, buttonHeight, buttonWidth - 16, buttonHeight - 16, 8, 8, 2.5f);
 
 			// Add header text
@@ -598,7 +598,7 @@ void ModMenu::CreateGraphicsModButtons()
 			pModButtonData->m_miscButton = false;
 
 			// Load the meta data file for the mod description and author
-			std::string settingsIniFile = "Resources/graphics/" + listFiles[modButtonCounter] + "/description.ini";
+			std::string settingsIniFile = "../Resources/graphics/" + listFiles[modButtonCounter] + "/description.ini";
 			INIReader reader(settingsIniFile);
 
 			if (reader.ParseError() >= 0)
@@ -658,7 +658,7 @@ void ModMenu::CreateSoundModButtons()
 	int buttonY = m_modWindowHeight - buttonHeight - 17;
 
 	char importDirectory[128];
-	sprintf(importDirectory, "Resources/audio/*.*");
+	sprintf(importDirectory, "../Resources/audio/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -683,7 +683,7 @@ void ModMenu::CreateSoundModButtons()
 
 			// Add thumbnail icon
 			char thumbnailIcon[128];
-			sprintf(thumbnailIcon, "Resources/audio/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
+			sprintf(thumbnailIcon, "../Resources/audio/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
 			pNewButton->AddIcon(m_pRenderer, thumbnailIcon, buttonWidth, buttonHeight, buttonWidth - 16, buttonHeight - 16, 8, 8, 2.5f);
 
 			// Add header text
@@ -703,7 +703,7 @@ void ModMenu::CreateSoundModButtons()
 			pModButtonData->m_miscButton = false;
 
 			// Load the meta data file for the mod description and author
-			std::string settingsIniFile = "Resources/audio/" + listFiles[modButtonCounter] + "/description.ini";
+			std::string settingsIniFile = "../Resources/audio/" + listFiles[modButtonCounter] + "/description.ini";
 			INIReader reader(settingsIniFile);
 
 			if (reader.ParseError() >= 0)
@@ -763,7 +763,7 @@ void ModMenu::CreateHUDModButtons()
 	int buttonY = m_modWindowHeight - buttonHeight - 17;
 
 	char importDirectory[128];
-	sprintf(importDirectory, "Resources/textures/gui/*.*");
+	sprintf(importDirectory, "../Resources/textures/gui/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -788,7 +788,7 @@ void ModMenu::CreateHUDModButtons()
 
 			// Add thumbnail icon
 			char thumbnailIcon[128];
-			sprintf(thumbnailIcon, "Resources/textures/gui/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
+			sprintf(thumbnailIcon, "../Resources/textures/gui/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
 			pNewButton->AddIcon(m_pRenderer, thumbnailIcon, buttonWidth, buttonHeight, buttonWidth - 16, buttonHeight - 16, 8, 8, 2.5f);
 
 			// Add header text
@@ -808,7 +808,7 @@ void ModMenu::CreateHUDModButtons()
 			pModButtonData->m_miscButton = false;
 
 			// Load the meta data file for the mod description and author
-			std::string settingsIniFile = "Resources/textures/gui/" + listFiles[modButtonCounter] + "/description.ini";
+			std::string settingsIniFile = "../Resources/textures/gui/" + listFiles[modButtonCounter] + "/description.ini";
 			INIReader reader(settingsIniFile);
 
 			if (reader.ParseError() >= 0)
@@ -868,7 +868,7 @@ void ModMenu::CreateMiscModButtons()
 	int buttonY = m_modWindowHeight - buttonHeight - 17;
 
 	char importDirectory[128];
-	sprintf(importDirectory, "Resources/mods/misc/*.*");
+	sprintf(importDirectory, "../Resources/mods/misc/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -893,7 +893,7 @@ void ModMenu::CreateMiscModButtons()
 
 			// Add thumbnail icon
 			char thumbnailIcon[128];
-			sprintf(thumbnailIcon, "Resources/mods/misc/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
+			sprintf(thumbnailIcon, "../Resources/mods/misc/%s/thumbnail.tga", listFiles[modButtonCounter].c_str());
 			pNewButton->AddIcon(m_pRenderer, thumbnailIcon, buttonWidth, buttonHeight, buttonWidth - 16, buttonHeight - 16, 8, 8, 2.5f);
 
 			// Add header text
@@ -913,7 +913,7 @@ void ModMenu::CreateMiscModButtons()
 			pModButtonData->m_miscButton = true;
 
 			// Load the meta data file for the mod description and author
-			std::string settingsIniFile = "Resources/mods/misc/" + listFiles[modButtonCounter] + "/description.ini";
+			std::string settingsIniFile = "../Resources/mods/misc/" + listFiles[modButtonCounter] + "/description.ini";
 			INIReader reader(settingsIniFile);
 
 			if (reader.ParseError() >= 0)
@@ -1504,7 +1504,7 @@ void ModMenu::ModButtonPressed(ModButtonData* pModButtonData)
 				{
 					m_vpModButtonData[i]->m_toggled = false;
 					std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-					std::string tickIcon = "Resources/textures/gui/" + themeName + "/common/tick.tga";
+					std::string tickIcon = "../Resources/textures/gui/" + themeName + "/common/tick.tga";
 					m_vpModButtonData[i]->m_pModButton->RemoveIcon(tickIcon.c_str());
 					CubbyGame::GetInstance()->GetModsManager()->RemoveMod(m_vpModButtonData[i]->m_modName, m_vpModButtonData[i]->m_gameplayButton, m_vpModButtonData[i]->m_graphicsButton, m_vpModButtonData[i]->m_soundButton, m_vpModButtonData[i]->m_HUDButton, m_vpModButtonData[i]->m_miscButton);
 				}
@@ -1522,7 +1522,7 @@ void ModMenu::ModButtonPressed(ModButtonData* pModButtonData)
 			{
 				m_vpModButtonData[i]->m_toggled = false;
 				std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-				std::string tickIcon = "Resources/textures/gui/" + themeName + "/common/tick.tga";
+				std::string tickIcon = "../Resources/textures/gui/" + themeName + "/common/tick.tga";
 				m_vpModButtonData[i]->m_pModButton->RemoveIcon(tickIcon.c_str());
 				CubbyGame::GetInstance()->GetModsManager()->RemoveMod(m_vpModButtonData[i]->m_modName, m_vpModButtonData[i]->m_gameplayButton, m_vpModButtonData[i]->m_graphicsButton, m_vpModButtonData[i]->m_soundButton, m_vpModButtonData[i]->m_HUDButton, m_vpModButtonData[i]->m_miscButton);
 			}
@@ -1548,7 +1548,7 @@ void ModMenu::ModButtonPressed(ModButtonData* pModButtonData)
 	if (addTick)
 	{
 		std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-		std::string tickIcon = "Resources/textures/gui/" + themeName + "/common/tick.tga";
+		std::string tickIcon = "../Resources/textures/gui/" + themeName + "/common/tick.tga";
 		pModButtonData->m_pModButton->AddIcon(m_pRenderer, tickIcon.c_str(), 32, 32, 32, 32, buttonWidth - 38, 4, 3.25f);
 	}
 }

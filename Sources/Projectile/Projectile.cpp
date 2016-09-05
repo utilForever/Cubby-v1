@@ -848,7 +848,7 @@ void Projectile::RenderForwardDebug() const
 
 	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 0.0f, 1.0f);
 	m_pRenderer->ImmediateVertex(0.0f, 0.0f, 0.0f);
-	m_pRenderer->ImmediateVertex(m_forward.x*1.5f, m_forward.y*1.5f, m_forward.z*1.5f);
+	m_pRenderer->ImmediateVertex(m_forward.x * 1.5f, m_forward.y * 1.5f, m_forward.z * 1.5f);
 
 	m_pRenderer->DisableImmediateMode();
 

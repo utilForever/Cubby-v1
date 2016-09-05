@@ -35,7 +35,7 @@ void Player::PressAttack()
 				m_isChargingAttack = true;
 				m_chargeAmount = 0.0f;
 
-				LoadWeapon(false, "Resources/gamedata/items/Arrow/ArrowHold.item");
+				LoadWeapon(false, "../Resources/gamedata/items/Arrow/ArrowHold.item");
 
 				if (CubbyGame::GetInstance()->GetCameraMode() == CameraMode::FirstPerson)
 				{
@@ -362,7 +362,7 @@ void Player::ReleaseAttack()
 		{
 			UnloadWeapon(false);
 
-			Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "Resources/gamedata/items/Arrow/Arrow.item", 0.08f);
+			Projectile* pProjectile = m_pProjectileManager->CreateProjectile(m_chargeSpawnPosition, m_chargeSpawnVelocity, 0.0f, "../Resources/gamedata/items/Arrow/Arrow.item", 0.08f);
 			pProjectile->SetProjectileType(true, false, false);
 			pProjectile->SetOwner(this, nullptr, nullptr);
 
@@ -603,7 +603,7 @@ void Player::DoDamage(float amount, Color textColor, glm::vec3 knockbackDirectio
 			// Do a hit particle effect
 			glm::vec3 hitParticlePos = GetCenter() - (normalize(knockbackDirection) * m_radius);
 			unsigned int effectID = -1;
-			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
+			BlockParticleEffect* pBlockParticleEffect = CubbyGame::GetInstance()->GetBlockParticleManager()->ImportParticleEffect("../Resources/gamedata/particles/combat_hit.effect", hitParticlePos, &effectID);
 			pBlockParticleEffect->PlayEffect();
 		}
 
@@ -704,11 +704,11 @@ void Player::Explode()
 	char tombstoneFileName[64];
 	if (GetRandomNumber(0, 100) > 35)
 	{
-		sprintf(tombstoneFileName, "Resources/gamedata/items/Tombstone/Tombstone1.item");
+		sprintf(tombstoneFileName, "../Resources/gamedata/items/Tombstone/Tombstone1.item");
 	}
 	else
 	{
-		sprintf(tombstoneFileName, "Resources/gamedata/items/Tombstone/Tombstone2.item");
+		sprintf(tombstoneFileName, "../Resources/gamedata/items/Tombstone/Tombstone2.item");
 	}
 	Item* pTombstone = m_pItemManager->CreateItem(GetCenter(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), tombstoneFileName, ItemType::Tombstone, "Tombstone", false, false, 0.08f);
 	pTombstone->SetVelocity(glm::vec3(0.0f, 10.0f, 0.0f));
@@ -934,7 +934,7 @@ void Player::AttackAnimationTimerFinished()
 			curveTime = 0.4f;
 		}
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boomerangSpawnPosition, glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, "Resources/gamedata/weapons/Boomerang/BoomerangThrown.weapon", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(boomerangSpawnPosition, glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, "../Resources/gamedata/weapons/Boomerang/BoomerangThrown.weapon", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(this, nullptr, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -965,7 +965,7 @@ void Player::AttackAnimationTimerFinished()
 			spellSpawnVelocity = (normalize(toTarget) * powerAmount);
 		}
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/Fireball.item", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/Fireball.item", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(this, nullptr, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -1001,7 +1001,7 @@ void Player::AttackAnimationTimerFinished()
 			bombSpawnVelocity = (m_forward * powerAmount) + (GetUpVector() * liftAmount) + glm::vec3(0.0f, 1.0f, 0.0f) * (m_cameraForward.y * cameraMultiplier);
 		}
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(bombSpawnPosition, bombSpawnVelocity, 0.0f, "Resources/gamedata/items/Bomb/BombThrown.item", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(bombSpawnPosition, bombSpawnVelocity, 0.0f, "../Resources/gamedata/items/Bomb/BombThrown.item", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(this, nullptr, nullptr);
 		pProjectile->SetGravityMultiplier(3.5f);
@@ -1104,7 +1104,7 @@ void Player::AttackAnimationTimerFinished()
 			spellSpawnVelocity = (normalize(toTarget) * powerAmount);
 		}
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(this, nullptr, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);
@@ -1219,7 +1219,7 @@ void Player::AttackAnimationTimerFinished_Alternative()
 			spellSpawnVelocity = (normalize(toTarget) * powerAmount);
 		}
 
-		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
+		Projectile* pProjectile = m_pProjectileManager->CreateProjectile(spellSpawnPosition, spellSpawnVelocity, 0.0f, "../Resources/gamedata/items/Fireball/FireballBlue.item", 0.05f);
 		pProjectile->SetProjectileType(true, false, false);
 		pProjectile->SetOwner(this, nullptr, nullptr);
 		pProjectile->SetGravityMultiplier(0.0f);

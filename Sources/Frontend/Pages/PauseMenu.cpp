@@ -85,7 +85,7 @@ void PauseMenu::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "Resources/textures/gui/" + themeName + "/PauseMenu/pause_background.tga";
+	std::string iconName = "../Resources/textures/gui/" + themeName + "/PauseMenu/pause_background.tga";
 	m_pBackgroundIcon->SetIcon(iconName);
 
 	m_pFrontendManager->SetButtonIcons(m_pResumeButton, ButtonSize::Size110x47);

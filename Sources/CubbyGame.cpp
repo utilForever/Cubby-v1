@@ -141,14 +141,14 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 	m_pRenderer->CreateViewport(m_portraitViewportY, m_portraitViewportX, m_portraitViewportWidth, m_portraitViewportHeight, 60.0f, &m_portraitViewport);
 
 	// Create fonts
-	m_pRenderer->CreateFreeTypeFont("Resources/fonts/arial.ttf", 12, &m_defaultFont);
+	m_pRenderer->CreateFreeTypeFont("../Resources/fonts/arial.ttf", 12, &m_defaultFont);
 
 	// Create the custom cursor textures
 	int lTextureWidth, lTextureHeight, lTextureWidth2, lTextureHeight2;
-	m_pRenderer->LoadTexture("Resources/textures/cursors/finger_cursor_normal.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorNormalBuffer);
-	m_pRenderer->LoadTexture("Resources/textures/cursors/finger_cursor_clicked.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorClickedBuffer);
-	m_pRenderer->LoadTexture("Resources/textures/cursors/finger_cursor_rotate.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorRotateBuffer);
-	m_pRenderer->LoadTexture("Resources/textures/cursors/finger_cursor_zoom.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorZoomBuffer);
+	m_pRenderer->LoadTexture("../Resources/textures/cursors/finger_cursor_normal.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorNormalBuffer);
+	m_pRenderer->LoadTexture("../Resources/textures/cursors/finger_cursor_clicked.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorClickedBuffer);
+	m_pRenderer->LoadTexture("../Resources/textures/cursors/finger_cursor_rotate.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorRotateBuffer);
+	m_pRenderer->LoadTexture("../Resources/textures/cursors/finger_cursor_zoom.tga", &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_customCursorZoomBuffer);
 
 	// Create lights
 	m_defaultLightPosition = glm::vec3(300.0f, 300.0f, 300.0f);
@@ -187,18 +187,18 @@ void CubbyGame::Create(CubbySettings* pCubbySettings)
 	m_blurVerticalShader = -1;
 	m_blurHorizontalShader = -1;
 	m_paperdollShader = -1;
-	m_pRenderer->LoadGLSLShader("Resources/shaders/default.vertex", "Resources/shaders/default.pixel", &m_defaultShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/phong.vertex", "Resources/shaders/phong.pixel", &m_phongShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/shadow.vertex", "Resources/shaders/shadow.pixel", &m_shadowShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/water_still.vertex", "Resources/shaders/water_still.pixel", &m_waterShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/texture.vertex", "Resources/shaders/texture.pixel", &m_textureShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/fullscreen/SSAO.vertex", "Resources/shaders/fullscreen/SSAO.pixel", &m_SSAOShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/fullscreen/fxaa.vertex", "Resources/shaders/fullscreen/fxaa.pixel", &m_fxaaShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/fullscreen/lighting.vertex", "Resources/shaders/fullscreen/lighting.pixel", &m_lightingShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/cube_map.vertex", "Resources/shaders/cube_map.pixel", &m_cubeMapShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/fullscreen/blur_vertical.vertex", "Resources/shaders/fullscreen/blur_vertical.pixel", &m_blurVerticalShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/fullscreen/blur_horizontal.vertex", "Resources/shaders/fullscreen/blur_horizontal.pixel", &m_blurHorizontalShader);
-	m_pRenderer->LoadGLSLShader("Resources/shaders/paperdoll.vertex", "Resources/shaders/paperdoll.pixel", &m_paperdollShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/default.vertex", "../Resources/shaders/default.pixel", &m_defaultShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/phong.vertex", "../Resources/shaders/phong.pixel", &m_phongShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/shadow.vertex", "../Resources/shaders/shadow.pixel", &m_shadowShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/water_still.vertex", "../Resources/shaders/water_still.pixel", &m_waterShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/texture.vertex", "../Resources/shaders/texture.pixel", &m_textureShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/fullscreen/SSAO.vertex", "../Resources/shaders/fullscreen/SSAO.pixel", &m_SSAOShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/fullscreen/fxaa.vertex", "../Resources/shaders/fullscreen/fxaa.pixel", &m_fxaaShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/fullscreen/lighting.vertex", "../Resources/shaders/fullscreen/lighting.pixel", &m_lightingShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/cube_map.vertex", "../Resources/shaders/cube_map.pixel", &m_cubeMapShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/fullscreen/blur_vertical.vertex", "../Resources/shaders/fullscreen/blur_vertical.pixel", &m_blurVerticalShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/fullscreen/blur_horizontal.vertex", "../Resources/shaders/fullscreen/blur_horizontal.pixel", &m_blurHorizontalShader);
+	m_pRenderer->LoadGLSLShader("../Resources/shaders/paperdoll.vertex", "../Resources/shaders/paperdoll.pixel", &m_paperdollShader);
 
 	// Create the mods manager
 	m_pModsManager = new ModsManager();
@@ -743,7 +743,7 @@ void CubbyGame::UpdateJoySticks() const
 void CubbyGame::StartFrontEndMusic()
 {
 	std::string musicModName = GetInstance()->GetModsManager()->GetSoundPack();
-	std::string musicFileName = "Resources/audio/" + musicModName + "/music/vox_intro.ogg";
+	std::string musicFileName = "../Resources/audio/" + musicModName + "/music/vox_intro.ogg";
 	m_pMusicSound = SoundManager::GetInstance()->PlaySound2D(&m_pMusicChannel, musicFileName.c_str(), true, true);
 
 	UpdateMusicVolume(0.0f);
@@ -769,7 +769,7 @@ void CubbyGame::StartGameMusic()
 	}
 
 	std::string musicModName = GetInstance()->GetModsManager()->GetSoundPack();
-	std::string musicFileName = "Resources/audio/" + musicModName + "/music/" + biomeFileName;
+	std::string musicFileName = "../Resources/audio/" + musicModName + "/music/" + biomeFileName;
 	m_pMusicSound = SoundManager::GetInstance()->PlaySound2D(&m_pMusicChannel, musicFileName.c_str(), true, true);
 
 	UpdateMusicVolume(0.0f);
@@ -820,7 +820,7 @@ void CubbyGame::PlaySoundEffect(SoundEffect soundEffect, float soundEnhanceMulti
 	{
 		std::string soundModName = GetInstance()->GetModsManager()->GetSoundPack();
 		std::string soundeffectFileName = g_soundEffectFileNames[static_cast<int>(soundEffect)];
-		std::string soundFileName = "Resources/audio/" + soundModName + "/soundeffects/" + soundeffectFileName;
+		std::string soundFileName = "../Resources/audio/" + soundModName + "/soundeffects/" + soundeffectFileName;
 
 		FMOD::Channel* pSoundChannel;
 		SoundManager::GetInstance()->PlaySound2D(&pSoundChannel, soundFileName.c_str(), false);
@@ -834,7 +834,7 @@ void CubbyGame::PlaySoundEffect3D(SoundEffect soundEffect, glm::vec3 soundPositi
 	{
 		std::string soundModName = GetInstance()->GetModsManager()->GetSoundPack();
 		std::string soundeffectFileName = g_soundEffectFileNames[static_cast<int>(soundEffect)];
-		std::string soundFileName = "Resources/audio/" + soundModName + "/soundeffects/" + soundeffectFileName;
+		std::string soundFileName = "../Resources/audio/" + soundModName + "/soundeffects/" + soundeffectFileName;
 
 		FMOD::Channel* pSoundChannel;
 		SoundManager::GetInstance()->PlaySound3D(&pSoundChannel, soundFileName.c_str(), soundPosition, false);
@@ -874,13 +874,13 @@ void CubbyGame::SetupDataForGame() const
 	m_pPlayer->SetRotation(90.0f);
 
 	// Items
-	Item* pFurnace = m_pItemManager->CreateItem(glm::vec3(25.0f, 10.0f, 29.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/Furnace/Furnace.item", ItemType::Furnace, "Furnace", true, false, 0.16f);
+	Item* pFurnace = m_pItemManager->CreateItem(glm::vec3(25.0f, 10.0f, 29.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/Furnace/Furnace.item", ItemType::Furnace, "Furnace", true, false, 0.16f);
 	pFurnace->SetInteractionPositionOffset(glm::vec3(0.0f, 0.0f, -2.0f));
-	Item* pAnvil = m_pItemManager->CreateItem(glm::vec3(32.0f, 9.0f, 26.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/Anvil/Anvil.item", ItemType::Anvil, "Anvil", true, false, 0.14f);
+	Item* pAnvil = m_pItemManager->CreateItem(glm::vec3(32.0f, 9.0f, 26.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/Anvil/Anvil.item", ItemType::Anvil, "Anvil", true, false, 0.14f);
 	pAnvil->SetInteractionPositionOffset(glm::vec3(0.0f, 0.0f, -1.5f));
 
 	// Chest with random loot item
-	Item* pChest = m_pItemManager->CreateItem(glm::vec3(17.0f, 12.0f, 28.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "Resources/gamedata/items/Chest/Chest.item", ItemType::Chest, "Chest", true, false, 0.08f);
+	Item* pChest = m_pItemManager->CreateItem(glm::vec3(17.0f, 12.0f, 28.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), "../Resources/gamedata/items/Chest/Chest.item", ItemType::Chest, "Chest", true, false, 0.08f);
 	EquipmentType equipment = EquipmentType::None;
 	InventoryItem* pRandomLoot = GetInstance()->GetRandomLootManager()->GetRandomLootItem(&equipment);
 	

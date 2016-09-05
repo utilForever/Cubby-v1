@@ -206,32 +206,32 @@ void LootGUI::SkinGUI() const
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
+	std::string iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
 	m_pLootButtonBackgroundSlotBorderCommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
 	m_pLootButtonBackgroundSlotBorderUncommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
 	m_pLootButtonBackgroundSlotBorderMagical->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
 	m_pLootButtonBackgroundSlotBorderRare->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
 	m_pLootButtonBackgroundSlotBorderEpic->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
 	m_pTooltipBackgroundCommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
 	m_pTooltipBackgroundUncommon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
 	m_pTooltipBackgroundMagical->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
 	m_pTooltipBackgroundRare->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
 	m_pTooltipBackgroundEpic->SetIcon(iconName);
 
-	iconName = "Resources/textures/gui/" + themeName + "/LootGUI/loot_title_icon.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/LootGUI/loot_title_icon.tga";
 	m_pTitleBarIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/LootGUI/loot_window_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/LootGUI/loot_window_background.tga";
 	m_pLootWindowBackgroundIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/LootGUI/titlebar_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/LootGUI/titlebar_background.tga";
 	m_pTitleBarBackgroundIcon->SetIcon(iconName);
 
 	m_pLootWindow->SetBackgroundIcon(m_pLootWindowBackgroundIcon);
@@ -500,31 +500,31 @@ void LootGUI::CreateLootItems()
 			{
 			case ItemQuality::Common:
 			{
-				std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
+				std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
 				pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 				break;
 			}
 			case ItemQuality::Uncommon:
 			{
-				std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
+				std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
 				pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 				break;
 			}
 			case ItemQuality::Magical:
 			{
-				std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
+				std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
 				pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 				break;
 			}
 			case ItemQuality::Rare:
 			{
-				std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
+				std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
 				pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 				break;
 			}
 			case ItemQuality::Epic:
 			{
-				std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
+				std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
 				pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 				break;
 			}
@@ -790,7 +790,7 @@ void LootGUI::LootItemPressed(LootSlotItem* pLootItem)
 	m_pPressedLootSlotItem->m_pInventoryIcon->SetDepth(5.0f);
 	//m_pPressedLootSlotItem->m_pInventoryIcon->SetLocation(m_pressedX - 4, m_pressedY + 4);
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-	std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+	std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 	m_pPressedLootSlotItem->m_pInventoryIcon->AddIcon(m_pRenderer, dropShadowIcon.c_str(), 64, 64, 64, 64, 4, -4, 0.5f);
 	m_pLootWindow->DepthSortComponentChildren();
 
@@ -1044,7 +1044,7 @@ void LootGUI::LootItemReleased(LootSlotItem* pLootItem)
 	{
 		pLootItem->m_pInventoryIcon->SetLocation(m_pressedX, m_pressedY);
 		std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-		std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+		std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 		pLootItem->m_pInventoryIcon->RemoveIcon(dropShadowIcon.c_str());
 	}
 
@@ -1053,7 +1053,7 @@ void LootGUI::LootItemReleased(LootSlotItem* pLootItem)
 		// Revert depth back to normal for loot icons
 		pLootItem->m_pInventoryIcon->SetDepth(3.0f);
 		std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-		std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+		std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 		pLootItem->m_pInventoryIcon->RemoveIcon(dropShadowIcon.c_str());
 		m_pLootWindow->DepthSortComponentChildren();
 	}

@@ -25,7 +25,7 @@
 InstanceManager::InstanceManager(Renderer* pRenderer) :
 	m_pRenderer(pRenderer), m_renderWireFrame(false), m_instanceShader(-1), m_checkChunkInstanceTimer(0.0f)
 {
-	m_pRenderer->LoadGLSLShader("Resources/Shaders/instance.vertex", "Resources/Shaders/instance.pixel", &m_instanceShader);
+	m_pRenderer->LoadGLSLShader("../Resources/Shaders/instance.vertex", "../Resources/Shaders/instance.pixel", &m_instanceShader);
 }
 
 InstanceManager::~InstanceManager()

@@ -450,17 +450,17 @@ void OptionsMenu::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "Resources/textures/gui/" + themeName + "/OptionsMenu/slider_background.tga";
+	std::string iconName = "../Resources/textures/gui/" + themeName + "/OptionsMenu/slider_background.tga";
 	m_pSliderBackgroundIcon_MouseSensativity->SetIcon(iconName);
 	m_pSliderBackgroundIcon_GamepadSensativity->SetIcon(iconName);
 	m_pSliderBackgroundIcon_Sound->SetIcon(iconName);
 	m_pSliderBackgroundIcon_Music->SetIcon(iconName);
 
-	iconName = "Resources/textures/gui/" + themeName + "/OptionsMenu/options_title_icon.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/OptionsMenu/options_title_icon.tga";
 	m_pTitleBarIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/OptionsMenu/options_window_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/OptionsMenu/options_window_background.tga";
 	m_pOptionsWindowBackgroundIcon->SetIcon(iconName);
-	iconName = "Resources/textures/gui/" + themeName + "/OptionsMenu/titlebar_background.tga";
+	iconName = "../Resources/textures/gui/" + themeName + "/OptionsMenu/titlebar_background.tga";
 	m_pTitleBarBackgroundIcon->SetIcon(iconName);
 
 	m_pOptionsWindow->SetBackgroundIcon(m_pOptionsWindowBackgroundIcon);
