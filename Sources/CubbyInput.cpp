@@ -33,7 +33,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 	}
 	default:
 	{
-		throw std::logic_error("Invalid Key Input!");
+		
 	}
 	}
 }
@@ -151,7 +151,7 @@ void CubbyGame::KeyPressed(int key, int scanCode, int mods)
 	}
 	default:
 	{
-		throw std::logic_error("Invalid Key Input!");
+		
 	}
 	}
 }
@@ -374,7 +374,7 @@ void CubbyGame::KeyReleased(int key, int scancode, int mods)
 	}
 	default:
 	{
-		throw std::logic_error("Invalid Key Input!");
+		
 	}
 	}
 }
