@@ -6,7 +6,7 @@ Cubby is an open source Voxel Engine, and game, that is written in C++ and OpenG
 
 The main code of this repository is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox).
 
-[![License](https://img.shields.io/badge/Licence-GNU-blue.svg)](https://github.com/AlwaysGeeky/Vox/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/Licence-GNU-blue.svg)](https://github.com/MineScroll/Cubby/blob/master/LICENSE.md)
 
 ## Features
 
@@ -67,7 +67,7 @@ TBA
 
 ## License
 
-This software is provided under the **GNU General Public License**, more information can be found in the [license file](https://github.com/AlwaysGeeky/Vox/blob/master/LICENSE.md).
+This software is provided under the **GNU General Public License**, more information can be found in the [license file](https://github.com/MineScroll/Cubby/blob/master/LICENSE.md).
 
 ## How To Contribute
 
