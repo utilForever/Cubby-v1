@@ -83,7 +83,14 @@ TBA
 
 ## Dependencies
 
+* fmod
 * freetype
-* tinythread
 * glew
+* glfw
 * glm
+* inih
+* libnoise
+* lua
+* selene
+* simplex
+* tinythread
