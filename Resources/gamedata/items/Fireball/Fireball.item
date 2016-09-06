@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.5
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/Fireball/fireball.qb
+qubicleFile: Resources/gamedata/items/Fireball/fireball.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0
@@ -35,7 +35,7 @@ lightColour: 1.0 0.56 0.0 1.0
 connectedToSection: -1
 
 numParticleEffects: 1
-particleEffect: ../Resources/gamedata/particles/torch_fire.effect
+particleEffect: Resources/gamedata/particles/torch_fire.effect
 position: 0 4 0
 connectedToSection: -1
 

@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.5
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/Fireball/fireball_blue.qb
+qubicleFile: Resources/gamedata/items/Fireball/fireball_blue.qb
 renderScale: 0.75
 renderOffset: 0 0 0
 autoStartAnimation: 0
@@ -35,7 +35,7 @@ lightColour: 0.2 0.56 1.0 1.0
 connectedToSection: 0
 
 numParticleEffects: 1
-particleEffect: ../Resources/gamedata/particles/fireball_hands.effect
+particleEffect: Resources/gamedata/particles/fireball_hands.effect
 position: 0 0 0
 connectedToSection: 0
 

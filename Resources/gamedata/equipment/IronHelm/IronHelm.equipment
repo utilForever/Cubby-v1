@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/equipment/IronHelm/IronHelm.qb
+qubicleFile: Resources/gamedata/equipment/IronHelm/IronHelm.qb
 renderScale: 1.05
 renderOffset: 0 4.5 -0.5
 autoStartAnimation: 0

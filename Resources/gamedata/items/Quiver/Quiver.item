@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/Quiver/Quiver.qb
+qubicleFile: Resources/gamedata/items/Quiver/Quiver.qb
 renderScale: 0.45
 renderOffset: 0 -3 -12
 autoStartAnimation: 0

@@ -2,7 +2,7 @@ offset: 0 2.5 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/ZombieGibs/LegsGib.qb
+qubicleFile: Resources/gamedata/items/ZombieGibs/LegsGib.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

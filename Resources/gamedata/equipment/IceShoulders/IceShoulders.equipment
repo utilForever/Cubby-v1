@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 2
-qubicleFile: ../Resources/gamedata/equipment/IceShoulders/IceShouldersRight.qb
+qubicleFile: Resources/gamedata/equipment/IceShoulders/IceShouldersRight.qb
 renderScale: 1.1
 renderOffset: -1 1.5 0
 autoStartAnimation: 0
@@ -27,7 +27,7 @@ rotationXTurnSpeed: 0
 rotationYTurnSpeed: 0
 rotationZTurnSpeed: 0
 
-qubicleFile: ../Resources/gamedata/equipment/IceShoulders/IceShouldersLeft.qb
+qubicleFile: Resources/gamedata/equipment/IceShoulders/IceShouldersLeft.qb
 renderScale: 1.1
 renderOffset: 1 1.5 0
 autoStartAnimation: 0

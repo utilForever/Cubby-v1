@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/equipment/IceHelm/IceHelm.qb
+qubicleFile: Resources/gamedata/equipment/IceHelm/IceHelm.qb
 renderScale: 1.1
 renderOffset: 0 3 -1
 autoStartAnimation: 0

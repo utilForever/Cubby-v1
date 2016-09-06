@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 2
-qubicleFile: ../Resources/gamedata/equipment/AshBoots/AshBootsRight.qb
+qubicleFile: Resources/gamedata/equipment/AshBoots/AshBootsRight.qb
 renderScale: 1.0
 renderOffset: 0 0.5 0
 autoStartAnimation: 0
@@ -27,7 +27,7 @@ rotationXTurnSpeed: 0
 rotationYTurnSpeed: 0
 rotationZTurnSpeed: 0
 
-qubicleFile: ../Resources/gamedata/equipment/AshBoots/AshBootsLeft.qb
+qubicleFile: Resources/gamedata/equipment/AshBoots/AshBootsLeft.qb
 renderScale: 1.0
 renderOffset: 0 0.5 0
 autoStartAnimation: 0

@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/equipment/WoodHelm/WoodHelm.qb
+qubicleFile: Resources/gamedata/equipment/WoodHelm/WoodHelm.qb
 renderScale: 1.05
 renderOffset: 0 2.5 -1
 autoStartAnimation: 0

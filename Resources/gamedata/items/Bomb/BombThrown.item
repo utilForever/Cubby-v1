@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 0.65
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/Bomb/bomb_thrown.qb
+qubicleFile: Resources/gamedata/items/Bomb/bomb_thrown.qb
 renderScale: 1
 renderOffset: 0 0 0
 autoStartAnimation: 0

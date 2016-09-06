@@ -2,7 +2,7 @@ offset: 0 4.5 0
 scale: 0.5
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/Block_Grass/Block_Grass.qb
+qubicleFile: Resources/gamedata/items/Block_Grass/Block_Grass.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

@@ -2,7 +2,7 @@ offset: 0 1.5 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/items/CopperOre/copper_ore.qb
+qubicleFile: Resources/gamedata/items/CopperOre/copper_ore.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

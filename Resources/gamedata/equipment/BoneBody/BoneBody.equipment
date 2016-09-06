@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/equipment/BoneBody/BoneBody.qb
+qubicleFile: Resources/gamedata/equipment/BoneBody/BoneBody.qb
 renderScale: 1
 renderOffset: 0 0 0
 autoStartAnimation: 0
