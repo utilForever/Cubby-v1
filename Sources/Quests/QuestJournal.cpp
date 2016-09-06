@@ -146,7 +146,7 @@ void QuestJournal::ExportQuestJournal(int playerNum)
 {
 	std::ofstream exportFile;
 	char exportFileName[128];
-	sprintf(exportFileName, "../Resources/characters/character%i/journal.quests", playerNum);
+	sprintf(exportFileName, "Resources/characters/character%i/journal.quests", playerNum);
 	exportFile.open(exportFileName);
 
 	if (exportFile.is_open())
@@ -175,7 +175,7 @@ void QuestJournal::ImportQuestJournal(int playerNum)
 
 	std::ifstream importFile;
 	char importFileName[128];
-	sprintf(importFileName, "../Resources/characters/character%i/journal.quests", playerNum);
+	sprintf(importFileName, "Resources/characters/character%i/journal.quests", playerNum);
 	importFile.open(importFileName);
 
 	if (importFile.is_open())

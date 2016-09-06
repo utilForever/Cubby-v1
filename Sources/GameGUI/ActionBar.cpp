@@ -85,17 +85,17 @@ void ActionBar::SkinGUI() const
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "../Resources/textures/gui/" + themeName + "/ActionBar/actionbar_background_6.tga";
+	std::string iconName = "Resources/textures/gui/" + themeName + "/ActionBar/actionbar_background_6.tga";
 	m_pActionButtonBackground6Icon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
 	m_pActionButtonBackgroundSlotBorderCommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
 	m_pActionButtonBackgroundSlotBorderUncommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
 	m_pActionButtonBackgroundSlotBorderMagical->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
 	m_pActionButtonBackgroundSlotBorderRare->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
 	m_pActionButtonBackgroundSlotBorderEpic->SetIcon(iconName);
 }
 
@@ -559,31 +559,31 @@ void ActionBar::CreateActionButtonIcon(ActionButtonItem* pActionButton) const
 	{
 	case ItemQuality::Common:
 	{
-		std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
+		std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
 		pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 		break;
 	}
 	case ItemQuality::Uncommon:
 	{
-		std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
+		std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
 		pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 		break;
 	}
 	case ItemQuality::Magical:
 	{
-		std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
+		std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
 		pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 		break;
 	}
 	case ItemQuality::Rare:
 	{
-		std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
+		std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
 		pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 		break;
 	}
 	case ItemQuality::Epic:
 	{
-		std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
+		std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
 		pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 		break;
 	}
@@ -652,7 +652,7 @@ void ActionBar::CreateActionSlots()
 
 		// Create the action backgrounds
 		std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-		std::string blankSlotIcon = "../Resources/textures/gui/" + themeName + "/ActionBar/blank_slot.tga";
+		std::string blankSlotIcon = "Resources/textures/gui/" + themeName + "/ActionBar/blank_slot.tga";
 		Icon* pNewIcon = new Icon(m_pRenderer, blankSlotIcon.c_str(), 64, 64);
 		pNewIcon->SetDimensions(x, y, width, height);
 		pNewIcon->SetDepth(3.0f);

@@ -19,7 +19,7 @@
 // Load settings
 void CubbySettings::LoadSettings()
 {
-	std::string settingsIniFile = "../Resources/config/settings.ini";
+	std::string settingsIniFile = "Resources/config/settings.ini";
 	INIReader reader(settingsIniFile);
 
 	if (reader.ParseError() < 0)
@@ -73,7 +73,7 @@ void CubbySettings::SaveSettings() const
 // Load options
 void CubbySettings::LoadOptions()
 {
-	std::string optionsIniFile = "../Resources/config/options.ini";
+	std::string optionsIniFile = "Resources/config/options.ini";
 	INIReader reader(optionsIniFile);
 
 	if (reader.ParseError() < 0)
@@ -113,7 +113,7 @@ void CubbySettings::SaveOptions() const
 	std::ofstream file;
 
 	// Open the file
-	std::string optionsIniFile = "../Resources/config/options.ini";
+	std::string optionsIniFile = "Resources/config/options.ini";
 	file.open(optionsIniFile.c_str(), std::ios::out);
 
 	file << "[Gameplay]\n";

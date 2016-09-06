@@ -125,46 +125,46 @@ std::string GetItemFileNameForType(ItemType type)
 	// Dropped item in the world
 	case ItemType::DroppedItem: { return ""; }
 	// Hearts and coins dropped from killing enemies
-	case ItemType::Coin: { return "../Resources/gamedata/items/Coin/Coin.item"; }
-	case ItemType::Heart: { return "../Resources/gamedata/items/Heart/Heart.item"; }
+	case ItemType::Coin: { return "Resources/gamedata/items/Coin/Coin.item"; }
+	case ItemType::Heart: { return "Resources/gamedata/items/Heart/Heart.item"; }
 	// Zombie gib
-	case ItemType::Gib: { return "../Resources/gamedata/items/Hand1Gib.item"; }
+	case ItemType::Gib: { return "Resources/gamedata/items/Hand1Gib.item"; }
 	// Interact items
-	case ItemType::Tombstone: { return "../Resources/gamedata/items/Tombstone/Tombstone1.item"; }
-	case ItemType::Chest: { return "../Resources/gamedata/items/Chest/Chest.item"; }
-	case ItemType::Torch: { return "../Resources/gamedata/items/Torch/Torch.item"; }
-	case ItemType::Furnace: { return "../Resources/gamedata/items/Furnace/Furnace.item"; }
-	case ItemType::Anvil: { return "../Resources/gamedata/items/Anvil/Anvil.item"; }
-	case ItemType::QuestBoard: { return "../Resources/gamedata/items/QuestBoard/QuestBoard.item"; }
-	case ItemType::CampFire: { return "../Resources/gamedata/items/CampFire/CampFire.item"; }
-	case ItemType::Mannequin: { return "../Resources/gamedata/items/Mannequin/Mannequin.item"; }
+	case ItemType::Tombstone: { return "Resources/gamedata/items/Tombstone/Tombstone1.item"; }
+	case ItemType::Chest: { return "Resources/gamedata/items/Chest/Chest.item"; }
+	case ItemType::Torch: { return "Resources/gamedata/items/Torch/Torch.item"; }
+	case ItemType::Furnace: { return "Resources/gamedata/items/Furnace/Furnace.item"; }
+	case ItemType::Anvil: { return "Resources/gamedata/items/Anvil/Anvil.item"; }
+	case ItemType::QuestBoard: { return "Resources/gamedata/items/QuestBoard/QuestBoard.item"; }
+	case ItemType::CampFire: { return "Resources/gamedata/items/CampFire/CampFire.item"; }
+	case ItemType::Mannequin: { return "Resources/gamedata/items/Mannequin/Mannequin.item"; }
 	// Ingredients
-	case ItemType::SlimeJelly: { return "../Resources/gamedata/items/SlimeJelly/SlimeJelly.item"; }
-	case ItemType::BeeWing: { return "../Resources/gamedata/items/BeeWing/BeeWing.item"; }
-	case ItemType::Bone: { return "../Resources/gamedata/items/Bone/Bone.item"; }
+	case ItemType::SlimeJelly: { return "Resources/gamedata/items/SlimeJelly/SlimeJelly.item"; }
+	case ItemType::BeeWing: { return "Resources/gamedata/items/BeeWing/BeeWing.item"; }
+	case ItemType::Bone: { return "Resources/gamedata/items/Bone/Bone.item"; }
 	// Ore and mining
-	case ItemType::CopperVein: { return "../Resources/gamedata/items/CopperVein/CopperVein0.item"; }
-	case ItemType::CopperOre: { return "../Resources/gamedata/items/CopperOre/CopperOre.item"; }
-	case ItemType::CopperBar: { return "../Resources/gamedata/items/CopperBar/CopperBar.item"; }
-	case ItemType::IronVein: { return "../Resources/gamedata/items/IronVein/IronVein0.item"; }
-	case ItemType::IronOre: { return "../Resources/gamedata/items/IronOre/IronOre.item"; }
-	case ItemType::IronBar: { return "../Resources/gamedata/items/IronBar/IronBar.item"; }
-	case ItemType::SilverVein: { return "../Resources/gamedata/items/SilverVein/SilverVein0.item"; }
-	case ItemType::SilverOre: { return "../Resources/gamedata/items/SilverOre/SilverOre.item"; }
-	case ItemType::SilverBar: { return "../Resources/gamedata/items/SilverBar/SilverBar.item"; }
-	case ItemType::GoldVein: { return "../Resources/gamedata/items/GoldVein/GoldVein0.item"; }
-	case ItemType::GoldOre: { return "../Resources/gamedata/items/GoldOre/GoldOre.item"; }
-	case ItemType::GoldBar: { return "../Resources/gamedata/items/GoldBar/GoldBar.item"; }
+	case ItemType::CopperVein: { return "Resources/gamedata/items/CopperVein/CopperVein0.item"; }
+	case ItemType::CopperOre: { return "Resources/gamedata/items/CopperOre/CopperOre.item"; }
+	case ItemType::CopperBar: { return "Resources/gamedata/items/CopperBar/CopperBar.item"; }
+	case ItemType::IronVein: { return "Resources/gamedata/items/IronVein/IronVein0.item"; }
+	case ItemType::IronOre: { return "Resources/gamedata/items/IronOre/IronOre.item"; }
+	case ItemType::IronBar: { return "Resources/gamedata/items/IronBar/IronBar.item"; }
+	case ItemType::SilverVein: { return "Resources/gamedata/items/SilverVein/SilverVein0.item"; }
+	case ItemType::SilverOre: { return "Resources/gamedata/items/SilverOre/SilverOre.item"; }
+	case ItemType::SilverBar: { return "Resources/gamedata/items/SilverBar/SilverBar.item"; }
+	case ItemType::GoldVein: { return "Resources/gamedata/items/GoldVein/GoldVein0.item"; }
+	case ItemType::GoldOre: { return "Resources/gamedata/items/GoldOre/GoldOre.item"; }
+	case ItemType::GoldBar: { return "Resources/gamedata/items/GoldBar/GoldBar.item"; }
 	// World blocks
-	case ItemType::BlockGrass: { return "../Resources/gamedata/items/Block_Grass/Block_Grass.item"; }
-	case ItemType::BlockDirt: { return "../Resources/gamedata/items/Block_Dirt/Block_Dirt.item"; }
-	case ItemType::BlockStone: { return "../Resources/gamedata/items/Block_Stone/Block_Stone.item"; }
-	case ItemType::BlockWood: { return "../Resources/gamedata/items/Block_Wood/Block_Wood.item"; }
-	case ItemType::BlockLeaf: { return "../Resources/gamedata/items/Block_Leaf/Block_Leaf.item"; }
-	case ItemType::BlockSand: { return "../Resources/gamedata/items/Block_Sand/Block_Sand.item"; }
-	case ItemType::BlockCactus: { return "../Resources/gamedata/items/Block_Cactus/Block_Cactus.item"; }
-	case ItemType::BlockRock: { return "../Resources/gamedata/items/Block_Rock/Block_Rock.item"; }
-	case ItemType::BlockSnow: { return "../Resources/gamedata/items/Block_Snow/Block_Snow.item"; }
+	case ItemType::BlockGrass: { return "Resources/gamedata/items/Block_Grass/Block_Grass.item"; }
+	case ItemType::BlockDirt: { return "Resources/gamedata/items/Block_Dirt/Block_Dirt.item"; }
+	case ItemType::BlockStone: { return "Resources/gamedata/items/Block_Stone/Block_Stone.item"; }
+	case ItemType::BlockWood: { return "Resources/gamedata/items/Block_Wood/Block_Wood.item"; }
+	case ItemType::BlockLeaf: { return "Resources/gamedata/items/Block_Leaf/Block_Leaf.item"; }
+	case ItemType::BlockSand: { return "Resources/gamedata/items/Block_Sand/Block_Sand.item"; }
+	case ItemType::BlockCactus: { return "Resources/gamedata/items/Block_Cactus/Block_Cactus.item"; }
+	case ItemType::BlockRock: { return "Resources/gamedata/items/Block_Rock/Block_Rock.item"; }
+	case ItemType::BlockSnow: { return "Resources/gamedata/items/Block_Snow/Block_Snow.item"; }
 	case ItemType::NUM_ITEMS: throw std::logic_error("Invalid ItemType!");
 	default: throw std::logic_error("Invalid ItemType!");
 	}
@@ -178,46 +178,46 @@ std::string GetItemTextureForType(ItemType type)
 	// Dropped item in the world
 	case ItemType::DroppedItem: { return ""; }
 	// Hearts and coins dropped from killing enemies
-	case ItemType::Coin: { return "../Resources/textures/items/coin.tga"; }
-	case ItemType::Heart: { return "../Resources/textures/items/heart.tga"; }
+	case ItemType::Coin: { return "Resources/textures/items/coin.tga"; }
+	case ItemType::Heart: { return "Resources/textures/items/heart.tga"; }
 	// Zombie gib
-	case ItemType::Gib: { return "../Resources/textures/items/question_mark.tga"; }
+	case ItemType::Gib: { return "Resources/textures/items/question_mark.tga"; }
 	// Interact items
-	case ItemType::Tombstone: { return "../Resources/textures/items/tombstone.tga"; }
-	case ItemType::Chest: { return "../Resources/textures/items/chest.tga"; }
-	case ItemType::Torch: { return "../Resources/textures/items/torch.tga"; }
-	case ItemType::Furnace: { return "../Resources/textures/items/furnace.tga"; }
-	case ItemType::Anvil: { return "../Resources/textures/items/anvil.tga"; }
-	case ItemType::QuestBoard: { return "../Resources/textures/items/quest_board.tga"; }
-	case ItemType::CampFire: { return "../Resources/textures/items/camp_fire.tga"; }
-	case ItemType::Mannequin: { return "../Resources/textures/items/mannequin.tga"; }
+	case ItemType::Tombstone: { return "Resources/textures/items/tombstone.tga"; }
+	case ItemType::Chest: { return "Resources/textures/items/chest.tga"; }
+	case ItemType::Torch: { return "Resources/textures/items/torch.tga"; }
+	case ItemType::Furnace: { return "Resources/textures/items/furnace.tga"; }
+	case ItemType::Anvil: { return "Resources/textures/items/anvil.tga"; }
+	case ItemType::QuestBoard: { return "Resources/textures/items/quest_board.tga"; }
+	case ItemType::CampFire: { return "Resources/textures/items/camp_fire.tga"; }
+	case ItemType::Mannequin: { return "Resources/textures/items/mannequin.tga"; }
 	// Ingredients
-	case ItemType::SlimeJelly: { return "../Resources/textures/items/slime_jelly.tga"; }
-	case ItemType::BeeWing: { return "../Resources/textures/items/bee_wing.tga"; }
-	case ItemType::Bone: { return "../Resources/textures/items/bone.tga"; }
+	case ItemType::SlimeJelly: { return "Resources/textures/items/slime_jelly.tga"; }
+	case ItemType::BeeWing: { return "Resources/textures/items/bee_wing.tga"; }
+	case ItemType::Bone: { return "Resources/textures/items/bone.tga"; }
 	// Ore and mining
-	case ItemType::CopperVein: { return "../Resources/textures/items/question_mark.tga"; }
-	case ItemType::CopperOre: { return "../Resources/textures/items/copper_ore.tga"; }
-	case ItemType::CopperBar: { return "../Resources/textures/items/copper_bar.tga"; }
-	case ItemType::IronVein: { return "../Resources/textures/items/question_mark.tga"; }
-	case ItemType::IronOre: { return "../Resources/textures/items/iron_ore.tga"; }
-	case ItemType::IronBar: { return "../Resources/textures/items/iron_bar.tga"; }
-	case ItemType::SilverVein: { return "../Resources/textures/items/question_mark.tga"; }
-	case ItemType::SilverOre: { return "../Resources/textures/items/silver_ore.tga"; }
-	case ItemType::SilverBar: { return "../Resources/textures/items/silver_bar.tga"; }
-	case ItemType::GoldVein: { return "../Resources/textures/items/question_mark.tga"; }
-	case ItemType::GoldOre: { return "../Resources/textures/items/gold_ore.tga"; }
-	case ItemType::GoldBar: { return "../Resources/textures/items/gold_bar.tga"; }
+	case ItemType::CopperVein: { return "Resources/textures/items/question_mark.tga"; }
+	case ItemType::CopperOre: { return "Resources/textures/items/copper_ore.tga"; }
+	case ItemType::CopperBar: { return "Resources/textures/items/copper_bar.tga"; }
+	case ItemType::IronVein: { return "Resources/textures/items/question_mark.tga"; }
+	case ItemType::IronOre: { return "Resources/textures/items/iron_ore.tga"; }
+	case ItemType::IronBar: { return "Resources/textures/items/iron_bar.tga"; }
+	case ItemType::SilverVein: { return "Resources/textures/items/question_mark.tga"; }
+	case ItemType::SilverOre: { return "Resources/textures/items/silver_ore.tga"; }
+	case ItemType::SilverBar: { return "Resources/textures/items/silver_bar.tga"; }
+	case ItemType::GoldVein: { return "Resources/textures/items/question_mark.tga"; }
+	case ItemType::GoldOre: { return "Resources/textures/items/gold_ore.tga"; }
+	case ItemType::GoldBar: { return "Resources/textures/items/gold_bar.tga"; }
 	// World blocks
-	case ItemType::BlockGrass: { return "../Resources/textures/items/block_grass.tga"; }
-	case ItemType::BlockDirt: { return "../Resources/textures/items/block_dirt.tga"; }
-	case ItemType::BlockStone: { return "../Resources/textures/items/block_stone.tga"; }
-	case ItemType::BlockWood: { return "../Resources/textures/items/block_wood.tga"; }
-	case ItemType::BlockLeaf: { return "../Resources/textures/items/block_leaf.tga"; }
-	case ItemType::BlockSand: { return "../Resources/textures/items/block_sand.tga"; }
-	case ItemType::BlockCactus: { return "../Resources/textures/items/block_cactus.tga"; }
-	case ItemType::BlockRock: { return "../Resources/textures/items/block_rock.tga"; }
-	case ItemType::BlockSnow: { return "../Resources/textures/items/block_snow.tga"; }
+	case ItemType::BlockGrass: { return "Resources/textures/items/block_grass.tga"; }
+	case ItemType::BlockDirt: { return "Resources/textures/items/block_dirt.tga"; }
+	case ItemType::BlockStone: { return "Resources/textures/items/block_stone.tga"; }
+	case ItemType::BlockWood: { return "Resources/textures/items/block_wood.tga"; }
+	case ItemType::BlockLeaf: { return "Resources/textures/items/block_leaf.tga"; }
+	case ItemType::BlockSand: { return "Resources/textures/items/block_sand.tga"; }
+	case ItemType::BlockCactus: { return "Resources/textures/items/block_cactus.tga"; }
+	case ItemType::BlockRock: { return "Resources/textures/items/block_rock.tga"; }
+	case ItemType::BlockSnow: { return "Resources/textures/items/block_snow.tga"; }
 	case ItemType::NUM_ITEMS: throw std::logic_error("Invalid ItemType!");
 	default: throw std::logic_error("Invalid ItemType!");
 	}

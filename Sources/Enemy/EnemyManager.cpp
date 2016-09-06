@@ -180,7 +180,7 @@ void EnemyManager::CreateEnemyCamp(glm::vec3 campPosition)
 	pEnemy4->SetRandomTargetMode(false);
 	pEnemy4->SetTargetForwardToLookAtPoint(campPosition);
 
-	Item* pCampFire = m_pItemManager->CreateItem(campPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 45.0f, 0.0f), "../Resources/gamedata/items/CampFire/CampFire.item", ItemType::CampFire, "Camp Fire", false, false, 0.08f);
+	Item* pCampFire = m_pItemManager->CreateItem(campPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 45.0f, 0.0f), "Resources/gamedata/items/CampFire/CampFire.item", ItemType::CampFire, "Camp Fire", false, false, 0.08f);
 	assert(pCampFire != nullptr);
 }
 

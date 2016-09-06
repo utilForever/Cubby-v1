@@ -267,15 +267,15 @@ void Chunk::Setup()
 
 						if (biome == Biome::GrassLand)
 						{
-							m_pChunkManager->ImportQubicleBinary("../../Resources/terrain/plains/smalltree.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/plains/smalltree.qb", treePos, QubicleImportDirection::Normal);
 						}
 						else if (biome == Biome::Desert)
 						{
-							m_pChunkManager->ImportQubicleBinary("../../Resources/terrain/desert/cactus1.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/desert/cactus1.qb", treePos, QubicleImportDirection::Normal);
 						}
 						else if (biome == Biome::AshLand)
 						{
-							m_pChunkManager->ImportQubicleBinary("../../Resources/terrain/ashlands/ashtree1.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/ashlands/ashtree1.qb", treePos, QubicleImportDirection::Normal);
 						}
 					}
 				}

@@ -165,10 +165,10 @@ void SelectCharacter::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "../Resources/textures/gui/" + themeName + "/common/popup_background.tga";
+	std::string iconName = "Resources/textures/gui/" + themeName + "/common/popup_background.tga";
 	m_pPopupBackgroundIcon->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
 	m_pTooltipBackground->SetIcon(iconName);
 
 	m_pFrontendManager->SetButtonIcons(m_pPopupConfirmButton, ButtonSize::Size110x47);

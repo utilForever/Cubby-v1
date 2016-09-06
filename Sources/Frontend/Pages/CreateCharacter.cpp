@@ -496,16 +496,16 @@ void CreateCharacter::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
+	std::string iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
 	m_pTooltipBackground->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_title_icon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_title_icon.tga";
 	m_pPresetTitleBarIcon->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
 	m_pPresetTitleBarBackgroundIcon->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_window_background.tga";
 	m_pPresetWindowBackgroundIcon->SetIcon(iconName);
 
 	m_pPresetsWindow->SetBackgroundIcon(m_pPresetWindowBackgroundIcon);
@@ -515,47 +515,47 @@ void CreateCharacter::SkinGUI()
 	m_pPresetsWindow->SetDimensions(location.x, location.y, m_presetsWindowWidth, m_presetsWindowHeight);
 	m_pPresetsWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_default.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_default.tga";
 	m_pPresetButtonBorderDefault->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_hover.tga";
 	m_pPresetButtonBorderHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_pressed.tga";
 	m_pPresetButtonBorderPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_disabled.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/preset_button_disabled.tga";
 	m_pPresetButtonBorderDisabled->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_default.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_default.tga";
 	m_pCustomButtonBorderDefault->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_hover.tga";
 	m_pCustomButtonBorderHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_pressed.tga";
 	m_pCustomButtonBorderPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_disabled.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/custom_button_disabled.tga";
 	m_pCustomButtonBorderDisabled->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/delete_default.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/delete_default.tga";
 	m_pDeleteCustomButtonBorderDefault->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/delete_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/delete_hover.tga";
 	m_pDeleteCustomButtonBorderHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/delete_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/delete_pressed.tga";
 	m_pDeleteCustomButtonBorderPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/delete_disabled.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/delete_disabled.tga";
 	m_pDeleteCustomButtonBorderDisabled->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_default.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_default.tga";
 	m_pAddNewButtonBorderDefault->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_hover.tga";
 	m_pAddNewButtonBorderHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_pressed.tga";
 	m_pAddNewButtonBorderPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_disabled.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/add_new_button_disabled.tga";
 	m_pAddNewButtonBorderDisabled->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/customize_title_icon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/customize_title_icon.tga";
 	m_pCustomizeTitleBarIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
 	m_pCustomizeTitleBarBackgroundIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/customize_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/customize_window_background.tga";
 	m_pCustomizeWindowBackgroundIcon->SetIcon(iconName);
 
 	m_pCustomizeWindow->SetBackgroundIcon(m_pCustomizeWindowBackgroundIcon);
@@ -565,11 +565,11 @@ void CreateCharacter::SkinGUI()
 	m_pCustomizeWindow->SetDimensions(location.x, location.y, m_customizeWindowWidth, m_customizeWindowHeight);
 	m_pCustomizeWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/scale_title_icon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/scale_title_icon.tga";
 	m_pScaleTitleBarIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
 	m_pScaleTitleBarBackgroundIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/scale_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/scale_window_background.tga";
 	m_pScaleWindowBackgroundIcon->SetIcon(iconName);
 
 	m_pScaleWindow->SetBackgroundIcon(m_pScaleWindowBackgroundIcon);
@@ -579,11 +579,11 @@ void CreateCharacter::SkinGUI()
 	m_pScaleWindow->SetDimensions(location.x, location.y, m_scaleWindowWidth, m_scaleWindowHeight);
 	m_pScaleWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/scale_title_icon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/scale_title_icon.tga";
 	m_pDefaultsTitleBarIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/titlebar_background.tga";
 	m_pDefaultsTitleBarBackgroundIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/defaults_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/defaults_window_background.tga";
 	m_pDefaultsWindowBackgroundIcon->SetIcon(iconName);
 
 	m_pDefaultsWindow->SetBackgroundIcon(m_pDefaultsWindowBackgroundIcon);
@@ -593,7 +593,7 @@ void CreateCharacter::SkinGUI()
 	m_pDefaultsWindow->SetDimensions(location.x, location.y, m_defaultsWindowWidth, m_defaultsWindowHeight);
 	m_pDefaultsWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/CreateCharacter/save_icon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/CreateCharacter/save_icon.tga";
 	m_pSaveDefaultsButton->AddIcon(m_pRenderer, iconName.c_str(), 48, 48, 34, 34, 7, 7, 3.0f);
 
 	m_pCreateCustomPresetButton->SetDefaultIcon(m_pAddNewButtonBorderDefault);
@@ -673,7 +673,7 @@ void CreateCharacter::Load()
 
 	LoadSelectionCharacters();
 
-	Item* pCampFire = CubbyGame::GetInstance()->GetItemManager()->CreateItem(glm::vec3(25.0f, 0.5f, 3.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 45.0f, 0.0f), "../Resources/gamedata/items/CampFire/CampFire.item", ItemType::CampFire, "CreateScreen Camp Fire", true, false, 0.06f);
+	Item* pCampFire = CubbyGame::GetInstance()->GetItemManager()->CreateItem(glm::vec3(25.0f, 0.5f, 3.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 45.0f, 0.0f), "Resources/gamedata/items/CampFire/CampFire.item", ItemType::CampFire, "CreateScreen Camp Fire", true, false, 0.06f);
 	if (pCampFire != nullptr)
 	{
 		pCampFire->SetCreateDyingLights(false);
@@ -868,7 +868,7 @@ void CreateCharacter::LoadSelectionCharacters()
 	pCharacter5->LoadWeapon(false, GetEquipmentFileNameForType(EquipmentType::MageStaff));
 	pCharacter5->SetNPCCombatType(NPCCombatType::Staff, false);
 
-	pCharacter6->LoadWeapon(false, "../Resources/gamedata/weapons/FloatingSkull/FloatingSkull.weapon");
+	pCharacter6->LoadWeapon(false, "Resources/gamedata/weapons/FloatingSkull/FloatingSkull.weapon");
 	pCharacter6->SetNPCCombatType(NPCCombatType::Staff, false);
 
 	// Hack to make sure NPCs return to exact spots - radius distance checking is smaller
@@ -1015,12 +1015,12 @@ void CreateCharacter::CreatePresetButtons(PresetSection presetSection, bool show
 	}
 
 	char presetDirectory[128];
-	sprintf(presetDirectory, "../Resources/gamedata/models/createcharacter/presets/%s/*.*", presetFolderName.c_str());
+	sprintf(presetDirectory, "Resources/gamedata/models/createcharacter/presets/%s/*.*", presetFolderName.c_str());
 	std::vector<std::string> listOfPresetFiles;
 	listOfPresetFiles = ListFilesInDirectory(presetDirectory);
 
 	char customDirectory[128];
-	sprintf(customDirectory, "../Resources/gamedata/models/createcharacter/presets/%s/custom/*.*", presetFolderName.c_str());
+	sprintf(customDirectory, "Resources/gamedata/models/createcharacter/presets/%s/custom/*.*", presetFolderName.c_str());
 	std::vector<std::string> listOfCustomFiles;
 	listOfCustomFiles = ListFilesInDirectory(customDirectory);
 
@@ -1077,11 +1077,11 @@ void CreateCharacter::CreatePresetButtons(PresetSection presetSection, bool show
 					char presetTexture[128];
 					if (creationCounter == 0)
 					{
-						sprintf(presetTexture, "../Resources/gamedata/models/createcharacter/presets/%s/%s.tga", presetFolderName.c_str(), fileWithoutExtension.c_str());
+						sprintf(presetTexture, "Resources/gamedata/models/createcharacter/presets/%s/%s.tga", presetFolderName.c_str(), fileWithoutExtension.c_str());
 					}
 					else if (creationCounter == 1)
 					{
-						sprintf(presetTexture, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.tga", presetFolderName.c_str(), fileWithoutExtension.c_str());
+						sprintf(presetTexture, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.tga", presetFolderName.c_str(), fileWithoutExtension.c_str());
 					}
 					pNewButton->AddIcon(m_pRenderer, presetTexture, 64, 64, m_presetButtonWidth - 16, m_presetButtonHeight - 16, 8, 8, 3.0f);
 
@@ -1290,7 +1290,7 @@ void CreateCharacter::UpdateCustomCounter(int incrementValue)
 
 	// Get the name for the new file
 	char counterFile[128];
-	sprintf(counterFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/customcounter.txt", presetFolderName.c_str());
+	sprintf(counterFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/customcounter.txt", presetFolderName.c_str());
 	
 	std::ifstream file;
 	// Open the counter file
@@ -1313,7 +1313,7 @@ void CreateCharacter::UpdateCustomCounter(int incrementValue)
 	}
 
 	char newCustomFile[128];
-	sprintf(newCustomFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/Custom%s%03i", presetFolderName.c_str(), presetName.c_str(), counter + incrementValue + 1);
+	sprintf(newCustomFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/Custom%s%03i", presetFolderName.c_str(), presetName.c_str(), counter + incrementValue + 1);
 	m_newModelNameForVoxelEditor = newCustomFile;
 
 	// TODO: Voxel editor GUI
@@ -1340,7 +1340,7 @@ void CreateCharacter::UpdateEyeTexturePulldown() const
 	m_pCustomizeWindow->RemoveComponent(m_pEyesTexturesPulldown);
 
 	char importDirectory[128];
-	sprintf(importDirectory, "../Resources/gamedata/models/Human/faces/*.*");
+	sprintf(importDirectory, "Resources/gamedata/models/Human/faces/*.*");
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
@@ -1372,7 +1372,7 @@ void CreateCharacter::UpdatePresetsPulldown() const
 	m_pCustomizeWindow->RemoveComponent(m_pPresetsPulldown);
 
 	char importDirectory[128];
-	sprintf(importDirectory, "../Resources/gamedata/models/createcharacter/presets/full_presets/*.*");
+	sprintf(importDirectory, "Resources/gamedata/models/createcharacter/presets/full_presets/*.*");
 
 	std::vector<std::string> listFiles;
 
@@ -1862,7 +1862,7 @@ void CreateCharacter::EyesTexturesPulldownChanged() const
 		MenuItem* pEyesTexture = m_pEyesTexturesPulldown->GetSelectedMenuItem();
 		if (pEyesTexture != nullptr)
 		{
-			m_pCustomCreationNPC->GetVoxelCharacter()->ModifyEyesTextures("../Resources/gamedata/models", "Human", pEyesTexture->GetLabel().GetText().c_str());
+			m_pCustomCreationNPC->GetVoxelCharacter()->ModifyEyesTextures("Resources/gamedata/models", "Human", pEyesTexture->GetLabel().GetText().c_str());
 		}
 	}
 }
@@ -1887,12 +1887,12 @@ void CreateCharacter::PresetsPulldownChanged()
 			char facesFileName[128];
 			char characterFileName[128];
 
-			sprintf(characterBaseFolder, "../Resources/gamedata/models");
-			sprintf(ms3dFileName, "../Resources/gamedata/models/Human/Human.ms3d");
-			sprintf(animListFileName, "../Resources/gamedata/models/Human/Human.animlist");
-			sprintf(facesFileName, "../Resources/gamedata/models/Human/%s.faces", pPreset->GetLabel().GetText().c_str());
-			sprintf(characterFileName, "../Resources/gamedata/models/createcharacter/presets/full_presets/%s.character", pPreset->GetLabel().GetText().c_str());
-			sprintf(presetModelFileName, "../Resources/gamedata/models/createcharacter/presets/full_presets/%s.qb", pPreset->GetLabel().GetText().c_str());
+			sprintf(characterBaseFolder, "Resources/gamedata/models");
+			sprintf(ms3dFileName, "Resources/gamedata/models/Human/Human.ms3d");
+			sprintf(animListFileName, "Resources/gamedata/models/Human/Human.animlist");
+			sprintf(facesFileName, "Resources/gamedata/models/Human/%s.faces", pPreset->GetLabel().GetText().c_str());
+			sprintf(characterFileName, "Resources/gamedata/models/createcharacter/presets/full_presets/%s.character", pPreset->GetLabel().GetText().c_str());
+			sprintf(presetModelFileName, "Resources/gamedata/models/createcharacter/presets/full_presets/%s.qb", pPreset->GetLabel().GetText().c_str());
 
 			m_pCustomCreationNPC->GetVoxelCharacter()->UnloadCharacter();
 			m_pCustomCreationNPC->GetVoxelCharacter()->Reset();
@@ -2048,11 +2048,11 @@ void CreateCharacter::PresetButtonPressed(PresetButtonData* presetButtonData)
 	char presetFile[128];
 	if (presetButtonData->m_customPreset == false)
 	{
-		sprintf(presetFile, "../Resources/gamedata/models/createcharacter/presets/%s/%s.qb", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(presetFile, "Resources/gamedata/models/createcharacter/presets/%s/%s.qb", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 	else
 	{
-		sprintf(presetFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.qb", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(presetFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.qb", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 	
 	QubicleBinary* pNewFile = new QubicleBinary(m_pRenderer);
@@ -2063,11 +2063,11 @@ void CreateCharacter::PresetButtonPressed(PresetButtonData* presetButtonData)
 	char defaultFile[128];
 	if (presetButtonData->m_customPreset == false)
 	{
-		sprintf(defaultFile, "../Resources/gamedata/models/createcharacter/presets/%s/%s.default", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(defaultFile, "Resources/gamedata/models/createcharacter/presets/%s/%s.default", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 	else
 	{
-		sprintf(defaultFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.default", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(defaultFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.default", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 
 	LoadDefaultSettings(defaultFile, presetButtonData->m_presetSection);
@@ -2076,17 +2076,17 @@ void CreateCharacter::PresetButtonPressed(PresetButtonData* presetButtonData)
 	char modelFile[128];
 	if (presetButtonData->m_customPreset == false)
 	{
-		sprintf(modelFile, "../Resources/gamedata/models/createcharacter/presets/%s/%s", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(modelFile, "Resources/gamedata/models/createcharacter/presets/%s/%s", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 	else
 	{
-		sprintf(modelFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
+		sprintf(modelFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s", presetFolderName.c_str(), presetButtonData->m_presetFileName.c_str());
 	}
 	m_modelNameForVoxelEditor = modelFile;
 
 	// Get the name for the new file
 	char counterFile[128];
-	sprintf(counterFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/customcounter.txt", presetFolderName.c_str());
+	sprintf(counterFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/customcounter.txt", presetFolderName.c_str());
 	
 	std::ifstream file;
 	// Open the counter file
@@ -2100,7 +2100,7 @@ void CreateCharacter::PresetButtonPressed(PresetButtonData* presetButtonData)
 	}
 
 	char newCustomFile[128];
-	sprintf(newCustomFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/Custom%s%03i", presetFolderName.c_str(), presetName.c_str(), counter + 1);
+	sprintf(newCustomFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/Custom%s%03i", presetFolderName.c_str(), presetName.c_str(), counter + 1);
 	m_newModelNameForVoxelEditor = newCustomFile;
 
 	if (presetButtonData->m_customPreset)
@@ -2140,9 +2140,9 @@ void CreateCharacter::DeleteButtonPressed(DeleteButtonData* deleteButtonData)
 	char modelFile[128];
 	char thumbnailFile[128];
 	char defaultFile[128];
-	sprintf(modelFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.qb", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
-	sprintf(thumbnailFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.tga", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
-	sprintf(defaultFile, "../Resources/gamedata/models/createcharacter/presets/%s/custom/%s.default", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
+	sprintf(modelFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.qb", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
+	sprintf(thumbnailFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.tga", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
+	sprintf(defaultFile, "Resources/gamedata/models/createcharacter/presets/%s/custom/%s.default", presetFolderName.c_str(), deleteButtonData->m_presetFileName.c_str());
 
 	// Remove the custom qubicle file
 	remove(modelFile);

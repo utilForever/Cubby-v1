@@ -34,12 +34,12 @@ void Skybox::SetSkybox1(std::string name)
 {
 	m_skyBox1Name = name;
 
-	std::string front = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/front.tga";
-	std::string back = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/back.tga";
-	std::string top = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/top.tga";
-	std::string bottom = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/bottom.tga";
-	std::string left = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/left.tga";
-	std::string right = "../Resources/Textures/Skyboxes/" + m_skyBox1Name + "/right.tga";
+	std::string front = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/front.tga";
+	std::string back = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/back.tga";
+	std::string top = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/top.tga";
+	std::string bottom = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/bottom.tga";
+	std::string left = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/left.tga";
+	std::string right = "Resources/Textures/Skyboxes/" + m_skyBox1Name + "/right.tga";
 
 	int textureWidth, textureHeight;
 	m_pRenderer->LoadCubeTexture(&textureWidth, &textureHeight, front.c_str(), back.c_str(), top.c_str(), bottom.c_str(), left.c_str(), right.c_str(), &m_cubeTextureID1);
@@ -49,12 +49,12 @@ void Skybox::SetSkybox2(std::string name)
 {
 	m_skyBox2Name = name;
 
-	std::string front = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/front.tga";
-	std::string back = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/back.tga";
-	std::string top = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/top.tga";
-	std::string bottom = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/bottom.tga";
-	std::string left = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/left.tga";
-	std::string right = "../Resources/Textures/Skyboxes/" + m_skyBox2Name + "/right.tga";
+	std::string front = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/front.tga";
+	std::string back = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/back.tga";
+	std::string top = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/top.tga";
+	std::string bottom = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/bottom.tga";
+	std::string left = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/left.tga";
+	std::string right = "Resources/Textures/Skyboxes/" + m_skyBox2Name + "/right.tga";
 
 	int textureWidth, textureHeight;
 	m_pRenderer->LoadCubeTexture(&textureWidth, &textureHeight, front.c_str(), back.c_str(), top.c_str(), bottom.c_str(), left.c_str(), right.c_str(), &m_cubeTextureID2);

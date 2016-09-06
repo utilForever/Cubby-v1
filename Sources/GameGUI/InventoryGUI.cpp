@@ -250,11 +250,11 @@ void InventoryGUI::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "../Resources/textures/gui/" + themeName + "/InventoryGUI/inventory_title_icon.tga";
+	std::string iconName = "Resources/textures/gui/" + themeName + "/InventoryGUI/inventory_title_icon.tga";
 	m_pTitleBarIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/InventoryGUI/inventory_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/InventoryGUI/inventory_window_background.tga";
 	m_pInventoryWindowBackgroundIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/InventoryGUI/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/InventoryGUI/titlebar_background.tga";
 	m_pTitleBarBackgroundIcon->SetIcon(iconName);
 
 	m_pInventoryWindow->SetBackgroundIcon(m_pInventoryWindowBackgroundIcon);
@@ -264,12 +264,12 @@ void InventoryGUI::SkinGUI()
 	m_pInventoryWindow->SetDimensions(location.x, location.y, m_inventoryWindowWidth, m_inventoryWindowHeight);
 	m_pInventoryWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/InventoryGUI/delete_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/InventoryGUI/delete_background.tga";
 	m_pDestroyIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/InventoryGUI/drop_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/InventoryGUI/drop_background.tga";
 	m_pDropIcon->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/common/popup_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/popup_background.tga";
 	m_pPopupBackgroundIcon->SetIcon(iconName);
 
 	m_pFrontendManager->SetButtonIcons(m_pPopupConfirmButton, ButtonSize::Size110x47);
@@ -280,25 +280,25 @@ void InventoryGUI::SkinGUI()
 	m_pCloseExitButton->SetSelectedIcon(m_pFrontendManager->GetCloseExitButtonIconPressed());
 	m_pCloseExitButton->SetDisabledIcon(m_pFrontendManager->GetCloseExitButtonIcon());
 
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_common.tga";
 	m_pInventoryBackgroundSlotBorderCommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_uncommon.tga";
 	m_pInventoryBackgroundSlotBorderUncommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_magical.tga";
 	m_pInventoryBackgroundSlotBorderMagical->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_rare.tga";
 	m_pInventoryBackgroundSlotBorderRare->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/items/border_epic.tga";
 	m_pInventoryBackgroundSlotBorderEpic->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_common.tga";
 	m_pTooltipBackgroundCommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_uncommon.tga";
 	m_pTooltipBackgroundUncommon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_magical.tga";
 	m_pTooltipBackgroundMagical->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_rare.tga";
 	m_pTooltipBackgroundRare->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/common/Tooltips/tooltip_background_epic.tga";
 	m_pTooltipBackgroundEpic->SetIcon(iconName);
 
 	m_pPopupConfirmButton->SetNormalLabelColor(m_pFrontendManager->GetNormalFontColor());
@@ -529,31 +529,31 @@ void InventoryGUI::CreateInventoryItems()
 				{
 				case ItemQuality::Common:
 				{
-					std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
+					std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_common.tga";
 					pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 					break;
 				}
 				case ItemQuality::Uncommon:
 				{
-					std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
+					std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_uncommon.tga";
 					pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 					break;
 				}
 				case ItemQuality::Magical:
 				{
-					std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
+					std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_magical.tga";
 					pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 					break;
 				}
 				case ItemQuality::Rare:
 				{
-					std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
+					std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_rare.tga";
 					pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 					break;
 				}
 				case ItemQuality::Epic:
 				{
-					std::string itemBackgroundIcon = "../Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
+					std::string itemBackgroundIcon = "Resources/textures/gui/" + themeName + "/common/items/item_background_epic.tga";
 					pNewSlotItem->AddIcon(m_pRenderer, itemBackgroundIcon.c_str(), 64, 64, 64, 64, 0, 0, 1.0f);
 					break;
 				}
@@ -1003,7 +1003,7 @@ void InventoryGUI::InventoryItemPressed(InventorySlotItem* pInventoryItem)
 		m_pPressedInventoryItem->m_pInventoryIcon->SetDepth(5.0f);
 		//m_pPressedInventoryItem->m_pInventoryIcon->SetLocation(m_pressedX - 4, m_pressedY + 4);
 		std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-		std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+		std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 		m_pPressedInventoryItem->m_pInventoryIcon->AddIcon(m_pRenderer, dropShadowIcon.c_str(), 64, 64, 64, 64, 4, -4, 0.5f);
 	}
 
@@ -1050,7 +1050,7 @@ void InventoryGUI::InventoryItemReleased(InventorySlotItem* pInventoryItem)
 		{
 			pInventoryItem->m_dropshadowAdded = false;
 			std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-			std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+			std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 			pInventoryItem->m_pInventoryIcon->RemoveIcon(dropShadowIcon.c_str());
 		}
 
@@ -1475,7 +1475,7 @@ void InventoryGUI::InventoryItemReleased(InventorySlotItem* pInventoryItem)
 		{
 			pInventoryItem->m_dropshadowAdded = false;
 			std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-			std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+			std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 			pInventoryItem->m_pInventoryIcon->RemoveIcon(dropShadowIcon.c_str());
 		}
 
@@ -1490,7 +1490,7 @@ void InventoryGUI::InventoryItemReleased(InventorySlotItem* pInventoryItem)
 		{
 			pInventoryItem->m_dropshadowAdded = false;
 			std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
-			std::string dropShadowIcon = "../Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
+			std::string dropShadowIcon = "Resources/textures/gui/" + themeName + "/common/items/drop_shadow.tga";
 			pInventoryItem->m_pInventoryIcon->RemoveIcon(dropShadowIcon.c_str());
 		}
 	}

@@ -224,11 +224,11 @@ void QuestGUI::SkinGUI()
 {
 	std::string themeName = CubbyGame::GetInstance()->GetModsManager()->GetHUDTextureTheme();
 
-	std::string iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/quest_title_icon.tga";
+	std::string iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/quest_title_icon.tga";
 	m_pTitleBarIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/quest_window_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/quest_window_background.tga";
 	m_pQuestLogWindowBackgroundIcon->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/titlebar_background.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/titlebar_background.tga";
 	m_pTitleBarBackgroundIcon->SetIcon(iconName);
 
 	m_pQuestLogWindow->SetBackgroundIcon(m_pQuestLogWindowBackgroundIcon);
@@ -238,24 +238,24 @@ void QuestGUI::SkinGUI()
 	m_pQuestLogWindow->SetDimensions(location.x, location.y, m_questWindowWidth, m_questWindowHeight);
 	m_pQuestLogWindow->SetTitleBarDimensions(0, 0, m_titlebarWidth, m_titlebarHeight);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right.tga";
 	m_pTabOpenCloseButtonIconRight->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right_hover.tga";
 	m_pTabOpenCloseButtonIconRightHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_right_pressed.tga";
 	m_pTabOpenCloseButtonIconRightPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left.tga";
 	m_pTabOpenCloseButtonIconLeft->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left_hover.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left_hover.tga";
 	m_pTabOpenCloseButtonIconLeftHover->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left_pressed.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/tab_openclose_left_pressed.tga";
 	m_pTabOpenCloseButtonIconLeftPressed->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/quests_tab_right.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/quests_tab_right.tga";
 	m_pQuestsTabIconRight->SetIcon(iconName);
-	iconName = "../Resources/textures/gui/" + themeName + "/QuestGUI/quests_tab_left.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/QuestGUI/quests_tab_left.tga";
 	m_pQuestsTabIconLeft->SetIcon(iconName);
 
-	iconName = "../Resources/textures/gui/" + themeName + "/Common/alpha_button.tga";
+	iconName = "Resources/textures/gui/" + themeName + "/Common/alpha_button.tga";
 	m_pAlphaButton->SetIcon(iconName);
 
 	m_pFrontendManager->SetScrollbarIcons(m_pQuestListScrollbar);
