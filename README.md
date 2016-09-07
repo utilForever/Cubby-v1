@@ -79,7 +79,9 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
 
 ## Screenshots
 
-TBA
+<img src="https://github.com/MineScroll/Cubby/blob/master/Screenshots/Normal.PNG" align="right" width="300" height="300" />
+
+<img src="https://github.com/MineScroll/Cubby/blob/master/Screenshots/LootingTreasure.PNG" align="right" width="300" height="300" />
 
 ## Dependencies
 
