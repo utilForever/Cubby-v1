@@ -199,7 +199,7 @@ void Camera::RotateAroundPoint(const float xAmount, const float yAmount, const f
 	if (useFakePosition)
 	{
 		// Get the view position, based on the facing and the zoom amount
-		glm::vec3 view = m_fakePosition + (m_facing*m_zoomAmount);
+		glm::vec3 view = m_fakePosition + (m_facing * m_zoomAmount);
 
 		// Translate the position to the origin, relative to the view position (that is the facing zoomed)
 		m_fakePosition -= view;  

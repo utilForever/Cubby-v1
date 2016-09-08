@@ -44,7 +44,8 @@ void CubbyGame::BeginShaderRender() const
 		pShader = m_pRenderer->GetShader(m_defaultShader);
 	}
 
-	glUniform1iARB(glGetUniformLocationARB(pShader->GetProgramObject(), "enableFog"), m_pCubbySettings->m_fogRendering);
+	bool fogEnabled = (m_pFrontendManager->GetFrontendScreen() == FrontendScreen::MainMenu) ? false : m_pCubbySettings->m_fogRendering;
+	glUniform1iARB(glGetUniformLocationARB(pShader->GetProgramObject(), "enableFog"), fogEnabled);
 	float fogEnd = m_pChunkManager->GetLoaderRadius() - Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE;
 	float fogStart = fogEnd - Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
 	GLfloat fogColor[4] = { 1.0f, 1.0f, 1.0f, 0.0f };
@@ -95,6 +96,9 @@ void CubbyGame::Render()
 	// Set the default projection mode
 	m_pRenderer->SetProjectionMode(ProjectionMode::PERSPECTIVE, m_defaultViewport);
 
+	// Enable vector normalization, for scaling and lighting
+	m_pRenderer->EnableVectorNormalize();
+
 	// Set back culling as default
 	m_pRenderer->SetCullMode(CullMode::BACK);
 
@@ -134,11 +138,13 @@ void CubbyGame::Render()
 	m_pRenderer->SetClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	m_pRenderer->ClearScene(true, true, true);
 
-	// Render the lights (DEBUG)
+	// Render the lights (Debug)
 	m_pRenderer->PushMatrix();
+
 	m_pRenderer->SetCullMode(CullMode::BACK);
 	m_pRenderer->SetRenderMode(RenderMode::SOLID);
 	m_pRenderer->RenderLight(m_defaultLight);
+
 	m_pRenderer->PopMatrix();
 
 	// Render the skybox
@@ -287,6 +293,7 @@ void CubbyGame::Render()
 	{
 		m_pRenderer->StopRenderingToFrameBuffer(m_SSAOFrameBuffer);
 	}
+
 	m_pRenderer->PopMatrix();
 
 	// Render the deferred lighting pass

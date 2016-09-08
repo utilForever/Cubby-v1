@@ -782,6 +782,17 @@ void Renderer::DisableMultiSampling()
 	glDisable(GL_MULTISAMPLE_ARB);
 }
 
+// Vector normalize
+void Renderer::EnableVectorNormalize()
+{
+	glEnable(GL_NORMALIZE);
+}
+
+void Renderer::DisableVectorNormalize()
+{
+	glDisable(GL_NORMALIZE);
+}
+
 // Depth testing
 void Renderer::EnableDepthTest(DepthTest lTestFunction)
 {

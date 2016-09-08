@@ -73,7 +73,7 @@ void Frustum::SetCamera(const glm::vec3& pos, const glm::vec3& target, const glm
 	m_planes[static_cast<int>(FrustumPlane::BOTTOM)]	= Plane3D(m_nearBottomLeft, m_nearBottomRight, m_farBottomRight);
 	m_planes[static_cast<int>(FrustumPlane::LEFT)]		= Plane3D(m_nearTopLeft, m_nearBottomLeft, m_farBottomLeft);
 	m_planes[static_cast<int>(FrustumPlane::RIGHT)]		= Plane3D(m_nearBottomRight, m_nearTopRight, m_farBottomRight);
-	m_planes[static_cast<int>(FrustumPlane::NEAR)]		= Plane3D(m_nearTopLeft, m_nearTopRight, m_nearBottomLeft);
+	m_planes[static_cast<int>(FrustumPlane::NEAR)]		= Plane3D(m_nearTopLeft, m_nearTopRight, m_nearBottomRight);
 	m_planes[static_cast<int>(FrustumPlane::FAR)]		= Plane3D(m_farTopRight, m_farTopLeft, m_farBottomLeft);
 }
 

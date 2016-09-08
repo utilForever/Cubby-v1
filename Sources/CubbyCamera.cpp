@@ -214,14 +214,14 @@ void CubbyGame::UpdateCameraNPCDialog(float dt) const
 void CubbyGame::UpdateCameraEnemyTarget(float dt)
 {
 	// Target camera position
-	glm::vec3 TargetCameraPosition = m_pPlayer->GetCenter();
-	TargetCameraPosition += m_pPlayer->GetRightVector() * (-2.0f * m_targetCameraXAxisAmount);
-	TargetCameraPosition += m_pPlayer->GetForwardVector() * (-1.0f * m_targetCameraForwardRatio);
-	TargetCameraPosition += m_pPlayer->GetUpVector() * (0.75f * m_targetCameraYRatio);
+	glm::vec3 targetCameraPosition = m_pPlayer->GetCenter();
+	targetCameraPosition += m_pPlayer->GetRightVector() * (-2.0f * m_targetCameraXAxisAmount);
+	targetCameraPosition += m_pPlayer->GetForwardVector() * (-1.0f * m_targetCameraForwardRatio);
+	targetCameraPosition += m_pPlayer->GetUpVector() * (0.75f * m_targetCameraYRatio);
 
 	// Target camera view
 	glm::vec3 toTarget = m_pPlayer->GetTargetEnemy()->GetProjectileHitboxCenter() - m_pPlayer->GetCenter();
-	glm::vec3 TargetCameraView = m_pPlayer->GetCenter() + toTarget*0.65f;
+	glm::vec3 TargetCameraView = m_pPlayer->GetCenter() + toTarget * 0.65f;
 
 	float toTargetDistance = length(toTarget);
 	float ratio = (toTargetDistance - 5.0f) / 15.0f;
@@ -235,7 +235,7 @@ void CubbyGame::UpdateCameraEnemyTarget(float dt)
 	}
 
 	float upVectorRatioTarget;
-	if (toTarget.y > 2.0f && toTarget.y > toTargetDistance*0.25f)
+	if (toTarget.y > 2.0f && toTarget.y > toTargetDistance * 0.25f)
 	{
 		upVectorRatioTarget = -0.1f * ratio;
 	}
@@ -280,7 +280,7 @@ void CubbyGame::UpdateCameraEnemyTarget(float dt)
 		m_targetCameraXAxisAmount += (XAxisDiff * 3.0f) * dt;
 	}
 	
-	glm::vec3 targetPosition = TargetCameraPosition;
+	glm::vec3 targetPosition = targetCameraPosition;
 	glm::vec3 targetView = TargetCameraView;
 
 	glm::vec3 diffPos = targetPosition - m_pGameCamera->GetPosition();
