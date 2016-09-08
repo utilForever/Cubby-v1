@@ -104,3 +104,24 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
 * selene
 * simplex
 * tinythread
+
+## Version History
+
+**Ver 0.10 (Done)** 
+
+- Implement basic functioanlities based on Vox engine.
+
+**Ver 0.11 (Doing)**
+
+- Fix a log of bugs.
+  - [Issues #3](https://github.com/MineScroll/Cubby/issues/3)
+  - [Issues #4](https://github.com/MineScroll/Cubby/issues/4)
+  - [Issues #5](https://github.com/MineScroll/Cubby/issues/5)
+
+**Ver 0.12 (To-do)**
+
+- Refactoring source codes.
+  - [Issues #6](https://github.com/MineScroll/Cubby/issues/6)
+  - [Issues #7](https://github.com/MineScroll/Cubby/issues/7)
+  - [Issues #8](https://github.com/MineScroll/Cubby/issues/8)
+  - [Issues #9](https://github.com/MineScroll/Cubby/issues/9)
