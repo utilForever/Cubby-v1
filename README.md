@@ -46,6 +46,18 @@ Some parts of the Cubby gameplay logic are also incorporated into this source co
 * Character creation and player generation.
 * World customization and creation elements.
 
+## What's the difference between Cubby and Vox?
+
+In v1.00, All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MineScroll, we'll improvement and differentiate it.
+
+* Apply Modern C++ (C++11/14/17) features
+* (To-do) Multi play support (Currently, we are developing server-side engine using Go language).
+* (To-do) DirectX 11/12 and Vulkan support.
+* (To-do) World map generator support.
+* (To-do) Resource simulator support.
+* (To-do) Monster controller support.
+* and so on...
+
 ## Setup
 Setting up and compiling the project is a fairly simple process. Cmake can be used to build the project files for each environment and for different platforms, depending on what target platform you are developing on.
 
@@ -58,10 +70,6 @@ Visual Studio projects are included inside the ```\Projects``` sub-folder (Curre
 The Cubby executable (Cubby.exe) needs to be run from the root directory so that it has access from its running directory to the ```\Resources``` folder that contains all the game's content files. If you want to run the game's executable from within the Visual Studio projects (for debugging) then you will need to set the working directy in the 'debugging' options to ```'..\'``` since the Visual Studio projects files reside various in sub-directories above the root.
 
 ## Documentation
-
-TBA
-
-## Changelog
 
 TBA
 
