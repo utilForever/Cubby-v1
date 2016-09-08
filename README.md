@@ -48,10 +48,10 @@ Some parts of the Cubby gameplay logic are also incorporated into this source co
 
 ## What's the difference between Cubby and Vox?
 
-In v1.00, All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MineScroll, we'll improvement and differentiate it.
+In v1.00, All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MMORPG (called MineScroll), we'll improvement and differentiate Cubby game engine.
 
 * Apply Modern C++ (C++11/14/17) features
-* (To-do) Multi play support (Currently, we are developing server-side engine using Go language).
+* (To-do) Multi play support (Currently, we are developing server-side engine using Go language, called Latibulum).
 * (To-do) DirectX 11/12 and Vulkan support.
 * (To-do) World map generator support.
 * (To-do) Resource simulator support.
