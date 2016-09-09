@@ -88,8 +88,8 @@ void BlockParticle::CreateStartingParams()
 	m_lifeTime = m_lifeTime + ((GetRandomNumber(-1, 1, 2) * m_lifeTimeVariance) * m_lifeTime);
 	m_maxLifeTime = m_lifeTime;
 
-	m_velocity = m_velocity + glm::vec3(GetRandomNumber(-100, 100, 2)*0.01f*m_startVelocityVariance.x, GetRandomNumber(-100, 100, 2)*0.01f*m_startVelocityVariance.y, GetRandomNumber(-100, 100, 2)*0.01f*m_startVelocityVariance.z);
-	m_angularVelocity = m_angularVelocity + glm::vec3(GetRandomNumber(-100, 100, 2)*0.01f*m_startAngularVelocityVariance.x, GetRandomNumber(-100, 100, 2)*0.01f*m_startAngularVelocityVariance.y, GetRandomNumber(-100, 100, 2)*0.01f*m_startAngularVelocityVariance.z);
+	m_velocity = m_velocity + glm::vec3(GetRandomNumber(-100, 100, 2) * 0.01f * m_startVelocityVariance.x, GetRandomNumber(-100, 100, 2) * 0.01f * m_startVelocityVariance.y, GetRandomNumber(-100, 100, 2) * 0.01f * m_startVelocityVariance.z);
+	m_angularVelocity = m_angularVelocity + glm::vec3(GetRandomNumber(-100, 100, 2) * 0.01f * m_startAngularVelocityVariance.x, GetRandomNumber(-100, 100, 2) * 0.01f * m_startAngularVelocityVariance.y, GetRandomNumber(-100, 100, 2) * 0.01f * m_startAngularVelocityVariance.z);
 
 	if (m_isRandomStartRotation)
 	{
@@ -283,7 +283,8 @@ void BlockParticle::Update(float dt)
 			{
 				if (m_pParent->m_pParent != nullptr)
 				{
-					pointOrigin += m_pParent->m_pParent->m_position; // Add on parent's particle effect position
+					// Add on parent's particle effect position
+					pointOrigin += m_pParent->m_pParent->m_position;
 				}
 			}
 
@@ -292,9 +293,8 @@ void BlockParticle::Update(float dt)
 			if (length(toPoint) > 0.001f)
 			{
 				m_velocityTowardsPoint += m_accelerationTowardsPoint * dt;
-
 				glm::vec3 velocityToPoint = toPoint * m_velocityTowardsPoint;
-				m_pointVelocity += (velocityToPoint)* dt;
+				m_pointVelocity += velocityToPoint * dt;
 
 				// Tangential velocity
 				glm::vec3 xAxis = glm::vec3(m_velocity.y < 0.0f ? -1.0f : 1.0f, 0.0f, 0.0f);

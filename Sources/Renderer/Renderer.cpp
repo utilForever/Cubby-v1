@@ -197,13 +197,13 @@ bool Renderer::CreateViewport(int bottom, int left, int width, int height, float
 	float coordinateBottom = -1.0f;
 
 	memset(&(pViewport->orthographic), 0, sizeof(Matrix4));
-	pViewport->orthographic.GetMatrixElement(0) = 2.0f / (coordinateRight - coordinateLeft);
-	pViewport->orthographic.GetMatrixElement(5) = 2.0f / (coordinateTop - coordinateBottom);
-	pViewport->orthographic.GetMatrixElement(10) = -2.0f / (m_clipFar - m_clipNear);
-	pViewport->orthographic.GetMatrixElement(12) = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
-	pViewport->orthographic.GetMatrixElement(13) = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
-	pViewport->orthographic.GetMatrixElement(14) = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
-	pViewport->orthographic.GetMatrixElement(15) = 1.0f;
+	pViewport->orthographic.m_data[0] = 2.0f / (coordinateRight - coordinateLeft);
+	pViewport->orthographic.m_data[5] = 2.0f / (coordinateTop - coordinateBottom);
+	pViewport->orthographic.m_data[10] = -2.0f / (m_clipFar - m_clipNear);
+	pViewport->orthographic.m_data[12] = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
+	pViewport->orthographic.m_data[13] = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
+	pViewport->orthographic.m_data[14] = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
+	pViewport->orthographic.m_data[15] = 1.0f;
 
 	// Create the 2D projection matrix for the viewport
 	coordinateRight = static_cast<float>(m_windowWidth);
@@ -212,13 +212,13 @@ bool Renderer::CreateViewport(int bottom, int left, int width, int height, float
 	coordinateBottom = 0.0f;
 
 	memset(&(pViewport->projection2D), 0, sizeof(Matrix4));
-	pViewport->projection2D.GetMatrixElement(0) = 2.0f / (coordinateRight - coordinateLeft);
-	pViewport->projection2D.GetMatrixElement(5) = 2.0f / (coordinateTop - coordinateBottom);
-	pViewport->projection2D.GetMatrixElement(10) = -2.0f / (m_clipFar - m_clipNear);
-	pViewport->projection2D.GetMatrixElement(12) = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
-	pViewport->projection2D.GetMatrixElement(13) = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
-	pViewport->projection2D.GetMatrixElement(14) = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
-	pViewport->projection2D.GetMatrixElement(15) = 1.0f;
+	pViewport->projection2D.m_data[0] = 2.0f / (coordinateRight - coordinateLeft);
+	pViewport->projection2D.m_data[5] = 2.0f / (coordinateTop - coordinateBottom);
+	pViewport->projection2D.m_data[10] = -2.0f / (m_clipFar - m_clipNear);
+	pViewport->projection2D.m_data[12] = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
+	pViewport->projection2D.m_data[13] = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
+	pViewport->projection2D.m_data[14] = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
+	pViewport->projection2D.m_data[15] = 1.0f;
 
 	// Push this viewport onto the list
 	m_viewports.push_back(pViewport);
@@ -261,13 +261,13 @@ bool Renderer::ResizeViewport(unsigned int viewportID, int bottom, int left, int
 	float coordinateBottom = -1.0f;
 
 	memset(&(pViewport->orthographic), 0, sizeof(Matrix4));
-	pViewport->orthographic.GetMatrixElement(0) = 2.0f / (coordinateRight - coordinateLeft);
-	pViewport->orthographic.GetMatrixElement(5) = 2.0f / (coordinateTop - coordinateBottom);
-	pViewport->orthographic.GetMatrixElement(10) = -2.0f / (m_clipFar - m_clipNear);
-	pViewport->orthographic.GetMatrixElement(12) = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
-	pViewport->orthographic.GetMatrixElement(13) = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
-	pViewport->orthographic.GetMatrixElement(14) = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
-	pViewport->orthographic.GetMatrixElement(15) = 1.0f;
+	pViewport->orthographic.m_data[0] = 2.0f / (coordinateRight - coordinateLeft);
+	pViewport->orthographic.m_data[5] = 2.0f / (coordinateTop - coordinateBottom);
+	pViewport->orthographic.m_data[10] = -2.0f / (m_clipFar - m_clipNear);
+	pViewport->orthographic.m_data[12] = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
+	pViewport->orthographic.m_data[13] = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
+	pViewport->orthographic.m_data[14] = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
+	pViewport->orthographic.m_data[15] = 1.0f;
 
 	// Create the 2D projection matrix for the viewport
 	coordinateRight = static_cast<float>(m_windowWidth);
@@ -276,13 +276,13 @@ bool Renderer::ResizeViewport(unsigned int viewportID, int bottom, int left, int
 	coordinateBottom = 0.0f;
 
 	memset(&(pViewport->projection2D), 0, sizeof(Matrix4));
-	pViewport->projection2D.GetMatrixElement(0) = 2.0f / (coordinateRight - coordinateLeft);
-	pViewport->projection2D.GetMatrixElement(5) = 2.0f / (coordinateTop - coordinateBottom);
-	pViewport->projection2D.GetMatrixElement(10) = -2.0f / (m_clipFar - m_clipNear);
-	pViewport->projection2D.GetMatrixElement(12) = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
-	pViewport->projection2D.GetMatrixElement(13) = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
-	pViewport->projection2D.GetMatrixElement(14) = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
-	pViewport->projection2D.GetMatrixElement(15) = 1.0f;
+	pViewport->projection2D.m_data[0] = 2.0f / (coordinateRight - coordinateLeft);
+	pViewport->projection2D.m_data[5] = 2.0f / (coordinateTop - coordinateBottom);
+	pViewport->projection2D.m_data[10] = -2.0f / (m_clipFar - m_clipNear);
+	pViewport->projection2D.m_data[12] = -(coordinateRight + coordinateLeft) / (coordinateRight - coordinateLeft);
+	pViewport->projection2D.m_data[13] = -(coordinateTop + coordinateBottom) / (coordinateTop - coordinateBottom);
+	pViewport->projection2D.m_data[14] = -(m_clipFar + m_clipNear) / (m_clipFar - m_clipNear);
+	pViewport->projection2D.m_data[15] = 1.0f;
 
 	return true;
 }
@@ -549,24 +549,24 @@ void Renderer::GetModelViewMatrix(Matrix4* pMatrix)
 {
 	float matrix[16];
 	glGetFloatv(GL_MODELVIEW_MATRIX, matrix);
-	memcpy(pMatrix->GetMatrix(), matrix, 16 * sizeof(float));
+	memcpy(pMatrix->m_data, matrix, 16 * sizeof(float));
 }
 
 void Renderer::GetModelMatrix(Matrix4* pMatrix)
 {
-	memcpy(pMatrix->GetMatrix(), m_model.GetMatrix(), 16 * sizeof(float));
+	memcpy(pMatrix->m_data, m_model.m_data, 16 * sizeof(float));
 }
 
 void Renderer::GetViewMatrix(Matrix4* pMatrix)
 {
-	memcpy(pMatrix->GetMatrix(), m_view.GetMatrix(), 16 * sizeof(float));
+	memcpy(pMatrix->m_data, m_view.m_data, 16 * sizeof(float));
 }
 
 void Renderer::GetProjectionMatrix(Matrix4* pMatrix)
 {
 	float matrix[16];
 	glGetFloatv(GL_PROJECTION_MATRIX, matrix);
-	memcpy(pMatrix->GetMatrix(), matrix, 16 * sizeof(float));
+	memcpy(pMatrix->m_data, matrix, 16 * sizeof(float));
 }
 
 void Renderer::IdentityWorldMatrix()

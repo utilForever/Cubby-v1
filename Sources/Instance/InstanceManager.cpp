@@ -367,22 +367,22 @@ void InstanceManager::Render()
 					continue;
 				}
 
-				newMatrices[counter + 0] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(0);
-				newMatrices[counter + 1] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(1);
-				newMatrices[counter + 2] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(2);
-				newMatrices[counter + 3] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(3);
-				newMatrices[counter + 4] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(4);
-				newMatrices[counter + 5] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(5);
-				newMatrices[counter + 6] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(6);
-				newMatrices[counter + 7] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(7);
-				newMatrices[counter + 8] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(8);
-				newMatrices[counter + 9] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(9);
-				newMatrices[counter + 10] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(10);
-				newMatrices[counter + 11] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(11);
-				newMatrices[counter + 12] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(12);
-				newMatrices[counter + 13] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(13);
-				newMatrices[counter + 14] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(14);
-				newMatrices[counter + 15] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.GetMatrixElement(15);
+				newMatrices[counter + 0] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[0];
+				newMatrices[counter + 1] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[1];
+				newMatrices[counter + 2] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[2];
+				newMatrices[counter + 3] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[3];
+				newMatrices[counter + 4] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[4];
+				newMatrices[counter + 5] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[5];
+				newMatrices[counter + 6] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[6];
+				newMatrices[counter + 7] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[7];
+				newMatrices[counter + 8] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[8];
+				newMatrices[counter + 9] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[9];
+				newMatrices[counter + 10] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[10];
+				newMatrices[counter + 11] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[11];
+				newMatrices[counter + 12] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[12];
+				newMatrices[counter + 13] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[13];
+				newMatrices[counter + 14] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[14];
+				newMatrices[counter + 15] = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[i]->m_worldMatrix.m_data[15];
 				
 				counter += 16;
 
@@ -426,8 +426,8 @@ void InstanceManager::Render()
 		m_pRenderer->GetProjectionMatrix(&projMat);
 		m_pRenderer->GetModelViewMatrix(&viewMat);
 
-		glUniformMatrix4fv(projMatrixLoc, 1, false, projMat.GetMatrix());
-		glUniformMatrix4fv(viewMatrixLoc, 1, false, viewMat.GetMatrix());
+		glUniformMatrix4fv(projMatrixLoc, 1, false, projMat.m_data);
+		glUniformMatrix4fv(viewMatrixLoc, 1, false, viewMat.m_data);
 
 		if (m_renderWireFrame)
 		{

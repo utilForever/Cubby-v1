@@ -33,8 +33,6 @@ public:
 
 	// Properties
 	void GetMatrix(float* matrix) const;
-	float* GetMatrix();
-	float& GetMatrixElement(int index);
 	const float GetDeterminant() const;
 	const Matrix4 GetNegative() const;
 	const Matrix4 GetTranspose() const;
@@ -129,7 +127,6 @@ public:
 		return !Equal(*this, m);
 	}
 
-private:
 	float m_data[16];
 };
 
