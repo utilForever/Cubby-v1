@@ -65,93 +65,93 @@ void BlockParticleEmitter::SetParent(BlockParticleEffect* parent)
 	m_pParent = parent;
 }
 
-void BlockParticleEmitter::CopyParams(BlockParticleEmitter* EmitterParams)
+void BlockParticleEmitter::CopyParams(BlockParticleEmitter* emitterParams)
 {
-	m_startingPosition = EmitterParams->m_startingPosition;
-	m_position = EmitterParams->m_position;
+	m_startingPosition = emitterParams->m_startingPosition;
+	m_position = emitterParams->m_position;
 
 	// Creation Time
-	m_creationTime = EmitterParams->m_creationTime;
-	m_creationTimer = EmitterParams->m_creationTimer;
+	m_creationTime = emitterParams->m_creationTime;
+	m_creationTimer = emitterParams->m_creationTimer;
 
 	// Number of particles to spawn
-	m_numParticlesToSpawn = EmitterParams->m_numParticlesToSpawn;
+	m_numParticlesToSpawn = emitterParams->m_numParticlesToSpawn;
 
 	// Should particles follow emitter movement
-	m_shouldParticlesFollowEmitter = EmitterParams->m_shouldParticlesFollowEmitter;
+	m_shouldParticlesFollowEmitter = emitterParams->m_shouldParticlesFollowEmitter;
 
 	// Emitter orbiting
-	m_isOrbit = EmitterParams->m_isOrbit;
-	m_isOrbitReverse = EmitterParams->m_isOrbitReverse;
-	m_orbitRadius = EmitterParams->m_orbitRadius;
-	m_orbitTime = EmitterParams->m_orbitTime;
-	m_orbitTimer = EmitterParams->m_orbitTimer;
+	m_isOrbit = emitterParams->m_isOrbit;
+	m_isOrbitReverse = emitterParams->m_isOrbitReverse;
+	m_orbitRadius = emitterParams->m_orbitRadius;
+	m_orbitTime = emitterParams->m_orbitTime;
+	m_orbitTimer = emitterParams->m_orbitTimer;
 
 	// Playback controls
-	m_isStarted = EmitterParams->m_isStarted;
-	m_isPaused = EmitterParams->m_isPaused;
+	m_isStarted = emitterParams->m_isStarted;
+	m_isPaused = emitterParams->m_isPaused;
 
 	// Emitter type
-	m_emitterType = EmitterParams->m_emitterType;
+	m_emitterType = emitterParams->m_emitterType;
 
 	// Emitter radius and lengths
-	m_emitterRadius = EmitterParams->m_emitterRadius;
-	m_emitterLengthX = EmitterParams->m_emitterLengthX;
-	m_emitterLengthY = EmitterParams->m_emitterLengthY;
-	m_emitterLengthZ = EmitterParams->m_emitterLengthZ;
+	m_emitterRadius = emitterParams->m_emitterRadius;
+	m_emitterLengthX = emitterParams->m_emitterLengthX;
+	m_emitterLengthY = emitterParams->m_emitterLengthY;
+	m_emitterLengthZ = emitterParams->m_emitterLengthZ;
 
 	// Are we spawning on the outside of the shape
-	m_isSpawnOutline = EmitterParams->m_isSpawnOutline;
+	m_isSpawnOutline = emitterParams->m_isSpawnOutline;
 
 	// Particle creation params
-	m_gravityDirection = EmitterParams->m_gravityDirection;
-	m_gravityMultiplier = EmitterParams->m_gravityMultiplier;
-	m_pointOrigin = EmitterParams->m_pointOrigin;
-	m_startScale = EmitterParams->m_startScale;
-	m_startScaleVariance = EmitterParams->m_startScaleVariance;
-	m_endScale = EmitterParams->m_endScale;
-	m_endScaleVariance = EmitterParams->m_endScaleVariance;
-	m_startRed = EmitterParams->m_startRed;
-	m_startRedVariance = EmitterParams->m_startRedVariance;
-	m_endRed = EmitterParams->m_endRed;
-	m_endRedVariance = EmitterParams->m_endRedVariance;
-	m_startGreen = EmitterParams->m_startGreen;
-	m_startGreenVariance = EmitterParams->m_startGreenVariance;
-	m_endGreen = EmitterParams->m_endGreen;
-	m_endGreenVariance = EmitterParams->m_endGreenVariance;
-	m_startBlue = EmitterParams->m_startBlue;
-	m_startBlueVariance = EmitterParams->m_startBlueVariance;
-	m_endBlue = EmitterParams->m_endBlue;
-	m_endBlueVariance = EmitterParams->m_endBlueVariance;
-	m_startAlpha = EmitterParams->m_startAlpha;
-	m_startAlphaVariance = EmitterParams->m_startAlphaVariance;
-	m_endAlpha = EmitterParams->m_endAlpha;
-	m_endAlphaVariance = EmitterParams->m_endAlphaVariance;
-	m_lifeTime = EmitterParams->m_lifeTime;
-	m_lifeTimeVariance = EmitterParams->m_lifeTimeVariance;
-	m_velocityTowardsPoint = EmitterParams->m_velocityTowardsPoint;
-	m_accelerationTowardsPoint = EmitterParams->m_accelerationTowardsPoint;
-	m_isCheckWorldCollisions = EmitterParams->m_isCheckWorldCollisions;
-	m_isDestoryOnCollision = EmitterParams->m_isDestoryOnCollision;
-	m_isStartLifeDecayOnCollision = EmitterParams->m_isStartLifeDecayOnCollision;
-	m_startVelocity = EmitterParams->m_startVelocity;
-	m_startVelocityVariance = EmitterParams->m_startVelocityVariance;
-	m_isRandomStartRotation = EmitterParams->m_isRandomStartRotation;
-	m_startRotation = EmitterParams->m_startRotation;
-	m_startAngularVelocity = EmitterParams->m_startAngularVelocity;
-	m_startAngularVelocityVariance = EmitterParams->m_startAngularVelocityVariance;
-	m_tangentialVelocityXY = EmitterParams->m_tangentialVelocityXY;
-	m_tangentialAccelerationXY = EmitterParams->m_tangentialAccelerationXY;
-	m_tangentialVelocityXZ = EmitterParams->m_tangentialVelocityXZ;
-	m_tangentialAccelerationXZ = EmitterParams->m_tangentialAccelerationXZ;
-	m_tangentialVelocityYZ = EmitterParams->m_tangentialVelocityYZ;
-	m_tangentialAccelerationYZ = EmitterParams->m_tangentialAccelerationYZ;
-	m_isCreateEmitters = EmitterParams->m_isCreateEmitters;
-	m_createEmitterName = EmitterParams->m_createEmitterName;
+	m_gravityDirection = emitterParams->m_gravityDirection;
+	m_gravityMultiplier = emitterParams->m_gravityMultiplier;
+	m_pointOrigin = emitterParams->m_pointOrigin;
+	m_startScale = emitterParams->m_startScale;
+	m_startScaleVariance = emitterParams->m_startScaleVariance;
+	m_endScale = emitterParams->m_endScale;
+	m_endScaleVariance = emitterParams->m_endScaleVariance;
+	m_startRed = emitterParams->m_startRed;
+	m_startRedVariance = emitterParams->m_startRedVariance;
+	m_endRed = emitterParams->m_endRed;
+	m_endRedVariance = emitterParams->m_endRedVariance;
+	m_startGreen = emitterParams->m_startGreen;
+	m_startGreenVariance = emitterParams->m_startGreenVariance;
+	m_endGreen = emitterParams->m_endGreen;
+	m_endGreenVariance = emitterParams->m_endGreenVariance;
+	m_startBlue = emitterParams->m_startBlue;
+	m_startBlueVariance = emitterParams->m_startBlueVariance;
+	m_endBlue = emitterParams->m_endBlue;
+	m_endBlueVariance = emitterParams->m_endBlueVariance;
+	m_startAlpha = emitterParams->m_startAlpha;
+	m_startAlphaVariance = emitterParams->m_startAlphaVariance;
+	m_endAlpha = emitterParams->m_endAlpha;
+	m_endAlphaVariance = emitterParams->m_endAlphaVariance;
+	m_lifeTime = emitterParams->m_lifeTime;
+	m_lifeTimeVariance = emitterParams->m_lifeTimeVariance;
+	m_velocityTowardsPoint = emitterParams->m_velocityTowardsPoint;
+	m_accelerationTowardsPoint = emitterParams->m_accelerationTowardsPoint;
+	m_isCheckWorldCollisions = emitterParams->m_isCheckWorldCollisions;
+	m_isDestoryOnCollision = emitterParams->m_isDestoryOnCollision;
+	m_isStartLifeDecayOnCollision = emitterParams->m_isStartLifeDecayOnCollision;
+	m_startVelocity = emitterParams->m_startVelocity;
+	m_startVelocityVariance = emitterParams->m_startVelocityVariance;
+	m_isRandomStartRotation = emitterParams->m_isRandomStartRotation;
+	m_startRotation = emitterParams->m_startRotation;
+	m_startAngularVelocity = emitterParams->m_startAngularVelocity;
+	m_startAngularVelocityVariance = emitterParams->m_startAngularVelocityVariance;
+	m_tangentialVelocityXY = emitterParams->m_tangentialVelocityXY;
+	m_tangentialAccelerationXY = emitterParams->m_tangentialAccelerationXY;
+	m_tangentialVelocityXZ = emitterParams->m_tangentialVelocityXZ;
+	m_tangentialAccelerationXZ = emitterParams->m_tangentialAccelerationXZ;
+	m_tangentialVelocityYZ = emitterParams->m_tangentialVelocityYZ;
+	m_tangentialAccelerationYZ = emitterParams->m_tangentialAccelerationYZ;
+	m_isCreateEmitters = emitterParams->m_isCreateEmitters;
+	m_createEmitterName = emitterParams->m_createEmitterName;
 	m_isReferenceEmitter = false;
 
 	// Parent effect
-	m_pParent = EmitterParams->m_pParent;
+	m_pParent = emitterParams->m_pParent;
 
 	if (m_pParent)
 	{
