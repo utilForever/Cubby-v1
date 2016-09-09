@@ -155,7 +155,6 @@ public:
 	bool m_isCreateEmitters;
 	BlockParticleEmitter* m_pCreatedEmitter;
 
-private:
 	ChunkManager* m_pChunkManager;
 };
 

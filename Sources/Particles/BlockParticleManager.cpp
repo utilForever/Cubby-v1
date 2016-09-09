@@ -189,7 +189,7 @@ void BlockParticleManager::SetupGLBuffers()
 		int sizeOfVertices = sizeof(vertices);
 		glBufferData(GL_ARRAY_BUFFER, sizeOfVertices, vertices, GL_STATIC_DRAW);
 		glEnableVertexAttribArray(inPosition);
-		glVertexAttribPointer(inPosition, 4, GL_FLOAT, 0, 0, 0);
+		glVertexAttribPointer(inPosition, 4, GL_FLOAT, 0, 0, nullptr);
 
 		if (m_normalBuffer != -1)
 		{
@@ -202,7 +202,7 @@ void BlockParticleManager::SetupGLBuffers()
 		int sizeOfNormals = sizeof(normals);
 		glBufferData(GL_ARRAY_BUFFER, sizeOfNormals, normals, GL_STATIC_DRAW);
 		glEnableVertexAttribArray(inNormal);
-		glVertexAttribPointer(inNormal, 4, GL_FLOAT, 0, 0, 0);
+		glVertexAttribPointer(inNormal, 4, GL_FLOAT, 0, 0, nullptr);
 
 		glBindVertexArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -576,7 +576,7 @@ BlockParticle* BlockParticleManager::CreateBlockParticle(glm::vec3 pos, glm::vec
 	bool createEmitters, BlockParticleEmitter* pCreatedEmitter)
 {
 	BlockParticle* pBlockParticle = new BlockParticle();
-	pBlockParticle->SetChunkManager(m_pChunkManager);
+	pBlockParticle->m_pChunkManager = m_pChunkManager;
 
 	pBlockParticle->m_position = pos;
 	pBlockParticle->m_positionNoWorldOffset = posNoWorldOffset;
@@ -1111,7 +1111,7 @@ void BlockParticleManager::RenderInstanced(bool noWorldOffset)
 	// GLint inLightPosition = glGetUniformLocation(pShader->GetProgramObject(), "in_light_position");
 	// GLint inLightConstA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_const_a");
 	// GLint inLightLinearA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_linear_a");
-	// GLint inLight_quadA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_quad_a");
+	// GLint inLightQuadA = glGetUniformLocation(pShader->GetProgramObject(), "in_light_quad_a");
 	// GLint inLightAmbient = glGetUniformLocation(pShader->GetProgramObject(), "in_light_ambient");
 	// GLint inLightDiffuse = glGetUniformLocation(pShader->GetProgramObject(), "in_light_diffuse");
 
