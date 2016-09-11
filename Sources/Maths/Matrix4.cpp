@@ -10,7 +10,7 @@
 #include <cstring>
 #include <cmath>
 
-#include <../Libraries/glm/glm.hpp>
+#include <glm/glm.hpp>
 
 #include "3DMaths.h"
 #include "Matrix4.h"
@@ -42,9 +42,9 @@ void Matrix4::SetXRotation(const float x)
 		sinAngle = 0.0f;
 	}
 
-	m_data[0] = cosAngle;
-	m_data[2] = -sinAngle;
-	m_data[8] = sinAngle;
+	m_data[5] = cosAngle;
+	m_data[6] = sinAngle;
+	m_data[9] = -sinAngle;
 	m_data[10] = cosAngle;
 }
 
@@ -284,7 +284,7 @@ void Matrix4::Inverse()
 	float det = GetDeterminant();
 
 	Matrix4 matrixCopy;
-	memcpy(matrixCopy.m_data, this->m_data, 16  *  sizeof(float));
+	memcpy(matrixCopy.m_data, this->m_data, 16 * sizeof(float));
 
 	m_data[0]  = matrixCopy.m_data[6] * matrixCopy.m_data[11] * matrixCopy.m_data[13] - matrixCopy.m_data[7] * matrixCopy.m_data[10] * matrixCopy.m_data[13] + matrixCopy.m_data[7] * matrixCopy.m_data[9] * matrixCopy.m_data[14] - matrixCopy.m_data[5] * matrixCopy.m_data[11] * matrixCopy.m_data[14] - matrixCopy.m_data[6] * matrixCopy.m_data[9] * matrixCopy.m_data[15] + matrixCopy.m_data[5] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
 	m_data[1]  = matrixCopy.m_data[3] * matrixCopy.m_data[10] * matrixCopy.m_data[13] - matrixCopy.m_data[2] * matrixCopy.m_data[11] * matrixCopy.m_data[13] - matrixCopy.m_data[3] * matrixCopy.m_data[9] * matrixCopy.m_data[14] + matrixCopy.m_data[1] * matrixCopy.m_data[11] * matrixCopy.m_data[14] + matrixCopy.m_data[2] * matrixCopy.m_data[9] * matrixCopy.m_data[15] - matrixCopy.m_data[1] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
