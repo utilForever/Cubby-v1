@@ -223,7 +223,7 @@ bool BiomeManager::IsInTown(glm::vec3 position, ZoneData** pReturnTown)
 	return false;
 }
 
-float BiomeManager::GetTowMultiplier(glm::vec3 position)
+float BiomeManager::GetTownMultiplier(glm::vec3 position)
 {
 	ZoneData* pTown = nullptr;
 

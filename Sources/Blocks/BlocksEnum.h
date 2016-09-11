@@ -23,7 +23,7 @@ enum class BlockType
 	Sand,
 	Cactus,
 	Leaf,
-	CustomColour,
+	CustomColor,
 	NumTypes,
 };
 

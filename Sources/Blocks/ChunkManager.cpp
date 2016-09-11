@@ -31,6 +31,25 @@ ChunkManager::ChunkManager(Renderer* pRenderer, CubbySettings* pCubbySettings, Q
 	m_chunkMaterialID = -1;
 	m_pRenderer->CreateMaterial(Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.0f, 0.0f, 0.0f, 1.0f), 64, &m_chunkMaterialID);
 
+	// Create the block color to block type matching
+	AddBlockColorBlockTypeMatching(59, 34, 4, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(82, 51, 4, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(87, 58, 0, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(25, 21, 14, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(30, 26, 18, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(132, 97, 36, BlockType::Wood);
+	AddBlockColorBlockTypeMatching(55, 172, 3, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(27, 82, 0, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(61, 95, 24, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(67, 104, 27, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(121, 134, 0, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(121, 134, 0, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(113, 113, 1, BlockType::Leaf);
+	AddBlockColorBlockTypeMatching(0, 182, 0, BlockType::Cactus);
+	AddBlockColorBlockTypeMatching(34, 26, 48, BlockType::Wood); // TODO: Should be ash leaf, from ash trees
+	AddBlockColorBlockTypeMatching(33, 26, 45, BlockType::Wood); // TODO: Should be ash leaf, from ash trees
+	AddBlockColorBlockTypeMatching(255, 255, 255, BlockType::Snow);
+
 	// Loader radius
 	m_loaderRadius = m_pCubbySettings->m_loaderRadius;
 
@@ -57,11 +76,20 @@ ChunkManager::ChunkManager(Renderer* pRenderer, CubbySettings* pCubbySettings, Q
 
 ChunkManager::~ChunkManager()
 {
+	// Clear the block color to block type matching data
+	for (unsigned int i = 0; i < m_vpBlockColorTypeMatchList.size(); ++i)
+	{
+		delete m_vpBlockColorTypeMatchList[i];
+		m_vpBlockColorTypeMatchList[i] = nullptr;
+	}
+	m_vpBlockColorTypeMatchList.clear();
+
 	m_stepLockEnabled = false;
 	m_updateStepLock = true;
 	m_updateThreadFlagLock.lock();
 	m_updateThreadActive = false;
 	m_updateThreadFlagLock.unlock();
+
 	while (m_updateThreadFinished == false)
 	{
 #ifdef _WIN32
@@ -174,9 +202,9 @@ void ChunkManager::CreateNewChunk(int x, int y, int z)
 	pNewChunk->SetSceneryManager(m_pSceneryManager);
 	pNewChunk->SetBiomeManager(m_pBiomeManager);
 
-	float xPos = x * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f);
-	float yPos = y * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f);
-	float zPos = z * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f);
+	float xPos = x * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f);
+	float yPos = y * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f);
+	float zPos = z * (Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f);
 
 	pNewChunk->SetPosition(glm::vec3(xPos, yPos, zPos));
 	pNewChunk->SetGrid(coordKeys.x, coordKeys.y, coordKeys.z);
@@ -489,17 +517,17 @@ bool ChunkManager::GetBlockActiveFrom3DPosition(float x, float y, float z, glm::
 		}
 	}
 
-	*blockX = static_cast<int>((abs(x) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE*2.0f));
-	*blockY = static_cast<int>((abs(y) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE*2.0f));
-	*blockZ = static_cast<int>((abs(z) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE*2.0f));
+	*blockX = static_cast<int>((abs(x) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE * 2.0f));
+	*blockY = static_cast<int>((abs(y) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE * 2.0f));
+	*blockZ = static_cast<int>((abs(z) + Chunk::BLOCK_RENDER_SIZE) / (Chunk::BLOCK_RENDER_SIZE * 2.0f));
 
 	*blockX = (*blockX) % Chunk::CHUNK_SIZE;
 	*blockY = (*blockY) % Chunk::CHUNK_SIZE;
 	*blockZ = (*blockZ) % Chunk::CHUNK_SIZE;
 
-	(*blockPos).x = (*pChunk)->GetPosition().x + (*blockX) * (Chunk::BLOCK_RENDER_SIZE*2.0f);
-	(*blockPos).y = (*pChunk)->GetPosition().y + (*blockY) * (Chunk::BLOCK_RENDER_SIZE*2.0f);
-	(*blockPos).z = (*pChunk)->GetPosition().z + (*blockZ) * (Chunk::BLOCK_RENDER_SIZE*2.0f);
+	(*blockPos).x = (*pChunk)->GetPosition().x + (*blockX) * (Chunk::BLOCK_RENDER_SIZE * 2.0f);
+	(*blockPos).y = (*pChunk)->GetPosition().y + (*blockY) * (Chunk::BLOCK_RENDER_SIZE * 2.0f);
+	(*blockPos).z = (*pChunk)->GetPosition().z + (*blockZ) * (Chunk::BLOCK_RENDER_SIZE * 2.0f);
 
 	if (x < 0.0f)
 	{
@@ -632,6 +660,53 @@ void ChunkManager::RemoveChunkStorageLoader(ChunkStorageLoader* pChunkStorage)
 	pChunkStorage = nullptr;
 }
 
+// Block color to block type matching
+void ChunkManager::AddBlockColorBlockTypeMatching(int r, int g, int b, BlockType blockType)
+{
+	BlockColorTypeMatch* pMatch = new BlockColorTypeMatch();
+	pMatch->m_red = r;
+	pMatch->m_green = g;
+	pMatch->m_blue = b;
+	pMatch->m_blockType = blockType;
+
+	m_vpBlockColorTypeMatchList.push_back(pMatch);
+}
+
+bool ChunkManager::CheckBlockColor(int r, int g, int b, int rCheck, int gCheck, int bCheck) const
+{
+	if (r != rCheck)
+	{
+		return false;
+	}
+
+	if (g != gCheck)
+	{
+		return false;
+	}
+
+	if (b != bCheck)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+BlockType ChunkManager::SetBlockTypeBasedOnColor(int r, int g, int b)
+{
+	for (int i = 0; i < m_vpBlockColorTypeMatchList.size(); ++i)
+	{
+		BlockColorTypeMatch* pMatch = m_vpBlockColorTypeMatchList[i];
+
+		if (CheckBlockColor(pMatch->m_red, pMatch->m_green, pMatch->m_blue, r, g, b))
+		{
+			return pMatch->m_blockType;
+		}
+	}
+
+	return BlockType::Default;
+}
+
 // Importing into the world chunks
 void ChunkManager::ImportQubicleBinaryMatrix(QubicleMatrix* pMatrix, glm::vec3 position, QubicleImportDirection direction)
 {
@@ -746,7 +821,7 @@ void ChunkManager::ImportQubicleBinaryMatrix(QubicleMatrix* pMatrix, glm::vec3 p
 
 					if (pChunk != nullptr)
 					{
-						pChunk->SetColor(blockX, blockY, blockZ, color);
+						pChunk->SetColor(blockX, blockY, blockZ, color, true);
 
 						// Add to batch update list (no duplicates)
 						bool found = false;
@@ -872,7 +947,7 @@ void ChunkManager::CreateBlockDestroyParticleEffect(float r, float g, float b, f
 		glm::vec3 gravityDir = glm::vec3(0.0f, -1.0f, 0.0f);
 		glm::vec3 pointOrigin = glm::vec3(0.0f, 0.0f, 0.0f);
 
-		BlockParticle* pParticle = m_pBlockParticleManager->CreateBlockParticle(blockPosition + addition, blockPosition + addition, gravityDir, 2.5f, pointOrigin, scale, 0.0f, scale, 0.0f,
+		m_pBlockParticleManager->CreateBlockParticle(blockPosition + addition, blockPosition + addition, gravityDir, 2.5f, pointOrigin, scale, 0.0f, scale, 0.0f,
 			r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, r, g, b, a, 0.0f, 0.0f, 0.0f, 0.0f, lifeTime, 0.0f, 0.0f, 0.0f, glm::vec3(0.0f, 7.0f, 0.0f),
 			glm::vec3(3.0f, 2.0f, 3.0f), glm::vec3(GetRandomNumber(-360, 360, 2), GetRandomNumber(-360, 360, 2), GetRandomNumber(-360, 360, 2)),
 			glm::vec3(180.0f, 180.0f, 180.0f), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, true, glm::vec3(0.0f, 0.0f, 0.0f), true, false, false, false, nullptr);
@@ -968,7 +1043,7 @@ void ChunkManager::ExplodeSphere(glm::vec3 position, float radius)
 void ChunkManager::CreateCollectibleBlock(BlockType blockType, glm::vec3 blockPos)
 {
 	Item* pItem;
-	ItemSubSpawnData *pItemSubSpawnData = m_pItemManager->GetItemSubSpawnData(blockType);
+	ItemSubSpawnData* pItemSubSpawnData = m_pItemManager->GetItemSubSpawnData(blockType);
 	
 	if (pItemSubSpawnData != nullptr)
 	{
@@ -978,10 +1053,10 @@ void ChunkManager::CreateCollectibleBlock(BlockType blockType, glm::vec3 blockPo
 		{
 			float radius = 1.5f;
 			float angle = DegreeToRadian(GetRandomNumber(0, 360, 2));
-			glm::vec3 ItemPosition = blockPos + glm::vec3(cos(angle) * radius, 0.0f, sin(angle) * radius);
+			glm::vec3 itemPosition = blockPos + glm::vec3(cos(angle) * radius, 0.0f, sin(angle) * radius);
 
 			pItem->SetGravityDirection(glm::vec3(0.0f, -1.0f, 0.0f));
-			glm::vec3 velocity = ItemPosition - blockPos;
+			glm::vec3 velocity = itemPosition - blockPos;
 			pItem->SetVelocity(normalize(velocity) * GetRandomNumber(0, 1, 2) + glm::vec3(GetRandomNumber(-1, 1, 2), 1.0f + GetRandomNumber(2, 5, 2), GetRandomNumber(-1, 1, 2)));
 			pItem->SetRotation(glm::vec3(0.0f, GetRandomNumber(0, 360, 2), 0.0f));
 			pItem->SetAngularVelocity(glm::vec3(0.0f, 90.0f, 0.0f));
@@ -1101,22 +1176,21 @@ void ChunkManager::UpdatingChunksThread()
 
 			if (pChunk != nullptr)
 			{
-				// TODO: No need call Update() (delete it?)
-				// pChunk->Update(0.01f);
+				pChunk->Update(0.01f);
 
 				int gridX = pChunk->GetGridX();
 				int gridY = pChunk->GetGridY();
 				int gridZ = pChunk->GetGridZ();
 
-				float xGridPos = gridX * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f;
-				float yGridPos = gridY * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f;
-				float zGridPos = gridZ * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE*2.0f;
+				float xPos = gridX * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
+				float yPos = gridY * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
+				float zPos = gridZ * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
 
-				glm::vec3 gridChunkCenter = glm::vec3(xGridPos, yGridPos, zGridPos) + glm::vec3(Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE, Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE, Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE);
-				glm::vec3 gridDistanceVec = gridChunkCenter - m_pPlayer->GetCenter();
-				float gridLengthValue = length(gridDistanceVec);
+				glm::vec3 chunkCenter = glm::vec3(xPos, yPos, zPos) + glm::vec3(Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE, Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE, Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE);
+				glm::vec3 distanceVec = chunkCenter - m_pPlayer->GetCenter();
+				float lengthValue = length(distanceVec);
 
-				if (gridLengthValue > m_loaderRadius)
+				if (lengthValue > m_loaderRadius)
 				{
 					unloadChunkList.push_back(pChunk);
 				}

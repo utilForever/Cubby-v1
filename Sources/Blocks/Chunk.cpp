@@ -12,18 +12,18 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
+#include <CubbyGame.h>
+#include <CubbySettings.h>
+
 #include <simplex/simplexnoise.h>
 
 #include <Models/QubicleBinary.h>
 #include <Utils/Random.h>
 
-#include "CubbyGame.h"
-#include "CubbySettings.h"
-
-#include "Chunk.h"
-#include "ChunkManager.h"
 #include "BiomeManager.h"
 #include "BlocksEnum.h"
+#include "ChunkManager.h"
+#include "Chunk.h"
 
 // A chunk cube is double this render size, since we create from - to + for each axis.
 const float Chunk::BLOCK_RENDER_SIZE = 0.5f;
@@ -66,7 +66,7 @@ void Chunk::SetBiomeManager(BiomeManager* pBiomeManager)
 // Initialize
 void Chunk::Initialize()
 {
-	// Neighbours
+	// Neighbors
 	m_numNeighbors = 0;
 	m_pXMinus = nullptr;
 	m_pXPlus = nullptr;
@@ -204,7 +204,7 @@ void Chunk::Setup()
 			noiseHeight *= mountainMultiplier;
 
 			// Smooth out for towns
-			float townMultiplier = CubbyGame::GetInstance()->GetBiomeManager()->GetTowMultiplier(glm::vec3(xPosition, 0.0f, zPosition));
+			float townMultiplier = CubbyGame::GetInstance()->GetBiomeManager()->GetTownMultiplier(glm::vec3(xPosition, 0.0f, zPosition));
 			noiseHeight *= townMultiplier;
 
 			if (m_gridY < 0)
@@ -267,21 +267,33 @@ void Chunk::Setup()
 
 						if (biome == Biome::GrassLand)
 						{
-							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/plains/smalltree.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("Resources/gamedata/terrain/plains/smalltree.qb", treePos, QubicleImportDirection::Normal);
 						}
 						else if (biome == Biome::Desert)
 						{
-							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/desert/cactus1.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("Resources/gamedata/terrain/desert/cactus1.qb", treePos, QubicleImportDirection::Normal);
+						}
+						else if (biome == Biome::Tundra)
+						{
+							m_pChunkManager->ImportQubicleBinary("Resources/gamedata/terrain/tundra/tundra_tree1.qb", treePos, QubicleImportDirection::Normal);
 						}
 						else if (biome == Biome::AshLand)
 						{
-							m_pChunkManager->ImportQubicleBinary("../Resources/terrain/ashlands/ashtree1.qb", treePos, QubicleImportDirection::Normal);
+							m_pChunkManager->ImportQubicleBinary("Resources/gamedata/terrain/ashlands/ashtree1.qb", treePos, QubicleImportDirection::Normal);
 						}
 					}
 				}
 
 				// Scenery
 				// TODO: Create scenery using poisson disk sampling and also using instance manager.
+				//if ((GetRandomNumber(0, 1000) >= 995))
+				//{
+				//	if (noiseNormalized >= 0.5f)
+				//	{
+				//		vec3 pos = vec3(xPosition, noiseHeight, zPosition);
+				//		m_pSceneryManager->AddSceneryObject("flower", "Resources/gamedata/terrain/plains/flower1.qb", pos, vec3(0.0f, 0.0f, 0.0f), QubicleImportDirection::Normal, QubicleImportDirection::Normal, 0.08f, GetRandomNumber(0, 360, 2));
+				//	}
+				//}
 			}
 		}
 	}
@@ -480,7 +492,7 @@ void Chunk::RemoveItem(Item* pItem)
 {
 	m_itemMutexLock.lock();
 
-	std::vector<Item*>::iterator iter = find(m_vpItemList.begin(), m_vpItemList.end(), pItem);
+	auto iter = find(m_vpItemList.begin(), m_vpItemList.end(), pItem);
 	
 	if (iter != m_vpItemList.end())
 	{
@@ -507,7 +519,7 @@ void Chunk::RemoveItems()
 }
 
 // Block color
-void Chunk::SetColor(int x, int y, int z, float r, float g, float b, float a)
+void Chunk::SetColor(int x, int y, int z, float r, float g, float b, float a, bool setBlockType)
 {
 	if (r > 1.0f)
 	{
@@ -540,7 +552,7 @@ void Chunk::SetColor(int x, int y, int z, float r, float g, float b, float a)
 	unsigned int red = static_cast<int>(r * 255);
 
 	unsigned int color = red + green + blue + alpha;
-	SetColor(x, y, z, color);
+	SetColor(x, y, z, color, setBlockType);
 }
 
 void Chunk::GetColor(int x, int y, int z, float* r, float* g, float* b, float* a) const
@@ -561,7 +573,7 @@ void Chunk::GetColor(int x, int y, int z, float* r, float* g, float* b, float* a
 	*a = 1.0f;
 }
 
-void Chunk::SetColor(int x, int y, int z, unsigned int color)
+void Chunk::SetColor(int x, int y, int z, unsigned int color, bool setBlockType)
 {
 	if (x < 0 || x >= CHUNK_SIZE || y < 0 || y >= CHUNK_SIZE || z < 0 || z >= CHUNK_SIZE)
 	{
@@ -576,6 +588,14 @@ void Chunk::SetColor(int x, int y, int z, unsigned int color)
 	}
 
 	m_color[x + y * CHUNK_SIZE + z * CHUNK_SIZE_SQUARED] = color;
+
+	if (setBlockType)
+	{
+		unsigned int blockB = (color & 0x00FF0000) >> 16;
+		unsigned int blockG = (color & 0x0000FF00) >> 8;
+		unsigned int blockR = (color & 0x000000FF);
+		m_blockType[x + y * CHUNK_SIZE + z * CHUNK_SIZE_SQUARED] = m_pChunkManager->SetBlockTypeBasedOnColor(blockR, blockG, blockB);
+	}
 }
 
 unsigned int Chunk::GetColor(int x, int y, int z) const
@@ -762,7 +782,7 @@ void Chunk::CreateMesh()
 
 	for (size_t j = 0; j < CHUNK_SIZE_CUBED; ++j)
 	{
-		merged[j] = MergedSide::None;
+		merged[j] = static_cast<int>(MergedSide::None);
 	}
 
 	float r = 1.0f;
@@ -916,12 +936,12 @@ void Chunk::CreateMesh()
 
 						if (addSide)
 						{
-							int endX = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
+							int endZ = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 							int endY = (y / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 
 							if (m_pChunkManager->GetFaceMerging())
 							{
-								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p5, &p2, &p3, &p8, z, y, endX, endY, true, false, true, false);
+								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p5, &p2, &p3, &p8, z, y, endZ, endY, true, false, true, false);
 							}
 
 							n1 = glm::vec3(1.0f, 0.0f, 0.0f);
@@ -965,12 +985,12 @@ void Chunk::CreateMesh()
 
 						if (addSide)
 						{
-							int endX = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
+							int endZ = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 							int endY = (y / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 
 							if (m_pChunkManager->GetFaceMerging())
 							{
-								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p6, &p1, &p4, &p7, z, y, endX, endY, false, false, true, false);
+								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p6, &p1, &p4, &p7, z, y, endZ, endY, false, false, true, false);
 							}
 
 							n1 = glm::vec3(-1.0f, 0.0f, 0.0f);
@@ -1015,11 +1035,11 @@ void Chunk::CreateMesh()
 						if (addSide)
 						{
 							int endX = (x / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
-							int endY = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
+							int endZ = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 
 							if (m_pChunkManager->GetFaceMerging())
 							{
-								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p7, &p8, &p3, &p4, x, z, endX, endY, true, false, false, true);
+								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p7, &p8, &p3, &p4, x, z, endX, endZ, true, false, false, true);
 							}
 
 							n1 = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -1064,11 +1084,11 @@ void Chunk::CreateMesh()
 						if (addSide)
 						{
 							int endX = (x / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
-							int endY = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
+							int endZ = (z / CHUNK_SIZE) * CHUNK_SIZE + CHUNK_SIZE;
 
 							if (m_pChunkManager->GetFaceMerging())
 							{
-								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p6, &p5, &p2, &p1, x, z, endX, endY, false, false, false, true);
+								UpdateMergedSide(merged, x, y, z, CHUNK_SIZE, CHUNK_SIZE, &p6, &p5, &p2, &p1, x, z, endX, endZ, false, false, false, true);
 							}
 
 							n1 = glm::vec3(0.0f, -1.0f, 0.0f);
@@ -1226,30 +1246,30 @@ void Chunk::UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, in
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Z_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Positive);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::X_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Positive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Y_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Z_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Negative);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::X_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Negative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Y_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
 						}
 					}
 				}
@@ -1388,30 +1408,30 @@ void Chunk::UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, in
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= MergedSide::Z_Positive;
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Positive);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= MergedSide::X_Positive;
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Positive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= MergedSide::Y_Positive;
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= MergedSide::Z_Negative;
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Negative);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= MergedSide::X_Negative;
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Negative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= MergedSide::Y_Negative;
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
 						}
 					}
 				}
@@ -1550,6 +1570,7 @@ void Chunk::Render()
 	
 		m_pRenderer->TranslateWorldMatrix(m_position.x, m_position.y, m_position.z);
 
+		// Texture manipulation (for shadow rendering)
 		Matrix4 worldMatrix;
 		m_pRenderer->GetModelMatrix(&worldMatrix);
 
@@ -1558,7 +1579,6 @@ void Chunk::Render()
 	
 		m_pRenderer->MeshStaticBufferRender(pMeshToUse);
 
-		// Texture manipulation (for shadow rendering)
 		m_pRenderer->PopTextureMatrix();
 
 		m_pRenderer->PopMatrix();
@@ -1665,27 +1685,27 @@ void Chunk::Render2D(Camera* pCamera, unsigned int viewport, unsigned int font) 
 	bool renderChunkInfo = true;
 	if (renderChunkInfo)
 	{
-		char lLine1[64];
-		sprintf(lLine1, "%i, %i, %i", m_gridX, m_gridY, m_gridZ);
-		char lLine2[64];
-		sprintf(lLine2, "Neighbors: %i", m_numNeighbors);
-		char lLine3[64];
-		sprintf(lLine3, "Empty: %s", m_emptyChunk ? "true" : "false");
-		char lLine4[64];
-		sprintf(lLine4, "Surrounded: %s", m_surroundedChunk ? "true" : "false");
-		char lLine5[64];
-		sprintf(lLine5, "Rebuilds: %i", m_numRebuilds);
+		char line1[64];
+		sprintf(line1, "%i, %i, %i", m_gridX, m_gridY, m_gridZ);
+		char line2[64];
+		sprintf(line2, "Neighbors: %i", m_numNeighbors);
+		char line3[64];
+		sprintf(line3, "Empty: %s", m_emptyChunk ? "true" : "false");
+		char line4[64];
+		sprintf(line4, "Surrounded: %s", m_surroundedChunk ? "true" : "false");
+		char line5[64];
+		sprintf(line5, "Rebuilds: %i", m_numRebuilds);
 
 		m_pRenderer->PushMatrix();
 
 		m_pRenderer->SetRenderMode(RenderMode::SOLID);
 		m_pRenderer->SetProjectionMode(ProjectionMode::TWO_DIMENSION, viewport);
 		m_pRenderer->SetLookAtCamera(glm::vec3(0.0f, 0.0f, 250.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY), 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", lLine1);
-		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 20.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", lLine2);
-		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 40.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", lLine3);
-		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 60.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", lLine4);
-		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 80.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", lLine5);
+		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY), 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", line1);
+		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 20.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", line2);
+		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 40.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", line3);
+		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 60.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", line4);
+		m_pRenderer->RenderFreeTypeText(font, static_cast<float>(winX), static_cast<float>(winY) - 80.0f, 1.0f, Color(1.0f, 1.0f, 1.0f), 1.0f, "%s", line5);
 		
 		m_pRenderer->PopMatrix();
 	}

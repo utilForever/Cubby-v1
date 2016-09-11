@@ -10,10 +10,11 @@
 #ifndef CUBBY_BIOME_MANAGER_H
 #define CUBBY_BIOME_MANAGER_H
 
-#include "BlocksEnum.h"
-#include "Renderer/Renderer.h"
+#include <libnoise/noise/noise.h>
 
-#include "libnoise/noise/noise.h"
+#include <Renderer/Renderer.h>
+
+#include "BlocksEnum.h"
 
 enum class Biome
 {
@@ -84,7 +85,7 @@ public:
 
 	// Town
 	bool IsInTown(glm::vec3 position, ZoneData** pReturnTown);
-	float GetTowMultiplier(glm::vec3 position);
+	float GetTownMultiplier(glm::vec3 position);
 
 	// Safe zone
 	bool IsInSafeZone(glm::vec3 position, ZoneData** pReturnSafeZone);
@@ -98,7 +99,6 @@ public:
 	void RenderSafeZoneDebug();
 
 private:
-	/* Private members */
 	Renderer* m_pRenderer;
 
 	// Biome voronoi regions

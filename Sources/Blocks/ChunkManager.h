@@ -15,10 +15,10 @@
 
 #include <map>
 
+#include <tinythread/tinythread.h>
+
 #include <Renderer/Renderer.h>
 #include <Models/QubicleBinary.h>
-
-#include <tinythread/tinythread.h>
 
 #include "Chunk.h"
 #include "BlocksEnum.h"
@@ -103,7 +103,6 @@ struct ChunkStorageLoader
 	ChunkStorageLoader(int gridX, int gridY, int gridZ) :
 		m_gridX(gridX), m_gridY(gridY), m_gridZ(gridZ)
 	{
-
 		float xPos = gridX * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
 		float yPos = gridY * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
 		float zPos = gridZ * Chunk::CHUNK_SIZE * Chunk::BLOCK_RENDER_SIZE * 2.0f;
@@ -141,6 +140,16 @@ struct ChunkStorageLoader
 };
 
 using ChunkStorageLoaderList = std::vector<ChunkStorageLoader*>;
+
+struct BlockColorTypeMatch
+{
+	int m_red;
+	int m_green;
+	int m_blue;
+	BlockType m_blockType;
+};
+
+using BlockColorTypeMatchList = std::vector<BlockColorTypeMatch*>;
 
 class ChunkManager
 {
@@ -198,6 +207,11 @@ public:
 	// Adding to chunk storage for parts of the world generation that are outside of loaded chunks
 	ChunkStorageLoader* GetChunkStorage(int x, int y, int z, bool createIfNotExist);
 	void RemoveChunkStorageLoader(ChunkStorageLoader* pChunkStorage);
+
+	// Block color to block type matching
+	void AddBlockColorBlockTypeMatching(int r, int g, int b, BlockType blockType);
+	bool CheckBlockColor(int r, int g, int b, int rCheck, int gCheck, int bCheck) const;
+	BlockType SetBlockTypeBasedOnColor(int r, int g, int b);
 
 	// Importing into the world chunks
 	void ImportQubicleBinaryMatrix(QubicleMatrix* pMatrix, glm::vec3 position, QubicleImportDirection direction);
@@ -267,6 +281,9 @@ private:
 	// Storage for modifications to chunks that are not loaded yet
 	ChunkStorageLoaderList m_vpChunkStorageList;
 	tthread::mutex m_chunkStorageListLock;
+
+	// Block colour to type matching boundaries
+	BlockColorTypeMatchList m_vpBlockColorTypeMatchList;
 
 	// Chunk counters
 	int m_numChunksLoaded;

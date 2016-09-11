@@ -14,7 +14,7 @@
 
 class VoxelCharacter;
 
-enum MergedSide
+enum class MergedSide
 {
 	None = 0,
 	X_Positive = 1,

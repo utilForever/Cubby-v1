@@ -17,11 +17,12 @@
 
 #include <vector>
 
-#include "BlocksEnum.h"
-#include "Renderer/Camera.h"
-#include "Renderer/Renderer.h"
+#include <tinythread/tinythread.h>
 
-#include "tinythread/tinythread.h"
+#include <Renderer/Camera.h>
+#include <Renderer/Renderer.h>
+
+#include "BlocksEnum.h"
 
 // Forward declaration
 class ChunkManager;
@@ -106,9 +107,9 @@ public:
 	void RemoveItems();
 
 	// Block color
-	void SetColor(int x, int y, int z, float r, float g, float b, float a);
+	void SetColor(int x, int y, int z, float r, float g, float b, float a, bool setBlockType = false);
 	void GetColor(int x, int y, int z, float* r, float* g, float* b, float* a) const;
-	void SetColor(int x, int y, int z, unsigned int color);
+	void SetColor(int x, int y, int z, unsigned int color, bool setBlockType = false);
 	unsigned int GetColor(int x, int y, int z) const;
 
 	// Block type
