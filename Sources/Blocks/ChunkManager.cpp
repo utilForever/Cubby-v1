@@ -1176,8 +1176,6 @@ void ChunkManager::UpdatingChunksThread()
 
 			if (pChunk != nullptr)
 			{
-				pChunk->Update(0.01f);
-
 				int gridX = pChunk->GetGridX();
 				int gridY = pChunk->GetGridY();
 				int gridZ = pChunk->GetGridZ();

@@ -7,7 +7,7 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <../Libraries/glew/include/gl/glew.h>
+#include <glew/include/gl/glew.h>
 
 #include "Light.h"
 

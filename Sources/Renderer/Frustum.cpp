@@ -21,12 +21,12 @@ Frustum::Frustum() :
 	m_farWidth(0.0f), m_farHeight(0.0f),
 	m_ratio(0.0f), m_angle(0.0f), m_tang(0.0f)
 {
-	/* Nothing */
+	// Do nothing
 }
 
 Frustum::~Frustum()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 // Setter

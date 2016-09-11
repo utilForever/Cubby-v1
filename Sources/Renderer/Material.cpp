@@ -7,7 +7,7 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <../Libraries/glew/include/GL/glew.h>
+#include <glew/include/GL/glew.h>
 
 #include "Material.h"
 

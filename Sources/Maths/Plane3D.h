@@ -10,24 +10,19 @@
 #ifndef CUBBY_PLANE_3D_H
 #define CUBBY_PLANE_3D_H
 
-#include "../Libraries/glm/vec3.hpp"
+#include <glm/vec3.hpp>
 
-class Plane3D
+struct Plane3D
 {
-public:
 	// Constructors
 	Plane3D();
 	Plane3D(glm::vec3 normal, glm::vec3 point);
 	Plane3D(glm::vec3 v1, glm::vec3 v2, glm::vec3 v3);
 	Plane3D(float a, float b, float c, float d);
 
-	// Getter
-	glm::vec3 GetNormal() const;
-
 	// Operations
 	float GetPointDistance(glm::vec3 point) const;
 
-private:
 	glm::vec3 m_point;
 	glm::vec3 m_normal;
 	float d;

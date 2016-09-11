@@ -10,11 +10,10 @@
 #ifndef CUBBY_LINE_3D_H
 #define CUBBY_LINE_3D_H
 
-#include "../Libraries/glm/vec3.hpp"
+#include <glm/vec3.hpp>
 
 class Line3D
 {
-public:
 	// Constructors
 	Line3D();
 	Line3D(glm::vec3 start, glm::vec3 end);
@@ -29,7 +28,6 @@ public:
 	// Operations
 	const glm::vec3 GetInterpolatedPoint(float t) const;
 
-private:
 	glm::vec3 m_startPoint;
 	glm::vec3 m_endPoint;
 };

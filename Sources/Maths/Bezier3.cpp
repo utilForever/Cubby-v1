@@ -12,19 +12,19 @@
 // Constructors
 Bezier3::Bezier3()
 {
-	
+	// Do nothing
 }
 
 Bezier3::Bezier3(glm::vec3 start, glm::vec3 end, glm::vec3 control) :
 	m_startPoint(start), m_endPoint(end), m_controlPoint(control)
 {
-	
+	// Do nothing
 }
 
 Bezier3::Bezier3(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd, float xControl, float yControl, float zControl) :
 	m_startPoint(glm::vec3(xStart, yStart, zStart)), m_endPoint(glm::vec3(xEnd, yEnd, zEnd)), m_controlPoint(glm::vec3(xControl, yControl, zControl))
 {
-	
+	// Do nothing
 }
 
 // Operations

@@ -2218,7 +2218,7 @@ bool NPC::CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, g
 							inside++;
 							if (insideCache[i] == false)
 							{
-								*pNormal += planes[i].GetNormal();
+								*pNormal += planes[i].m_normal;
 							}
 						}
 						else
@@ -2227,7 +2227,7 @@ bool NPC::CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, g
 							inside++;
 							if (insideCache[i] == false)
 							{
-								*pNormal += planes[i].GetNormal();
+								*pNormal += planes[i].m_normal;
 							}
 						}
 					}

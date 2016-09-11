@@ -10,25 +10,25 @@
 #ifndef CUBBY_RENDERER_H
 #define CUBBY_RENDERER_H
 
-#include <GL/glew.h>
-#include <freetype/freetypefont.h>
-#include <tinythread/tinythread.h>
-
 #include "GLSL.h"
 
-#include "Maths/Matrix4.h"
-#include "Maths/Bezier3.h"
-#include "Maths/Bezier4.h"
+#include <freetype/freetypefont.h>
+#include <GL/glew.h>
+#include <tinythread/tinythread.h>
 
-#include "Mesh.h"
+#include <Maths/Bezier3.h>
+#include <Maths/Bezier4.h>
+#include <Maths/Matrix4.h>
+
 #include "Color.h"
-#include "Light.h"
-#include "Frustum.h"
-#include "Texture.h"
-#include "Material.h"
-#include "Viewport.h"
 #include "FrameBuffer.h"
+#include "Frustum.h"
+#include "Light.h"
+#include "Material.h"
+#include "Mesh.h"
+#include "Texture.h"
 #include "VertexArray.h"
+#include "Viewport.h"
 
 #pragma comment (lib, "opengl32")
 #pragma comment (lib, "glu32")

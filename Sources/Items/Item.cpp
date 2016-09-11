@@ -778,7 +778,7 @@ bool Item::CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, 
 							inside++;
 							if (insideCache[i] == false)
 							{
-								*pNormal += planes[i].GetNormal();
+								*pNormal += planes[i].m_normal;
 							}
 						}
 						else
@@ -787,7 +787,7 @@ bool Item::CheckCollisions(glm::vec3 positionCheck, glm::vec3 previousPosition, 
 							inside++;
 							if (insideCache[i] == false)
 							{
-								*pNormal += planes[i].GetNormal();
+								*pNormal += planes[i].m_normal;
 							}
 						}
 					}
@@ -983,7 +983,7 @@ bool Item::IsColliding(glm::vec3 center, glm::vec3 previousCenter, float radius,
 					inside++;
 					if (insideCache[j] == false)
 					{
-						*pNormal += pRegion->m_planes[j].GetNormal();
+						*pNormal += pRegion->m_planes[j].m_normal;
 					}
 				}
 				else
@@ -992,7 +992,7 @@ bool Item::IsColliding(glm::vec3 center, glm::vec3 previousCenter, float radius,
 					inside++;
 					if (insideCache[j] == false)
 					{
-						*pNormal += pRegion->m_planes[j].GetNormal();
+						*pNormal += pRegion->m_planes[j].m_normal;
 					}
 				}
 			}

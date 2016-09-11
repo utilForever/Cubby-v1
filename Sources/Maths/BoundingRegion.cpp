@@ -9,13 +9,14 @@
 
 #include "BoundingRegion.h"
 
-BoundingRegion::BoundingRegion() {
-	/* Nothing */
+BoundingRegion::BoundingRegion()
+{
+	// Do nothing
 }
 
 BoundingRegion::~BoundingRegion()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 void BoundingRegion::UpdatePlanes(Matrix4 transformationMatrix, float scale)
@@ -65,6 +66,7 @@ void BoundingRegion::Render(Renderer* pRenderer)
 		float width = m_zLength;
 
 		pRenderer->EnableImmediateMode(ImmediateModePrimitive::QUADS);
+
 		pRenderer->ImmediateNormal(0.0f, 0.0f, -1.0f);
 		pRenderer->ImmediateVertex(length, -height, -width);
 		pRenderer->ImmediateVertex(-length, -height, -width);
@@ -100,6 +102,7 @@ void BoundingRegion::Render(Renderer* pRenderer)
 		pRenderer->ImmediateVertex(-length, height, -width);
 		pRenderer->ImmediateVertex(-length, height, width);
 		pRenderer->ImmediateVertex(length, height, width);
+
 		pRenderer->DisableImmediateMode();
 
 		pRenderer->SetCullMode(CullMode::BACK);

@@ -10,10 +10,6 @@
 #ifndef CUBBY_FRAME_BUFFER_H
 #define CUBBY_FRAME_BUFFER_H
 
-#include <string>
-
-#include <GL/glew.h>
-
 struct FrameBuffer
 {
 	std::string name;

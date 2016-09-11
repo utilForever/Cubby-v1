@@ -452,32 +452,32 @@ void QubicleBinary::SetMeshSingleColor(float r, float g, float b)
 
 bool IsMergedXNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::X_Negative) == MergedSide::X_Negative;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::X_Negative)) == static_cast<int>(MergedSide::X_Negative);
 }
 
 bool IsMergedXPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::X_Positive) == MergedSide::X_Positive;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::X_Positive)) == static_cast<int>(MergedSide::X_Positive);
 }
 
 bool IsMergedYNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::Y_Negative) == MergedSide::Y_Negative;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Y_Negative)) == static_cast<int>(MergedSide::Y_Negative);
 }
 
 bool IsMergedYPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::Y_Positive) == MergedSide::Y_Positive;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Y_Positive)) == static_cast<int>(MergedSide::Y_Positive);
 }
 
 bool IsMergedZNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::Z_Negative) == MergedSide::Z_Negative;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Z_Negative)) == static_cast<int>(MergedSide::Z_Negative);
 }
 
 bool IsMergedZPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & MergedSide::Z_Positive) == MergedSide::Z_Positive;
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Z_Positive)) == static_cast<int>(MergedSide::Z_Positive);
 }
 
 void QubicleBinary::CreateMesh(bool doFaceMerging)
@@ -492,7 +492,7 @@ void QubicleBinary::CreateMesh(bool doFaceMerging)
 
 		for (unsigned int i = 0; i < pMatrix->m_matrixSizeX * pMatrix->m_matrixSizeY * pMatrix->m_matrixSizeZ; ++i)
 		{
-			merged[i] = MergedSide::None;
+			merged[i] = static_cast<int>(MergedSide::None);
 		}
 
 		if (pMatrix->m_pMesh == nullptr)
@@ -889,30 +889,30 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Z_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Positive);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::X_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Positive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Y_Positive;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Z_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Negative);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::X_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Negative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= MergedSide::Y_Negative;
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
 						}
 					}
 				}
@@ -1050,30 +1050,30 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= MergedSide::Z_Positive;
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Positive);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= MergedSide::X_Positive;
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Positive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= MergedSide::Y_Positive;
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= MergedSide::Z_Negative;
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Negative);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= MergedSide::X_Negative;
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Negative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= MergedSide::Y_Negative;
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
 						}
 					}
 				}

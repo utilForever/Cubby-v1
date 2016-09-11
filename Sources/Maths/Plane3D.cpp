@@ -7,8 +7,8 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <../Libraries/glm/gtx/norm.hpp>
-#include <../Libraries/glm/detail/func_geometric.hpp>
+#include <glm/gtx/norm.hpp>
+#include <glm/detail/func_geometric.hpp>
 
 #include "Plane3D.h"
 
@@ -16,7 +16,7 @@
 Plane3D::Plane3D() :
 	d(0.0f)
 {
-
+	// Do nothing
 }
 
 Plane3D::Plane3D(glm::vec3 normal, glm::vec3 point)
@@ -55,12 +55,6 @@ Plane3D::Plane3D(float a, float b, float c, float d)
 
 	// And divide d by the length as well
 	this->d = d / vLength;
-}
-
-// Getter
-glm::vec3 Plane3D::GetNormal() const
-{
-	return m_normal;
 }
 
 // Operations

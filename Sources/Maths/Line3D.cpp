@@ -7,27 +7,27 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <../Libraries/glm/gtx/norm.hpp>
-#include <../Libraries/glm/detail/func_geometric.hpp>
+#include <glm/gtx/norm.hpp>
+#include <glm/detail/func_geometric.hpp>
 
 #include "Line3D.h"
 
 // Constructors
 Line3D::Line3D()
 {
-	/* Nothing */
+	// Do nothing
 }
 
 Line3D::Line3D(glm::vec3 start, glm::vec3 end) :
 	m_startPoint(start), m_endPoint(end)
 {
-
+	// Do nothing
 }
 
 Line3D::Line3D(float x1, float y1, float z1, float x2, float y2, float z2) :
 	m_startPoint(glm::vec3(x1, y1, z1)), m_endPoint(glm::vec3(x2, y2, z2))
 {
-	
+	// Do nothing
 }
 
 // Properties
@@ -54,7 +54,7 @@ const float Line3D::GetLengthSquared() const
 // Operations
 const glm::vec3 Line3D::GetInterpolatedPoint(float t) const
 {
-	glm::vec3 lScale = (m_endPoint - m_startPoint) * t;
+	glm::vec3 scale = (m_endPoint - m_startPoint) * t;
 
-	return m_startPoint + lScale;
+	return m_startPoint + scale;
 }

@@ -11,13 +11,13 @@
 > Copyright (c) 2016, Chan-Ho Chris Ohk
 *************************************************************************/
 
-#include <Maths/3DMaths.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-#include "Renderer.h"
+#include <Maths/3DMaths.h>
+
 #include "Camera.h"
+#include "Renderer.h"
 
 // Angle conversions
 inline float DegreeToRadian(const float degrees)
@@ -124,7 +124,7 @@ void Camera::Move(const float speed, bool useFakePosition)
 {
 	glm::vec3 directionToMove = m_facing;
 	directionToMove.y = 0.0f;
-	directionToMove = glm::normalize(directionToMove);
+	directionToMove = normalize(directionToMove);
 
 	if (useFakePosition)
 	{

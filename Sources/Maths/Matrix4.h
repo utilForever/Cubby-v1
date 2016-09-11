@@ -10,11 +10,10 @@
 #ifndef CUBBY_MATRIX4_H
 #define CUBBY_MATRIX4_H
 
-#include "../Libraries/glm/vec3.hpp"
+#include <glm/vec3.hpp>
 
-class Matrix4
+struct Matrix4
 {
-public:
 	// Constructors
 	Matrix4();
 	Matrix4(float data[16]);

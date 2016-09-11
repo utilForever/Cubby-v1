@@ -10,7 +10,7 @@
 #ifndef CUBBY_LIGHT_H
 #define CUBBY_LIGHT_H
 
-#include <../Libraries/glm/glm.hpp>
+#include <glm/glm.hpp>
 
 #include "Color.h"
 

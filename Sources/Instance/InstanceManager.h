@@ -18,9 +18,9 @@
 
 #include <vector>
 
-#include <Maths/Matrix4.h>
-
 #include <glm/vec3.hpp>
+
+#include <Maths/Matrix4.h>
 
 // Forward declaration
 class Chunk;

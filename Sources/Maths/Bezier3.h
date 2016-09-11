@@ -10,11 +10,10 @@
 #ifndef CUBBY_BEZIER3_H
 #define CUBBY_BEZIER3_H
 
-#include "../Libraries/glm/vec3.hpp"
+#include <glm/vec3.hpp>
 
-class Bezier3
+struct Bezier3
 {
-public:
 	// Constructors
 	Bezier3();
 	Bezier3(glm::vec3 start, glm::vec3 end, glm::vec3 control);
@@ -23,7 +22,6 @@ public:
 	// Operations
 	const glm::vec3 GetInterpolatedPoint(float t) const;
 
-private:
 	glm::vec3 m_startPoint;
 	glm::vec3 m_endPoint;
 	glm::vec3 m_controlPoint;

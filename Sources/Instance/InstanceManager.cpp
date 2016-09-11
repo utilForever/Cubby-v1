@@ -29,7 +29,7 @@ InstanceManager::InstanceManager(Renderer* pRenderer) :
 }
 
 InstanceManager::~InstanceManager()
-{
+{	
 	ClearInstanceObjects();
 }
 
@@ -39,8 +39,8 @@ void InstanceManager::ClearInstanceObjects()
 	{
 		for (size_t j = 0; j < m_vpInstanceParentList[i]->m_vpInstanceObjectList.size(); ++j)
 		{
-			delete m_vpInstanceParentList[i]->m_vpInstanceObjectList[i];
-			m_vpInstanceParentList[i]->m_vpInstanceObjectList[i] = nullptr;
+			delete m_vpInstanceParentList[i]->m_vpInstanceObjectList[j];
+			m_vpInstanceParentList[i]->m_vpInstanceObjectList[j] = nullptr;
 		}
 
 		m_vpInstanceParentList[i]->m_vpInstanceObjectList.clear();
@@ -200,8 +200,8 @@ void InstanceManager::SetupGLBuffers(InstanceParent* pInstanceParent) const
 	glGenBuffers(1, &pInstanceParent->m_colorBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, pInstanceParent->m_colorBuffer);
 
-	int sizeOfColours = sizeof(float) * 4 * static_cast<int>(pMesh->vertices.size());
-	glBufferData(GL_ARRAY_BUFFER, sizeOfColours, colors, GL_STATIC_DRAW);
+	int sizeOfColors = sizeof(float) * 4 * static_cast<int>(pMesh->vertices.size());
+	glBufferData(GL_ARRAY_BUFFER, sizeOfColors, colors, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(inColor);
 	glVertexAttribPointer(inColor, 4, GL_FLOAT, 0, 0, nullptr);
 
@@ -293,9 +293,9 @@ void InstanceManager::Update(float dt)
 		// Check chunk instances, so that instances linked to voxels erase when the voxel is destroyed
 		if (m_checkChunkInstanceTimer <= 0.0f)
 		{
-			for (int instanceobjectID = 0; instanceobjectID < m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList.size(); ++instanceobjectID)
+			for (int instanceObjectID = 0; instanceObjectID < m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList.size(); ++instanceObjectID)
 			{
-				InstanceObject* pInstanceObject = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[instanceobjectID];
+				InstanceObject* pInstanceObject = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[instanceObjectID];
 
 				if (pInstanceObject->m_erase)
 				{

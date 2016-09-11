@@ -10,7 +10,7 @@
 #ifndef CUBBY_FRUSTUM_H
 #define CUBBY_FRUSTUM_H
 
-#include "Maths/Plane3D.h"
+#include <Maths/Plane3D.h>
 
 // Avoid conflict with #define FAR far and #define NEAR near
 #undef FAR
