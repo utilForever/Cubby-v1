@@ -325,6 +325,7 @@ public:
 	unsigned int AddTriangleToMesh(unsigned int vertexID1, unsigned int vertexID2, unsigned int vertexID3, TriangleMesh* pMesh) const;
 	void ModifyMeshAlpha(float alpha, TriangleMesh* pMesh);
 	void ModifyMeshColor(float r, float g, float b, TriangleMesh* pMesh);
+	void ConvertMeshColor(float r, float g, float b, float matchR, float matchG, float matchB, TriangleMesh* pMesh);
 	void FinishMesh(unsigned int textureID, unsigned int materialID, TriangleMesh* pMesh);
 	void RenderMesh(TriangleMesh* pMesh);
 	void RenderMeshNoColor(TriangleMesh* pMesh);
@@ -358,6 +359,11 @@ public:
 	unsigned int GetPositionTextureFromFrameBuffer(unsigned int frameBufferID);
 	unsigned int GetNormalTextureFromFrameBuffer(unsigned int frameBufferID);
 	unsigned int GetDepthTextureFromFrameBuffer(unsigned int frameBufferID);
+
+	// Rendered information
+	void ResetRenderedStats();
+	int GetNumRenderedVertices();
+	int GetNumRenderedFaces();
 
 	// Shaders
 	bool LoadGLSLShader(const char* vertexFile, const char* fragmentFile, unsigned int* pID);
@@ -414,6 +420,10 @@ private:
 
 	// Frame buffers
 	std::vector<FrameBuffer*> m_frameBuffers;
+
+	// Rendered information
+	int m_numRenderedVertices;
+	int m_numRenderedFaces;
 
 	// Shaders
 	glShaderManager m_shaderManager;

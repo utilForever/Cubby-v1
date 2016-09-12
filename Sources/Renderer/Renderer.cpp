@@ -76,78 +76,89 @@ Renderer::Renderer(int width, int height, int depthBits, int stencilBits) :
 	gluQuadricNormals(m_quadratic, GLU_SMOOTH);
 	gluQuadricTexture(m_quadratic, GL_TRUE);
 
+	// Rendered information
+	m_numRenderedVertices = 0;
+	m_numRenderedFaces = 0;
+
 	InitOpenGLExtensions();
 }
 
 Renderer::~Renderer()
 {
+	unsigned int i;
+
 	// Delete the vertex arrays
 	m_vertexArraysMutex.lock();
-	for (auto& vertexArray : m_vertexArrays)
+	for (i = 0; i < m_vertexArrays.size(); ++i)
 	{
-		delete vertexArray;
-		vertexArray = nullptr;
+		delete m_vertexArrays[i];
+		m_vertexArrays[i] = nullptr;
 	}
 	m_vertexArrays.clear();
 	m_vertexArraysMutex.unlock();
 
 	// Delete the viewports
-	for (auto& viewport : m_viewports)
+	for (i = 0; i < m_viewports.size(); ++i)
 	{
-		delete viewport;
-		viewport = nullptr;
+		delete m_viewports[i];
+		m_viewports[i] = nullptr;
 	}
 	m_viewports.clear();
 
 	// Delete the frustums
-	for (auto& frustum : m_frustums)
+	for (i = 0; i < m_frustums.size(); ++i)
 	{
-		delete frustum;
-		frustum = nullptr;
+		delete m_frustums[i];
+		m_frustums[i] = nullptr;
 	}
 	m_frustums.clear();
 
 	// Delete the materials
-	for (auto& material : m_materials)
+	for (i = 0; i < m_materials.size(); ++i)
 	{
-		delete material;
-		material = nullptr;
+		delete m_materials[i];
+		m_materials[i] = nullptr;
 	}
 	m_materials.clear();
 
 	// Delete the textures
-	for (auto& texture : m_textures)
+	for (i = 0; i < m_textures.size(); ++i)
 	{
-		delete texture;
-		texture = nullptr;
+		delete m_textures[i];
+		m_textures[i] = nullptr;
 	}
 	m_textures.clear();
 
 	// Delete the lights
-	for (auto& light : m_lights)
+	for (i = 0; i < m_lights.size(); ++i)
 	{
-		delete light;
-		light = nullptr;
+		delete m_lights[i];
+		m_lights[i] = nullptr;
 	}
 	m_lights.clear();
 
 	// Delete the FreeType fonts
-	for (auto& freetypeFont : m_freetypeFonts)
+	for (i = 0; i < m_freetypeFonts.size(); ++i)
 	{
-		delete freetypeFont;
-		freetypeFont = nullptr;
+		delete m_freetypeFonts[i];
+		m_freetypeFonts[i] = nullptr;
 	}
 	m_freetypeFonts.clear();
 
 	// Delete the frame buffers
-	for (auto& frameBuffer : m_frameBuffers)
+	for (i = 0; i < m_frameBuffers.size(); ++i)
 	{
-		delete frameBuffer;
-		frameBuffer = nullptr;
+		delete m_frameBuffers[i];
+		m_frameBuffers[i] = nullptr;
 	}
 	m_frameBuffers.clear();
 
 	// Delete the shaders
+	for (i = 0; i < m_shaders.size(); ++i)
+	{
+		//delete m_shaders[i];
+		//m_shaders[i] = nullptr;
+	}
 	m_shaders.clear();
 
 	// Delete the quadratic drawer
@@ -485,6 +496,9 @@ bool Renderer::BeginScene(bool pixel, bool depth, bool stencil)
 {
 	ClearScene(pixel, depth, stencil);
 
+	// Reset the renderer stat counters
+	ResetRenderedStats();
+
 	// Reset the projection and model-view matrices to be identity
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -794,11 +808,11 @@ void Renderer::DisableVectorNormalize()
 }
 
 // Depth testing
-void Renderer::EnableDepthTest(DepthTest lTestFunction)
+void Renderer::EnableDepthTest(DepthTest testFunction)
 {
 	glEnable(GL_DEPTH_TEST);
 
-	glDepthFunc(GetDepthTest(lTestFunction));
+	glDepthFunc(GetDepthTest(testFunction));
 }
 
 void Renderer::DisableDepthTest()
@@ -806,11 +820,11 @@ void Renderer::DisableDepthTest()
 	glDisable(GL_DEPTH_TEST);
 }
 
-GLenum Renderer::GetDepthTest(DepthTest lTest)
+GLenum Renderer::GetDepthTest(DepthTest test)
 {
 	GLenum glFlag = GL_NEVER;
 
-	switch (lTest)
+	switch (test)
 	{
 	case DepthTest::NEVER:
 		glFlag = GL_NEVER;
@@ -1623,6 +1637,27 @@ bool Renderer::RenderStaticBuffer(unsigned int id)
 	bool rendered = false;
 	if (pVertexArray != nullptr)
 	{
+		m_numRenderedVertices += pVertexArray->numVertices;
+		switch (m_primitiveMode)
+		{
+		case GL_POINTS:
+		case GL_LINES:
+			m_numRenderedFaces += 0;
+			break;
+		case GL_TRIANGLES:
+			m_numRenderedFaces += (pVertexArray->numIndices / 3);
+			break;
+		case GL_TRIANGLE_STRIP:
+			m_numRenderedFaces += (pVertexArray->numIndices - 2);
+			break;
+		case GL_TRIANGLE_FAN:
+			m_numRenderedFaces += (pVertexArray->numIndices - 2);
+			break;
+		case GL_QUADS:
+			m_numRenderedFaces += (pVertexArray->numIndices / 4);
+			break;
+		}
+
 		if ((pVertexArray->type != VertexType::POSITION_DIFFUSE_ALPHA) && (pVertexArray->type != VertexType::POSITION_DIFFUSE))
 		{
 			if (pVertexArray->materialID != -1)
@@ -1709,11 +1744,32 @@ bool Renderer::RenderStaticBufferNoColor(unsigned int id)
 	}
 
 	// Find the vertex array from the list
-	VertexArray *pVertexArray = m_vertexArrays[id];
+	VertexArray* pVertexArray = m_vertexArrays[id];
 
 	bool rendered = false;
 	if (pVertexArray != nullptr)
 	{
+		m_numRenderedVertices += pVertexArray->numVertices;
+		switch (m_primitiveMode)
+		{
+		case GL_POINTS:
+		case GL_LINES:
+			m_numRenderedFaces += 0;
+			break;
+		case GL_TRIANGLES:
+			m_numRenderedFaces += (pVertexArray->numIndices / 3);
+			break;
+		case GL_TRIANGLE_STRIP:
+			m_numRenderedFaces += (pVertexArray->numIndices - 2);
+			break;
+		case GL_TRIANGLE_FAN:
+			m_numRenderedFaces += (pVertexArray->numIndices - 2);
+			break;
+		case GL_QUADS:
+			m_numRenderedFaces += (pVertexArray->numIndices / 4);
+			break;
+		}
+
 		if ((pVertexArray->type != VertexType::POSITION_DIFFUSE_ALPHA) && (pVertexArray->type != VertexType::POSITION_DIFFUSE))
 		{
 			if (pVertexArray->materialID != -1)
@@ -1787,6 +1843,27 @@ bool Renderer::RenderFromArray(VertexType type, unsigned int materialID, unsigne
 		}
 	}
 
+	m_numRenderedVertices += nVertices;
+	switch (m_primitiveMode)
+	{
+	case GL_POINTS:
+	case GL_LINES:
+		m_numRenderedFaces += 0;
+		break;
+	case GL_TRIANGLES:
+		m_numRenderedFaces += (nIndices / 3);
+		break;
+	case GL_TRIANGLE_STRIP:
+		m_numRenderedFaces += (nIndices - 2);
+		break;
+	case GL_TRIANGLE_FAN:
+		m_numRenderedFaces += (nIndices - 2);
+		break;
+	case GL_QUADS:
+		m_numRenderedFaces += (nIndices / 4);
+		break;
+	}
+
 	// Calculate the stride
 	GLsizei totalStride = GetStride(type);
 
@@ -1850,15 +1927,21 @@ unsigned int Renderer::GetStride(VertexType type) const
 
 	// Add normals stride
 	if (type == VertexType::POSITION_NORMAL || type == VertexType::POSITION_NORMAL_UV || type == VertexType::POSITION_NORMAL_UV_COLOR || type == VertexType::POSITION_NORMAL_COLOR)
+	{
 		totalStride += sizeof(float) * 3;
+	}
 
 	// Add color stride
 	if (type == VertexType::POSITION_DIFFUSE)
+	{
 		totalStride += sizeof(float) * 3;
+	}
 
 	// Add color and alpha stride
 	if (type == VertexType::POSITION_DIFFUSE_ALPHA || type == VertexType::POSITION_NORMAL_UV_COLOR || type == VertexType::POSITION_NORMAL_COLOR)
+	{
 		totalStride += sizeof(float) * 4;
+	}
 
 	return totalStride;
 }
@@ -1988,7 +2071,7 @@ void Renderer::ModifyMeshAlpha(float alpha, TriangleMesh* pMesh)
 	GLsizei totalStride = GetStride(pArray->type) / 4;
 	int alphaIndex = totalStride - 1;
 
-	for (int i = 0; i < pArray->numVertices; i++)
+	for (int i = 0; i < pArray->numVertices; ++i)
 	{
 		pArray->pVertexArray[alphaIndex] = alpha;
 
@@ -2009,11 +2092,43 @@ void Renderer::ModifyMeshColor(float r, float g, float b, TriangleMesh* pMesh)
 	int gIndex = totalStride - 3;
 	int bIndex = totalStride - 2;
 
-	for (int i = 0; i < pArray->numVertices; i++)
+	for (int i = 0; i < pArray->numVertices; ++i)
 	{
 		pArray->pVertexArray[rIndex] = r;
 		pArray->pVertexArray[gIndex] = g;
 		pArray->pVertexArray[bIndex] = b;
+
+		rIndex += totalStride;
+		gIndex += totalStride;
+		bIndex += totalStride;
+	}
+
+	m_vertexArraysMutex.unlock();
+}
+
+void Renderer::ConvertMeshColor(float r, float g, float b, float matchR, float matchG, float matchB, TriangleMesh* pMesh)
+{
+	m_vertexArraysMutex.lock();
+
+	VertexArray* pArray = m_vertexArrays[pMesh->staticMeshID];
+
+	GLsizei totalStride = GetStride(pArray->type) / 4;
+	int rIndex = totalStride - 4;
+	int gIndex = totalStride - 3;
+	int bIndex = totalStride - 2;
+
+	for (int i = 0; i < pArray->numVertices; ++i)
+	{
+		float diffR = fabs(pArray->pVertexArray[rIndex] - matchR);
+		float diffG = fabs(pArray->pVertexArray[gIndex] - matchG);
+		float diffB = fabs(pArray->pVertexArray[bIndex] - matchB);
+	
+		if (diffR < 0.005f && diffG < 0.005f && diffB < 0.005f)
+		{
+			pArray->pVertexArray[rIndex] = r;
+			pArray->pVertexArray[gIndex] = g;
+			pArray->pVertexArray[bIndex] = b;
+		}
 
 		rIndex += totalStride;
 		gIndex += totalStride;
@@ -2036,6 +2151,7 @@ void Renderer::FinishMesh(unsigned int textureID, unsigned int materialID, Trian
 	// Vertices
 	PositionNormalColorVertex* meshBuffer;
 	meshBuffer = new PositionNormalColorVertex[numVertices];
+
 	for (unsigned int i = 0; i < numVertices; ++i)
 	{
 		meshBuffer[i].x = pMesh->vertices[i]->vertexPosition[0];
@@ -2055,6 +2171,7 @@ void Renderer::FinishMesh(unsigned int textureID, unsigned int materialID, Trian
 	// Texture coordinates
 	UVCoordinate* textureCoordinatesBuffer;
 	textureCoordinatesBuffer = new UVCoordinate[numTextureCoordinates];
+
 	for (unsigned int i = 0; i < numTextureCoordinates; ++i)
 	{
 		textureCoordinatesBuffer[i].u = pMesh->textureCoordinates[i]->s;
@@ -2153,84 +2270,7 @@ bool Renderer::MeshStaticBufferRender(TriangleMesh* pMesh)
 {
 	SetPrimitiveMode(PrimitiveMode::TRIANGLES);
 
-	m_vertexArraysMutex.lock();
-
-	if (pMesh->staticMeshID >= m_vertexArrays.size())
-	{
-		m_vertexArraysMutex.unlock();
-		// We have supplied an invalid ID
-		return false;
-	}
-
-	VertexArray* pVertexArray = m_vertexArrays[pMesh->staticMeshID];
-
-	bool rendered = false;
-	if (pVertexArray != nullptr)
-	{
-		if (pVertexArray->numVertices != 0)
-		{
-			if ((pVertexArray->type != VertexType::POSITION_DIFFUSE_ALPHA) && (pVertexArray->type != VertexType::POSITION_DIFFUSE))
-			{
-				if (pVertexArray->materialID != -1)
-				{
-					m_materials[pVertexArray->materialID]->Apply();
-				}
-			}
-
-			if (pVertexArray->type == VertexType::POSITION_NORMAL_UV || pVertexArray->type == VertexType::POSITION_NORMAL_UV_COLOR)
-			{
-				if (pVertexArray->textureID != -1)
-				{
-					BindTexture(pVertexArray->textureID);
-				}
-			}
-
-			// Calculate the stride
-			GLsizei totalStride = GetStride(pVertexArray->type);
-
-			glVertexPointer(3, GL_FLOAT, totalStride, pVertexArray->pVertexArray);
-
-			if (pVertexArray->type == VertexType::POSITION_NORMAL || pVertexArray->type == VertexType::POSITION_NORMAL_UV || pVertexArray->type == VertexType::POSITION_NORMAL_UV_COLOR || pVertexArray->type == VertexType::POSITION_NORMAL_COLOR)
-			{
-				glNormalPointer(GL_FLOAT, totalStride, &pVertexArray->pVertexArray[3]);
-			}
-
-			if (pVertexArray->type == VertexType::POSITION_NORMAL_UV || pVertexArray->type == VertexType::POSITION_NORMAL_UV_COLOR)
-			{
-				glTexCoordPointer(2, GL_FLOAT, 0, pVertexArray->pTextureCoordinates);
-			}
-
-			if (pVertexArray->type == VertexType::POSITION_DIFFUSE_ALPHA)
-			{
-				glColorPointer(4, GL_FLOAT, totalStride, &pVertexArray->pVertexArray[3]);
-			}
-
-			if (pVertexArray->type == VertexType::POSITION_DIFFUSE)
-			{
-				glColorPointer(3, GL_FLOAT, totalStride, &pVertexArray->pVertexArray[3]);
-			}
-
-			if (pVertexArray->type == VertexType::POSITION_NORMAL_UV_COLOR || pVertexArray->type == VertexType::POSITION_NORMAL_COLOR)
-			{
-				glColorPointer(4, GL_FLOAT, totalStride, &pVertexArray->pVertexArray[6]);
-			}
-
-			if (pVertexArray->numIndices != 0)
-			{
-				glDrawElements(m_primitiveMode, pVertexArray->numIndices, GL_UNSIGNED_INT, pVertexArray->pIndices);
-			}
-			else
-			{
-				glDrawArrays(m_primitiveMode, 0, pVertexArray->numVertices);
-			}
-
-			rendered = true;
-		}
-	}
-
-	m_vertexArraysMutex.unlock();
-
-	return rendered;
+	return RenderStaticBuffer(pMesh->staticMeshID);
 }
 
 // Name rendering and name picking
@@ -2315,7 +2355,6 @@ int Renderer::PointInFrustum(unsigned int frustumID, const glm::vec3& point)
 {
 	Frustum* pFrustum = m_frustums[frustumID];
 
-	// TODO: Convert int to FrustumBoundary
 	return static_cast<int>(pFrustum->PointInFrustum(point));
 }
 
@@ -2323,7 +2362,6 @@ int Renderer::SphereInFrustum(unsigned int frustumID, const glm::vec3& point, fl
 {
 	Frustum* pFrustum = m_frustums[frustumID];
 
-	// TODO: Convert int to FrustumBoundary
 	return static_cast<int>(pFrustum->SphereInFrustum(point, radius));
 }
 
@@ -2331,7 +2369,6 @@ int Renderer::CubeInFrustum(unsigned int frustumID, const glm::vec3& center, flo
 {
 	Frustum* pFrustum = m_frustums[frustumID];
 
-	// TODO: Convert int to FrustumBoundary
 	return static_cast<int>(pFrustum->CubeInFrustum(center, x, y, z));
 }
 
@@ -2376,7 +2413,7 @@ bool Renderer::CreateFrameBuffer(int idToResetup, bool diffuse, bool position, b
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F_ARB, static_cast<int>(width * viewportScale), static_cast<int>(height*viewportScale), 0, GL_RGBA, GL_FLOAT, nullptr);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F_ARB, static_cast<int>(width * viewportScale), static_cast<int>(height * viewportScale), 0, GL_RGBA, GL_FLOAT, nullptr);
 		glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, pNewFrameBuffer->diffuseTexture, 0);
 	}
 
@@ -2546,19 +2583,36 @@ unsigned int Renderer::GetDepthTextureFromFrameBuffer(unsigned int frameBufferID
 	return m_frameBuffers[frameBufferID]->depthTexture;
 }
 
+// Rendered information
+void Renderer::ResetRenderedStats()
+{
+	m_numRenderedVertices = 0;
+	m_numRenderedFaces = 0;
+}
+
+int Renderer::GetNumRenderedVertices()
+{
+	return m_numRenderedVertices;
+}
+
+int Renderer::GetNumRenderedFaces()
+{
+	return m_numRenderedFaces;
+}
+
 // Shaders
 bool Renderer::LoadGLSLShader(const char* vertexFile, const char* fragmentFile, unsigned int* pID)
 {
-	glShader* lpShader;
+	glShader* pShader;
 
 	// Load the shader
 	// load (and compile, link) from file
-	lpShader = m_shaderManager.loadfromFile(vertexFile, fragmentFile);
+	pShader = m_shaderManager.loadfromFile(vertexFile, fragmentFile);
 
-	if (lpShader != nullptr)
+	if (pShader != nullptr)
 	{
 		// Push the vertex array onto the list
-		m_shaders.push_back(lpShader);
+		m_shaders.push_back(pShader);
 
 		// Return the vertex array id
 		*pID = m_shaders.size() - 1;
