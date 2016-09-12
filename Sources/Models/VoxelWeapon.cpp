@@ -1352,15 +1352,15 @@ void VoxelWeapon::Update(float dt) const
 				vForward.y = 0.0f;
 				vForward = normalize(vForward);
 				glm::vec3 forwardDiff = vForward - glm::vec3(0.0f, 0.0f, 1.0f);
-				vForward = normalize(glm::vec3(0.0f, 0.0f, 1.0f) + (forwardDiff*0.5f));
+				vForward = normalize(glm::vec3(0.0f, 0.0f, 1.0f) + (forwardDiff * 0.5f));
 
 				glm::vec3 vUp = glm::vec3(0.0f, 1.0f, 0.0f);
-				glm::vec3 lRight = normalize(cross(vUp, vForward));
-				vUp = normalize(cross(vForward, lRight));
+				glm::vec3 vRight = normalize(cross(vUp, vForward));
+				vUp = normalize(cross(vForward, vRight));
 
 				float matrix[16] =
 				{
-					lRight.x, lRight.y, lRight.z, 0.0f,
+					vRight.x, vRight.y, vRight.z, 0.0f,
 					vUp.x, vUp.y, vUp.z, 0.0f,
 					vForward.x, vForward.y, vForward.z, 0.0f,
 					0.0f, 0.0f, 0.0f, 1.0f
@@ -1600,8 +1600,8 @@ void VoxelWeapon::RenderPaperdoll() const
 
 		m_pRenderer->TranslateWorldMatrix(m_pAnimatedSections[i].translateX, m_pAnimatedSections[i].translateY, m_pAnimatedSections[i].translateZ);
 
-		Color OutlineColour(1.0f, 1.0f, 0.0f, 1.0f);
-		m_pAnimatedSections[i].pVoxelObject->Render(false, false, false, OutlineColour);
+		Color outlineColor(1.0f, 1.0f, 0.0f, 1.0f);
+		m_pAnimatedSections[i].pVoxelObject->Render(false, false, false, outlineColor);
 		
 		m_pRenderer->PopMatrix();
 	}

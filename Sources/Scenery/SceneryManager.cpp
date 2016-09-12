@@ -161,9 +161,9 @@ void SceneryManager::UpdateLayoutPosition(std::string name, glm::vec3 newPositio
 	{
 		if (m_vpSceneryObjectList[i]->m_name.find(nameToSearch) != std::string::npos)
 		{
-			m_vpSceneryObjectList[i]->m_worldFileOffset.x = newPosition.x;
-			m_vpSceneryObjectList[i]->m_worldFileOffset.y = newPosition.y;
-			m_vpSceneryObjectList[i]->m_worldFileOffset.z = newPosition.z;
+			m_vpSceneryObjectList[i]->m_worldFileOffset.x = static_cast<float>(static_cast<int>(newPosition.x));
+			m_vpSceneryObjectList[i]->m_worldFileOffset.y = static_cast<float>(static_cast<int>(newPosition.y));
+			m_vpSceneryObjectList[i]->m_worldFileOffset.z = static_cast<float>(static_cast<int>(newPosition.z));
 		}
 	}
 }
@@ -303,11 +303,11 @@ void SceneryManager::RenderSceneryObject(SceneryObject* pSceneryObject, bool out
 	case QubicleImportDirection::RotateZ270:	{ m_pRenderer->RotateWorldMatrix(0.0f, 0.0f, -270.0f); } break;
 	}
 
-	Color OulineColor(1.0f, 1.0f, 0.0f, 1.0f);
+	Color outlineColor(1.0f, 1.0f, 0.0f, 1.0f);
 
 	if (pSceneryObject->m_hoverRender && pSceneryObject->m_outlineRender == false)
 	{
-		OulineColor = Color(1.0f, 0.0f, 1.0f, 1.0f);
+		outlineColor = Color(1.0f, 0.0f, 1.0f, 1.0f);
 	}
 
 	if (shadow)
@@ -321,7 +321,7 @@ void SceneryManager::RenderSceneryObject(SceneryObject* pSceneryObject, bool out
 
 	m_pRenderer->ImmediateColorAlpha(1.0f, 1.0f, 1.0f, 1.0f);
 
-	pSceneryObject->m_pQubicleBinaryFile->Render(outline, reflection, silhouette, OulineColor);
+	pSceneryObject->m_pQubicleBinaryFile->Render(outline, reflection, silhouette, outlineColor);
 
 	if (boundingBox)
 	{
