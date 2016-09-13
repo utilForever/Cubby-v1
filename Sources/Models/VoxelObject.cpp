@@ -119,11 +119,11 @@ void VoxelObject::UnloadObject()
 }
 
 // Rendering modes
-void VoxelObject::SetWireFrameRender(bool isWreframe) const
+void VoxelObject::SetWireFrameRender(bool isWireframe) const
 {
 	if (m_pVoxelModel != nullptr)
 	{
-		m_pVoxelModel->SetWireFrameRender(isWreframe);
+		m_pVoxelModel->SetWireFrameRender(isWireframe);
 	}
 }
 
@@ -141,6 +141,12 @@ void VoxelObject::SetMeshSingleColor(float r, float g, float b) const
 	{
 		m_pVoxelModel->SetMeshSingleColor(r, g, b);
 	}
+}
+
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void VoxelObject::Update(float dt) const
+{
+	// Do nothing
 }
 
 void VoxelObject::Render(bool renderOutline, bool reflection, bool silhouette, Color outlineColor) const

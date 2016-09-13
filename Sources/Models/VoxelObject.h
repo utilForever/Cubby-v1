@@ -15,7 +15,7 @@
 class VoxelObject
 {
 public:
-	// Constructor
+	// Constructor, Destructor
 	VoxelObject();
 	~VoxelObject();
 
@@ -40,6 +40,7 @@ public:
 	void SetMeshAlpha(float alpha) const;
 	void SetMeshSingleColor(float r, float g, float b) const;
 
+	void Update(float dt) const;
 	void Render(bool renderOutline, bool reflection, bool silhouette, Color outlineColor) const;
 
 private:

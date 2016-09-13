@@ -100,5 +100,5 @@ void BoundingBox::SetMaxZ(float z)
 
 glm::vec3 BoundingBox::GetCenter() const
 {
-	return glm::vec3(m_maxX - m_minX * 0.5f, m_maxY - m_minY * 0.5f, m_maxY - m_minY * 0.5f);
+	return glm::vec3(m_maxX - m_minX * 0.5f, m_maxY - m_minY * 0.5f, m_maxZ - m_minZ * 0.5f);
 }
