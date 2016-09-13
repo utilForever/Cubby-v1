@@ -189,15 +189,15 @@ Chunk* BlockParticle::GetCachedGridChunkOrFromPosition(glm::vec3 pos) const
 	int gridPositionY = static_cast<int>((pos.y + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
 	int gridPositionZ = static_cast<int>((pos.z + Chunk::BLOCK_RENDER_SIZE) / Chunk::CHUNK_SIZE);
 
-	if (m_position.x <= -0.5f)
+	if (pos.x <= -0.5f)
 	{
 		gridPositionX -= 1;
 	}
-	if (m_position.y <= -0.5f)
+	if (pos.y <= -0.5f)
 	{
 		gridPositionY -= 1;
 	}
-	if (m_position.z <= -0.5f)
+	if (pos.z <= -0.5f)
 	{
 		gridPositionZ -= 1;
 	}
