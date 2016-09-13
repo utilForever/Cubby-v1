@@ -88,6 +88,9 @@ void CubbySettings::LoadOptions()
 	m_gamepadSensitivity = static_cast<float>(reader.GetReal("Gameplay", "GamepadSensitivity", 50.0f));
 
 	// Graphics
+	m_shadows = reader.GetBoolean("Graphics", "Shadows", false);
+	m_fogRendering = reader.GetBoolean("Graphics", "FogRendering", false);
+	m_waterRendering = reader.GetBoolean("Graphics", "WaterRendering", false);
 
 	// Sound
 	m_audio = reader.GetBoolean("Sound", "AudioEnabled", true);
@@ -123,6 +126,9 @@ void CubbySettings::SaveOptions() const
 	file << "\n";
 
 	file << "[Graphics]\n";
+	file << "Shadows=" << (m_shadows ? "True" : "False") << "\n";
+	file << "FogRendering=" << (m_fogRendering ? "True" : "False") << "\n";
+	file << "WaterRendering=" << (m_waterRendering ? "True" : "False") << "\n";
 	file << "\n";
 
 	file << "[Sound]\n";
