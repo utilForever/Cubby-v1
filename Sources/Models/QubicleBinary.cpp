@@ -16,8 +16,8 @@ const float QubicleBinary::BLOCK_RENDER_SIZE = 0.5f;
 QubicleBinary::QubicleBinary(Renderer* pRenderer) :
 	m_pRenderer(pRenderer), m_isLoaded(false),
 	m_colorFormat(0), m_zAxisOrientation(0), m_compressed(0), m_visibilityMaskEncoded(0), m_numMatrices(0),
-	m_isRenderWireFrame(false), m_meshAlpha(0.0f),
-	m_isSingleMeshColor(false), m_meshSingleColorR(0.0f), m_meshSingleColorG(false), m_meshSingleColorB(false),
+	m_isRenderWireFrame(false), m_meshAlpha(1.0f),
+	m_isSingleMeshColor(false), m_meshSingleColorR(1.0f), m_meshSingleColorG(1.0f), m_meshSingleColorB(1.0f),
 	m_materialID(0)
 {
 	Reset();
@@ -33,13 +33,13 @@ QubicleBinary::~QubicleBinary()
 
 void QubicleBinary::SetNullLinkage(QubicleBinary* pBinary)
 {
-	for (auto pMatrix : m_vpMatrices)
+	for (int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		for (int i = 0; i < pBinary->GetNumMatrices(); ++i)
+		for (int j = 0; j < pBinary->GetNumMatrices(); ++j)
 		{
-			if (pMatrix == pBinary->GetQubicleMatrix(i))
+			if (m_vpMatrices[i] == pBinary->GetQubicleMatrix(j))
 			{
-				pMatrix = nullptr;
+				m_vpMatrices[i] = nullptr;
 			}
 		}
 	}
@@ -55,26 +55,24 @@ void QubicleBinary::Unload()
 
 void QubicleBinary::ClearMatrices()
 {
-	for (auto pMatrix : m_vpMatrices)
+	for (int i = 0; i < m_vpMatrices.size(); ++i)
 	{
-		if (pMatrix == nullptr)
+		if (m_vpMatrices[i] == nullptr)
 		{
 			continue;
 		}
 
-		if (pMatrix->m_isRemoved == true)
+		if (m_vpMatrices[i]->m_isRemoved == true)
 		{
 			continue;
 		}
 
-		m_pRenderer->ClearMesh(pMatrix->m_pMesh);
-		pMatrix->m_pMesh = nullptr;
+		m_pRenderer->ClearMesh(m_vpMatrices[i]->m_pMesh);
+		m_vpMatrices[i]->m_pMesh = nullptr;
 
-		delete[] pMatrix->m_pColor;
+		delete[] m_vpMatrices[i]->m_pColor;
 
-		delete pMatrix;
-		// ReSharper disable once CppAssignedValueIsNeverUsed
-		pMatrix = nullptr;
+		delete m_vpMatrices[i];
 	}
 
 	m_vpMatrices.clear();
@@ -270,16 +268,16 @@ bool QubicleBinary::Import(const char* fileName, bool faceMerging)
 
 bool QubicleBinary::Export(const char* fileName)
 {
-	char qbFilename[256];
-	sprintf(qbFilename, fileName);;
+	char qbFileName[256];
+	sprintf(qbFileName, fileName);
 
 	FILE* pQBfile = nullptr;
-	fopen_s(&pQBfile, qbFilename, "wb");
+	fopen_s(&pQBfile, qbFileName, "wb");
 
 	const unsigned int CODEFLAG = 2;
 	const unsigned int NEXTSLICEFLAG = 6;
 
-	if (qbFilename != nullptr)
+	if (qbFileName != nullptr)
 	{
 		fwrite(&m_version[0], sizeof(char) * 4, 1, pQBfile) == 1;
 		fwrite(&m_colorFormat, sizeof(unsigned int), 1, pQBfile) == 1;
@@ -430,7 +428,7 @@ void QubicleBinary::SetMeshAlpha(float alpha)
 {
 	m_meshAlpha = alpha;
 
-	for (unsigned int i = 0; i < m_vpMatrices.size(); i++)
+	for (unsigned int i = 0; i < m_vpMatrices.size(); ++i)
 	{
 		m_pRenderer->ModifyMeshAlpha(alpha, m_vpMatrices[i]->m_pMesh);
 	}
@@ -452,32 +450,32 @@ void QubicleBinary::SetMeshSingleColor(float r, float g, float b)
 
 bool IsMergedXNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::X_Negative)) == static_cast<int>(MergedSide::X_Negative);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::XNegative)) == static_cast<int>(MergedSide::XNegative);
 }
 
 bool IsMergedXPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::X_Positive)) == static_cast<int>(MergedSide::X_Positive);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::XPositive)) == static_cast<int>(MergedSide::XPositive);
 }
 
 bool IsMergedYNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Y_Negative)) == static_cast<int>(MergedSide::Y_Negative);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::YNegative)) == static_cast<int>(MergedSide::YNegative);
 }
 
 bool IsMergedYPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Y_Positive)) == static_cast<int>(MergedSide::Y_Positive);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::YPositive)) == static_cast<int>(MergedSide::YPositive);
 }
 
 bool IsMergedZNegative(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Z_Negative)) == static_cast<int>(MergedSide::Z_Negative);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::ZNegative)) == static_cast<int>(MergedSide::ZNegative);
 }
 
 bool IsMergedZPositive(int* merged, int x, int y, int z, int width, int height)
 {
-	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::Z_Positive)) == static_cast<int>(MergedSide::Z_Positive);
+	return (merged[x + y * width + z * width * height] & static_cast<int>(MergedSide::ZPositive)) == static_cast<int>(MergedSide::ZPositive);
 }
 
 void QubicleBinary::CreateMesh(bool doFaceMerging)
@@ -889,30 +887,30 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::ZPositive);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::XPositive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::YPositive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::ZNegative);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::XNegative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::YNegative);
 						}
 					}
 				}
@@ -1050,30 +1048,30 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Positive);
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::ZPositive);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Positive);
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::XPositive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::YPositive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Negative);
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::ZNegative);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Negative);
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::XNegative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::YNegative);
 						}
 					}
 				}
@@ -1244,9 +1242,9 @@ void QubicleBinary::SetQubicleMatrixRender(const char* matrixName, bool render)
 }
 
 // Sub selection
-std::string QubicleBinary::GetSubSelectionName(int pickingId)
+std::string QubicleBinary::GetSubSelectionName(int pickingID)
 {
-	int index = pickingId - SUBSELECTION_NAMEPICKING_OFFSET;
+	int index = pickingID - SUBSELECTION_NAMEPICKING_OFFSET;
 
 	if (index >= 0 && index <= m_numMatrices - 1)
 	{
@@ -1263,7 +1261,7 @@ void QubicleBinary::SetWireFrameRender(bool wireframe)
 }
 
 //Rendering
-void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette, Color OutlineColor)
+void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette, Color outlineColor)
 {
 	m_pRenderer->PushMatrix();
 
@@ -1296,14 +1294,14 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 			m_pRenderer->SetLineWidth(3.0f);
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::WIREFRAME);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (silhouette)
 		{
 			m_pRenderer->DisableDepthTest();
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::SOLID);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (m_isRenderWireFrame)
 		{
@@ -1371,7 +1369,7 @@ void QubicleBinary::Render(bool renderOutline, bool reflection, bool silhouette,
 	m_pRenderer->PopMatrix();
 }
 
-void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, bool renderOutline, bool reflection, bool silhouette, Color OutlineColor, bool subSelectionNamePicking)
+void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, bool renderOutline, bool reflection, bool silhouette, Color outlineColor, bool subSelectionNamePicking)
 {
 	if (pVoxelCharacter == nullptr)
 	{
@@ -1533,14 +1531,14 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_pRenderer->SetLineWidth(3.0f);
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::WIREFRAME);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (silhouette)
 		{
 			m_pRenderer->DisableDepthTest();
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::SOLID);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (m_isRenderWireFrame)
 		{
@@ -1610,7 +1608,7 @@ void QubicleBinary::RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter*
 	m_pRenderer->PopMatrix();
 }
 
-void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, std::string matrixName, bool renderOutline, bool silhouette, Color OutlineColor)
+void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, std::string matrixName, bool renderOutline, bool silhouette, Color outlineColor)
 {
 	if (pVoxelCharacter == nullptr)
 	{
@@ -1761,14 +1759,14 @@ void QubicleBinary::RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter*
 			m_pRenderer->SetLineWidth(3.0f);
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::WIREFRAME);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (silhouette)
 		{
 			m_pRenderer->DisableDepthTest();
 			m_pRenderer->SetCullMode(CullMode::FRONT);
 			m_pRenderer->SetRenderMode(RenderMode::SOLID);
-			m_pRenderer->ImmediateColorAlpha(OutlineColor.GetRed(), OutlineColor.GetGreen(), OutlineColor.GetBlue(), OutlineColor.GetAlpha());
+			m_pRenderer->ImmediateColorAlpha(outlineColor.GetRed(), outlineColor.GetGreen(), outlineColor.GetBlue(), outlineColor.GetAlpha());
 		}
 		else if (m_isRenderWireFrame)
 		{
@@ -1987,7 +1985,7 @@ void QubicleBinary::RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* p
 	m_pRenderer->PushMatrix();
 	m_pRenderer->StartMeshRender();
 
-	for (unsigned int i = 0; i < m_numMatrices; i++)
+	for (unsigned int i = 0; i < m_numMatrices; ++i)
 	{
 		if (m_vpMatrices[i]->m_isRemoved == true)
 		{

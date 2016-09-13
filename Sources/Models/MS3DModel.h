@@ -43,7 +43,7 @@ struct MS3DVertex
 	float vertex[3];
 	char boneID;
 	byte refCount;
-};
+} PACK_STRUCT;
 
 // MS3D Triangle structure
 struct MS3DTriangle
@@ -116,8 +116,8 @@ typedef struct MaterialModel
 	float ambient[4], diffuse[4], specular[4], emissive[4];
 	float shininess;
 	unsigned int texture;
-	char* pTextureFilename;
-} Material_Model;
+	char* pTextureFileName;
+} MaterialModel;
 
 // Mesh structure
 typedef struct Mesh

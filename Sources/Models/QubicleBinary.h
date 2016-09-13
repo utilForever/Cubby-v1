@@ -17,12 +17,12 @@ class VoxelCharacter;
 enum class MergedSide
 {
 	None = 0,
-	X_Positive = 1,
-	X_Negative = 2,
-	Y_Positive = 4,
-	Y_Negative = 8,
-	Z_Positive = 16,
-	Z_Negative = 32,
+	XPositive = 1,
+	XNegative = 2,
+	YPositive = 4,
+	YNegative = 8,
+	ZPositive = 16,
+	ZNegative = 32,
 };
 
 bool IsMergedXNegative(int* merged, int x, int y, int z, int width, int height);
@@ -168,9 +168,9 @@ public:
 	void SetWireFrameRender(bool wireframe);
 
 	// Rendering
-	void Render(bool renderOutline, bool reflection, bool silhouette, Color OutlineColor);
-	void RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, bool renderOutline, bool reflection, bool silhouette, Color OutlineColor, bool subSelectionNamePicking);
-	void RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, std::string matrixName, bool renderOutline, bool silhouette, Color OutlineColor);
+	void Render(bool renderOutline, bool reflection, bool silhouette, Color outlixneColor);
+	void RenderWithAnimator(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, bool renderOutline, bool reflection, bool silhouette, Color outlineColor, bool subSelectionNamePicking);
+	void RenderSingleMatrix(MS3DAnimator** pSkeleton, VoxelCharacter* pVoxelCharacter, std::string matrixName, bool renderOutline, bool silhouette, Color outlineColor);
 	void RenderFace(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCharacter, bool transparency, bool useScale = true, bool useTranslate = true);
 	void RenderPaperdoll(MS3DAnimator* pSkeletonLeft, MS3DAnimator* pSkeletonRight, VoxelCharacter* pVoxelCharacter);
 	void RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVoxelCharacter, std::string matrixName);

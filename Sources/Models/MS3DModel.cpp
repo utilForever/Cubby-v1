@@ -34,7 +34,7 @@ MS3DModel::~MS3DModel()
 
 	for (int i = 0; i < m_numMaterials; ++i)
 	{
-		delete[] m_pMaterials[i].pTextureFilename;
+		delete[] m_pMaterials[i].pTextureFileName;
 	}
 
 	m_numMeshes = 0;
@@ -125,7 +125,7 @@ bool MS3DModel::LoadModel(const char *modelFileName, bool isStatic)
 	byte* pPtr = pBuffer;
 
 	// Load the Header
-	MS3DHeader *pHeader = reinterpret_cast<MS3DHeader*>(pPtr);
+	MS3DHeader* pHeader = reinterpret_cast<MS3DHeader*>(pPtr);
 	pPtr += sizeof(MS3DHeader);
 
 	if (strncmp(pHeader->ID, "MS3D000000", 10) != 0)
@@ -203,7 +203,7 @@ bool MS3DModel::LoadModel(const char *modelFileName, bool isStatic)
 	// Load the Materials
 	int nMaterials = *reinterpret_cast<word*>(pPtr);
 	m_numMaterials = nMaterials;
-	m_pMaterials = new Material_Model[nMaterials];
+	m_pMaterials = new MaterialModel[nMaterials];
 	pPtr += sizeof(word);
 
 	for (i = 0; i < nMaterials; ++i)
@@ -219,15 +219,15 @@ bool MS3DModel::LoadModel(const char *modelFileName, bool isStatic)
 		{
 			// MS3D 1.5.x relative path
 			strcpy(pathTemp + pathLength, pMaterial->texture + 2);
-			m_pMaterials[i].pTextureFilename = new char[strlen(pathTemp) + 1];
-			strcpy(m_pMaterials[i].pTextureFilename, pathTemp);
+			m_pMaterials[i].pTextureFileName = new char[strlen(pathTemp) + 1];
+			strcpy(m_pMaterials[i].pTextureFileName, pathTemp);
 		}
 		else
 		{
 			// MS3D 1.4.x or earlier - absolute path
 			strcpy(pathTemp + pathLength, pMaterial->texture);
-			m_pMaterials[i].pTextureFilename = new char[strlen(pathTemp) + 1];
-			strcpy(m_pMaterials[i].pTextureFilename, pathTemp);
+			m_pMaterials[i].pTextureFileName = new char[strlen(pathTemp) + 1];
+			strcpy(m_pMaterials[i].pTextureFileName, pathTemp);
 		}
 		pPtr += sizeof(MS3DMaterial);
 	}
@@ -358,10 +358,10 @@ bool MS3DModel::LoadTextures() const
 {
 	for (int i = 0; i < m_numMaterials; ++i)
 	{
-		if (strlen(m_pMaterials[i].pTextureFilename) > 0)
+		if (strlen(m_pMaterials[i].pTextureFileName) > 0)
 		{
-			int lTextureWidth, lTextureHeight, lTextureWidth2, lTextureHeight2;
-			if (!m_pRenderer->LoadTexture(m_pMaterials[i].pTextureFilename, &lTextureWidth, &lTextureHeight, &lTextureWidth2, &lTextureHeight2, &m_pMaterials[i].texture))
+			int textureWidth, textureHeight, textureWidth2, textureHeight2;
+			if (!m_pRenderer->LoadTexture(m_pMaterials[i].pTextureFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pMaterials[i].texture))
 			{
 				return false;
 			}

@@ -21,7 +21,7 @@ QubicleBinaryManager::~QubicleBinaryManager()
 
 void QubicleBinaryManager::ClearQubicleBinaryList()
 {
-	for (unsigned int i = 0; i < m_vpQubicleBinaryList.size(); i++)
+	for (unsigned int i = 0; i < m_vpQubicleBinaryList.size(); ++i)
 	{
 		delete m_vpQubicleBinaryList[i];
 		m_vpQubicleBinaryList[i] = nullptr;

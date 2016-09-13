@@ -47,7 +47,7 @@ OBJModel::~OBJModel()
 	m_pFaces = nullptr;
 }
 
-bool OBJModel::Load(const char* modelFileName, const char *textureFileName)
+bool OBJModel::Load(const char* modelFileName, const char* textureFileName)
 {
 	m_ModelFileName = modelFileName;
 

@@ -1246,30 +1246,30 @@ void Chunk::UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, in
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::ZPositive);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::XPositive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::YPositive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Z_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::ZNegative);
 						}
 						if (xFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::X_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::XNegative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
+							merged[(blockX + incrementX) + blockY * width + (blockZ + incrementZ) * width * height] |= static_cast<int>(MergedSide::YNegative);
 						}
 					}
 				}
@@ -1408,30 +1408,30 @@ void Chunk::UpdateMergedSide(int* merged, int blockX, int blockY, int blockZ, in
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Positive);
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::ZPositive);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Positive);
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::XPositive);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Positive);
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::YPositive);
 						}
 					}
 					else
 					{
 						if (zFace)
 						{
-							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::Z_Negative);
+							merged[(blockX + i) + (blockY + incrementY) * width + blockZ * width * height] |= static_cast<int>(MergedSide::ZNegative);
 						}
 						if (xFace)
 						{
-							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::X_Negative);
+							merged[blockX + (blockY + incrementY) * width + (blockZ + i) * width * height] |= static_cast<int>(MergedSide::XNegative);
 						}
 						if (yFace)
 						{
-							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::Y_Negative);
+							merged[(blockX + i) + blockY * width + (blockZ + incrementY) * width * height] |= static_cast<int>(MergedSide::YNegative);
 						}
 					}
 				}

@@ -202,7 +202,7 @@ void MS3DAnimator::CalculateBoundingBox()
 
 BoundingBox* MS3DAnimator::GetBoundingBox()
 {
-	return &m_boundingBox;
+	return& m_boundingBox;
 }
 
 void MS3DAnimator::PlayAnimation(int animationIndex)

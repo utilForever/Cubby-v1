@@ -12,10 +12,10 @@
 
 #include <glm/detail/func_geometric.hpp>
 
-#include "VoxelCharacter.h"
+#include <Utils/Interpolator.h>
+#include <Utils/Random.h>
 
-#include "../Utils/Interpolator.h"
-#include "../Utils/Random.h"
+#include "VoxelCharacter.h"
 
 // Constructor, Destructor
 VoxelCharacter::VoxelCharacter(Renderer* pRenderer, QubicleBinaryManager* pQubicleBinaryManager) :
@@ -280,9 +280,9 @@ bool VoxelCharacter::LoadFaces(const char* characterType, const char* facesFileN
 
 		file >> tempString >> m_winkTextureFileName;
 
-		char winkFilename[128];
-		sprintf(winkFilename, "%s/%s/%s", charactersBaseFolder, characterType, m_winkTextureFileName.c_str());
-		m_pRenderer->LoadTexture(winkFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_faceEyesWinkTexture);
+		char winkFileName[128];
+		sprintf(winkFileName, "%s/%s/%s", charactersBaseFolder, characterType, m_winkTextureFileName.c_str());
+		m_pRenderer->LoadTexture(winkFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_faceEyesWinkTexture);
 
 		file >> tempString >> m_eyesBoneName;
 		file >> tempString >> m_mouthBoneName;
@@ -294,15 +294,15 @@ bool VoxelCharacter::LoadFaces(const char* characterType, const char* facesFileN
 
 		for (int i = 0; i < m_numFacialExpressions; ++i)
 		{
-			char eyesFilename[128];
-			char mouthFilename[128];
+			char eyesFileName[128];
+			char mouthFileName[128];
 			file >> m_pFacialExpressions[i].facialExpressionName >> m_pFacialExpressions[i].eyesTextureFile >> m_pFacialExpressions[i].mouthTextureFile;
 
-			sprintf(eyesFilename, "%s/%s/%s", charactersBaseFolder, characterType, m_pFacialExpressions[i].eyesTextureFile.c_str());
-			m_pRenderer->LoadTexture(eyesFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].eyeTexture);
+			sprintf(eyesFileName, "%s/%s/%s", charactersBaseFolder, characterType, m_pFacialExpressions[i].eyesTextureFile.c_str());
+			m_pRenderer->LoadTexture(eyesFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].eyeTexture);
 
-			sprintf(mouthFilename, "%s/%s/%s", charactersBaseFolder, characterType, m_pFacialExpressions[i].mouthTextureFile.c_str());
-			m_pRenderer->LoadTexture(mouthFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].mouthTexture);
+			sprintf(mouthFileName, "%s/%s/%s", charactersBaseFolder, characterType, m_pFacialExpressions[i].mouthTextureFile.c_str());
+			m_pRenderer->LoadTexture(mouthFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].mouthTexture);
 		}
 
 		if (m_numFacialExpressions > 0)
@@ -316,11 +316,11 @@ bool VoxelCharacter::LoadFaces(const char* characterType, const char* facesFileN
 
 		for (int i = 0; i < m_numTalkingMouths; ++i)
 		{
-			char talkingMouthFilename[128];
+			char talkingMouthFileName[128];
 			file >> m_pTalkingAnimations[i].talkingAnimationTextureFile;
 
-			sprintf(talkingMouthFilename, "%s/%s/%s", charactersBaseFolder, characterType, m_pTalkingAnimations[i].talkingAnimationTextureFile.c_str());
-			m_pRenderer->LoadTexture(talkingMouthFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pTalkingAnimations[i].talkingAnimationTexture);
+			sprintf(talkingMouthFileName, "%s/%s/%s", charactersBaseFolder, characterType, m_pTalkingAnimations[i].talkingAnimationTextureFile.c_str());
+			m_pRenderer->LoadTexture(talkingMouthFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pTalkingAnimations[i].talkingAnimationTexture);
 		}
 
 		file.close();
@@ -402,31 +402,31 @@ void VoxelCharacter::ModifyEyesTextures(const char* charactersBaseFolder, const 
 {
 	int textureWidth, textureHeight, textureWidth2, textureHeight2;
 
-	char winkFilename[128];
+	char winkFileName[128];
 
 	// For saving to the faces file we need a stripped down version of the full path
-	sprintf(winkFilename, "faces/%s/face_eyes_wink.tga", eyeTextureFolder);
-	m_winkTextureFileName = winkFilename;
+	sprintf(winkFileName, "faces/%s/face_eyes_wink.tga", eyeTextureFolder);
+	m_winkTextureFileName = winkFileName;
 
 	// Generate full path for texture loading
-	sprintf(winkFilename, "%s/%s/faces/%s/face_eyes_wink.tga", charactersBaseFolder, characterType, eyeTextureFolder);
-	m_pRenderer->LoadTexture(winkFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_faceEyesWinkTexture);
+	sprintf(winkFileName, "%s/%s/faces/%s/face_eyes_wink.tga", charactersBaseFolder, characterType, eyeTextureFolder);
+	m_pRenderer->LoadTexture(winkFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_faceEyesWinkTexture);
 
 	for (int i = 0; i < m_numFacialExpressions; ++i)
 	{
-		char eyesFilename[128];
+		char eyesFileName[128];
 
 		int firstindex = m_pFacialExpressions[i].eyesTextureFile.find_last_of("/");
 		int lastindex = m_pFacialExpressions[i].eyesTextureFile.find_last_of(".");
 		std::string fileWithoutExtension = m_pFacialExpressions[i].eyesTextureFile.substr(firstindex + 1, lastindex);
 
 		// For saving to the faces file we need a stripped down version of the full path
-		sprintf(eyesFilename, "faces/%s/%s", eyeTextureFolder, fileWithoutExtension.c_str());
-		m_pFacialExpressions[i].eyesTextureFile = eyesFilename;
+		sprintf(eyesFileName, "faces/%s/%s", eyeTextureFolder, fileWithoutExtension.c_str());
+		m_pFacialExpressions[i].eyesTextureFile = eyesFileName;
 
 		// Generate full path for texture loading
-		sprintf(eyesFilename, "%s/%s/faces/%s/%s", charactersBaseFolder, characterType, eyeTextureFolder, fileWithoutExtension.c_str());
-		m_pRenderer->LoadTexture(eyesFilename, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].eyeTexture);
+		sprintf(eyesFileName, "%s/%s/faces/%s/%s", charactersBaseFolder, characterType, eyeTextureFolder, fileWithoutExtension.c_str());
+		m_pRenderer->LoadTexture(eyesFileName, &textureWidth, &textureHeight, &textureWidth2, &textureHeight2, &m_pFacialExpressions[i].eyeTexture);
 	}
 
 	m_faceEyesTexture = m_pFacialExpressions[m_currentFacialExpression].eyeTexture;

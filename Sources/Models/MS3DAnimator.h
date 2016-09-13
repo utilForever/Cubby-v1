@@ -10,8 +10,9 @@
 #ifndef CUBBY_MS3D_ANIMATOR_H
 #define CUBBY_MS3D_ANIMATOR_H
 
+#include <Renderer/Renderer.h>
+
 #include "MS3DModel.h"
-#include "Renderer/Renderer.h"
 
 // Joint animation structure
 typedef struct JointAnimation
