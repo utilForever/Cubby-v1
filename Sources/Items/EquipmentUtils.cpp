@@ -206,7 +206,7 @@ std::string GetEquipmentFileNameForType(EquipmentType type)
 	case EquipmentType::NecroStaff: { return "Resources/gamedata/weapons/NecroStaff/NecroStaff.weapon"; }
 	case EquipmentType::PriestStaff: { return "Resources/gamedata/weapons/PriestStaff/PriestStaff.weapon"; }
 	case EquipmentType::DruidStaff: { return "Resources/gamedata/weapons/DruidStaff/DruidStaff.weapon"; }
-	case EquipmentType::TwoHandedSword: { return "Resources/gamedata/weapons/2HandedSword/2HandedSword.weapon"; }
+	case EquipmentType::TwoHandedSword: { return "Resources/gamedata/weapons/TwoHandedSword/TWoHandedSword.weapon"; }
 	case EquipmentType::Boomerang: { return "Resources/gamedata/weapons/Boomerang/Boomerang.weapon"; }
 	case EquipmentType::Bomb: { return "Resources/gamedata/items/Bomb/Bomb.item"; }
 	case EquipmentType::KnifeLeft: { return "Resources/gamedata/weapons/Knife/Knife.weapon"; }
