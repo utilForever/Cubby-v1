@@ -2,7 +2,7 @@ offset: 0.0 7.5 0.5
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/Knife/Knife.qb
+qubicleFile: Resources/gamedata/weapons/Knife/Knife.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

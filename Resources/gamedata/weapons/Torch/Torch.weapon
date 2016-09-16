@@ -2,7 +2,7 @@ offset: 0 6.5 0
 scale: 0.95
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/Torch/Torch.qb
+qubicleFile: Resources/gamedata/weapons/Torch/Torch.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0
@@ -35,7 +35,7 @@ lightColour: 1.0 0.56 0.0 1.0
 connectedToSection: -1
 
 numParticleEffects: 1
-particleEffect: ../Resources/gamedata/particles/torch_fire.effect
+particleEffect: Resources/gamedata/particles/torch_fire.effect
 position: 0 7 0
 connectedToSection: -1
 

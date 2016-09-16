@@ -2,7 +2,7 @@ offset: 0 4 0
 scale: 1.0
 
 numAnimatedSections: 2
-qubicleFile: ../Resources/gamedata/weapons/Staff/Staff.qb
+qubicleFile: Resources/gamedata/weapons/Staff/Staff.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0
@@ -27,7 +27,7 @@ rotationXTurnSpeed: 0
 rotationYTurnSpeed: 0
 rotationZTurnSpeed: 0
 
-qubicleFile: ../Resources/gamedata/weapons/Staff/StaffCrystal.qb
+qubicleFile: Resources/gamedata/weapons/Staff/StaffCrystal.qb
 renderScale: 1.0
 renderOffset: 0.0 10 1
 autoStartAnimation: 1

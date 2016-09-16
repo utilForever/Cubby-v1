@@ -2,7 +2,7 @@ offset: 0.0 0.0 -1.0
 scale: 0.75
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/DragonBow/DragonBow.qb
+qubicleFile: Resources/gamedata/weapons/DragonBow/DragonBow.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

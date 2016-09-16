@@ -2,7 +2,7 @@ offset: 0.0 11.0 1.0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/FloatingSkull/FloatingSkull.qb
+qubicleFile: Resources/gamedata/weapons/FloatingSkull/FloatingSkull.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 1

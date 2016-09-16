@@ -2,7 +2,7 @@ offset: 0.0 6.5 0.0
 scale: 0.95
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/WoodenSword/WoodenSword.qb
+qubicleFile: Resources/gamedata/weapons/WoodenSword/WoodenSword.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

@@ -2,7 +2,7 @@ offset: -0.5 8.0 0.5
 scale: 0.8
 
 numAnimatedSections: 2
-qubicleFile: ../Resources/gamedata/weapons/DruidStaff/DruidStaff.qb
+qubicleFile: Resources/gamedata/weapons/DruidStaff/DruidStaff.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0
@@ -27,7 +27,7 @@ rotationXTurnSpeed: 0
 rotationYTurnSpeed: 0
 rotationZTurnSpeed: 0
 
-qubicleFile: ../Resources/gamedata/weapons/DruidStaff/DruidStaffCrystal.qb
+qubicleFile: Resources/gamedata/weapons/DruidStaff/DruidStaffCrystal.qb
 renderScale: 1.0
 renderOffset: 0.0 27.0 -0.5
 autoStartAnimation: 1

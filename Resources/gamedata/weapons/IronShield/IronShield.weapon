@@ -2,7 +2,7 @@ offset: 2.25 -2.5 -2.25
 scale: 0.85
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/IronShield/IronShield.qb
+qubicleFile: Resources/gamedata/weapons/IronShield/IronShield.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

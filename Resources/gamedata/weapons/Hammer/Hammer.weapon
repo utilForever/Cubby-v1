@@ -2,7 +2,7 @@ offset: 0.0 6.5 0.0
 scale: 1.0
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/Hammer/Hammer.qb
+qubicleFile: Resources/gamedata/weapons/Hammer/Hammer.qb
 renderScale: 1.0
 renderOffset: 0 0 0
 autoStartAnimation: 0

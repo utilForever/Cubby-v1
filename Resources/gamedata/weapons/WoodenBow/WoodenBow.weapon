@@ -2,7 +2,7 @@ offset: 0 0 0
 scale: 0.85
 
 numAnimatedSections: 1
-qubicleFile: ../Resources/gamedata/weapons/WoodenBow/WoodenBow.qb
+qubicleFile: Resources/gamedata/weapons/WoodenBow/WoodenBow.qb
 renderScale: 1
 renderOffset: 0 0 0
 autoStartAnimation: 0
