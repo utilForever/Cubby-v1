@@ -21,9 +21,9 @@ std::string g_soundEffectFileNames[static_cast<int>(SoundEffect::NumSoundEffect)
 
 	"equip_cloth.wav",		// EquipCloth
 	"equip_sword.wav",		// EquipSword
-	"equip_move.wav"		// EquipMove
+	"equip_move.wav",		// EquipMove
 
-	"open_chest.wav"		// ChestOpen
+	"open_chest.wav",		// ChestOpen
 
 	"bow_draw.wav",			// BowDraw
 	"arrowRelease.wav",		// ArrowRelease
