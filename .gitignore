@@ -200,3 +200,5 @@ FakesAssemblies/
 Cubby.lib
 Cubby.exp
 Projects/Cubby.VC.db
+Projects/CppDependOut/
+*.cdproj
