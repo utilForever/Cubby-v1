@@ -109,29 +109,30 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
 
 **Ver 0.10 (Done)** 
 
-- Implement basic functioanlities based on Vox engine.
+- [x] Implement basic functionalities based on Vox engine.
 
 **Ver 0.11 (Done)**
 
-- Fix a log of bugs.
-  - [Issues #2: Execute problem](https://github.com/MineScroll/Cubby/issues/2)
-  - [Issues #3: Crash problem when player found treasure](https://github.com/MineScroll/Cubby/issues/3)
-  - [Issues #4: Character visibility problem in some area](https://github.com/MineScroll/Cubby/issues/4)
-  - [Issues #5: Crash problem when player has been attacked by monster](https://github.com/MineScroll/Cubby/issues/5)
-  - [Issues #11: Rendering problem when player used brazier](https://github.com/MineScroll/Cubby/issues/11)
-  - [Issues #12: Weapon visibility problem](https://github.com/MineScroll/Cubby/issues/12)
+- [x] Fix a log of bugs.
+  - [x] [Issues #2: Execute problem](https://github.com/MineScroll/Cubby/issues/2)
+  - [x] [Issues #3: Crash problem when player found treasure](https://github.com/MineScroll/Cubby/issues/3)
+  - [x] [Issues #4: Character visibility problem in some area](https://github.com/MineScroll/Cubby/issues/4)
+  - [x] [Issues #5: Crash problem when player has been attacked by monster](https://github.com/MineScroll/Cubby/issues/5)
+  - [x] [Issues #11: Rendering problem when player used brazier](https://github.com/MineScroll/Cubby/issues/11)
+  - [x] [Issues #12: Weapon visibility problem](https://github.com/MineScroll/Cubby/issues/12)
 
 **Ver 0.12 (Doing)**
 
-- Fix a log of bugs.
-  - [Issues #13: Crash problem when player met mimic monster](https://github.com/MineScroll/Cubby/issues/13)
-  - [Issues #15: Null pointer reference problem](https://github.com/MineScroll/Cubby/issues/15)
-- Refactoring source codes.
-  - [Issues #6: Convert size_t](https://github.com/MineScroll/Cubby/issues/6)
-  - [Issues #7: Add CubbyObject](https://github.com/MineScroll/Cubby/issues/7)
-  - [Issues #8: Convert from raw pointer to smart pointer](https://github.com/MineScroll/Cubby/issues/8)
-  - [Issues #9: Catch exceptions in main()](https://github.com/MineScroll/Cubby/issues/9)
-- Remove `tinythread` library.
-- Support linux build.
-- Write engine documentation.
-- Prepare map generation tool.
+- [ ] Fix a log of bugs.
+  - [x] [Issues #13: Crash problem when player met mimic monster](https://github.com/MineScroll/Cubby/issues/13)
+  - [ ] [Issues #15: Null pointer reference problem](https://github.com/MineScroll/Cubby/issues/15)
+- [ ] Refactoring source codes.
+  - [ ] [Issues #6: Convert size_t](https://github.com/MineScroll/Cubby/issues/6)
+  - [ ] [Issues #7: Add CubbyObject](https://github.com/MineScroll/Cubby/issues/7)
+  - [ ] [Issues #8: Convert from raw pointer to smart pointer](https://github.com/MineScroll/Cubby/issues/8)
+  - [ ] [Issues #9: Catch exceptions in main()](https://github.com/MineScroll/Cubby/issues/9)
+- [ ] Remove `tinythread` library.
+- [ ] Support linux build.
+- [ ] Write engine documentation.
+- [ ] Prepare map generation tool.
+- [ ] Static code analysis with CppDepend.
