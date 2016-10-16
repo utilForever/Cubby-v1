@@ -12,6 +12,14 @@
 
 #include "CubbyGame.h"
 
+#if defined(WIN32) || defined(_WIN32)
+extern "C" { __declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001; }
+extern "C" { __declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001; }
+#else 
+extern "C" { int NvOptimusEnablement = 1; }
+extern "C" { int AmdPowerXpressRequestHighPerformance = 1; }
+#endif
+
 int main()
 {
 	// Load the settings
