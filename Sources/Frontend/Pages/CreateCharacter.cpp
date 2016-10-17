@@ -1295,12 +1295,16 @@ void CreateCharacter::UpdateCustomCounter(int incrementValue)
 	std::ifstream file;
 	// Open the counter file
 	file.open(counterFile, std::ios::in);
-	int counter;
+	int counter = 1;
 	if (file.is_open())
 	{
 		file >> counter;
 
 		file.close();
+	}
+	else
+	{
+		throw std::runtime_error("Can't open counter file!");
 	}
 
 	std::ofstream file2;
@@ -1310,6 +1314,10 @@ void CreateCharacter::UpdateCustomCounter(int incrementValue)
 		file2 << std::setfill('0') << std::setw(3) << counter + incrementValue;
 
 		file2.close();
+	}
+	else
+	{
+		throw std::runtime_error("Can't open counter file!");
 	}
 
 	char newCustomFile[128];
