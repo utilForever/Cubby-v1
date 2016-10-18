@@ -107,7 +107,7 @@ private:
 	int m_numRenderNPCs;
 
 	// NPC List
-	tthread::mutex m_NPCMutex;
+	std::mutex m_NPCMutex;
 	NPCList m_vpNPCList;
 };
 

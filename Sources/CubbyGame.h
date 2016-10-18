@@ -400,7 +400,7 @@ private:
 	Biome m_currentBiome;
 
 	// Interacting item
-	tthread::mutex m_interactItemMutex;
+	std::mutex m_interactItemMutex;
 	Item* m_pInteractItem;
 
 	// Window width and height

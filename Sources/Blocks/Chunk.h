@@ -16,8 +16,7 @@
 #define CUBBY_CHUNK_H
 
 #include <vector>
-
-#include <tinythread/tinythread.h>
+#include <mutex>
 
 #include <Renderer/Camera.h>
 #include <Renderer/Renderer.h>
@@ -211,7 +210,7 @@ private:
 	BlockType *m_blockType;
 
 	// Item list
-	tthread::mutex m_itemMutexLock;
+	std::mutex m_itemMutexLock;
 	ItemList m_vpItemList;
 
 	// Render mesh
