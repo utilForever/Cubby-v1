@@ -132,8 +132,13 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
   - [ ] [Issues #8: Convert from raw pointer to smart pointer](https://github.com/MineScroll/Cubby/issues/8)
   - [ ] [Issues #9: Catch exceptions in main()](https://github.com/MineScroll/Cubby/issues/9)
   - [x] [Issues #16: Support NVIDIA Optimus and AMD Enduro chipset](https://github.com/MineScroll/Cubby/issues/16)
-- [ ] Remove `tinythread` library.
+- [x] Remove `tinythread` library.
 - [ ] Support linux build.
-- [ ] Write engine documentation.
+- [ ] Write engine documentation (Part 1).
 - [ ] Prepare map generation tool.
-- [ ] Static code analysis with CppDepend.
+
+**Ver 0.13 (TO-do)**
+
+- [ ] Redesign GUI system.
+- [ ] Static code analysis with CppDepend. 
+- [ ] Write engine documentation (Part 2).
