@@ -16,7 +16,7 @@
 
 #include "BlocksEnum.h"
 
-enum class Biome
+enum class Biome : size_t
 {
 	None = 0,
 	GrassLand,
@@ -40,7 +40,7 @@ struct BiomeHeightBoundary
 
 using BiomeHeightBoundaryList = std::vector<BiomeHeightBoundary*>;
 
-enum class ZoneRegionType
+enum class ZoneRegionType : size_t
 {
 	Sphere = 0,
 	Cube,
