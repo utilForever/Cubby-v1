@@ -49,9 +49,9 @@ BiomeManager::~BiomeManager()
 // Clear data
 void BiomeManager::ClearBoundaryData()
 {
-	for (size_t i = 0; i < static_cast<size_t>(Biome::NumBiomes); ++i)
+	for (int i = 0; i < static_cast<int>(Biome::NumBiomes); ++i)
 	{
-		for (size_t j = 0; j < m_vpBiomeHeightBoundaryList[i].size(); ++j)
+		for (unsigned int j = 0; j < m_vpBiomeHeightBoundaryList[i].size(); ++j)
 		{
 			delete m_vpBiomeHeightBoundaryList[i][j];
 			m_vpBiomeHeightBoundaryList[i][j] = nullptr;
@@ -63,7 +63,7 @@ void BiomeManager::ClearBoundaryData()
 
 void BiomeManager::ClearTownData()
 {
-	for (size_t i = 0; i < m_vpTownsList.size(); ++i)
+	for (unsigned int i = 0; i < m_vpTownsList.size(); ++i)
 	{
 		delete m_vpTownsList[i];
 		m_vpTownsList[i] = nullptr;
@@ -97,7 +97,7 @@ void BiomeManager::AddBiomeBoundary(Biome biome, float heightUpperBoundary, floa
 	pNewBiomeHeightBoundary->m_blue2 = blue2;
 	pNewBiomeHeightBoundary->m_blockType = blockType;
 
-	m_vpBiomeHeightBoundaryList[static_cast<size_t>(biome)].push_back(pNewBiomeHeightBoundary);
+	m_vpBiomeHeightBoundaryList[static_cast<int>(biome)].push_back(pNewBiomeHeightBoundary);
 }
 
 void BiomeManager::AddTown(glm::vec3 townCenter, float radius)
@@ -157,8 +157,8 @@ Biome BiomeManager::GetBiome(glm::vec3 position) const
 {
 	float regionValue = static_cast<float>(m_biomeRegions.GetValue(position.x, position.y, position.z));
 
-	float ratio = 1.0f / (static_cast<size_t>(Biome::NumBiomes) - 1.0f);
-	for (size_t i = 1; i < static_cast<size_t>(Biome::NumBiomes); ++i)
+	float ratio = 1.0f / (static_cast<int>(Biome::NumBiomes) - 1.0f);
+	for (int i = 1; i < static_cast<int>(Biome::NumBiomes); ++i)
 	{
 		float maxValue = i * ratio;
 
@@ -174,7 +174,7 @@ Biome BiomeManager::GetBiome(glm::vec3 position) const
 // Town
 bool BiomeManager::IsInTown(glm::vec3 position, ZoneData** pReturnTown)
 {
-	for (size_t i = 0; i < m_vpTownsList.size(); ++i)
+	for (unsigned int i = 0; i < m_vpTownsList.size(); ++i)
 	{
 		ZoneData* pTown = m_vpTownsList[i];
 
@@ -195,7 +195,7 @@ bool BiomeManager::IsInTown(glm::vec3 position, ZoneData** pReturnTown)
 			int outside = 0;
 			int inside = 0;
 
-			for (size_t j = 0; j < 6; ++j)
+			for (int j = 0; j < 6; ++j)
 			{
 				distance = pTown->m_planes[j].GetPointDistance(position - pTown->m_origin);
 
@@ -274,7 +274,7 @@ bool BiomeManager::IsInSafeZone(glm::vec3 position, ZoneData** pReturnSafeZone)
 			int outside = 0;
 			int inside = 0;
 
-			for (size_t j = 0; j < 6; ++j)
+			for (int j = 0; j < 6; ++j)
 			{
 				distance = pSafeZone->m_planes[j].GetPointDistance(position - pSafeZone->m_origin);
 
@@ -305,7 +305,7 @@ bool BiomeManager::IsInSafeZone(glm::vec3 position, ZoneData** pReturnSafeZone)
 // Check chunk and block type
 void BiomeManager::GetChunkColorAndBlockType(float xPos, float yPos, float zPos, float noiseValue, float landscapeGradient, float* r, float* g, float* b, BlockType* blockType)
 {
-	size_t biomeIndex = static_cast<size_t>(GetBiome(glm::vec3(xPos, yPos, zPos)));
+	int biomeIndex = static_cast<int>(GetBiome(glm::vec3(xPos, yPos, zPos)));
 
 	float red1 = 0.0f;
 	float green1 = 0.0f;
@@ -317,7 +317,7 @@ void BiomeManager::GetChunkColorAndBlockType(float xPos, float yPos, float zPos,
 	bool foundBoundary = false;
 	int boundaryCount = m_vpBiomeHeightBoundaryList[biomeIndex].size();
 
-	for (size_t i = 0; i < boundaryCount && foundBoundary == false; i++)
+	for (int i = 0; i < boundaryCount && foundBoundary == false; i++)
 	{
 		if (noiseValue <= m_vpBiomeHeightBoundaryList[biomeIndex][i]->m_heightUpperBoundary)
 		{
@@ -446,7 +446,7 @@ void BiomeManager::RenderTownsDebug()
 
 void BiomeManager::RenderSafeZoneDebug()
 {
-	for (size_t i = 0; i < m_vpSafeZonesList.size(); ++i)
+	for (unsigned int i = 0; i < m_vpSafeZonesList.size(); ++i)
 	{
 		ZoneData* pSafeZone = m_vpSafeZonesList[i];
 
