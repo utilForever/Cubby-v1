@@ -534,6 +534,7 @@
     <ClInclude Include="..\Sources\Blocks\Chunk.h" />
     <ClInclude Include="..\Sources\Blocks\ChunkManager.h" />
     <ClInclude Include="..\Sources\CubbyGame.h" />
+    <ClInclude Include="..\Sources\CubbyObject.h" />
     <ClInclude Include="..\Sources\CubbySettings.h" />
     <ClInclude Include="..\Sources\CubbyWindow.h" />
     <ClInclude Include="..\Sources\Enemy\Enemy.h" />

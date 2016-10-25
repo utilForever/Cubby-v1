@@ -1664,6 +1664,9 @@
     <ClInclude Include="..\Sources\Frontend\Pages\SelectCharacter.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
+    <ClInclude Include="..\Sources\CubbyObject.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Libraries\glm\detail\func_common.inl">
