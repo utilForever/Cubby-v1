@@ -474,7 +474,7 @@ void Player::UnloadWeapon(bool left) const
 		if (isWeaponLoaded)
 		{
 			// Lights
-			for (int i = 0; i < pWeapon->GetNumLights(); ++i)
+			for (size_t i = 0; i < pWeapon->GetNumLights(); ++i)
 			{
 				unsigned int lightID;
 				glm::vec3 lightPos;
@@ -514,7 +514,7 @@ void Player::UnloadWeapon(bool left) const
 			}
 
 			// Particle Effects
-			for (int i = 0; i < pWeapon->GetNumParticleEffects(); ++i)
+			for (size_t i = 0; i < pWeapon->GetNumParticleEffects(); ++i)
 			{
 				unsigned int particleEffectID;
 				glm::vec3 particleEffectPos;
@@ -3051,7 +3051,7 @@ void Player::UpdateWeaponLights() const
 		{
 			if (isWeaponLoaded)
 			{
-				for (int j = 0; j < pWeapon->GetNumLights(); ++j)
+				for (size_t j = 0; j < pWeapon->GetNumLights(); ++j)
 				{
 					unsigned int lightID;
 					glm::vec3 lightPos;
@@ -3118,7 +3118,7 @@ void Player::UpdateWeaponParticleEffects() const
 		{
 			if (isWeaponLoaded)
 			{
-				for (int j = 0; j < pWeapon->GetNumParticleEffects(); ++j)
+				for (size_t j = 0; j < pWeapon->GetNumParticleEffects(); ++j)
 				{
 					unsigned int particleEffectID;
 					glm::vec3 particleEffectPos;

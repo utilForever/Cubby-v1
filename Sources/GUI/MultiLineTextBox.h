@@ -119,7 +119,7 @@ private:
 
 	int m_pipeHeight;
 	int m_textIndent;
-	int m_maxTextLength;
+	size_t m_maxTextLength;
 	Color m_pipeColor;
 	int m_pipeYOffset;
 

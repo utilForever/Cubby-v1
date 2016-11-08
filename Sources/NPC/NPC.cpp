@@ -443,7 +443,7 @@ void NPC::LoadWeapon(bool left, std::string weaponFile)
 			if (m_pVoxelCharacter->IsLeftWeaponLoaded())
 			{
 				// Lights
-				for (int i = 0; i < m_pVoxelCharacter->GetLeftWeapon()->GetNumLights(); i++)
+				for (size_t i = 0; i < m_pVoxelCharacter->GetLeftWeapon()->GetNumLights(); i++)
 				{
 					unsigned int lightID;
 					glm::vec3 lightPos;
@@ -462,7 +462,7 @@ void NPC::LoadWeapon(bool left, std::string weaponFile)
 				}
 
 				// Particle effects
-				for (int i = 0; i < m_pVoxelCharacter->GetLeftWeapon()->GetNumParticleEffects(); i++)
+				for (size_t i = 0; i < m_pVoxelCharacter->GetLeftWeapon()->GetNumParticleEffects(); i++)
 				{
 					unsigned int particleEffectID;
 					glm::vec3 particleEffectPos;
@@ -490,7 +490,7 @@ void NPC::LoadWeapon(bool left, std::string weaponFile)
 			if (m_pVoxelCharacter->IsRightWeaponLoaded())
 			{
 				// Lights
-				for (int i = 0; i < m_pVoxelCharacter->GetRightWeapon()->GetNumLights(); i++)
+				for (size_t i = 0; i < m_pVoxelCharacter->GetRightWeapon()->GetNumLights(); i++)
 				{
 					unsigned int lightID;
 					glm::vec3 lightPos;
@@ -508,7 +508,7 @@ void NPC::LoadWeapon(bool left, std::string weaponFile)
 				}
 
 				// Particle effects
-				for (int i = 0; i < m_pVoxelCharacter->GetRightWeapon()->GetNumParticleEffects(); ++i)
+				for (size_t i = 0; i < m_pVoxelCharacter->GetRightWeapon()->GetNumParticleEffects(); ++i)
 				{
 					unsigned int particleEffectID;
 					glm::vec3 particleEffectPos;
@@ -560,7 +560,7 @@ void NPC::UnloadWeapon(bool left) const
 		if (isWeaponLoaded)
 		{
 			// Lights
-			for (int i = 0; i < pWeapon->GetNumLights(); ++i)
+			for (size_t i = 0; i < pWeapon->GetNumLights(); ++i)
 			{
 				unsigned int lightID;
 				glm::vec3 lightPos;
@@ -602,7 +602,7 @@ void NPC::UnloadWeapon(bool left) const
 			}
 
 			// Particle Effects
-			for (int i = 0; i < pWeapon->GetNumParticleEffects(); ++i)
+			for (size_t i = 0; i < pWeapon->GetNumParticleEffects(); ++i)
 			{
 				unsigned int particleEffectID;
 				glm::vec3 particleEffectPos;
@@ -1395,7 +1395,7 @@ void NPC::ClearWaypoints()
 	m_vpWayPointList.clear();
 }
 
-void NPC::StartWaypointNavigation(int waypointIndex)
+void NPC::StartWaypointNavigation(size_t waypointIndex)
 {
 	if (m_vpWayPointList.size() > 0 && waypointIndex < m_vpWayPointList.size())
 	{
@@ -1405,7 +1405,7 @@ void NPC::StartWaypointNavigation(int waypointIndex)
 	}
 }
 
-bool NPC::IsInsideWaypoint(int waypointIndex)
+bool NPC::IsInsideWaypoint(size_t waypointIndex)
 {
 	if (waypointIndex < m_vpWayPointList.size())
 	{
@@ -2416,7 +2416,7 @@ void NPC::UpdateWeaponLights() const
 		{
 			if (isWeaponLoaded)
 			{
-				for (int j = 0; j < pWeapon->GetNumLights(); ++j)
+				for (size_t j = 0; j < pWeapon->GetNumLights(); ++j)
 				{
 					unsigned int lightID;
 					glm::vec3 lightPos;
@@ -2483,7 +2483,7 @@ void NPC::UpdateWeaponParticleEffects() const
 		{
 			if (isWeaponLoaded)
 			{
-				for (int j = 0; j < pWeapon->GetNumParticleEffects(); ++j)
+				for (size_t j = 0; j < pWeapon->GetNumParticleEffects(); ++j)
 				{
 					unsigned int particleEffectID;
 					glm::vec3 particleEffectPos;

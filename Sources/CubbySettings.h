@@ -13,7 +13,7 @@
 #define CUBBY_SETTINGS_H
 
 // Forward declaration
-class CubbyGame;
+struct CubbyGame;
 
 struct CubbySettings
 {

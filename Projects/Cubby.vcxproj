@@ -92,7 +92,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100;4201;4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\Libraries\glfw\libs\2015\d\glfw3.lib;..\Libraries\freetype\libs\2015\freetype261d.lib;..\Libraries\libnoise\libs\2015\noise_d.lib;..\Libraries\fmod\libs\fmod_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -106,6 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
+      <DisableSpecificWarnings>4100;4201;4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\Sources\Libraries\glfw\libs\2015\d\glfw3_64.lib;..\Sources\Libraries\freetype\libs\2015\freetype261d_64.lib;..\Libraries\fmod\libs\fmod64_vc.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -124,6 +125,7 @@
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4996;4100;4201;4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -140,6 +142,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\Sources;..\Libraries;..\Libraries\glfw\include;..\Libraries\glew\include;..\Libraries\freetype\include;..\Libraries\libnoise;..\Libraries\lua;..\Libraries\selene</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4100;4201;4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

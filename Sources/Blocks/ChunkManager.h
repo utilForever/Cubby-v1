@@ -30,9 +30,10 @@ class EnemyManager;
 class BlockParticleManager;
 class ItemManager;
 class SceneryManager;
-class CubbySettings;
 class QubicleBinaryManager;
 class BiomeManager;
+
+struct CubbySettings;
 
 struct ChunkCoordinateKeys
 {

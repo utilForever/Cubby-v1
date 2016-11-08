@@ -269,11 +269,11 @@ void ModMenu::SelectLoadedMods()
 
 	ModsManager* pModsManager = CubbyGame::GetInstance()->GetModsManager();
 
-	for (int i = 0; i < pModsManager->GetNumMods(); ++i)
+	for (size_t i = 0; i < pModsManager->GetNumMods(); ++i)
 	{
 		Mod* pMod = pModsManager->GetMod(i);
 
-		for (int j = 0; j < m_vpModButtonData.size(); ++j)
+		for (size_t j = 0; j < m_vpModButtonData.size(); ++j)
 		{
 			if (pMod->m_gameplayMod && m_vpModButtonData[j]->m_gameplayButton ||
 				pMod->m_graphicsMod && m_vpModButtonData[j]->m_graphicsButton ||
@@ -452,8 +452,10 @@ void ModMenu::CreateGameplayModButtons()
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
-	int modButtonCounter = 0;
-	int yCounter = 0;
+
+	size_t modButtonCounter = 0;
+	size_t yCounter = 0;
+
 	while (modButtonCounter < listFiles.size())
 	{
 		if (strcmp(listFiles[modButtonCounter].c_str(), ".") == 0 || strcmp(listFiles[modButtonCounter].c_str(), "..") == 0)
@@ -464,7 +466,7 @@ void ModMenu::CreateGameplayModButtons()
 
 		buttonX = -(m_modWindowWidth - 42);
 
-		for (int x = 0; x < 3 && modButtonCounter < listFiles.size(); x++)
+		for (size_t x = 0; x < 3 && modButtonCounter < listFiles.size(); x++)
 		{
 			Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "");
 			m_pFrontendManager->SetButtonIcons(pNewButton, ButtonSize::Size225x75);
@@ -557,8 +559,10 @@ void ModMenu::CreateGraphicsModButtons()
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
-	int modButtonCounter = 0;
-	int yCounter = 0;
+
+	size_t modButtonCounter = 0;
+	size_t yCounter = 0;
+
 	while (modButtonCounter < listFiles.size())
 	{
 		if (strcmp(listFiles[modButtonCounter].c_str(), ".") == 0 || strcmp(listFiles[modButtonCounter].c_str(), "..") == 0)
@@ -569,7 +573,7 @@ void ModMenu::CreateGraphicsModButtons()
 
 		buttonX = -(m_modWindowWidth - 42);
 
-		for (int x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
+		for (size_t x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
 		{
 			Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "");
 			m_pFrontendManager->SetButtonIcons(pNewButton, ButtonSize::Size225x75);
@@ -662,8 +666,10 @@ void ModMenu::CreateSoundModButtons()
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
-	int modButtonCounter = 0;
-	int yCounter = 0;
+
+	size_t modButtonCounter = 0;
+	size_t yCounter = 0;
+
 	while (modButtonCounter < listFiles.size())
 	{
 		if (strcmp(listFiles[modButtonCounter].c_str(), ".") == 0 || strcmp(listFiles[modButtonCounter].c_str(), "..") == 0)
@@ -674,7 +680,7 @@ void ModMenu::CreateSoundModButtons()
 
 		buttonX = -(m_modWindowWidth - 42);
 
-		for (int x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
+		for (size_t x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
 		{
 			Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "");
 			m_pFrontendManager->SetButtonIcons(pNewButton, ButtonSize::Size225x75);
@@ -767,8 +773,10 @@ void ModMenu::CreateHUDModButtons()
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
-	int modButtonCounter = 0;
-	int yCounter = 0;
+
+	size_t modButtonCounter = 0;
+	size_t yCounter = 0;
+
 	while (modButtonCounter < listFiles.size())
 	{
 		if (strcmp(listFiles[modButtonCounter].c_str(), ".") == 0 || strcmp(listFiles[modButtonCounter].c_str(), "..") == 0)
@@ -779,7 +787,7 @@ void ModMenu::CreateHUDModButtons()
 
 		buttonX = -(m_modWindowWidth - 42);
 
-		for (int x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
+		for (size_t x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
 		{
 			Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "");
 			m_pFrontendManager->SetButtonIcons(pNewButton, ButtonSize::Size225x75);
@@ -872,8 +880,10 @@ void ModMenu::CreateMiscModButtons()
 
 	std::vector<std::string> listFiles;
 	listFiles = ListFilesInDirectory(importDirectory);
-	int modButtonCounter = 0;
-	int yCounter = 0;
+
+	size_t modButtonCounter = 0;
+	size_t yCounter = 0;
+
 	while (modButtonCounter < listFiles.size())
 	{
 		if (strcmp(listFiles[modButtonCounter].c_str(), ".") == 0 || strcmp(listFiles[modButtonCounter].c_str(), "..") == 0)
@@ -884,7 +894,7 @@ void ModMenu::CreateMiscModButtons()
 
 		buttonX = -(m_modWindowWidth - 42);
 
-		for (int x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
+		for (size_t x = 0; x < 3 && modButtonCounter < listFiles.size(); ++x)
 		{
 			Button* pNewButton = new Button(m_pRenderer, m_pFrontendManager->GetFrontendFont35(), "");
 			m_pFrontendManager->SetButtonIcons(pNewButton, ButtonSize::Size225x75);
@@ -1116,11 +1126,12 @@ void ModMenu::Update(float dt)
 			float scrollRatio = m_pModsScrollbar->GetScrollRatio();
 			int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-			int modButtonCounter = 0;
-			int yCounter = 0;
+			size_t modButtonCounter = 0;
+			size_t yCounter = 0;
+
 			while (modButtonCounter < m_vpGameplayModButtons.size())
 			{
-				for (int x = 0; x < 3 && modButtonCounter < m_vpGameplayModButtons.size(); ++x)
+				for (size_t x = 0; x < 3 && modButtonCounter < m_vpGameplayModButtons.size(); ++x)
 				{
 					int yPos = m_modWindowHeight - buttonHeight - 17 - (buttonAndSpacer * yCounter);
 					Point position = m_vpGameplayModButtons[modButtonCounter]->GetLocation();
@@ -1154,11 +1165,12 @@ void ModMenu::Update(float dt)
 			float scrollRatio = m_pModsScrollbar->GetScrollRatio();
 			int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-			int modButtonCounter = 0;
-			int yCounter = 0;
+			size_t modButtonCounter = 0;
+			size_t yCounter = 0;
+
 			while (modButtonCounter < m_vpGraphicsModButtons.size())
 			{
-				for (int x = 0; x < 3 && modButtonCounter < m_vpGraphicsModButtons.size(); ++x)
+				for (size_t x = 0; x < 3 && modButtonCounter < m_vpGraphicsModButtons.size(); ++x)
 				{
 					int yPos = m_modWindowHeight - buttonHeight - 17 - (buttonAndSpacer * yCounter);
 					Point position = m_vpGraphicsModButtons[modButtonCounter]->GetLocation();
@@ -1192,11 +1204,12 @@ void ModMenu::Update(float dt)
 			float scrollRatio = m_pModsScrollbar->GetScrollRatio();
 			int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-			int modButtonCounter = 0;
-			int yCounter = 0;
+			size_t modButtonCounter = 0;
+			size_t yCounter = 0;
+
 			while (modButtonCounter < m_vpSoundModButtons.size())
 			{
-				for (int x = 0; x < 3 && modButtonCounter < m_vpSoundModButtons.size(); ++x)
+				for (size_t x = 0; x < 3 && modButtonCounter < m_vpSoundModButtons.size(); ++x)
 				{
 					int yPos = m_modWindowHeight - buttonHeight - 17 - (buttonAndSpacer * yCounter);
 					Point position = m_vpSoundModButtons[modButtonCounter]->GetLocation();
@@ -1230,11 +1243,12 @@ void ModMenu::Update(float dt)
 			float scrollRatio = m_pModsScrollbar->GetScrollRatio();
 			int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-			int modButtonCounter = 0;
-			int yCounter = 0;
+			size_t modButtonCounter = 0;
+			size_t yCounter = 0;
+
 			while (modButtonCounter < m_vpHUDModButtons.size())
 			{
-				for (int x = 0; x < 3 && modButtonCounter < m_vpHUDModButtons.size(); ++x)
+				for (size_t x = 0; x < 3 && modButtonCounter < m_vpHUDModButtons.size(); ++x)
 				{
 					int yPos = m_modWindowHeight - buttonHeight - 17 - (buttonAndSpacer * yCounter);
 					Point position = m_vpHUDModButtons[modButtonCounter]->GetLocation();
@@ -1268,11 +1282,12 @@ void ModMenu::Update(float dt)
 			float scrollRatio = m_pModsScrollbar->GetScrollRatio();
 			int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-			int modButtonCounter = 0;
-			int yCounter = 0;
+			size_t modButtonCounter = 0;
+			size_t yCounter = 0;
+
 			while (modButtonCounter < m_vpMiscModButtons.size())
 			{
-				for (int x = 0; x < 3 && modButtonCounter < m_vpMiscModButtons.size(); ++x)
+				for (size_t x = 0; x < 3 && modButtonCounter < m_vpMiscModButtons.size(); ++x)
 				{
 					int yPos = m_modWindowHeight - buttonHeight - 17 - (buttonAndSpacer * yCounter);
 					Point position = m_vpMiscModButtons[modButtonCounter]->GetLocation();

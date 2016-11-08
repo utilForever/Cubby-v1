@@ -606,11 +606,11 @@ void QuestGUI::Update(float dt)
 		m_pCompletedQuestsHeaderLabel->SetLocation(-(m_questTabWidth) + 24, m_questTabHeight - textHeight - (numActiveQuests * textHeight) - 12);
 
 		// Quest buttons
-		for (int i = 0; i < m_vpCurrentQuestButtons.size(); i++)
+		for (size_t i = 0; i < m_vpCurrentQuestButtons.size(); i++)
 		{
 			m_vpCurrentQuestButtons[i]->m_pButton->SetLocation(-(m_questTabWidth) + 28, m_questTabHeight - textHeight - ((i + 1) * textHeight) - 12);
 		}
-		for (int i = 0; i < m_vpCompletedQuestButtons.size(); i++)
+		for (size_t i = 0; i < m_vpCompletedQuestButtons.size(); i++)
 		{
 			m_vpCompletedQuestButtons[i]->m_pButton->SetLocation(-(m_questTabWidth) + 28, m_questTabHeight - textHeight - ((numActiveQuests + (i + 1)) * textHeight) - 12);
 		}
@@ -647,12 +647,12 @@ void QuestGUI::Update(float dt)
 		m_pCompletedQuestsHeaderLabel->SetLocation(-(m_questTabWidth) + 24, yPos + offsetButtonY);
 
 		// Quest buttons
-		for (int i = 0; i < m_vpCurrentQuestButtons.size(); i++)
+		for (size_t i = 0; i < m_vpCurrentQuestButtons.size(); i++)
 		{
 			int yPos2 = 4 + m_pQuestListScrollbar->GetScrollArea().y + m_pQuestListScrollbar->GetScrollArea().height - 2 - ((i + 2) * textHeight);
 			m_vpCurrentQuestButtons[i]->m_pButton->SetLocation(-(m_questTabWidth) + 28, yPos2 + offsetButtonY);
 		}
-		for (int i = 0; i < m_vpCompletedQuestButtons.size(); i++)
+		for (size_t i = 0; i < m_vpCompletedQuestButtons.size(); i++)
 		{
 			int yPos2 = 4 + m_pQuestListScrollbar->GetScrollArea().y + m_pQuestListScrollbar->GetScrollArea().height - 2 - ((numActiveQuests + (i + 2)) * textHeight);
 			m_vpCompletedQuestButtons[i]->m_pButton->SetLocation(-(m_questTabWidth) + 28, yPos2 + offsetButtonY);

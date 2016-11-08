@@ -44,7 +44,7 @@ public:
 	void RemoveMod(std::string modName, bool gameplayMod, bool graphicsMod, bool soundMod, bool HUDMod, bool miscMod);
 
 	// Accessors
-	int GetNumMods() const;
+	size_t GetNumMods() const;
 	Mod* GetMod(int index);
 
 	// Graphics pack

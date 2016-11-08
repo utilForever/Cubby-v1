@@ -10,6 +10,11 @@
 #include "QubicleBinary.h"
 #include "VoxelCharacter.h"
 
+#ifdef _DEBUG
+#pragma warning(push)
+#pragma warning(disable:4553)
+#endif
+
 const float QubicleBinary::BLOCK_RENDER_SIZE = 0.5f;
 
 // Constructor, Destructor
@@ -33,8 +38,10 @@ QubicleBinary::~QubicleBinary()
 
 void QubicleBinary::SetNullLinkage(QubicleBinary* pBinary)
 {
-	for (int i = 0; i < m_vpMatrices.size(); ++i)
+	for (size_t i = 0; i < m_vpMatrices.size(); ++i)
 	{
+        //
+        // is GetNumMatrice()'s return type should be int?
 		for (int j = 0; j < pBinary->GetNumMatrices(); ++j)
 		{
 			if (m_vpMatrices[i] == pBinary->GetQubicleMatrix(j))
@@ -55,7 +62,7 @@ void QubicleBinary::Unload()
 
 void QubicleBinary::ClearMatrices()
 {
-	for (int i = 0; i < m_vpMatrices.size(); ++i)
+	for (size_t i = 0; i < m_vpMatrices.size(); ++i)
 	{
 		if (m_vpMatrices[i] == nullptr)
 		{
@@ -764,6 +771,9 @@ void QubicleBinary::RebuildMesh(bool doFaceMerging)
 	CreateMesh(doFaceMerging);
 }
 
+#pragma warning(push)
+#pragma warning(disable:4018)
+
 void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, int blockY, int blockZ, int width, int height, glm::vec3* p1, glm::vec3* p2, glm::vec3* p3, glm::vec3* p4, int startX, int startY, int maxX, int maxY, bool positive, bool zFace, bool xFace, bool yFace)
 {
 	QubicleMatrix* pMatrix = m_vpMatrices[matrixIndex];
@@ -1083,6 +1093,8 @@ void QubicleBinary::UpdateMergedSide(int* merged, int matrixIndex, int blockX, i
 	}
 }
 
+#pragma warning(pop)
+
 int QubicleBinary::GetNumMatrices() const
 {
 	return m_numMatrices;
@@ -1242,9 +1254,9 @@ void QubicleBinary::SetQubicleMatrixRender(const char* matrixName, bool render)
 }
 
 // Sub selection
-std::string QubicleBinary::GetSubSelectionName(int pickingID)
+std::string QubicleBinary::GetSubSelectionName(unsigned int pickingID)
 {
-	int index = pickingID - SUBSELECTION_NAMEPICKING_OFFSET;
+	unsigned int index = pickingID - SUBSELECTION_NAMEPICKING_OFFSET;
 
 	if (index >= 0 && index <= m_numMatrices - 1)
 	{
@@ -2260,3 +2272,7 @@ void QubicleBinary::RenderPortrait(MS3DAnimator* pSkeleton, VoxelCharacter* pVox
 	m_pRenderer->EndMeshRender();
 	m_pRenderer->PopMatrix();
 }
+
+#ifdef _DEBUG
+#pragma warning(pop)
+#endif

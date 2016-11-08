@@ -162,7 +162,7 @@ public:
 	void SetQubicleMatrixRender(const char* matrixName, bool render);
 
 	// Sub selection
-	std::string GetSubSelectionName(int pickingID);
+	std::string GetSubSelectionName(unsigned int pickingID);
 
 	// Rendering modes
 	void SetWireFrameRender(bool wireframe);

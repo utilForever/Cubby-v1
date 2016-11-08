@@ -18,7 +18,7 @@
 
 // Forward declaration
 class CubbyGame;
-class CubbySettings;
+struct CubbySettings;
 
 struct Joystick
 {
