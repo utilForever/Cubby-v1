@@ -27,9 +27,10 @@
 class ChunkManager;
 class Player;
 class SceneryManager;
-class CubbySettings;
 class Item;
 class BiomeManager;
+
+struct CubbySettings;
 
 using ItemList = std::vector<Item*>;
 

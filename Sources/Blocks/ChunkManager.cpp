@@ -694,7 +694,7 @@ bool ChunkManager::CheckBlockColor(int r, int g, int b, int rCheck, int gCheck, 
 
 BlockType ChunkManager::SetBlockTypeBasedOnColor(int r, int g, int b)
 {
-	for (int i = 0; i < m_vpBlockColorTypeMatchList.size(); ++i)
+	for (size_t i = 0; i < m_vpBlockColorTypeMatchList.size(); ++i)
 	{
 		BlockColorTypeMatch* pMatch = m_vpBlockColorTypeMatchList[i];
 
@@ -826,7 +826,7 @@ void ChunkManager::ImportQubicleBinaryMatrix(QubicleMatrix* pMatrix, glm::vec3 p
 						// Add to batch update list (no duplicates)
 						bool found = false;
 
-						for (int i = 0; i < vChunkBatchUpdateList.size() && found == false; ++i)
+						for (size_t i = 0; i < vChunkBatchUpdateList.size() && found == false; ++i)
 						{
 							if (vChunkBatchUpdateList[i] == pChunk)
 							{
@@ -890,7 +890,7 @@ void ChunkManager::ImportQubicleBinaryMatrix(QubicleMatrix* pMatrix, glm::vec3 p
 		}
 	}
 
-	for (int i = 0; i < vChunkBatchUpdateList.size(); ++i)
+	for (size_t i = 0; i < vChunkBatchUpdateList.size(); ++i)
 	{
 		vChunkBatchUpdateList[i]->StopBatchUpdate();
 	}
@@ -1011,7 +1011,7 @@ void ChunkManager::ExplodeSphere(glm::vec3 position, float radius)
 
 							// Add to batch update list (no duplicates)
 							bool isFound = false;
-							for (int i = 0; i < vChunkBatchUpdateList.size() && isFound == false; ++i)
+							for (size_t i = 0; i < vChunkBatchUpdateList.size() && isFound == false; ++i)
 							{
 								if (vChunkBatchUpdateList[i] == pChunk)
 								{
@@ -1031,7 +1031,7 @@ void ChunkManager::ExplodeSphere(glm::vec3 position, float radius)
 		}
 	}
 
-	for (int i = 0; i < vChunkBatchUpdateList.size(); ++i)
+	for (size_t i = 0; i < vChunkBatchUpdateList.size(); ++i)
 	{
 		vChunkBatchUpdateList[i]->StopBatchUpdate();
 	}

@@ -75,7 +75,7 @@ void TreeView::ClearTreeView()
 
 void TreeView::ClearNode(TreeNode* pNode)
 {
-	for (int i = 0; i < pNode->m_vpChildren.size(); ++i)
+	for (size_t i = 0; i < pNode->m_vpChildren.size(); ++i)
 	{
 		ClearNode(pNode->m_vpChildren[i]);
 	}
@@ -106,7 +106,7 @@ TreeNode* TreeView::FindNode(std::string name, TreeNode* pNode) const
 			return pNode;
 		}
 
-		for (int i = 0; i < pNode->m_vpChildren.size(); ++i)
+		for (size_t i = 0; i < pNode->m_vpChildren.size(); ++i)
 		{
 			TreeNode* foundNode = FindNode(name, pNode->m_vpChildren[i]);
 
@@ -206,7 +206,7 @@ void TreeView::SetNodeVisible(TreeNode* pNode, bool visible) const
 		pNode->m_pExpandButton->SetVisible(false);
 	}
 
-	for (int i = 0; i < pNode->m_vpChildren.size(); ++i)
+	for (size_t i = 0; i < pNode->m_vpChildren.size(); ++i)
 	{
 		if (pNode->m_expanded && visible)
 		{
@@ -236,7 +236,7 @@ void TreeView::SetNodeDimensions(TreeNode* pNode, int x, int y, int width, int h
 	// Go through and add the correct dimensions for the children and set their visibility
 	x += m_xIndent;
 
-	for (int i = 0; i < pNode->m_vpChildren.size(); ++i)
+	for (size_t i = 0; i < pNode->m_vpChildren.size(); ++i)
 	{
 		if (GetNodeVisible(pNode->m_vpChildren[i]))
 		{

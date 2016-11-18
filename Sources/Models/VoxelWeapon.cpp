@@ -196,7 +196,7 @@ void VoxelWeapon::LoadWeapon(const char* weaponFileName, bool useManager)
 			m_pLights = new VoxelWeaponLight[m_numLights];
 		}
 
-		for (int i = 0; i < m_numLights; ++i)
+		for (size_t i = 0; i < m_numLights; ++i)
 		{
 			m_pLights[i].lightID = -1;
 
@@ -229,7 +229,7 @@ void VoxelWeapon::LoadWeapon(const char* weaponFileName, bool useManager)
 			m_pParticleEffects = new ParticleEffect[m_numParticleEffects];
 		}
 
-		for (int i = 0; i < m_numParticleEffects; ++i)
+		for (size_t i = 0; i < m_numParticleEffects; ++i)
 		{
 			m_pParticleEffects[i].particleEffectID = -1;
 
@@ -345,7 +345,7 @@ void VoxelWeapon::SaveWeapon(const char* weaponFileName) const
 		// Dynamic lights
 		file << "numLights: " << m_numLights << "\n";
 
-		for (int i = 0; i < m_numLights; ++i)
+		for (size_t i = 0; i < m_numLights; ++i)
 		{
 			file << "lightOffset: " << m_pLights[i].lightOffset.x << " " << m_pLights[i].lightOffset.y << " " << m_pLights[i].lightOffset.z << " " << "\n";
 			file << "lightRadius: " << m_pLights[i].lightRadius << "\n";
@@ -358,7 +358,7 @@ void VoxelWeapon::SaveWeapon(const char* weaponFileName) const
 		// Particle effects
 		file << "numParticleEffects: " << m_numParticleEffects << "\n";
 
-		for (int i = 0; i < m_numParticleEffects; ++i)
+		for (size_t i = 0; i < m_numParticleEffects; ++i)
 		{
 			file << "particleEffect: " << m_pParticleEffects[i].fileName << "\n";
 			file << "position: " << m_pParticleEffects[i].positionOffset.x << " " << m_pParticleEffects[i].positionOffset.y << " " << m_pParticleEffects[i].positionOffset.z << "\n";
@@ -525,7 +525,7 @@ bool VoxelWeapon::IsWeaponTrailsActive() const
 }
 
 // Lighting
-int VoxelWeapon::GetNumLights() const
+size_t VoxelWeapon::GetNumLights() const
 {
 	return m_numLights;
 }
@@ -554,7 +554,7 @@ void VoxelWeapon::GetLightParams(int lightIndex, unsigned int* lightID, glm::vec
 }
 
 // Particle effects
-int VoxelWeapon::GetNumParticleEffects() const
+size_t VoxelWeapon::GetNumParticleEffects() const
 {
 	return m_numParticleEffects;
 }
@@ -1113,7 +1113,7 @@ void VoxelWeapon::Update(float dt) const
 	}
 
 	// Update dynamic lights
-	for (int i = 0; i < m_numLights; ++i)
+	for (size_t i = 0; i < m_numLights; ++i)
 	{
 		if (m_pLights[i].connectedToSectionIndex != -1)
 		{
@@ -1247,7 +1247,7 @@ void VoxelWeapon::Update(float dt) const
 	}
 
 	// Update particle effects
-	for (int i = 0; i < m_numParticleEffects; ++i)
+	for (size_t i = 0; i < m_numParticleEffects; ++i)
 	{
 		if (m_pParticleEffects[i].connectedToSectionIndex != -1)
 		{

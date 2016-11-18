@@ -73,7 +73,7 @@ int InstanceManager::GetNumInstanceRenderObjectsForParent(int parentID)
 {
 	int renderCounter = 0;
 
-	for (int i = 0; i < m_vpInstanceParentList[parentID]->m_vpInstanceObjectList.size(); ++i)
+	for (size_t i = 0; i < m_vpInstanceParentList[parentID]->m_vpInstanceObjectList.size(); ++i)
 	{
 		if (m_vpInstanceParentList[parentID]->m_vpInstanceObjectList[i]->m_render == false)
 		{
@@ -90,7 +90,7 @@ int InstanceManager::GetTotalNumInstanceObjects()
 {
 	int counter = 0;
 
-	for (int instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
+	for (size_t instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
 	{
 		counter += static_cast<int>(m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList.size());
 	}
@@ -102,7 +102,7 @@ int InstanceManager::GetTotalNumInstanceRenderObjects()
 {
 	int renderCounter = 0;
 
-	for (int instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
+	for (size_t instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
 	{
 		renderCounter += GetNumInstanceRenderObjectsForParent(instanceParentID);
 	}
@@ -143,7 +143,7 @@ void InstanceManager::SetupGLBuffers(InstanceParent* pInstanceParent) const
 	
 	int counter = 0;
 	
-	for (int i = 0; i < pMesh->vertices.size(); i++)
+	for (size_t i = 0; i < pMesh->vertices.size(); i++)
 	{
 		// Vertices
 		vertices[counter + 0] = pMesh->vertices[i]->vertexPosition[0];
@@ -213,7 +213,7 @@ void InstanceManager::SetupGLBuffers(InstanceParent* pInstanceParent) const
 // Creation
 InstanceParent* InstanceManager::GetInstanceParent(std::string modelName)
 {
-	for (int instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
+	for (size_t instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
 	{
 		if (m_vpInstanceParentList[instanceParentID]->m_modelName == modelName)
 		{
@@ -288,12 +288,12 @@ void InstanceManager::Update(float dt)
 		m_checkChunkInstanceTimer -= dt;
 	}
 
-	for (int instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
+	for (size_t instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
 	{
 		// Check chunk instances, so that instances linked to voxels erase when the voxel is destroyed
 		if (m_checkChunkInstanceTimer <= 0.0f)
 		{
-			for (int instanceObjectID = 0; instanceObjectID < m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList.size(); ++instanceObjectID)
+			for (size_t instanceObjectID = 0; instanceObjectID < m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList.size(); ++instanceObjectID)
 			{
 				InstanceObject* pInstanceObject = m_vpInstanceParentList[instanceParentID]->m_vpInstanceObjectList[instanceObjectID];
 
@@ -331,7 +331,7 @@ void InstanceManager::Render()
 
 	GLint inModelMatrix = glGetAttribLocation(pShader->GetProgramObject(), "in_model_matrix");
 
-	for (int instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
+	for (size_t instanceParentID = 0; instanceParentID < m_vpInstanceParentList.size(); ++instanceParentID)
 	{
 		TriangleMesh* pMesh = m_vpInstanceParentList[instanceParentID]->m_pQubicleBinary->GetQubicleMatrix(0)->m_pMesh;
 

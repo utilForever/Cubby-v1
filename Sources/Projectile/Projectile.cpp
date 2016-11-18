@@ -71,7 +71,7 @@ void Projectile::SetPlayer(Player* pPlayer)
 void Projectile::UnloadEffectsAndLights() const
 {
 	// Lights
-	for (int i = 0; i < m_pVoxeProjectile->GetNumLights(); ++i)
+	for (size_t i = 0; i < m_pVoxeProjectile->GetNumLights(); ++i)
 	{
 		unsigned int lightID;
 		glm::vec3 lightPos;
@@ -113,7 +113,7 @@ void Projectile::UnloadEffectsAndLights() const
 	}
 
 	// Particle Effects
-	for (int i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
+	for (size_t i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
 	{
 		unsigned int particleEffectID;
 		glm::vec3 particleEffectPos;
@@ -153,7 +153,7 @@ void Projectile::LoadItem(const char* objectFileName)
 	m_pVoxeProjectile->LoadWeapon(objectFileName, false);
 
 	// Lights
-	for (int i = 0; i < m_pVoxeProjectile->GetNumLights(); i++)
+	for (size_t i = 0; i < m_pVoxeProjectile->GetNumLights(); i++)
 	{
 		unsigned int lightID;
 		glm::vec3 lightPos;
@@ -172,7 +172,7 @@ void Projectile::LoadItem(const char* objectFileName)
 	}
 
 	// Particle effects
-	for (int i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
+	for (size_t i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
 	{
 		unsigned int particleEffectID;
 		glm::vec3 particleEffectPos;
@@ -665,7 +665,7 @@ void Projectile::UpdateProjectileLights() const
 
 	if (m_pVoxeProjectile != nullptr)
 	{
-		for (int i = 0; i < m_pVoxeProjectile->GetNumLights(); ++i)
+		for (size_t i = 0; i < m_pVoxeProjectile->GetNumLights(); ++i)
 		{
 			unsigned int lightID;
 			glm::vec3 lightPos;
@@ -719,7 +719,7 @@ void Projectile::UpdateProjectileParticleEffects() const
 
 	if (m_pVoxeProjectile != nullptr)
 	{
-		for (int i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
+		for (size_t i = 0; i < m_pVoxeProjectile->GetNumParticleEffects(); ++i)
 		{
 			unsigned int particleEffectID;
 			glm::vec3 particleEffectPos;

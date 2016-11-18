@@ -139,8 +139,8 @@ public:
 	void SetTargetPosition(glm::vec3 pos);
 	WayPoint* AddWaypoint(glm::vec3 pos, float xLength, float yLength, float zLength);
 	void ClearWaypoints();
-	void StartWaypointNavigation(int waypointIndex);
-	bool IsInsideWaypoint(int waypointIndex);
+	void StartWaypointNavigation(size_t waypointIndex);
+	bool IsInsideWaypoint(size_t waypointIndex);
 	void SetMoveBackToPosition(glm::vec3 pos);
 	void SetForwards(glm::vec3 dir);
 	void SetTargetForwards(glm::vec3 dir);
@@ -320,7 +320,7 @@ private:
 	// Movement
 	glm::vec3 m_targetPosition;
 	WayPointList m_vpWayPointList;
-	int m_currentWaypointIndex;
+	size_t m_currentWaypointIndex;
 
 	// Movement params
 	float m_movementSpeed;

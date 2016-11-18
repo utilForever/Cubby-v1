@@ -1441,13 +1441,13 @@ void CreateCharacter::Update(float dt)
 	// Presets scrollbar
 	int buttonAndSpacer = m_presetButtonHeight + m_presetButtonSpacer;
 
+    size_t numButtons = 1 + m_vpPresetButtons.size(); // +1 because of the create-custom button
 	int visibleSize = m_pPresetScrollbar->GetScrollArea().height;
-	int numButtons = 1 + static_cast<int>(m_vpPresetButtons.size()); // +1 because of the create-custom button
 	int addition = numButtons % 4 == 0 ? 0 : 1;
 	int neededHeight = ((numButtons / 4) + addition) * buttonAndSpacer + 8;
 	int heightDiff = neededHeight - visibleSize;
 
-	int maxXButtons = 4;
+	const size_t maxXButtons = 4;
 
 	if (heightDiff > 0)
 	{
@@ -1457,8 +1457,9 @@ void CreateCharacter::Update(float dt)
 		float scrollRatio = m_pPresetScrollbar->GetScrollRatio();
 		int offsetButtonY = static_cast<int>(heightDiff * scrollRatio);
 
-		int buttonCounter = 0;
-		int yCounter = 0;
+		size_t buttonCounter = 0;
+		size_t yCounter = 0;
+
 		while (buttonCounter < numButtons)
 		{
 			size_t x;

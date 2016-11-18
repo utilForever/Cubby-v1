@@ -169,7 +169,7 @@ void ModsManager::RemoveMod(std::string modName, bool gameplayMod, bool graphics
 }
 
 // Accessors
-int ModsManager::GetNumMods() const
+size_t ModsManager::GetNumMods() const
 {
 	return m_vpMods.size();
 }

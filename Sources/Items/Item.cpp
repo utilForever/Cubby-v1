@@ -85,6 +85,7 @@ void Item::UnloadEffectsAndLights() const
 	for (size_t i = 0; i < m_pVoxelItem->GetNumLights(); ++i)
 	{
 		unsigned int lightID;
+
 		glm::vec3 lightPos;
 		float lightRadius;
 		float lightDiffuseMultiplier;
@@ -1555,7 +1556,7 @@ void Item::UpdateItemLights() const
 
 	if (m_pVoxelItem != nullptr)
 	{
-		for (int i = 0; i < m_pVoxelItem->GetNumLights(); ++i)
+		for (size_t i = 0; i < m_pVoxelItem->GetNumLights(); ++i)
 		{
 			unsigned int lightID;
 			glm::vec3 lightPos;
@@ -1607,7 +1608,7 @@ void Item::UpdateItemParticleEffects() const
 
 	if (m_pVoxelItem != nullptr)
 	{
-		for (int i = 0; i < m_pVoxelItem->GetNumParticleEffects(); ++i)
+		for (size_t i = 0; i < m_pVoxelItem->GetNumParticleEffects(); ++i)
 		{
 			unsigned int particleEffectID;
 			glm::vec3 particleEffectPos;

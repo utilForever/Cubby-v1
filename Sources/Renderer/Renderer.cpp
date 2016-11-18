@@ -11,6 +11,11 @@
 
 #include "Renderer.h"
 
+#ifdef _DEBUG
+#pragma warning(push)
+#pragma warning(disable:4553)
+#endif
+
 // OpenGL Error Check
 int CheckGLErrors(char* file, int line)
 {
@@ -2493,7 +2498,7 @@ int Renderer::GetNumFrameBuffers() const
 FrameBuffer* Renderer::GetFrameBuffer(std::string name)
 {
 	int foundIndex = -1;
-	for (int i = 0; i < m_frameBuffers.size(); ++i)
+	for (size_t i = 0; i < m_frameBuffers.size(); ++i)
 	{
 		if (m_frameBuffers[i]->name == name)
 		{
@@ -2517,7 +2522,7 @@ FrameBuffer* Renderer::GetFrameBuffer(int index)
 int Renderer::GetFrameBufferIndex(std::string name)
 {
 	int foundIndex = -1;
-	for (int i = 0; i < m_frameBuffers.size(); ++i)
+	for (size_t i = 0; i < m_frameBuffers.size(); ++i)
 	{
 		if (m_frameBuffers[i]->name == name)
 		{
@@ -2639,3 +2644,7 @@ glShader* Renderer::GetShader(unsigned int shaderID)
 {
 	return m_shaders[shaderID];
 }
+
+#ifdef _DEBUG
+#pragma warning(pop)
+#endif

@@ -765,9 +765,9 @@ void CraftingGUI::DeleteCraftingRecipes()
 
 void CraftingGUI::CreateRecipeButtons()
 {
-	int numToCreate = 50;
+	size_t numToCreate = 50;
 
-	for (int i = 0; i < numToCreate; ++i)
+	for (size_t i = 0; i < numToCreate; ++i)
 	{
 		if (m_vpCraftingRecipes.size() == 0 || i > m_vpCraftingRecipes.size() - 1)
 		{

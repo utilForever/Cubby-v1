@@ -167,12 +167,12 @@ public:
 	bool IsWeaponTrailsActive() const;
 
 	// Lighting
-	int GetNumLights() const;
+	size_t GetNumLights() const;
 	void SetLightingID(int lightIndex, unsigned int lightID) const;
 	void GetLightParams(int lightIndex, unsigned int* lightID, glm::vec3* position, float* radius, float* diffuseMultiplier, Color* color, bool* connectedToSegment) const;
 
 	// Particle effects
-	int GetNumParticleEffects() const;
+	size_t GetNumParticleEffects() const;
 	void SetParticleEffectID(int particleEffectIndex, unsigned int particleEffectID) const;
 	void GetParticleEffectParams(int particleEffectIndex, unsigned int* particleEffectID, glm::vec3* position, std::string* name, bool* connectedToSegment) const;
 
@@ -230,11 +230,11 @@ private:
 	AnimatedSection* m_pAnimatedSections;
 
 	// Lighting on weapons
-	int m_numLights;
+	size_t m_numLights;
 	VoxelWeaponLight* m_pLights;
 
 	// Particle effects
-	int m_numParticleEffects;
+	size_t m_numParticleEffects;
 	ParticleEffect* m_pParticleEffects;
 
 	// Weapon trails
