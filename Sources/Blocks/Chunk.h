@@ -187,7 +187,7 @@ private:
 	bool m_rebuild;
 	bool m_rebuildNeighbors;
 	bool m_isRebuildingMesh;
-	bool m_deleteCachedMesh;
+	// bool m_deleteCachedMesh;
 
 	// Counters
 	int m_numRebuilds;

@@ -100,7 +100,7 @@ void Chunk::Initialize()
 	m_rebuild = false;
 	m_rebuildNeighbors = false;
 	m_isRebuildingMesh = false;
-	m_deleteCachedMesh = false;
+	// m_deleteCachedMesh = false;
 
 	// Counters
 	m_numRebuilds = 0;
@@ -1551,7 +1551,13 @@ void Chunk::SwitchToCachedMesh()
 
 void Chunk::UndoCachedMesh()
 {
-	m_deleteCachedMesh = true;
+	// m_deleteCachedMesh = true;
+
+    if (m_pCachedMesh != nullptr)
+    {
+        m_pRenderer->ClearMesh(m_pCachedMesh);
+        m_pCachedMesh = nullptr;
+    }
 }
 
 // Rendering
@@ -1584,6 +1590,7 @@ void Chunk::Render()
 		m_pRenderer->PopMatrix();
 	}
 
+    /*
 	if (m_deleteCachedMesh)
 	{
 		if (m_pCachedMesh != nullptr)
@@ -1594,6 +1601,7 @@ void Chunk::Render()
 
 		m_deleteCachedMesh = false;
 	}
+    */
 }
 
 void Chunk::RenderDebug() const
