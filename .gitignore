@@ -198,9 +198,9 @@ FakesAssemblies/
 *.iobj
 *.ipdb
 Cubby32.lib
-Cubby32.exp
 Cubby64.lib
-Cubby64.exp
+*.exp
+*.bsc
 *.VC.db
 Projects/CppDependOut/
 *.cdproj
