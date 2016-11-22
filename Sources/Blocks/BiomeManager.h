@@ -11,9 +11,11 @@
 #define CUBBY_BIOME_MANAGER_H
 
 #include <libnoise/noise/noise.h>
-
 #include <Renderer/Renderer.h>
 
+#include <unordered_map>
+
+#include "Chunk.h"
 #include "BlocksEnum.h"
 
 enum class Biome
@@ -37,6 +39,18 @@ struct BiomeHeightBoundary
 	float m_blue2;
 	BlockType m_blockType;
 };
+
+typedef unsigned long ReigonKey;
+
+#pragma pack(push)
+#pragma pack(2)
+struct ReigonData
+{
+    short x;
+    short y;
+    short z;
+};
+#pragma pack(pop)
 
 using BiomeHeightBoundaryList = std::vector<BiomeHeightBoundary*>;
 
@@ -81,7 +95,7 @@ public:
 	void AddSafeZone(glm::vec3 safeZoneCenter, float length, float height, float width);
 
 	// Get biome
-	Biome GetBiome(glm::vec3 position) const;
+	Biome GetBiome(glm::vec3 position);
 
 	// Town
 	bool IsInTown(glm::vec3 position, ZoneData** pReturnTown);
@@ -100,6 +114,9 @@ public:
 
 private:
 	Renderer* m_pRenderer;
+
+    // Cached Biome data.
+    std::unordered_map<ReigonKey, float> m_biomeCached;
 
 	// Biome voronoi regions
 	noise::module::Voronoi m_biomeRegions;

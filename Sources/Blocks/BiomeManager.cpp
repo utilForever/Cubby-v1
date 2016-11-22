@@ -153,9 +153,26 @@ void BiomeManager::AddSafeZone(glm::vec3 safeZoneCenter, float length, float hei
 }
 
 // Get biome
-Biome BiomeManager::GetBiome(glm::vec3 position) const
+Biome BiomeManager::GetBiome(glm::vec3 position)
 {
-	float regionValue = static_cast<float>(m_biomeRegions.GetValue(position.x, position.y, position.z));
+    float      regionValue;
+
+    ReigonKey  regionKey;
+    ReigonData regionData;
+
+    regionData.x = static_cast<short>(static_cast<int>(position.x) / Chunk::CHUNK_SIZE);
+    regionData.y = static_cast<short>(static_cast<int>(position.y) / Chunk::CHUNK_SIZE);
+    regionData.z = static_cast<short>(static_cast<int>(position.z) / Chunk::CHUNK_SIZE);
+
+    memcpy(&regionKey, &regionData, sizeof(unsigned long));
+
+    auto iterator = m_biomeCached.find(regionKey);
+
+    if (iterator == m_biomeCached.end())
+    {
+        regionValue = static_cast<float>(m_biomeRegions.GetValue(position.x, position.y, position.z));
+        m_biomeCached.insert(std::pair<ReigonKey, float>(regionKey, regionValue));
+    } else regionValue = iterator->second;
 
 	float ratio = 1.0f / (static_cast<int>(Biome::NumBiomes) - 1.0f);
 	for (int i = 1; i < static_cast<int>(Biome::NumBiomes); ++i)
