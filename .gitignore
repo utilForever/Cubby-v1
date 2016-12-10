@@ -202,5 +202,6 @@ Cubby64.lib
 *.exp
 *.bsc
 *.VC.db
-Projects/CppDependOut/
+Projects/Visual Studio 2015/CppDependOut/
+Projects/Visual Studio 2017/CppDependOut/
 *.cdproj
