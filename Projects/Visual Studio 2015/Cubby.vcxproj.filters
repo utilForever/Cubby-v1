@@ -126,107 +126,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Sources\main.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\CubbyWindow.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\CubbyGame.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\Matrix4.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\Line3D.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\Plane3D.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\Bezier3.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\Bezier4.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Maths\BoundingRegion.cpp">
-      <Filter>Sources\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Color.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Light.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Texture.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Material.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Frustum.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Mesh.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\GLSL.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Libraries\glew\src\glew.c">
-      <Filter>Libraries\glew\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Libraries\freetype\freetypefont.cpp">
-      <Filter>Libraries\freetype</Filter>
-    </ClCompile>
     <ClCompile Include="..\Libraries\glm\detail\dummy.cpp">
       <Filter>Libraries\glm\detail</Filter>
     </ClCompile>
     <ClCompile Include="..\Libraries\glm\detail\glm.cpp">
       <Filter>Libraries\glm\detail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\VertexArray.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Renderer.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\tga.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Renderer\Camera.cpp">
-      <Filter>Sources\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\BoundingBox.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\MS3DModel.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\MS3DAnimator.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\QubicleBinary.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\QubicleBinaryManager.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\VoxelCharacter.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Utils\Interpolator.cpp">
-      <Filter>Sources\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\VoxelWeapon.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\VoxelObject.cpp">
-      <Filter>Sources\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Models\OBJModel.cpp">
-      <Filter>Sources\Models</Filter>
     </ClCompile>
     <ClCompile Include="..\Libraries\inih\INIReader.cpp">
       <Filter>Libraries\inih</Filter>
@@ -234,62 +138,14 @@
     <ClCompile Include="..\Libraries\inih\ini.c">
       <Filter>Libraries\inih</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\CubbySettings.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\CubbyRender.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Lighting\DynamicLight.cpp">
-      <Filter>Sources\Lighting</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Lighting\LightingManager.cpp">
-      <Filter>Sources\Lighting</Filter>
-    </ClCompile>
     <ClCompile Include="..\Libraries\libnoise\noiseutils.cpp">
       <Filter>Libraries\libnoise</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Blocks\BiomeManager.cpp">
-      <Filter>Sources\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Blocks\Chunk.cpp">
-      <Filter>Sources\Blocks</Filter>
     </ClCompile>
     <ClCompile Include="..\Libraries\simplex\simplexnoise.cpp">
       <Filter>Libraries\simplex</Filter>
     </ClCompile>
     <ClCompile Include="..\Libraries\simplex\simplextextures.cpp">
       <Filter>Libraries\simplex</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\CubbyUpdate.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Blocks\ChunkManager.cpp">
-      <Filter>Sources\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Particles\BlockParticle.cpp">
-      <Filter>Sources\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Particles\BlockParticleEmitter.cpp">
-      <Filter>Sources\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Particles\BlockParticleEffect.cpp">
-      <Filter>Sources\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Particles\BlockParticleManager.cpp">
-      <Filter>Sources\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Projectile\Projectile.cpp">
-      <Filter>Sources\Projectile</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Projectile\ProjectileManager.cpp">
-      <Filter>Sources\Projectile</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Scenery\SceneryManager.cpp">
-      <Filter>Sources\Scenery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Skybox\Skybox.cpp">
-      <Filter>Sources\Skybox</Filter>
     </ClCompile>
     <ClCompile Include="..\Libraries\lua\lapi.c">
       <Filter>Libraries\lua</Filter>
@@ -390,347 +246,422 @@
     <ClCompile Include="..\Libraries\lua\lzio.c">
       <Filter>Libraries\lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Sounds\SoundManager.cpp">
+    <ClCompile Include="..\..\Sources\Utils\CountdownTimer.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\FileUtils.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\Interpolator.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\TimeManager.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\TextEffects\AnimatedText.cpp">
+      <Filter>Sources\TextEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\TextEffects\TextEffectsManager.cpp">
+      <Filter>Sources\TextEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Sounds\SoundEffects.cpp">
       <Filter>Sources\Sounds</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Sounds\SoundEffects.cpp">
+    <ClCompile Include="..\..\Sources\Sounds\SoundManager.cpp">
       <Filter>Sources\Sounds</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Mods\ModsManager.cpp">
+    <ClCompile Include="..\..\Sources\Skybox\Skybox.cpp">
+      <Filter>Sources\Skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Scenery\SceneryManager.cpp">
+      <Filter>Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Camera.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Color.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Frustum.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\GLSL.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Light.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Material.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Mesh.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Renderer.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Texture.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\tga.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\VertexArray.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\Quest.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\QuestJournal.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\QuestManager.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Projectile\Projectile.cpp">
+      <Filter>Sources\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Projectile\ProjectileManager.cpp">
+      <Filter>Sources\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\Player.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\PlayerCombat.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\PlayerStats.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticle.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleEffect.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleEmitter.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleManager.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\NPC\NPC.cpp">
+      <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\NPC\NPCManager.cpp">
+      <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Mods\ModsManager.cpp">
       <Filter>Sources\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Instance\InstanceManager.cpp">
-      <Filter>Sources\Instance</Filter>
+    <ClCompile Include="..\..\Sources\Models\BoundingBox.cpp">
+      <Filter>Sources\Models</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\TextEffects\AnimatedText.cpp">
-      <Filter>Sources\TextEffects</Filter>
+    <ClCompile Include="..\..\Sources\Models\MS3DAnimator.cpp">
+      <Filter>Sources\Models</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\TextEffects\TextEffectsManager.cpp">
-      <Filter>Sources\TextEffects</Filter>
+    <ClCompile Include="..\..\Sources\Models\MS3DModel.cpp">
+      <Filter>Sources\Models</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Items\Item.cpp">
+    <ClCompile Include="..\..\Sources\Models\OBJModel.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\QubicleBinary.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\QubicleBinaryManager.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelCharacter.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelObject.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelWeapon.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Bezier3.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Bezier4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\BoundingRegion.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Line3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Matrix4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Plane3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Lighting\DynamicLight.cpp">
+      <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Lighting\LightingManager.cpp">
+      <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\EquipmentUtils.cpp">
       <Filter>Sources\Items</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Inventory\InventoryManager.cpp">
+    <ClCompile Include="..\..\Sources\Items\Item.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemManager.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemSpawner.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemUtils.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\RandomLootManager.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\StatAttribute.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Inventory\InventoryManager.cpp">
       <Filter>Sources\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Items\StatAttribute.cpp">
-      <Filter>Sources\Items</Filter>
+    <ClCompile Include="..\..\Sources\Instance\InstanceManager.cpp">
+      <Filter>Sources\Instance</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Items\ItemUtils.cpp">
-      <Filter>Sources\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Items\EquipmentUtils.cpp">
-      <Filter>Sources\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Items\ItemSpawner.cpp">
-      <Filter>Sources\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Items\ItemManager.cpp">
-      <Filter>Sources\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Items\RandomLootManager.cpp">
-      <Filter>Sources\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Player\PlayerStats.cpp">
-      <Filter>Sources\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Player\Player.cpp">
-      <Filter>Sources\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Player\PlayerCombat.cpp">
-      <Filter>Sources\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\NPC\NPC.cpp">
-      <Filter>Sources\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\NPC\NPCManager.cpp">
-      <Filter>Sources\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Enemy\Enemy.cpp">
-      <Filter>Sources\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Enemy\EnemySpawner.cpp">
-      <Filter>Sources\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Enemy\EnemyManager.cpp">
-      <Filter>Sources\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Quests\Quest.cpp">
-      <Filter>Sources\Quests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Quests\QuestManager.cpp">
-      <Filter>Sources\Quests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Quests\QuestJournal.cpp">
-      <Filter>Sources\Quests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\GUI\EventListener.cpp">
+    <ClCompile Include="..\..\Sources\GUI\AbstractButton.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Event.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Button.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MouseEvent.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Checkbox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MouseListener.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Component.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\KeyEvent.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Container.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\KeyListener.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Dimensions.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\FocusEvent.cpp">
+    <ClCompile Include="..\..\Sources\GUI\DirectDrawRectangle.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\FocusListener.cpp">
+    <ClCompile Include="..\..\Sources\GUI\DraggableRenderRectangle.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Point.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Event.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Dimensions.cpp">
+    <ClCompile Include="..\..\Sources\GUI\EventListener.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Utils\TimeManager.cpp">
-      <Filter>Sources\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Utils\CountdownTimer.cpp">
-      <Filter>Sources\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Component.cpp">
+    <ClCompile Include="..\..\Sources\GUI\FocusEvent.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Container.cpp">
+    <ClCompile Include="..\..\Sources\GUI\FocusListener.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Label.cpp">
+    <ClCompile Include="..\..\Sources\GUI\FocusManager.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\DirectDrawRectangle.cpp">
+    <ClCompile Include="..\..\Sources\GUI\FormattedLabel.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\RenderRectangle.cpp">
+    <ClCompile Include="..\..\Sources\GUI\GUIWindow.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MultiTextureIcon.cpp">
+    <ClCompile Include="..\..\Sources\GUI\GUIWindowCloseButton.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Icon.cpp">
+    <ClCompile Include="..\..\Sources\GUI\GUIWindowMinimizeButton.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\AbstractButton.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Icon.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Button.cpp">
+    <ClCompile Include="..\..\Sources\GUI\KeyEvent.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Checkbox.cpp">
+    <ClCompile Include="..\..\Sources\GUI\KeyListener.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\DraggableRenderRectangle.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Label.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\FocusManager.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Menu.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\FormattedLabel.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MenuBar.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\GUIWindow.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MenuItem.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\GUIWindowCloseButton.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MouseEvent.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\GUIWindowMinimizeButton.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MouseListener.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\TitleBar.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MultiLineTextBox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Menu.cpp">
+    <ClCompile Include="..\..\Sources\GUI\MultiTextureIcon.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MenuItem.cpp">
+    <ClCompile Include="..\..\Sources\GUI\OpenGLGUI.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MenuBar.cpp">
+    <ClCompile Include="..\..\Sources\GUI\OptionBox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\ScrollBar.cpp">
+    <ClCompile Include="..\..\Sources\GUI\OptionController.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\MultiLineTextBox.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Point.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\SelectionManager.cpp">
+    <ClCompile Include="..\..\Sources\GUI\ProgressBar.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\OptionBox.cpp">
+    <ClCompile Include="..\..\Sources\GUI\PulldownMenu.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\OptionController.cpp">
+    <ClCompile Include="..\..\Sources\GUI\RenderRectangle.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\ProgressBar.cpp">
+    <ClCompile Include="..\..\Sources\GUI\ScrollBar.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\PulldownMenu.cpp">
+    <ClCompile Include="..\..\Sources\GUI\SelectionManager.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\Slider.cpp">
+    <ClCompile Include="..\..\Sources\GUI\Slider.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\TreeView.cpp">
+    <ClCompile Include="..\..\Sources\GUI\TextBox.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\TextBox.cpp">
+    <ClCompile Include="..\..\Sources\GUI\TitleBar.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GUI\OpenGLGUI.cpp">
+    <ClCompile Include="..\..\Sources\GUI\TreeView.cpp">
       <Filter>Sources\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\ActionBar.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\ActionBar.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\CharacterGUI.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\CharacterGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\CraftingGUI.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\CraftingGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\HUD.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\HUD.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\InventoryGUI.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\InventoryGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\LootGUI.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\LootGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\GameGUI\QuestGUI.cpp">
+    <ClCompile Include="..\..\Sources\GameGUI\QuestGUI.cpp">
       <Filter>Sources\GameGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\FrontendPage.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\FrontendManager.cpp">
       <Filter>Sources\Frontend</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\FrontendManager.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\FrontendPage.cpp">
       <Filter>Sources\Frontend</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\MainMenu.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\CreateCharacter.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\Credits.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\Credits.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\OptionsMenu.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\MainMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\PauseMenu.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\ModMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\QuitPopup.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\OptionsMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\ModMenu.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\PauseMenu.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Utils\FileUtils.cpp">
-      <Filter>Sources\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\CreateCharacter.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\QuitPopup.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\Frontend\Pages\SelectCharacter.cpp">
+    <ClCompile Include="..\..\Sources\Frontend\Pages\SelectCharacter.cpp">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\CubbyControls.cpp">
+    <ClCompile Include="..\..\Sources\Enemy\Enemy.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Enemy\EnemyManager.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Enemy\EnemySpawner.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\BiomeManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\Chunk.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\ChunkManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyCamera.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\CubbyInput.cpp">
+    <ClCompile Include="..\..\Sources\CubbyControls.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\CubbyGUI.cpp">
+    <ClCompile Include="..\..\Sources\CubbyGame.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sources\CubbyCamera.cpp">
+    <ClCompile Include="..\..\Sources\CubbyGUI.cpp">
       <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyInput.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyRender.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbySettings.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyUpdate.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyWindow.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\freetype\freetypefont.cpp">
+      <Filter>Libraries\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\glew\src\glew.c">
+      <Filter>Libraries\glew\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Sources\CubbyWindow.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\CubbyGame.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\3DMaths.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\Matrix4.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\Line3D.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\Plane3D.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\Bezier3.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\Bezier4.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Maths\BoundingRegion.h">
-      <Filter>Sources\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Color.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Light.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Texture.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Material.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Frustum.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Viewport.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\FrameBuffer.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Mesh.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\GLSL.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Renderer.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Libraries\glew\include\GL\glew.h">
-      <Filter>Libraries\glew\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Libraries\glew\include\GL\glxew.h">
-      <Filter>Libraries\glew\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Libraries\glew\include\GL\wglew.h">
-      <Filter>Libraries\glew\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Libraries\freetype\freetypefont.h">
-      <Filter>Libraries\freetype</Filter>
-    </ClInclude>
     <ClInclude Include="..\Libraries\glm\common.hpp">
       <Filter>Libraries\glm</Filter>
     </ClInclude>
@@ -1157,107 +1088,20 @@
     <ClInclude Include="..\Libraries\glm\gtx\wrap.hpp">
       <Filter>Libraries\glm\gtx</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\VertexArray.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\tga.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Renderer\Camera.h">
-      <Filter>Sources\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\MS3DModel.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\BoundingBox.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\MS3DAnimator.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\QubicleBinary.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\QubicleBinaryManager.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\VoxelCharacter.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Utils\Random.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Utils\Interpolator.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\VoxelWeapon.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\VoxelObject.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Models\OBJModel.h">
-      <Filter>Sources\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\CubbySettings.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="..\Libraries\inih\INIReader.h">
       <Filter>Libraries\inih</Filter>
     </ClInclude>
     <ClInclude Include="..\Libraries\inih\ini.h">
       <Filter>Libraries\inih</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Lighting\DynamicLight.h">
-      <Filter>Sources\Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Lighting\LightingManager.h">
-      <Filter>Sources\Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Blocks\Chunk.h">
-      <Filter>Sources\Blocks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Blocks\BlocksEnum.h">
-      <Filter>Sources\Blocks</Filter>
-    </ClInclude>
     <ClInclude Include="..\Libraries\libnoise\noiseutils.h">
       <Filter>Libraries\libnoise</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Blocks\BiomeManager.h">
-      <Filter>Sources\Blocks</Filter>
     </ClInclude>
     <ClInclude Include="..\Libraries\simplex\simplexnoise.h">
       <Filter>Libraries\simplex</Filter>
     </ClInclude>
     <ClInclude Include="..\Libraries\simplex\simplextextures.h">
       <Filter>Libraries\simplex</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Blocks\ChunkManager.h">
-      <Filter>Sources\Blocks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Particles\BlockParticle.h">
-      <Filter>Sources\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Particles\BlockParticleEmitter.h">
-      <Filter>Sources\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Particles\BlockParticleEffect.h">
-      <Filter>Sources\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Particles\BlockParticleManager.h">
-      <Filter>Sources\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Projectile\Projectile.h">
-      <Filter>Sources\Projectile</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Projectile\ProjectileManager.h">
-      <Filter>Sources\Projectile</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Scenery\SceneryManager.h">
-      <Filter>Sources\Scenery</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Skybox\Skybox.h">
-      <Filter>Sources\Skybox</Filter>
     </ClInclude>
     <ClInclude Include="..\Libraries\selene\selene.h">
       <Filter>Libraries\selene</Filter>
@@ -1406,266 +1250,425 @@
     <ClInclude Include="..\Libraries\lua\lzio.h">
       <Filter>Libraries\lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Sounds\SoundManager.h">
+    <ClInclude Include="..\..\Sources\Utils\CountdownTimer.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\FileUtils.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\Interpolator.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\Random.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\TimeManager.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\TextEffects\AnimatedText.h">
+      <Filter>Sources\TextEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\TextEffects\TextEffectsManager.h">
+      <Filter>Sources\TextEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Sounds\SoundEffects.h">
       <Filter>Sources\Sounds</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Sounds\SoundEffects.h">
+    <ClInclude Include="..\..\Sources\Sounds\SoundManager.h">
       <Filter>Sources\Sounds</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Mods\ModsManager.h">
+    <ClInclude Include="..\..\Sources\Skybox\Skybox.h">
+      <Filter>Sources\Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Scenery\SceneryManager.h">
+      <Filter>Sources\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Camera.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Color.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\FrameBuffer.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Frustum.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\GLSL.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Light.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Material.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Mesh.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Renderer.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Texture.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\tga.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\VertexArray.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Viewport.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\Quest.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\QuestJournal.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\QuestManager.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Projectile\Projectile.h">
+      <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Projectile\ProjectileManager.h">
+      <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\Player.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\PlayerClass.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\PlayerStats.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticle.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleEffect.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleEmitter.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleManager.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\NPC\NPC.h">
+      <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\NPC\NPCManager.h">
+      <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Mods\ModsManager.h">
       <Filter>Sources\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Instance\InstanceManager.h">
-      <Filter>Sources\Instance</Filter>
+    <ClInclude Include="..\..\Sources\Models\BoundingBox.h">
+      <Filter>Sources\Models</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\TextEffects\AnimatedText.h">
-      <Filter>Sources\TextEffects</Filter>
+    <ClInclude Include="..\..\Sources\Models\MS3DAnimator.h">
+      <Filter>Sources\Models</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\TextEffects\TextEffectsManager.h">
-      <Filter>Sources\TextEffects</Filter>
+    <ClInclude Include="..\..\Sources\Models\MS3DModel.h">
+      <Filter>Sources\Models</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Items\ItemsEnum.h">
+    <ClInclude Include="..\..\Sources\Models\OBJModel.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\QubicleBinary.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\QubicleBinaryManager.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelCharacter.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelObject.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelWeapon.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\3DMaths.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Bezier3.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Bezier4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\BoundingRegion.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Line3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Matrix4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Plane3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Lighting\DynamicLight.h">
+      <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Lighting\LightingManager.h">
+      <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\EquipmentEnum.h">
       <Filter>Sources\Items</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Items\EquipmentEnum.h">
+    <ClInclude Include="..\..\Sources\Items\Item.h">
       <Filter>Sources\Items</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Items\Item.h">
+    <ClInclude Include="..\..\Sources\Items\ItemManager.h">
       <Filter>Sources\Items</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Inventory\InventoryManager.h">
+    <ClInclude Include="..\..\Sources\Items\ItemsEnum.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\ItemSpawner.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\RandomLootManager.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\StatAttribute.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Inventory\InventoryManager.h">
       <Filter>Sources\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Items\StatAttribute.h">
-      <Filter>Sources\Items</Filter>
+    <ClInclude Include="..\..\Sources\Instance\InstanceManager.h">
+      <Filter>Sources\Instance</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Items\ItemSpawner.h">
-      <Filter>Sources\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Items\ItemManager.h">
-      <Filter>Sources\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Items\RandomLootManager.h">
-      <Filter>Sources\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Player\PlayerStats.h">
-      <Filter>Sources\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Player\PlayerClass.h">
-      <Filter>Sources\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Player\Player.h">
-      <Filter>Sources\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\NPC\NPC.h">
-      <Filter>Sources\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\NPC\NPCManager.h">
-      <Filter>Sources\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Enemy\Enemy.h">
-      <Filter>Sources\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Enemy\EnemySpawner.h">
-      <Filter>Sources\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Enemy\EnemyManager.h">
-      <Filter>Sources\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Quests\Quest.h">
-      <Filter>Sources\Quests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Quests\QuestManager.h">
-      <Filter>Sources\Quests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Quests\QuestJournal.h">
-      <Filter>Sources\Quests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\GUI\EventListener.h">
+    <ClInclude Include="..\..\Sources\GUI\AbstractButton.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MouseListener.h">
+    <ClInclude Include="..\..\Sources\GUI\Button.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Event.h">
+    <ClInclude Include="..\..\Sources\GUI\Checkbox.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MouseEvent.h">
+    <ClInclude Include="..\..\Sources\GUI\Component.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\KeyEvent.h">
+    <ClInclude Include="..\..\Sources\GUI\Container.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\KeyListener.h">
+    <ClInclude Include="..\..\Sources\GUI\Dimensions.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\FocusEvent.h">
+    <ClInclude Include="..\..\Sources\GUI\DirectDrawRectangle.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\FocusListener.h">
+    <ClInclude Include="..\..\Sources\GUI\DraggableRenderRectangle.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Point.h">
+    <ClInclude Include="..\..\Sources\GUI\Event.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Dimensions.h">
+    <ClInclude Include="..\..\Sources\GUI\EventListener.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Utils\TimeManager.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Utils\CountdownTimer.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Component.h">
+    <ClInclude Include="..\..\Sources\GUI\FocusEvent.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Container.h">
+    <ClInclude Include="..\..\Sources\GUI\FocusListener.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Label.h">
+    <ClInclude Include="..\..\Sources\GUI\FocusManager.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\DirectDrawRectangle.h">
+    <ClInclude Include="..\..\Sources\GUI\FormattedLabel.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\RenderRectangle.h">
+    <ClInclude Include="..\..\Sources\GUI\GUIWindow.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MultiTextureIcon.h">
+    <ClInclude Include="..\..\Sources\GUI\GUIWindowCloseButton.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\AbstractButton.h">
+    <ClInclude Include="..\..\Sources\GUI\GUIWindowMinimizeButton.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Button.h">
+    <ClInclude Include="..\..\Sources\GUI\Icon.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Checkbox.h">
+    <ClInclude Include="..\..\Sources\GUI\KeyEvent.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\DraggableRenderRectangle.h">
+    <ClInclude Include="..\..\Sources\GUI\KeyListener.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\FocusManager.h">
+    <ClInclude Include="..\..\Sources\GUI\Label.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\FormattedLabel.h">
+    <ClInclude Include="..\..\Sources\GUI\Menu.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\GUIWindow.h">
+    <ClInclude Include="..\..\Sources\GUI\MenuBar.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\TitleBar.h">
+    <ClInclude Include="..\..\Sources\GUI\MenuItem.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\GUIWindowCloseButton.h">
+    <ClInclude Include="..\..\Sources\GUI\MouseEvent.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\GUIWindowMinimizeButton.h">
+    <ClInclude Include="..\..\Sources\GUI\MouseListener.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Menu.h">
+    <ClInclude Include="..\..\Sources\GUI\MultiLineTextBox.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MenuItem.h">
+    <ClInclude Include="..\..\Sources\GUI\MultiTextureIcon.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MenuBar.h">
+    <ClInclude Include="..\..\Sources\GUI\OpenGLGUI.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\ScrollBar.h">
+    <ClInclude Include="..\..\Sources\GUI\OptionBox.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\MultiLineTextBox.h">
+    <ClInclude Include="..\..\Sources\GUI\OptionController.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\SelectionManager.h">
+    <ClInclude Include="..\..\Sources\GUI\Point.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\OptionBox.h">
+    <ClInclude Include="..\..\Sources\GUI\ProgressBar.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\OptionController.h">
+    <ClInclude Include="..\..\Sources\GUI\PulldownMenu.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\ProgressBar.h">
+    <ClInclude Include="..\..\Sources\GUI\RenderRectangle.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\PulldownMenu.h">
+    <ClInclude Include="..\..\Sources\GUI\ScrollBar.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\Slider.h">
+    <ClInclude Include="..\..\Sources\GUI\SelectionManager.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\TreeView.h">
+    <ClInclude Include="..\..\Sources\GUI\Slider.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\TextBox.h">
+    <ClInclude Include="..\..\Sources\GUI\TextBox.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GUI\OpenGLGUI.h">
+    <ClInclude Include="..\..\Sources\GUI\TitleBar.h">
       <Filter>Sources\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\ActionBar.h">
+    <ClInclude Include="..\..\Sources\GUI\TreeView.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\ActionBar.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\CharacterGUI.h">
+    <ClInclude Include="..\..\Sources\GameGUI\CharacterGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\CraftingGUI.h">
+    <ClInclude Include="..\..\Sources\GameGUI\CraftingGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\HUD.h">
+    <ClInclude Include="..\..\Sources\GameGUI\HUD.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\InventoryGUI.h">
+    <ClInclude Include="..\..\Sources\GameGUI\InventoryGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\LootGUI.h">
+    <ClInclude Include="..\..\Sources\GameGUI\LootGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\GameGUI\QuestGUI.h">
+    <ClInclude Include="..\..\Sources\GameGUI\QuestGUI.h">
       <Filter>Sources\GameGUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\FrontendScreens.h">
+    <ClInclude Include="..\..\Sources\Frontend\FrontendManager.h">
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\FrontendPage.h">
+    <ClInclude Include="..\..\Sources\Frontend\FrontendPage.h">
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\FrontendManager.h">
+    <ClInclude Include="..\..\Sources\Frontend\FrontendScreens.h">
       <Filter>Sources\Frontend</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\MainMenu.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\CreateCharacter.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\Credits.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\Credits.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\OptionsMenu.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\MainMenu.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\PauseMenu.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\ModMenu.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\QuitPopup.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\OptionsMenu.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\ModMenu.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\PauseMenu.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Utils\FileUtils.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\CreateCharacter.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\QuitPopup.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\Frontend\Pages\SelectCharacter.h">
+    <ClInclude Include="..\..\Sources\Frontend\Pages\SelectCharacter.h">
       <Filter>Sources\Frontend\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Sources\CubbyObject.h">
+    <ClInclude Include="..\..\Sources\Enemy\Enemy.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Enemy\EnemyManager.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Enemy\EnemySpawner.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\BiomeManager.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\BlocksEnum.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\Chunk.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\ChunkManager.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyGame.h">
       <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyObject.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbySettings.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyWindow.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\freetype\freetypefont.h">
+      <Filter>Libraries\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\glew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\glxew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\wglew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1998,9 +2001,6 @@
     </None>
     <None Include="..\Libraries\glm\gtx\wrap.inl">
       <Filter>Libraries\glm\gtx</Filter>
-    </None>
-    <None Include="..\Sources\GUI\Icon.h">
-      <Filter>Sources\GUI</Filter>
     </None>
   </ItemGroup>
 </Project>
