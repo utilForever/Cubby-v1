@@ -199,6 +199,8 @@ FakesAssemblies/
 *.ipdb
 Cubby32.lib
 Cubby64.lib
+Cubby32Debug.lib
+Cubby64Debug.lib
 *.exp
 *.bsc
 *.VC.db
