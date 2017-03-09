@@ -141,6 +141,6 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
 
 **Ver 0.13 (To-do)**
 
-- [ ] Redesign GUI system.
+- [ ] Redesign GUI systemd.
 - [ ] Static code analysis with CppDepend. 
 - [ ] Write engine documentation (Part 2).
