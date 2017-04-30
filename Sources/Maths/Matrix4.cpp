@@ -9,6 +9,8 @@
 
 #include <cstring>
 #include <cmath>
+#include <xmmintrin.h>
+#include <emmintrin.h>
 
 #include <glm/glm.hpp>
 
@@ -158,10 +160,16 @@ void Matrix4::AddRotationByRadians(float* angles)
 // Properties
 void Matrix4::GetMatrix(float* matrix) const
 {
-	matrix[0] = this->m_data[0];	matrix[1] = this->m_data[1];	matrix[2] = this->m_data[2];	matrix[3] = this->m_data[3];
-	matrix[4] = this->m_data[4];	matrix[5] = this->m_data[5];	matrix[6] = this->m_data[6];	matrix[7] = this->m_data[7];
-	matrix[8] = this->m_data[8];	matrix[9] = this->m_data[9];	matrix[10] = this->m_data[10];	matrix[11] = this->m_data[11];
-	matrix[12] = this->m_data[12];	matrix[13] = this->m_data[13];	matrix[14] = this->m_data[14];	matrix[15] = this->m_data[15];
+    __m128 xmm_reg;
+
+    xmm_reg = _mm_loadu_ps(&(this->m_data[0]));
+    _mm_storeu_ps(&(matrix[0]), xmm_reg);
+    xmm_reg = _mm_loadu_ps(&(this->m_data[4]));
+    _mm_storeu_ps(&(matrix[4]), xmm_reg);
+    xmm_reg = _mm_loadu_ps(&(this->m_data[8]));
+    _mm_storeu_ps(&(matrix[8]), xmm_reg);
+    xmm_reg = _mm_loadu_ps(&(this->m_data[12]));
+    _mm_storeu_ps(&(matrix[12]), xmm_reg);
 }
 
 const float Matrix4::GetDeterminant() const
@@ -286,22 +294,215 @@ void Matrix4::Inverse()
 	Matrix4 matrixCopy;
 	memcpy(matrixCopy.m_data, this->m_data, 16 * sizeof(float));
 
-	m_data[0]  = matrixCopy.m_data[6] * matrixCopy.m_data[11] * matrixCopy.m_data[13] - matrixCopy.m_data[7] * matrixCopy.m_data[10] * matrixCopy.m_data[13] + matrixCopy.m_data[7] * matrixCopy.m_data[9] * matrixCopy.m_data[14] - matrixCopy.m_data[5] * matrixCopy.m_data[11] * matrixCopy.m_data[14] - matrixCopy.m_data[6] * matrixCopy.m_data[9] * matrixCopy.m_data[15] + matrixCopy.m_data[5] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
-	m_data[1]  = matrixCopy.m_data[3] * matrixCopy.m_data[10] * matrixCopy.m_data[13] - matrixCopy.m_data[2] * matrixCopy.m_data[11] * matrixCopy.m_data[13] - matrixCopy.m_data[3] * matrixCopy.m_data[9] * matrixCopy.m_data[14] + matrixCopy.m_data[1] * matrixCopy.m_data[11] * matrixCopy.m_data[14] + matrixCopy.m_data[2] * matrixCopy.m_data[9] * matrixCopy.m_data[15] - matrixCopy.m_data[1] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
-	m_data[2]  = matrixCopy.m_data[2] * matrixCopy.m_data[7]  * matrixCopy.m_data[13] - matrixCopy.m_data[3] * matrixCopy.m_data[6]  * matrixCopy.m_data[13] + matrixCopy.m_data[3] * matrixCopy.m_data[5] * matrixCopy.m_data[14] - matrixCopy.m_data[1] * matrixCopy.m_data[7]  * matrixCopy.m_data[14] - matrixCopy.m_data[2] * matrixCopy.m_data[5] * matrixCopy.m_data[15] + matrixCopy.m_data[1] * matrixCopy.m_data[6]  * matrixCopy.m_data[15];
-	m_data[3]  = matrixCopy.m_data[3] * matrixCopy.m_data[6]  * matrixCopy.m_data[9]  - matrixCopy.m_data[2] * matrixCopy.m_data[7]  * matrixCopy.m_data[9]  - matrixCopy.m_data[3] * matrixCopy.m_data[5] * matrixCopy.m_data[10] + matrixCopy.m_data[1] * matrixCopy.m_data[7]  * matrixCopy.m_data[10] + matrixCopy.m_data[2] * matrixCopy.m_data[5] * matrixCopy.m_data[11] - matrixCopy.m_data[1] * matrixCopy.m_data[6]  * matrixCopy.m_data[11];
-	m_data[4]  = matrixCopy.m_data[7] * matrixCopy.m_data[10] * matrixCopy.m_data[12] - matrixCopy.m_data[6] * matrixCopy.m_data[11] * matrixCopy.m_data[12] - matrixCopy.m_data[7] * matrixCopy.m_data[8] * matrixCopy.m_data[14] + matrixCopy.m_data[4] * matrixCopy.m_data[11] * matrixCopy.m_data[14] + matrixCopy.m_data[6] * matrixCopy.m_data[8] * matrixCopy.m_data[15] - matrixCopy.m_data[4] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
-	m_data[5]  = matrixCopy.m_data[2] * matrixCopy.m_data[11] * matrixCopy.m_data[12] - matrixCopy.m_data[3] * matrixCopy.m_data[10] * matrixCopy.m_data[12] + matrixCopy.m_data[3] * matrixCopy.m_data[8] * matrixCopy.m_data[14] - matrixCopy.m_data[0] * matrixCopy.m_data[11] * matrixCopy.m_data[14] - matrixCopy.m_data[2] * matrixCopy.m_data[8] * matrixCopy.m_data[15] + matrixCopy.m_data[0] * matrixCopy.m_data[10] * matrixCopy.m_data[15];
-	m_data[6]  = matrixCopy.m_data[3] * matrixCopy.m_data[6]  * matrixCopy.m_data[12] - matrixCopy.m_data[2] * matrixCopy.m_data[7]  * matrixCopy.m_data[12] - matrixCopy.m_data[3] * matrixCopy.m_data[4] * matrixCopy.m_data[14] + matrixCopy.m_data[0] * matrixCopy.m_data[7]  * matrixCopy.m_data[14] + matrixCopy.m_data[2] * matrixCopy.m_data[4] * matrixCopy.m_data[15] - matrixCopy.m_data[0] * matrixCopy.m_data[6]  * matrixCopy.m_data[15];
-	m_data[7]  = matrixCopy.m_data[2] * matrixCopy.m_data[7]  * matrixCopy.m_data[8]  - matrixCopy.m_data[3] * matrixCopy.m_data[6]  * matrixCopy.m_data[8]  + matrixCopy.m_data[3] * matrixCopy.m_data[4] * matrixCopy.m_data[10] - matrixCopy.m_data[0] * matrixCopy.m_data[7]  * matrixCopy.m_data[10] - matrixCopy.m_data[2] * matrixCopy.m_data[4] * matrixCopy.m_data[11] + matrixCopy.m_data[0] * matrixCopy.m_data[6]  * matrixCopy.m_data[11];
-	m_data[8]  = matrixCopy.m_data[5] * matrixCopy.m_data[11] * matrixCopy.m_data[12] - matrixCopy.m_data[7] * matrixCopy.m_data[9]  * matrixCopy.m_data[12] + matrixCopy.m_data[7] * matrixCopy.m_data[8] * matrixCopy.m_data[13] - matrixCopy.m_data[4] * matrixCopy.m_data[11] * matrixCopy.m_data[13] - matrixCopy.m_data[5] * matrixCopy.m_data[8] * matrixCopy.m_data[15] + matrixCopy.m_data[4] * matrixCopy.m_data[9]  * matrixCopy.m_data[15];
-	m_data[9]  = matrixCopy.m_data[3] * matrixCopy.m_data[9]  * matrixCopy.m_data[12] - matrixCopy.m_data[1] * matrixCopy.m_data[11] * matrixCopy.m_data[12] - matrixCopy.m_data[3] * matrixCopy.m_data[8] * matrixCopy.m_data[13] + matrixCopy.m_data[0] * matrixCopy.m_data[11] * matrixCopy.m_data[13] + matrixCopy.m_data[1] * matrixCopy.m_data[8] * matrixCopy.m_data[15] - matrixCopy.m_data[0] * matrixCopy.m_data[9]  * matrixCopy.m_data[15];
-	m_data[10] = matrixCopy.m_data[1] * matrixCopy.m_data[7]  * matrixCopy.m_data[12] - matrixCopy.m_data[3] * matrixCopy.m_data[5]  * matrixCopy.m_data[12] + matrixCopy.m_data[3] * matrixCopy.m_data[4] * matrixCopy.m_data[13] - matrixCopy.m_data[0] * matrixCopy.m_data[7]  * matrixCopy.m_data[13] - matrixCopy.m_data[1] * matrixCopy.m_data[4] * matrixCopy.m_data[15] + matrixCopy.m_data[0] * matrixCopy.m_data[5]  * matrixCopy.m_data[15];
-	m_data[11] = matrixCopy.m_data[3] * matrixCopy.m_data[5]  * matrixCopy.m_data[8]  - matrixCopy.m_data[1] * matrixCopy.m_data[7]  * matrixCopy.m_data[8]  - matrixCopy.m_data[3] * matrixCopy.m_data[4] * matrixCopy.m_data[9]  + matrixCopy.m_data[0] * matrixCopy.m_data[7]  * matrixCopy.m_data[9]  + matrixCopy.m_data[1] * matrixCopy.m_data[4] * matrixCopy.m_data[11] - matrixCopy.m_data[0] * matrixCopy.m_data[5]  * matrixCopy.m_data[11];
-	m_data[12] = matrixCopy.m_data[6] * matrixCopy.m_data[9]  * matrixCopy.m_data[12] - matrixCopy.m_data[5] * matrixCopy.m_data[10] * matrixCopy.m_data[12] - matrixCopy.m_data[6] * matrixCopy.m_data[8] * matrixCopy.m_data[13] + matrixCopy.m_data[4] * matrixCopy.m_data[10] * matrixCopy.m_data[13] + matrixCopy.m_data[5] * matrixCopy.m_data[8] * matrixCopy.m_data[14] - matrixCopy.m_data[4] * matrixCopy.m_data[9]  * matrixCopy.m_data[14];
-	m_data[13] = matrixCopy.m_data[1] * matrixCopy.m_data[10] * matrixCopy.m_data[12] - matrixCopy.m_data[2] * matrixCopy.m_data[9]  * matrixCopy.m_data[12] + matrixCopy.m_data[2] * matrixCopy.m_data[8] * matrixCopy.m_data[13] - matrixCopy.m_data[0] * matrixCopy.m_data[10] * matrixCopy.m_data[13] - matrixCopy.m_data[1] * matrixCopy.m_data[8] * matrixCopy.m_data[14] + matrixCopy.m_data[0] * matrixCopy.m_data[9]  * matrixCopy.m_data[14];
-	m_data[14] = matrixCopy.m_data[2] * matrixCopy.m_data[5]  * matrixCopy.m_data[12] - matrixCopy.m_data[1] * matrixCopy.m_data[6]  * matrixCopy.m_data[12] - matrixCopy.m_data[2] * matrixCopy.m_data[4] * matrixCopy.m_data[13] + matrixCopy.m_data[0] * matrixCopy.m_data[6]  * matrixCopy.m_data[13] + matrixCopy.m_data[1] * matrixCopy.m_data[4] * matrixCopy.m_data[14] - matrixCopy.m_data[0] * matrixCopy.m_data[5]  * matrixCopy.m_data[14];
-	m_data[15] = matrixCopy.m_data[1] * matrixCopy.m_data[6]  * matrixCopy.m_data[8]  - matrixCopy.m_data[2] * matrixCopy.m_data[5]  * matrixCopy.m_data[8]  + matrixCopy.m_data[2] * matrixCopy.m_data[4] * matrixCopy.m_data[9]  - matrixCopy.m_data[0] * matrixCopy.m_data[6]  * matrixCopy.m_data[9]  - matrixCopy.m_data[1] * matrixCopy.m_data[4] * matrixCopy.m_data[10] + matrixCopy.m_data[0] * matrixCopy.m_data[5]  * matrixCopy.m_data[10];
+    __m128 reg_xmm_mask_1 = _mm_castsi128_ps(_mm_set_epi32(-1, 0, -1, 0));
+    __m128 reg_xmm_mask_2 = _mm_castsi128_ps(_mm_set_epi32(0, -1, 0, -1));
+    // | ================================================================== |
+    // |     name       |   data_1   |   data_2   |   data_3   |   data_4   |
+    // | reg_xmm_mask_1 | 0xFFFFFFFF | 0x00000000 | 0xFFFFFFFF | 0x00000000 |
+    // | reg_xmm_mask_2 | 0x00000000 | 0xFFFFFFFF | 0x00000000 | 0xFFFFFFFF |
+    // | ================================================================== |
+    //
+    __m128 reg_xmm_result;
+    // | ================================================================== |
+    // | reg_xmm_result | (4 * offset)data ~ (4 * (offset + 1))data         |
+    // | ================================================================== |
+    
+    __m128 reg_xmm_1;
+    __m128 reg_xmm_2;
+    __m128 reg_xmm_3;
+    __m128 reg_xmm_4;
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[3],  matrixCopy.m_data[2],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[10], matrixCopy.m_data[7],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = reg_xmm_4;
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[2],  matrixCopy.m_data[3],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[11], matrixCopy.m_data[6],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, reg_xmm_4);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[3],  matrixCopy.m_data[3],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9],  matrixCopy.m_data[9],  matrixCopy.m_data[5],  matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[1],  matrixCopy.m_data[1],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[11], matrixCopy.m_data[7],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[2],  matrixCopy.m_data[2],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9],  matrixCopy.m_data[9],  matrixCopy.m_data[5],  matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[1],  matrixCopy.m_data[1],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[10], matrixCopy.m_data[6],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    _mm_storeu_ps(&(m_data[0]), reg_xmm_result);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[2],  matrixCopy.m_data[3],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[11], matrixCopy.m_data[6],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = reg_xmm_4;
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[3],  matrixCopy.m_data[2],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[10], matrixCopy.m_data[7],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, reg_xmm_4);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[3],  matrixCopy.m_data[3],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4],  matrixCopy.m_data[0] , matrixCopy.m_data[0],  matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[11], matrixCopy.m_data[7],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[2],  matrixCopy.m_data[2],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4],  matrixCopy.m_data[0],  matrixCopy.m_data[0],  matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[10], matrixCopy.m_data[6],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    _mm_storeu_ps(&(m_data[4]), reg_xmm_result);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[3],  matrixCopy.m_data[1],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[9],  matrixCopy.m_data[7],  matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = reg_xmm_4;
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[1],  matrixCopy.m_data[3],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9],  matrixCopy.m_data[11], matrixCopy.m_data[5],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, reg_xmm_4);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[7],  matrixCopy.m_data[3],  matrixCopy.m_data[3],  matrixCopy.m_data[3]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4],  matrixCopy.m_data[0],  matrixCopy.m_data[0],  matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[11], matrixCopy.m_data[11], matrixCopy.m_data[7],  matrixCopy.m_data[7]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[1],  matrixCopy.m_data[1],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4],  matrixCopy.m_data[0],  matrixCopy.m_data[0],  matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9],  matrixCopy.m_data[9],  matrixCopy.m_data[5],  matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[15], matrixCopy.m_data[11]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    _mm_storeu_ps(&(m_data[8]), reg_xmm_result);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[1],  matrixCopy.m_data[2],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9],  matrixCopy.m_data[10], matrixCopy.m_data[5],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = reg_xmm_4;
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[2],  matrixCopy.m_data[1],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[9],  matrixCopy.m_data[6],  matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[12], matrixCopy.m_data[8]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, reg_xmm_4);
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[6],  matrixCopy.m_data[2],  matrixCopy.m_data[2],  matrixCopy.m_data[2]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4],  matrixCopy.m_data[0],  matrixCopy.m_data[0],  matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[10], matrixCopy.m_data[10], matrixCopy.m_data[6],  matrixCopy.m_data[6]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[13], matrixCopy.m_data[9]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[5],  matrixCopy.m_data[1],  matrixCopy.m_data[1],  matrixCopy.m_data[1]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[8],  matrixCopy.m_data[8],  matrixCopy.m_data[4],  matrixCopy.m_data[4]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+
+    reg_xmm_1 = _mm_set_ps(matrixCopy.m_data[4], matrixCopy.m_data[0], matrixCopy.m_data[0], matrixCopy.m_data[0]);
+    reg_xmm_2 = _mm_set_ps(matrixCopy.m_data[9], matrixCopy.m_data[9], matrixCopy.m_data[5], matrixCopy.m_data[5]);
+    reg_xmm_3 = _mm_set_ps(matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[14], matrixCopy.m_data[10]);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_1, reg_xmm_2);
+    reg_xmm_4 = _mm_mul_ps(reg_xmm_4, reg_xmm_3);
+    reg_xmm_result = _mm_sub_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_1));
+    reg_xmm_result = _mm_add_ps(reg_xmm_result, _mm_and_ps(reg_xmm_1, reg_xmm_mask_2));
+	
+    _mm_storeu_ps(&(m_data[12]), reg_xmm_result);
 
 	Scale(*this, 1 / det, *this);
 }
@@ -417,9 +618,19 @@ void Matrix4::SetRotationRadians(float* angles)
 // Arithmetic
 Matrix4& Matrix4::Add(const Matrix4& m1, const Matrix4& m2, Matrix4& result)
 {
-	for (int i = 0; i < 16; ++i)
+    __m128 reg_xmm_result;
+    __m128 reg_xmm_m1;
+    __m128 reg_xmm_m2;
+
+	for (int i = 0; i < 4; ++i)
 	{
-		result.m_data[i] = m1.m_data[i] + m2.m_data[i];
+        reg_xmm_result = _mm_setzero_ps();
+        reg_xmm_m1 = _mm_loadu_ps(&(m1.m_data[i * 4]));
+        reg_xmm_m2 = _mm_loadu_ps(&(m2.m_data[i * 4]));
+
+        reg_xmm_result = _mm_add_ps(reg_xmm_m1, reg_xmm_m2);
+
+        _mm_store_ps(&(result.m_data[i * 4]), reg_xmm_result);
 	}
 
 	return result;
@@ -427,19 +638,38 @@ Matrix4& Matrix4::Add(const Matrix4& m1, const Matrix4& m2, Matrix4& result)
 
 Matrix4& Matrix4::Subtract(const Matrix4& m1, const Matrix4& m2, Matrix4& result)
 {
-	for (int i = 0; i < 16; ++i)
-	{
-		result.m_data[i] = m1.m_data[i] - m2.m_data[i];
-	}
+    __m128 reg_xmm_result;
+    __m128 reg_xmm_m1;
+    __m128 reg_xmm_m2;
+
+    for (int i = 0; i < 4; ++i)
+    {
+        reg_xmm_m1 = _mm_loadu_ps(&(m1.m_data[i * 4]));
+        reg_xmm_m2 = _mm_loadu_ps(&(m2.m_data[i * 4]));
+
+        reg_xmm_result = _mm_sub_ps(reg_xmm_m1, reg_xmm_m2);
+
+        _mm_store_ps(&(result.m_data[i * 4]), reg_xmm_result);
+    }
 
 	return result;
 }
 
 Matrix4& Matrix4::Scale(const Matrix4& m1, const float& scale, Matrix4& result)
 {
-	for (int i = 0; i < 16; ++i)
+    __m128 reg_xmm_result;
+    __m128 reg_xmm_m1;
+    __m128 reg_xmm_m2;
+
+    reg_xmm_m1 = _mm_set_ps(
+        scale, scale, scale, scale);
+
+	for (int i = 0; i < 4; ++i)
 	{
-		result.m_data[i] = m1.m_data[i] * scale;
+        reg_xmm_m2 = _mm_loadu_ps(&(m1.m_data[i * 4]));
+        reg_xmm_result = _mm_mul_ps(reg_xmm_m1, reg_xmm_m2);
+
+        _mm_store_ps(&(result.m_data[i * 4]), reg_xmm_result);
 	}
 
 	result.m_data[0] = 1;
@@ -456,14 +686,23 @@ Matrix4& Matrix4::Multiply(const Matrix4& m1, const Matrix4& m2, Matrix4& result
 	{
 		for (int alpha = 0; alpha < 4; ++alpha)
 		{
-			float sum = 0.0f;
+            __declspec(align(16)) float sum[4];
+            __declspec(align(16)) float m2_data[4] = {
+                m2.m_data[index + 0], m2.m_data[index + 4],
+                m2.m_data[index + 8], m2.m_data[index + 12]};
 
-			for (int beta = 0; beta < 4; ++beta)
-			{
-				sum += m2.m_data[index + beta * 4] * m1.m_data[alpha * 4 + beta];
-			}
+            __m128 xmm_reg_result;
+            __m128 xmm_reg_1;
+            __m128 xmm_reg_2;
 
-			result.m_data[index + alpha * 4] = sum;
+            xmm_reg_1 = _mm_load_ps(m2_data);
+            xmm_reg_2 = _mm_loadu_ps(&(m1.m_data[alpha * 4]));
+            xmm_reg_result = _mm_mul_ps(xmm_reg_1, xmm_reg_2);
+
+            _mm_store_ps(sum, xmm_reg_result);
+
+			result.m_data[index + alpha * 4] = 
+                (sum[0] + sum[1] + sum[2] + sum[3]);
 		}
 	}
 
