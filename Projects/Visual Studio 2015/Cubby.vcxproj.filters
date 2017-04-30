@@ -1,0 +1,1314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{d88dbeb3-a70c-4ac1-97ff-028b6b1f51e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Maths">
+      <UniqueIdentifier>{81d6a3eb-1836-4ea6-b256-0c0056db9fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{183437a8-6917-4080-9331-f5c7cc54a5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glew">
+      <UniqueIdentifier>{39b26098-379f-4a24-82a7-07c43d256322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glew\include">
+      <UniqueIdentifier>{fadb4460-0d4f-40fa-a78f-3182687fabfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glew\include\GL">
+      <UniqueIdentifier>{9f11a31a-9970-4c40-825a-bee2046e374f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glew\src">
+      <UniqueIdentifier>{3c708748-cb3e-4025-84ea-33cc0f6f95ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\freetype">
+      <UniqueIdentifier>{07c31b6c-1479-4e7b-8f22-5586d40df7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glm">
+      <UniqueIdentifier>{42b89d3d-8709-414d-98fb-c58c4850d405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glm\detail">
+      <UniqueIdentifier>{f041414b-21d1-4174-a81e-8304b198009d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glm\gtc">
+      <UniqueIdentifier>{7e7e869c-25c5-42bd-9f0f-92aed512cb93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\glm\gtx">
+      <UniqueIdentifier>{f73a7a76-0561-45bd-8988-91259134c799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Models">
+      <UniqueIdentifier>{11797816-10a4-431b-bb09-d16839bba438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Utils">
+      <UniqueIdentifier>{59488913-410a-4767-8e86-4c49c8bcf791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Renderer">
+      <UniqueIdentifier>{57c185d6-8b1a-4bde-952b-d8c633b6d2e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\inih">
+      <UniqueIdentifier>{9a432b28-06ec-40bb-9363-28a442ad4f08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Blocks">
+      <UniqueIdentifier>{5c772e0a-fc52-4879-8023-92a2d41c3812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\libnoise">
+      <UniqueIdentifier>{367232ce-ccd5-4710-bda7-1ce96739d522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\simplex">
+      <UniqueIdentifier>{6db88efe-8c8c-426b-9275-d36d04c0fc98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Particles">
+      <UniqueIdentifier>{b3f17309-0a81-4d54-bbe9-4827fd686815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Projectile">
+      <UniqueIdentifier>{b2d5ac31-bdaf-400d-a136-a0e66bee7f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Scenery">
+      <UniqueIdentifier>{b991beab-8304-4bff-b2be-a67a3aa96393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Skybox">
+      <UniqueIdentifier>{0216fd6e-f5c1-4373-9d64-1d9bb503ae83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\selene">
+      <UniqueIdentifier>{b0733a73-533d-41ab-8f73-67008d98ab24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\selene\selene">
+      <UniqueIdentifier>{7e49f26b-7ff9-4f9e-8b9d-8d09cf60dc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\lua">
+      <UniqueIdentifier>{49bc633b-4259-4d59-a53a-3571ac8ff09f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Mods">
+      <UniqueIdentifier>{3e4d5f25-07cf-48d1-83b1-329f021e9a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\TextEffects">
+      <UniqueIdentifier>{f0db5cc3-3f13-4c94-9d5d-22d614120b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Lighting">
+      <UniqueIdentifier>{63e5ac89-6707-4434-b383-9131b6b34a4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Instance">
+      <UniqueIdentifier>{a68addae-5263-424c-9d17-c6c2c4aa821c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Sounds">
+      <UniqueIdentifier>{bde99f1d-88dd-4837-8b0a-362e44264bda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Inventory">
+      <UniqueIdentifier>{9ab079de-e0ae-43a7-9134-90f901d21634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Items">
+      <UniqueIdentifier>{588a5eec-06fa-4f20-9ce5-7a949ab6b64c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Player">
+      <UniqueIdentifier>{b4f20a37-97a7-408b-8e75-09d3c7e3322b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\NPC">
+      <UniqueIdentifier>{dfd772de-85fe-477d-8b72-6c391835c1c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Enemy">
+      <UniqueIdentifier>{00952acf-5d41-4409-82db-ec4d9b5480a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Quests">
+      <UniqueIdentifier>{e46534eb-4346-42bb-afb6-2ec98d0d7c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\GameGUI">
+      <UniqueIdentifier>{2fb1365f-ca45-4858-af7d-89103dc2ef59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\GUI">
+      <UniqueIdentifier>{6d215b0f-2cbc-49ec-9e39-9cafd9b02731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Frontend">
+      <UniqueIdentifier>{c999ce18-2f31-45b4-b3c3-17231189f0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Frontend\Pages">
+      <UniqueIdentifier>{30e2e36e-dd7b-4423-adaf-3aa915705271}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Sources\Utils\CountdownTimer.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\FileUtils.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\Interpolator.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Utils\TimeManager.cpp">
+      <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\TextEffects\AnimatedText.cpp">
+      <Filter>Sources\TextEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\TextEffects\TextEffectsManager.cpp">
+      <Filter>Sources\TextEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Sounds\SoundEffects.cpp">
+      <Filter>Sources\Sounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Sounds\SoundManager.cpp">
+      <Filter>Sources\Sounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Skybox\Skybox.cpp">
+      <Filter>Sources\Skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Scenery\SceneryManager.cpp">
+      <Filter>Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Camera.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Color.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Frustum.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\GLSL.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Light.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Material.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Mesh.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Renderer.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\Texture.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\tga.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Renderer\VertexArray.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\Quest.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\QuestJournal.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Quests\QuestManager.cpp">
+      <Filter>Sources\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Projectile\Projectile.cpp">
+      <Filter>Sources\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Projectile\ProjectileManager.cpp">
+      <Filter>Sources\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\Player.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\PlayerCombat.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Player\PlayerStats.cpp">
+      <Filter>Sources\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticle.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleEffect.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleEmitter.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Particles\BlockParticleManager.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\NPC\NPC.cpp">
+      <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\NPC\NPCManager.cpp">
+      <Filter>Sources\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Mods\ModsManager.cpp">
+      <Filter>Sources\Mods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\BoundingBox.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\MS3DAnimator.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\MS3DModel.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\OBJModel.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\QubicleBinary.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\QubicleBinaryManager.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelCharacter.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelObject.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Models\VoxelWeapon.cpp">
+      <Filter>Sources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Bezier3.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Bezier4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\BoundingRegion.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Line3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Matrix4.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Maths\Plane3D.cpp">
+      <Filter>Sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Lighting\DynamicLight.cpp">
+      <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Lighting\LightingManager.cpp">
+      <Filter>Sources\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\EquipmentUtils.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\Item.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemManager.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemSpawner.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\ItemUtils.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\RandomLootManager.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Items\StatAttribute.cpp">
+      <Filter>Sources\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Inventory\InventoryManager.cpp">
+      <Filter>Sources\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Instance\InstanceManager.cpp">
+      <Filter>Sources\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\AbstractButton.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Button.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Checkbox.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Component.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Container.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Dimensions.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\DirectDrawRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\DraggableRenderRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Event.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\EventListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\FocusEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\FocusListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\FocusManager.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\FormattedLabel.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\GUIWindow.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\GUIWindowCloseButton.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\GUIWindowMinimizeButton.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Icon.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\KeyEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\KeyListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Label.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Menu.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MenuBar.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MenuItem.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MouseEvent.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MouseListener.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MultiLineTextBox.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\MultiTextureIcon.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\OpenGLGUI.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\OptionBox.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\OptionController.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Point.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\ProgressBar.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\PulldownMenu.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\RenderRectangle.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\ScrollBar.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\SelectionManager.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\Slider.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\TextBox.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\TitleBar.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GUI\TreeView.cpp">
+      <Filter>Sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\ActionBar.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\CharacterGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\CraftingGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\HUD.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\InventoryGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\LootGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\GameGUI\QuestGUI.cpp">
+      <Filter>Sources\GameGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\FrontendManager.cpp">
+      <Filter>Sources\Frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\FrontendPage.cpp">
+      <Filter>Sources\Frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\CreateCharacter.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\Credits.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\MainMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\ModMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\OptionsMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\PauseMenu.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\QuitPopup.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Frontend\Pages\SelectCharacter.cpp">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Enemy\Enemy.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Enemy\EnemyManager.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Enemy\EnemySpawner.cpp">
+      <Filter>Sources\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\BiomeManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\Chunk.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\Blocks\ChunkManager.cpp">
+      <Filter>Sources\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyCamera.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyControls.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyGame.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyGUI.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyInput.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyRender.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbySettings.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyUpdate.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\CubbyWindow.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sources\main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\freetype\freetypefont.cpp">
+      <Filter>Libraries\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\glew\src\glew.c">
+      <Filter>Libraries\glew\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\glm\detail\dummy.cpp" />
+    <ClCompile Include="..\..\Libraries\glm\detail\glm.cpp" />
+    <ClCompile Include="..\..\Libraries\inih\ini.c" />
+    <ClCompile Include="..\..\Libraries\inih\INIReader.cpp" />
+    <ClCompile Include="..\..\Libraries\libnoise\noiseutils.cpp" />
+    <ClCompile Include="..\..\Libraries\lua\lapi.c" />
+    <ClCompile Include="..\..\Libraries\lua\lauxlib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lbaselib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lbitlib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lcode.c" />
+    <ClCompile Include="..\..\Libraries\lua\lcorolib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lctype.c" />
+    <ClCompile Include="..\..\Libraries\lua\ldblib.c" />
+    <ClCompile Include="..\..\Libraries\lua\ldebug.c" />
+    <ClCompile Include="..\..\Libraries\lua\ldo.c" />
+    <ClCompile Include="..\..\Libraries\lua\ldump.c" />
+    <ClCompile Include="..\..\Libraries\lua\lfunc.c" />
+    <ClCompile Include="..\..\Libraries\lua\lgc.c" />
+    <ClCompile Include="..\..\Libraries\lua\linit.c" />
+    <ClCompile Include="..\..\Libraries\lua\liolib.c" />
+    <ClCompile Include="..\..\Libraries\lua\llex.c" />
+    <ClCompile Include="..\..\Libraries\lua\lmathlib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lmem.c" />
+    <ClCompile Include="..\..\Libraries\lua\loadlib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lobject.c" />
+    <ClCompile Include="..\..\Libraries\lua\lopcodes.c" />
+    <ClCompile Include="..\..\Libraries\lua\loslib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lparser.c" />
+    <ClCompile Include="..\..\Libraries\lua\lstate.c" />
+    <ClCompile Include="..\..\Libraries\lua\lstring.c" />
+    <ClCompile Include="..\..\Libraries\lua\lstrlib.c" />
+    <ClCompile Include="..\..\Libraries\lua\ltable.c" />
+    <ClCompile Include="..\..\Libraries\lua\ltablib.c" />
+    <ClCompile Include="..\..\Libraries\lua\ltm.c" />
+    <ClCompile Include="..\..\Libraries\lua\lundump.c" />
+    <ClCompile Include="..\..\Libraries\lua\lutf8lib.c" />
+    <ClCompile Include="..\..\Libraries\lua\lvm.c" />
+    <ClCompile Include="..\..\Libraries\lua\lzio.c" />
+    <ClCompile Include="..\..\Libraries\simplex\simplexnoise.cpp" />
+    <ClCompile Include="..\..\Libraries\simplex\simplextextures.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Sources\Utils\CountdownTimer.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\FileUtils.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\Interpolator.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\Random.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Utils\TimeManager.h">
+      <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\TextEffects\AnimatedText.h">
+      <Filter>Sources\TextEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\TextEffects\TextEffectsManager.h">
+      <Filter>Sources\TextEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Sounds\SoundEffects.h">
+      <Filter>Sources\Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Sounds\SoundManager.h">
+      <Filter>Sources\Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Skybox\Skybox.h">
+      <Filter>Sources\Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Scenery\SceneryManager.h">
+      <Filter>Sources\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Camera.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Color.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\FrameBuffer.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Frustum.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\GLSL.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Light.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Material.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Mesh.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Renderer.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Texture.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\tga.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\VertexArray.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Renderer\Viewport.h">
+      <Filter>Sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\Quest.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\QuestJournal.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Quests\QuestManager.h">
+      <Filter>Sources\Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Projectile\Projectile.h">
+      <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Projectile\ProjectileManager.h">
+      <Filter>Sources\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\Player.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\PlayerClass.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Player\PlayerStats.h">
+      <Filter>Sources\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticle.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleEffect.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleEmitter.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Particles\BlockParticleManager.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\NPC\NPC.h">
+      <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\NPC\NPCManager.h">
+      <Filter>Sources\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Mods\ModsManager.h">
+      <Filter>Sources\Mods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\BoundingBox.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\MS3DAnimator.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\MS3DModel.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\OBJModel.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\QubicleBinary.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\QubicleBinaryManager.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelCharacter.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelObject.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Models\VoxelWeapon.h">
+      <Filter>Sources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\3DMaths.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Bezier3.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Bezier4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\BoundingRegion.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Line3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Matrix4.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Maths\Plane3D.h">
+      <Filter>Sources\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Lighting\DynamicLight.h">
+      <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Lighting\LightingManager.h">
+      <Filter>Sources\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\EquipmentEnum.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\Item.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\ItemManager.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\ItemsEnum.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\ItemSpawner.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\RandomLootManager.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Items\StatAttribute.h">
+      <Filter>Sources\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Inventory\InventoryManager.h">
+      <Filter>Sources\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Instance\InstanceManager.h">
+      <Filter>Sources\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\AbstractButton.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Button.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Checkbox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Component.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Container.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Dimensions.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\DirectDrawRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\DraggableRenderRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Event.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\EventListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\FocusEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\FocusListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\FocusManager.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\FormattedLabel.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\GUIWindow.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\GUIWindowCloseButton.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\GUIWindowMinimizeButton.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Icon.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\KeyEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\KeyListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Label.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Menu.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MenuBar.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MenuItem.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MouseEvent.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MouseListener.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MultiLineTextBox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\MultiTextureIcon.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\OpenGLGUI.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\OptionBox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\OptionController.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Point.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\ProgressBar.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\PulldownMenu.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\RenderRectangle.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\ScrollBar.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\SelectionManager.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\Slider.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\TextBox.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\TitleBar.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GUI\TreeView.h">
+      <Filter>Sources\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\ActionBar.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\CharacterGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\CraftingGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\HUD.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\InventoryGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\LootGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\GameGUI\QuestGUI.h">
+      <Filter>Sources\GameGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\FrontendManager.h">
+      <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\FrontendPage.h">
+      <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\FrontendScreens.h">
+      <Filter>Sources\Frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\CreateCharacter.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\Credits.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\MainMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\ModMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\OptionsMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\PauseMenu.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\QuitPopup.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Frontend\Pages\SelectCharacter.h">
+      <Filter>Sources\Frontend\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Enemy\Enemy.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Enemy\EnemyManager.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Enemy\EnemySpawner.h">
+      <Filter>Sources\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\BiomeManager.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\BlocksEnum.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\Chunk.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\Blocks\ChunkManager.h">
+      <Filter>Sources\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyGame.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyObject.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbySettings.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources\CubbyWindow.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\freetype\freetypefont.h">
+      <Filter>Libraries\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\glew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\glxew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glew\include\GL\wglew.h">
+      <Filter>Libraries\glew\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\glm\common.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_common.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_exponential.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_geometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_matrix.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_packing.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_trigonometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\func_vector_relational.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_common.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_exponential.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_geometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_matrix.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_trigonometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\intrinsic_vector_relational.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\precision.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\setup.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_float.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_gentype.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_half.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_int.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat2x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat2x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat2x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat3x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat3x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat3x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat4x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat4x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_mat4x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_vec.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_vec1.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_vec2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_vec3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\type_vec4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_features.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_fixes.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_noise.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_swizzle.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_swizzle_func.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\detail\_vectorize.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\exponential.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\ext.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\fwd.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\geometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\glm.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\bitfield.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\color_space.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\constants.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\epsilon.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\matrix_access.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\matrix_integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\matrix_inverse.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\matrix_transform.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\noise.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\packing.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\quaternion.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\random.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\reciprocal.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\round.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\type_precision.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\type_ptr.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\ulp.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtc\vec1.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\associated_min_max.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\bit.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\closest_point.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\color_space.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\color_space_YCoCg.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\common.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\compatibility.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\component_wise.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\dual_quaternion.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\euler_angles.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\extend.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\extended_min_max.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\fast_exponential.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\fast_square_root.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\fast_trigonometry.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\gradient_paint.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\handed_coordinate_space.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\hash.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\intersect.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\io.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\log_base.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_cross_product.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_decompose.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_interpolation.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_major_storage.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_operation.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_query.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\matrix_transform_2d.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\mixed_product.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\norm.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\normal.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\normalize_dot.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\number_precision.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\optimum_pow.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\orthonormalize.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\perpendicular.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\polar_coordinates.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\projection.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\quaternion.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\range.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\raw_data.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\rotate_normalized_axis.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\rotate_vector.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\scalar_multiplication.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\scalar_relational.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\simd_mat4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\simd_quat.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\simd_vec4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\spline.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\std_based_type.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\string_cast.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\transform.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\transform2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\type_aligned.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\vector_angle.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\vector_query.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\gtx\wrap.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\integer.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat2x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat2x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat2x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat3x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat3x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat3x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat4x2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat4x3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\mat4x4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\matrix.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\packing.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\trigonometric.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\vec2.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\vec3.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\vec4.hpp" />
+    <ClInclude Include="..\..\Libraries\glm\vector_relational.hpp" />
+    <ClInclude Include="..\..\Libraries\inih\ini.h" />
+    <ClInclude Include="..\..\Libraries\inih\INIReader.h" />
+    <ClInclude Include="..\..\Libraries\libnoise\noiseutils.h" />
+    <ClInclude Include="..\..\Libraries\lua\lapi.h" />
+    <ClInclude Include="..\..\Libraries\lua\lauxlib.h" />
+    <ClInclude Include="..\..\Libraries\lua\lcode.h" />
+    <ClInclude Include="..\..\Libraries\lua\lctype.h" />
+    <ClInclude Include="..\..\Libraries\lua\ldebug.h" />
+    <ClInclude Include="..\..\Libraries\lua\ldo.h" />
+    <ClInclude Include="..\..\Libraries\lua\lfunc.h" />
+    <ClInclude Include="..\..\Libraries\lua\lgc.h" />
+    <ClInclude Include="..\..\Libraries\lua\llex.h" />
+    <ClInclude Include="..\..\Libraries\lua\llimits.h" />
+    <ClInclude Include="..\..\Libraries\lua\lmem.h" />
+    <ClInclude Include="..\..\Libraries\lua\lobject.h" />
+    <ClInclude Include="..\..\Libraries\lua\lopcodes.h" />
+    <ClInclude Include="..\..\Libraries\lua\lparser.h" />
+    <ClInclude Include="..\..\Libraries\lua\lprefix.h" />
+    <ClInclude Include="..\..\Libraries\lua\lstate.h" />
+    <ClInclude Include="..\..\Libraries\lua\lstring.h" />
+    <ClInclude Include="..\..\Libraries\lua\ltable.h" />
+    <ClInclude Include="..\..\Libraries\lua\ltm.h" />
+    <ClInclude Include="..\..\Libraries\lua\lua.h" />
+    <ClInclude Include="..\..\Libraries\lua\lua.hpp" />
+    <ClInclude Include="..\..\Libraries\lua\luaconf.h" />
+    <ClInclude Include="..\..\Libraries\lua\lualib.h" />
+    <ClInclude Include="..\..\Libraries\lua\lundump.h" />
+    <ClInclude Include="..\..\Libraries\lua\lvm.h" />
+    <ClInclude Include="..\..\Libraries\lua\lzio.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\BaseFun.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Class.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\ClassFun.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Ctor.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Dtor.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\exception.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\exotics.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Fun.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\function.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\LuaName.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\LuaRef.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\MetatableRegistry.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Obj.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\ObjFun.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\primitives.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Registry.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\ResourceHandler.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Selector.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\State.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\traits.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\Tuple.h" />
+    <ClInclude Include="..\..\Libraries\selene\selene\util.h" />
+    <ClInclude Include="..\..\Libraries\simplex\simplexnoise.h" />
+    <ClInclude Include="..\..\Libraries\simplex\simplextextures.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Libraries\glm\detail\func_common.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_exponential.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_geometric.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_integer.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_matrix.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_packing.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_trigonometric.inl" />
+    <None Include="..\..\Libraries\glm\detail\func_vector_relational.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_common.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_exponential.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_geometric.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_integer.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_matrix.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_trigonometric.inl" />
+    <None Include="..\..\Libraries\glm\detail\intrinsic_vector_relational.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_gentype.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_half.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat2x2.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat2x3.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat2x4.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat3x2.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat3x3.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat3x4.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat4x2.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat4x3.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_mat4x4.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec1.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec2.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec3.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec4.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec4_avx.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec4_avx2.inl" />
+    <None Include="..\..\Libraries\glm\detail\type_vec4_sse2.inl" />
+    <None Include="..\..\Libraries\glm\gtc\bitfield.inl" />
+    <None Include="..\..\Libraries\glm\gtc\color_space.inl" />
+    <None Include="..\..\Libraries\glm\gtc\constants.inl" />
+    <None Include="..\..\Libraries\glm\gtc\epsilon.inl" />
+    <None Include="..\..\Libraries\glm\gtc\integer.inl" />
+    <None Include="..\..\Libraries\glm\gtc\matrix_access.inl" />
+    <None Include="..\..\Libraries\glm\gtc\matrix_inverse.inl" />
+    <None Include="..\..\Libraries\glm\gtc\matrix_transform.inl" />
+    <None Include="..\..\Libraries\glm\gtc\noise.inl" />
+    <None Include="..\..\Libraries\glm\gtc\packing.inl" />
+    <None Include="..\..\Libraries\glm\gtc\quaternion.inl" />
+    <None Include="..\..\Libraries\glm\gtc\random.inl" />
+    <None Include="..\..\Libraries\glm\gtc\reciprocal.inl" />
+    <None Include="..\..\Libraries\glm\gtc\round.inl" />
+    <None Include="..\..\Libraries\glm\gtc\type_precision.inl" />
+    <None Include="..\..\Libraries\glm\gtc\type_ptr.inl" />
+    <None Include="..\..\Libraries\glm\gtc\ulp.inl" />
+    <None Include="..\..\Libraries\glm\gtc\vec1.inl" />
+    <None Include="..\..\Libraries\glm\gtx\associated_min_max.inl" />
+    <None Include="..\..\Libraries\glm\gtx\bit.inl" />
+    <None Include="..\..\Libraries\glm\gtx\closest_point.inl" />
+    <None Include="..\..\Libraries\glm\gtx\color_space.inl" />
+    <None Include="..\..\Libraries\glm\gtx\color_space_YCoCg.inl" />
+    <None Include="..\..\Libraries\glm\gtx\common.inl" />
+    <None Include="..\..\Libraries\glm\gtx\compatibility.inl" />
+    <None Include="..\..\Libraries\glm\gtx\component_wise.inl" />
+    <None Include="..\..\Libraries\glm\gtx\dual_quaternion.inl" />
+    <None Include="..\..\Libraries\glm\gtx\euler_angles.inl" />
+    <None Include="..\..\Libraries\glm\gtx\extend.inl" />
+    <None Include="..\..\Libraries\glm\gtx\extended_min_max.inl" />
+    <None Include="..\..\Libraries\glm\gtx\fast_exponential.inl" />
+    <None Include="..\..\Libraries\glm\gtx\fast_square_root.inl" />
+    <None Include="..\..\Libraries\glm\gtx\fast_trigonometry.inl" />
+    <None Include="..\..\Libraries\glm\gtx\float_notmalize.inl" />
+    <None Include="..\..\Libraries\glm\gtx\gradient_paint.inl" />
+    <None Include="..\..\Libraries\glm\gtx\handed_coordinate_space.inl" />
+    <None Include="..\..\Libraries\glm\gtx\hash.inl" />
+    <None Include="..\..\Libraries\glm\gtx\integer.inl" />
+    <None Include="..\..\Libraries\glm\gtx\intersect.inl" />
+    <None Include="..\..\Libraries\glm\gtx\io.inl" />
+    <None Include="..\..\Libraries\glm\gtx\log_base.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_cross_product.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_decompose.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_interpolation.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_major_storage.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_operation.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_query.inl" />
+    <None Include="..\..\Libraries\glm\gtx\matrix_transform_2d.inl" />
+    <None Include="..\..\Libraries\glm\gtx\mixed_product.inl" />
+    <None Include="..\..\Libraries\glm\gtx\norm.inl" />
+    <None Include="..\..\Libraries\glm\gtx\normal.inl" />
+    <None Include="..\..\Libraries\glm\gtx\normalize_dot.inl" />
+    <None Include="..\..\Libraries\glm\gtx\number_precision.inl" />
+    <None Include="..\..\Libraries\glm\gtx\optimum_pow.inl" />
+    <None Include="..\..\Libraries\glm\gtx\orthonormalize.inl" />
+    <None Include="..\..\Libraries\glm\gtx\perpendicular.inl" />
+    <None Include="..\..\Libraries\glm\gtx\polar_coordinates.inl" />
+    <None Include="..\..\Libraries\glm\gtx\projection.inl" />
+    <None Include="..\..\Libraries\glm\gtx\quaternion.inl" />
+    <None Include="..\..\Libraries\glm\gtx\raw_data.inl" />
+    <None Include="..\..\Libraries\glm\gtx\rotate_normalized_axis.inl" />
+    <None Include="..\..\Libraries\glm\gtx\rotate_vector.inl" />
+    <None Include="..\..\Libraries\glm\gtx\scalar_relational.inl" />
+    <None Include="..\..\Libraries\glm\gtx\simd_mat4.inl" />
+    <None Include="..\..\Libraries\glm\gtx\simd_quat.inl" />
+    <None Include="..\..\Libraries\glm\gtx\simd_vec4.inl" />
+    <None Include="..\..\Libraries\glm\gtx\spline.inl" />
+    <None Include="..\..\Libraries\glm\gtx\std_based_type.inl" />
+    <None Include="..\..\Libraries\glm\gtx\string_cast.inl" />
+    <None Include="..\..\Libraries\glm\gtx\transform.inl" />
+    <None Include="..\..\Libraries\glm\gtx\transform2.inl" />
+    <None Include="..\..\Libraries\glm\gtx\type_aligned.inl" />
+    <None Include="..\..\Libraries\glm\gtx\vector_angle.inl" />
+    <None Include="..\..\Libraries\glm\gtx\vector_query.inl" />
+    <None Include="..\..\Libraries\glm\gtx\wrap.inl" />
+  </ItemGroup>
+</Project>
