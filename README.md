@@ -1,8 +1,8 @@
-<img src="https://github.com/MineScroll/Cubby/blob/master/CubbyLogo.png" align="right" width="200" height="200" />
-
 # Cubby
 
-Cubby is an open source Voxel Engine, and game, that is written in C++ and OpenGL and can be used to create easy and fast voxel based games and applications. The engine is written to be highly functional and very efficient at allowing voxel game creation and provides a simple framework for creating 3D voxel games.
+<img src="https://github.com/MineScroll/Cubby/blob/master/Logo.png" align="center" />
+
+Cubby is an open source voxel-based game client, that is written in C++ and OpenGL and can be used to create easy and fast voxel based games and applications. The client is written to be highly functional and very efficient at allowing voxel game creation and provides a simple framework for creating 3D voxel games.
 
 The main code of this repository is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox).
 
@@ -10,7 +10,7 @@ The main code of this repository is based on [AlwaysGeeky's Vox](https://github.
 
 ## Features
 
-* 3D voxel engine with cuboid and box-based rendering aesthetic. 
+* 3D voxel game client with cuboid and box-based rendering aesthetic. 
 * GLSL shader support.
 * Support for deferred or forward rendering.
 * Fully dynamic and unlimited lighting system using deferred lighting model.
@@ -48,42 +48,19 @@ Some parts of the Cubby gameplay logic are also incorporated into this source co
 
 ## What's the difference between Cubby and Vox?
 
-In v1.00, All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MMORPG (called MineScroll), we'll improvement and differentiate Cubby game engine.
+All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MMORPG (called MineScroll), we'll improvement and differentiate Cubby game client.
 
 * Apply Modern C++ (C++11/14/17) features
-* (To-do) Multi play support (Currently, we are developing server-side engine using Go language, called Latibulum).
+* (To-do) Multi-play support.
 * (To-do) DirectX 11/12 and Vulkan support.
 * (To-do) World map generator support.
 * (To-do) Resource simulator support.
 * (To-do) Monster controller support.
 * and so on...
 
-## Setup
-Setting up and compiling the project is a fairly simple process. Cmake can be used to build the project files for each environment and for different platforms, depending on what target platform you are developing on.
+## How to Build
 
-## Building the Source Code
-
-Visual Studio projects are included inside the ```\Projects``` sub-folder (Currently, Visual Studio 2015 only).
-
-## Running
-
-The Cubby executable (Cubby.exe) needs to be run from the root directory so that it has access from its running directory to the ```\Resources``` folder that contains all the game's content files. If you want to run the game's executable from within the Visual Studio projects (for debugging) then you will need to set the working directy in the 'debugging' options to ```'..\'``` since the Visual Studio projects files reside various in sub-directories above the root.
-
-## Documentation
-
-TBA
-
-## License
-
-This software is provided under the **GNU General Public License**, more information can be found in the [license file](https://github.com/MineScroll/Cubby/blob/master/LICENSE.md).
-
-## How To Contribute
-
-Contributions are always welcome, either reporting issues/bugs or forking the repository and then issuing pull requests when you have completed some additional coding that you feel will be beneficial to the main project. If you are interested in contributing in a more dedicated capacity, then please contact me.
-
-## Contact
-
-You can contact me via Facebook at http://www.facebook.com/utilForever. I am always happy to answer questions or help with any issues you might have, and please be sure to share any additional work or your creations with me, I love seeing what other people are making.
+To learn how to build, test, and install the SDK, please check out [INSTALL.md](https://github.com/MineScroll/Cubby/blob/master/INSTALL.md).
 
 ## Screenshots
 
@@ -91,56 +68,36 @@ You can contact me via Facebook at http://www.facebook.com/utilForever. I am alw
 
 <img src="https://github.com/MineScroll/Cubby/blob/master/Screenshots/LootingTreasure.PNG" />
 
-## Dependencies
+## How To Contribute
 
-* fmod
-* freetype
-* glew
-* glfw
-* glm
-* inih
-* libnoise
-* lua
-* selene
-* simplex
-* tinythread
+Contributions are always welcome, either reporting issues/bugs or forking the repository and then issuing pull requests when you have completed some additional coding that you feel will be beneficial to the main project. If you are interested in contributing in a more dedicated capacity, then please contact me.
 
-## Version History
+## Contact
 
-**Ver 0.10 (Done)** 
+You can contact me via e-mail (utilForever at gmail.com). I am always happy to answer questions or help with any issues you might have, and please be sure to share any additional work or your creations with me, I love seeing what other people are making.
 
-- [x] Implement basic functionalities based on Vox engine.
+## License
 
-**Ver 0.11 (Done)**
+<img align="right" src="http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
 
-- [x] Fix a log of bugs.
-  - [x] [Issues #2: Execute problem](https://github.com/MineScroll/Cubby/issues/2)
-  - [x] [Issues #3: Crash problem when player found treasure](https://github.com/MineScroll/Cubby/issues/3)
-  - [x] [Issues #4: Character visibility problem in some area](https://github.com/MineScroll/Cubby/issues/4)
-  - [x] [Issues #5: Crash problem when player has been attacked by monster](https://github.com/MineScroll/Cubby/issues/5)
-  - [x] [Issues #11: Rendering problem when player used brazier](https://github.com/MineScroll/Cubby/issues/11)
-  - [x] [Issues #12: Weapon visibility problem](https://github.com/MineScroll/Cubby/issues/12)
+The class is licensed under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0):
 
-**Ver 0.12 (Doing)**
+Copyright &copy; 2017 [MineScroll](https://github.com/MineScroll/).
 
-- [x] Fix a log of bugs.
-  - [x] [Issues #13: Crash problem when player met mimic monster](https://github.com/MineScroll/Cubby/issues/13)
-  - [x] [Issues #17: Uninitialized 'counter' variable problem](https://github.com/MineScroll/Cubby/issues/17)
-- [ ] Refactoring source codes.
-  - [x] [Issues #6: Convert size_t](https://github.com/MineScroll/Cubby/issues/6)
-  - [ ] [Issues #7: Add CubbyObject](https://github.com/MineScroll/Cubby/issues/7)
-  - [ ] [Issues #8: Convert from raw pointer to smart pointer](https://github.com/MineScroll/Cubby/issues/8)
-  - [ ] [Issues #9: Catch exceptions in main()](https://github.com/MineScroll/Cubby/issues/9)
-  - [x] [Issues #16: Support NVIDIA Optimus and AMD Enduro chipset](https://github.com/MineScroll/Cubby/issues/16)
-  - [ ] [Issues #18: Code refactoring - No warning messages at warning level 4](https://github.com/MineScroll/Cubby/issues/18)
-- [x] Remove `tinythread` library.
-- [x] Support x86 / x64 build.
-- [ ] Support linux build.
-- [ ] Write engine documentation (Part 1).
-- [ ] Prepare map generation tool.
+The GNU General Public License is a free, copyleft license for software and other kinds of works.
 
-**Ver 0.13 (To-do)**
+The licenses for most software and other practical works are designed to take away your freedom to share and change the works. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.
 
-- [ ] Redesign GUI systemd.
-- [ ] Static code analysis with CppDepend. 
-- [ ] Write engine documentation (Part 2).
+When we speak of free software, we are referring to freedom, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for them if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs, and that you know you can do these things.
+
+To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you distribute copies of the software, or if you modify it: responsibilities to respect the freedom of others.
+
+For example, if you distribute copies of such a program, whether gratis or for a fee, you must pass on to the recipients the same freedoms that you received. You must make sure that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
+
+Developers that use the GNU GPL protect your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it.
+
+For the developers' and authors' protection, the GPL clearly explains that there is no warranty for this free software. For both users' and authors' sake, the GPL requires that modified versions be marked as changed, so that their problems will not be attributed erroneously to authors of previous versions.
+
+Some devices are designed to deny users access to install or run modified versions of the software inside them, although the manufacturer can do so. This is fundamentally incompatible with the aim of protecting users' freedom to change the software. The systematic pattern of such abuse occurs in the area of products for individuals to use, which is precisely where it is most unacceptable. Therefore, we have designed this version of the GPL to prohibit the practice for those products. If such problems arise substantially in other domains, we stand ready to extend this provision to those domains in future versions of the GPL, as needed to protect the freedom of users.
+
+Finally, every program is threatened constantly by software patents. States should not allow patents to restrict development and use of software on general-purpose computers, but in those that do, we wish to avoid the special danger that patents applied to a free program could make it effectively proprietary. To prevent this, the GPL assures that patents cannot be used to render the program non-free.
