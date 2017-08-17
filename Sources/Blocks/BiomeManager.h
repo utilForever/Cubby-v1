@@ -40,7 +40,7 @@ struct BiomeHeightBoundary
 	BlockType m_blockType;
 };
 
-typedef unsigned long ReigonKey;
+typedef unsigned long long ReigonKey;
 
 #pragma pack(push)
 #pragma pack(2)
