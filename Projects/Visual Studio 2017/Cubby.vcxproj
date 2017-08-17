@@ -196,6 +196,7 @@
     <ClCompile Include="..\..\Libraries\lua\lzio.c" />
     <ClCompile Include="..\..\Libraries\simplex\simplexnoise.cpp" />
     <ClCompile Include="..\..\Libraries\simplex\simplextextures.cpp" />
+    <ClCompile Include="..\..\Libraries\tinythread\tinythread.cpp" />
     <ClCompile Include="..\..\Sources\Blocks\BiomeManager.cpp" />
     <ClCompile Include="..\..\Sources\Blocks\Chunk.cpp" />
     <ClCompile Include="..\..\Sources\Blocks\ChunkManager.cpp" />
@@ -534,6 +535,8 @@
     <ClInclude Include="..\..\Libraries\selene\selene\util.h" />
     <ClInclude Include="..\..\Libraries\simplex\simplexnoise.h" />
     <ClInclude Include="..\..\Libraries\simplex\simplextextures.h" />
+    <ClInclude Include="..\..\Libraries\tinythread\fast_mutex.h" />
+    <ClInclude Include="..\..\Libraries\tinythread\tinythread.h" />
     <ClInclude Include="..\..\Sources\Blocks\BiomeManager.h" />
     <ClInclude Include="..\..\Sources\Blocks\BlocksEnum.h" />
     <ClInclude Include="..\..\Sources\Blocks\Chunk.h" />

@@ -10,12 +10,11 @@
 #ifndef CUBBY_RENDERER_H
 #define CUBBY_RENDERER_H
 
-#include <mutex>
-
 #include "GLSL.h"
 
 #include <freetype/freetypefont.h>
 #include <GL/glew.h>
+#include <tinythread/tinythread.h>
 
 #include <Maths/Bezier3.h>
 #include <Maths/Bezier4.h>
@@ -417,7 +416,7 @@ private:
 
 	// Vertex arrays, for storing static vertex data
 	std::vector<VertexArray*> m_vertexArrays;
-	std::mutex m_vertexArraysMutex;
+	tthread::mutex m_vertexArraysMutex;
 
 	// Frame buffers
 	std::vector<FrameBuffer*> m_frameBuffers;

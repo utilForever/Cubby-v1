@@ -124,6 +124,9 @@
     <Filter Include="Sources\Frontend\Pages">
       <UniqueIdentifier>{30e2e36e-dd7b-4423-adaf-3aa915705271}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\tinythread">
+      <UniqueIdentifier>{293aece0-48f6-4b39-8261-8e534cb94003}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Sources\main.cpp">
@@ -659,6 +662,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Sources\CubbyCamera.cpp">
       <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\tinythread\tinythread.cpp">
+      <Filter>Libraries\tinythread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1666,6 +1672,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Sources\CubbyObject.h">
       <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\tinythread\fast_mutex.h">
+      <Filter>Libraries\tinythread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\tinythread\tinythread.h">
+      <Filter>Libraries\tinythread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

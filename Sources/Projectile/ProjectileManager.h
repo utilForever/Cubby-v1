@@ -10,7 +10,7 @@
 #ifndef CUBBY_PROJECTILE_MANAGER_H
 #define CUBBY_PROJECTILE_MANAGER_H
 
-#include <mutex>
+#include <tinythread/tinythread.h>
 
 #include <Blocks/ChunkManager.h>
 #include <Particles/BlockParticleManager.h>
@@ -76,9 +76,9 @@ private:
 	int m_numRenderProjectiles;
 
 	// Enemy lists
-	std::mutex m_projectileMutex;
+	tthread::mutex m_projectileMutex;
 	ProjectileList m_vpProjectileList;
-	std::mutex m_projectileCreateMutex;
+	tthread::mutex m_projectileCreateMutex;
 	ProjectileList m_vpProjectileCreateList;
 };
 

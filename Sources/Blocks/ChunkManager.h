@@ -14,8 +14,7 @@
 #define CUBBY_CHUNK_MANAGER_H
 
 #include <map>
-#include <thread>
-#include <mutex>
+#include <tinythread/tinythread.h>
 
 #include <Renderer/Renderer.h>
 #include <Models/QubicleBinary.h>
@@ -281,7 +280,7 @@ private:
 
 	// Storage for modifications to chunks that are not loaded yet
 	ChunkStorageLoaderList m_vpChunkStorageList;
-	std::mutex m_chunkStorageListLock;
+	tthread::mutex m_chunkStorageListLock;
 
 	// Block color to type matching boundaries
 	BlockColorTypeMatchList m_vpBlockColorTypeMatchList;
@@ -291,10 +290,10 @@ private:
 	int m_numChunksRender;
 
 	// Threading
-	std::thread* m_pUpdatingChunksThread;
-	std::mutex m_ChunkMapMutexLock;
+	tthread::thread* m_pUpdatingChunksThread;
+	tthread::mutex m_ChunkMapMutexLock;
 	bool m_updateThreadActive;
-	std::mutex m_updateThreadFlagLock;
+	tthread::mutex m_updateThreadFlagLock;
 	bool m_updateThreadFinished;
 };
 

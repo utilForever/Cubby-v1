@@ -71,7 +71,7 @@ ChunkManager::ChunkManager(Renderer* pRenderer, CubbySettings* pCubbySettings, Q
 	// Threading
 	m_updateThreadActive = true;
 	m_updateThreadFinished = false;
-	m_pUpdatingChunksThread = new std::thread(_UpdatingChunksThread, this);
+	m_pUpdatingChunksThread = new tthread::thread(_UpdatingChunksThread, this);
 }
 
 ChunkManager::~ChunkManager()
