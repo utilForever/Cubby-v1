@@ -40,11 +40,11 @@ struct BiomeHeightBoundary
 	BlockType m_blockType;
 };
 
-typedef unsigned long long ReigonKey;
+typedef unsigned long long RegionKey;
 
 #pragma pack(push)
 #pragma pack(2)
-struct ReigonData
+struct RegionData
 {
     short x;
     short y;
@@ -116,7 +116,7 @@ private:
 	Renderer* m_pRenderer;
 
     // Cached Biome data.
-    std::unordered_map<ReigonKey, float> m_biomeCached;
+    std::unordered_map<RegionKey, float> m_biomeCached;
 
 	// Biome voronoi regions
 	noise::module::Voronoi m_biomeRegions;
