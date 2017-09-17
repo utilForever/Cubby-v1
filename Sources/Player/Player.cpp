@@ -242,6 +242,9 @@ void Player::ResetPlayer()
 	m_equippedProperties = 0;
 	SetNormal();
 
+	// Footstep sounds
+	m_footstepSoundIndex = 0;
+
 	// Animation params
 	for (int i = 0; i < static_cast<int>(AnimationSections::NumSections); ++i)
 	{
@@ -1620,7 +1623,7 @@ glm::vec3 Player::MoveAbsolute(glm::vec3 direction, const float speed, bool shou
 		CubbyGame::GetInstance()->PlaySoundEffect(static_cast<SoundEffect>(footStepSound));
 		m_footstepSoundIndex = GetRandomNumber(0, 3);
 
-		m_footstepSoundTimer = 0.3f + GetRandomNumber(-10, 10, 1)*0.002f;
+		m_footstepSoundTimer = 0.3f + GetRandomNumber(-10, 10, 1) * 0.002f;
 		m_footstepSoundDistance = 1.75f;
 	}
 
