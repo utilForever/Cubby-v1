@@ -51,7 +51,7 @@ void CubbyGame::UpdateCameraModeSwitching()
 {
 	if (m_cameraDistance < 1.5f)
 	{
-		if (m_cameraMode != CameraMode::FirstPerson)
+		if (m_cameraMode == CameraMode::MouseRotate)
 		{
 			SavePreviousCameraMode();
 			SetCameraMode(CameraMode::FirstPerson);
@@ -79,27 +79,40 @@ void CubbyGame::UpdateCameraModeSwitching()
 			m_maxCameraDistance = 1.5f;
 
 			// Enter third person mode
+
+			SavePreviousCameraMode();
+			SetCameraMode(CameraMode::MouseRotate);
+
 			m_pPlayer->SetThirdPersonMode();
 
-			RestorePreviousCameraMode();
+			//RestorePreviousCameraMode();
 			InitializeCameraRotation();
 		}
 	}
 }
 
-void CubbyGame::InitializeCameraRotation()
+void CubbyGame::InitializeCameraRotation(CameraMode cameraMode)
 {
-	m_currentX = m_pCubbyWindow->GetCursorX();
-	m_currentY = m_pCubbyWindow->GetCursorY();
+	if (cameraMode == CameraMode::MouseRotate)
+	{
+		m_currentX = m_pCubbyWindow->GetCursorX();
+		m_currentY = m_pCubbyWindow->GetCursorY();
 
-	glm::vec3 ratios = normalize(glm::vec3(2.5f, 1.0f, 0.0f));
+		glm::vec3 ratios = normalize(glm::vec3(2.5f, 1.0f, 0.0f));
 
-	m_cameraBehindPlayerPosition = m_pPlayer->GetCenter() + Player::PLAYER_CENTER_OFFSET;
-	m_cameraBehindPlayerPosition += m_pPlayer->GetForwardVector() * -(m_cameraDistance * ratios.x);
-	m_cameraBehindPlayerPosition += m_pPlayer->GetUpVector() * (m_cameraDistance * ratios.y);
+		m_cameraBehindPlayerPosition = m_pPlayer->GetCenter() + Player::PLAYER_CENTER_OFFSET;
+		m_cameraBehindPlayerPosition += m_pPlayer->GetForwardVector() * -(m_cameraDistance * ratios.x);
+		m_cameraBehindPlayerPosition += m_pPlayer->GetUpVector() * (m_cameraDistance * ratios.y);
 
-	// Only set the position, since the player will be controlling the rotation of the camera
-	m_pGameCamera->SetFakePosition(m_cameraBehindPlayerPosition);
+		// Only set the position, since the player will be controlling the rotation of the camera
+		m_pGameCamera->SetFakePosition(m_cameraBehindPlayerPosition);
+	}
+	else if (cameraMode == CameraMode::FirstPerson)
+	{
+		m_cameraDistance = 1.25f;
+		m_pGameCamera->SetFakePosition(m_pPlayer->GetCenter() + Player::PLAYER_CENTER_OFFSET);
+		m_pPlayer->SetForwardVector(m_pGameCamera->GetFacing());
+	}
 }
 
 void CubbyGame::UpdateCameraAutoCamera(float dt, bool updateCameraPosition)
