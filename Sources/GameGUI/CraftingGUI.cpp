@@ -445,7 +445,7 @@ void CraftingGUI::Unload()
 		if (CubbyGame::GetInstance()->ShouldRestorePreviousCameraMode())
 		{
 			CubbyGame::GetInstance()->RestorePreviousCameraMode();
-			CubbyGame::GetInstance()->InitializeCameraRotation();
+			CubbyGame::GetInstance()->InitializeCameraRotation(CubbyGame::GetInstance()->GetCameraMode());
 		}
 	}
 }

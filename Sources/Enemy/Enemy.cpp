@@ -3954,7 +3954,7 @@ void Enemy::RenderFace() const
 	m_pRenderer->PushMatrix();
 
 	m_pRenderer->MultiplyWorldMatrix(m_worldMatrix);
-
+	m_pRenderer->EmptyTextureIndex(0);
 	m_pVoxelCharacter->RenderFace();
 	
 	m_pRenderer->PopMatrix();

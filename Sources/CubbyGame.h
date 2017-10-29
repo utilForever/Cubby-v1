@@ -151,7 +151,7 @@ public:
 	// Camera controls
 	void UpdateCamera(float dt);
 	void UpdateCameraModeSwitching();
-	void InitializeCameraRotation();
+	void InitializeCameraRotation(CameraMode cameraMode = CameraMode::MouseRotate);
 	void UpdateCameraAutoCamera(float dt, bool updateCameraPosition);
 	void UpdateCameraFirstPerson(float dt) const;
 	void UpdateCameraNPCDialog(float dt) const;

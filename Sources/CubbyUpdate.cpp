@@ -31,7 +31,7 @@ void CubbyGame::Update()
 #endif //_WIN32
 	m_fps = 1.0f / m_deltaTime;
 	m_fpsPreviousTicks = m_fpsCurrentTicks;
-
+	
 	float maxDeltaTime = 0.25f;
 	if (m_deltaTime > maxDeltaTime)
 	{
