@@ -605,13 +605,8 @@ void CubbyGame::MouseCameraRotate()
 		changeX = -changeX;
 	}
 
-	// Inverted mouse
-	if (m_pCubbySettings->m_invertedMouse == true)
-	{
-		changeY = -changeY;
-	}
-	// First person mode
-	else if (m_cameraMode == CameraMode::FirstPerson)
+	// If use inverted mouse or first person mode, inverse y-axis value
+	if (m_pCubbySettings->m_invertedMouse == true || m_cameraMode == CameraMode::FirstPerson)
 	{
 		changeY = -changeY;
 	}
