@@ -1,12 +1,14 @@
-# Cubby
+# Cubby-v1
 
-<img src="https://github.com/MineScroll/Cubby/blob/master/Logo.png" align="center" />
+<img src="./Logo.png" width=256 height=256 />
+
+## Notice: This project is archived to maintain an initial version of Cubby. If you want to see a project that is actively working, please visit [Cubby](https://github.com/utilForever/Cubby) project.
 
 Cubby is an open source voxel-based game client, that is written in C++ and OpenGL and can be used to create easy and fast voxel based games and applications. The client is written to be highly functional and very efficient at allowing voxel game creation and provides a simple framework for creating 3D voxel games.
 
 The main code of this repository is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox).
 
-[![License](https://img.shields.io/badge/Licence-GNU-blue.svg)](https://github.com/MineScroll/Cubby/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/Licence-GNU-blue.svg)](https://github.com/utilForever/Cubby/blob/main/LICENSE.md)
 
 ## Features
 
@@ -48,7 +50,7 @@ Some parts of the Cubby gameplay logic are also incorporated into this source co
 
 ## What's the difference between Cubby and Vox?
 
-All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MMORPG (called MineScroll), we'll improvement and differentiate Cubby game client.
+All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/AlwaysGeeky/Vox). To develop MMORPG, we'll improvement and differentiate Cubby game client.
 
 * Apply Modern C++ (C++11/14/17) features
 * (To-do) Multi-play support.
@@ -60,13 +62,13 @@ All of the Cubby source code is based on [AlwaysGeeky's Vox](https://github.com/
 
 ## How to Build
 
-To learn how to build, test, and install the SDK, please check out [INSTALL.md](https://github.com/MineScroll/Cubby/blob/master/INSTALL.md).
+To learn how to build, test, and install the SDK, please check out [INSTALL.md](https://github.com/utilForever/Cubby/blob/main/INSTALL.md).
 
 ## Screenshots
 
-<img src="https://github.com/MineScroll/Cubby/blob/master/Screenshots/Normal.PNG" />
+<img src="./Screenshots/Normal.PNG" />
 
-<img src="https://github.com/MineScroll/Cubby/blob/master/Screenshots/LootingTreasure.PNG" />
+<img src="./Screenshots/LootingTreasure.PNG" />
 
 ## How To Contribute
 
@@ -82,7 +84,7 @@ You can contact me via e-mail (utilForever at gmail.com). I am always happy to a
 
 The class is licensed under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0):
 
-Copyright &copy; 2017 [MineScroll](https://github.com/MineScroll/).
+Copyright &copy; 2017 [Chris Ohk](http://www.github.com/utilForever).
 
 The GNU General Public License is a free, copyleft license for software and other kinds of works.
 
